@@ -1,5 +1,5 @@
-# PA273-Potentiostat-Software
 #Created by Amit Sandhel
+
 This software is designed to operate the PA273 potentiostat. 
 Two pdf manuals are provided. It is recommended to read both manuals to understand all the commands possible to implement with PA273. It is also advised to run the software using the simulator to understand software functionality.
 
@@ -105,7 +105,3 @@ The following scripts exist in this software.
 * Add ability to change filenames if necessary
 * Improve test coverage
 * improve Documentation
-
-
-
-
