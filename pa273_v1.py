@@ -4,7 +4,6 @@
 
 '''
 Created by Amit Sandhel on 2013-05-27.
-Copyright (c) 2013  All rights reserved.
 This module is to probe a COM port for the PA273 potentiostat 
 
 '''

@@ -4,7 +4,6 @@
 
 ''' 
 Created by Amit Sandhel on 2013-05-27.
-Copyright (c) 2013  All rights reserved.
 
 This script is the master file that controls all the other scripts
 It also contains the argparse command control

@@ -4,7 +4,6 @@
 
 '''
 Created by Amit Sandhel on 2013-05-27.
-Copyright (c) 2013  All rights reserved.
 This script is designed to take the saved raw data from "BOOK2.csv" and automatically output the data into graphs for graphing and plotting purposes. The data is saved 
 as images for the users behalf. 
 Note that the filename BOOK2.csv MUST be left as is and not be be renamed.

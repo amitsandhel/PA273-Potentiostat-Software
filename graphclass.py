@@ -3,7 +3,6 @@
 #graphclass.py
 '''
 Created by Amit Sandhel on 2013-05-27.
-Copyright (c) 2013  All rights reserved.
 This script is designed to display the graph in real time
 '''
 
