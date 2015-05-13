@@ -1,0 +1,10 @@
+2013-12-28 20:22:53,019, INFO,  ---------------------- root (H:\beastie_python\main.pyc) --------------------------------
+2013-12-28 20:22:53,112, DEBUG, args value: Namespace(debug=False, filename=False, sim=False, test=False, version=1)
+2013-12-28 20:23:30,398, INFO,  ---------------------- root (H:\beastie_python\main.pyc) --------------------------------
+2013-12-28 20:23:30,414, DEBUG, args value: Namespace(debug=False, filename=False, sim=False, test=False, version=1)
+2013-12-28 22:39:07,223, INFO,  ---------------------- root (H:\beastie_python\main.pyc) --------------------------------
+2013-12-28 22:39:07,286, DEBUG, args value: Namespace(debug=False, filename=False, sim=False, test=False, version=1)
+2013-12-28 22:50:36,795, INFO,  ---------------------- root (H:\beastie_python\main.pyc) --------------------------------
+2013-12-28 22:50:36,811, DEBUG, args value: Namespace(debug=False, filename=False, sim=False, test=False, version=1)
+2013-12-29 20:17:33,727, INFO,  ---------------------- root (H:\beastie_python\main.pyc) --------------------------------
+2013-12-29 20:17:33,746, DEBUG, args value: Namespace(debug=False, filename=False, sim=False, test=False, version=1)

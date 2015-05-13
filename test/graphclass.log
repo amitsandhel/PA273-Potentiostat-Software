@@ -1,0 +1,2991 @@
+2014-02-24 23:41:20,292, INFO,  ---------------------- root --------------------------------
+2014-02-24 23:41:20,325, INFO,  ---------------------- root (H:\beastie_python\main.pyc) --------------------------------
+2014-02-24 23:41:20,325, INFO,  ---------------------- root (H:\beastie_python\beastie.pyc) --------------------------------
+2014-02-24 23:41:20,839, DEBUG, Serial Port opened
+2014-02-24 23:41:20,839, DEBUG, New command dict: {0.0: ('BIAS -200',), 100.0: ('BIASS',), 200.0: ('BIAS -300',), 300.0: ('BIASS',), 400.0: ('BIAS 400',), 500.0: ('BIASS',)}
+2014-02-24 23:41:20,839, DEBUG, Closing Serial Port
+2014-02-24 23:41:20,848, DEBUG, Serial Port opened
+2014-02-24 23:41:20,848, DEBUG, Closing Serial Port
+2014-02-24 23:41:20,848, DEBUG, Serial Port opened
+2014-02-24 23:41:20,848, DEBUG, Closing Serial Port
+2014-02-24 23:41:20,848, DEBUG, Serial Port opened
+2014-02-24 23:41:20,848, DEBUG, get_next_command() reply timing response: (0, ('BIAS 200',))
+2014-02-24 23:41:20,848, DEBUG, get_next_command() reply timing response: (3, ('BIAS 500',))
+2014-02-24 23:41:20,848, DEBUG, get_next_command() reply timing response: (4, ('BIAS 400',))
+2014-02-24 23:41:20,848, DEBUG, get_next_command() reply timing response: (5, ('BIAS 300',))
+2014-02-24 23:41:20,848, DEBUG, Closing Serial Port
+2014-02-24 23:41:20,848, DEBUG, Serial Port opened
+2014-02-24 23:41:20,848, DEBUG, get_next_command() reply timing response: (1, ('BIAS 200',))
+2014-02-24 23:41:21,855, DEBUG, get_next_command() reply timing response: (3, ('BIASS',))
+2014-02-24 23:41:23,855, DEBUG, get_next_command() reply timing response: (6, ('BIAS 400',))
+2014-02-24 23:41:26,855, DEBUG, get_next_command() reply timing response: (8, ('BIAS 300',))
+2014-02-24 23:41:28,855, DEBUG, Closing Serial Port
+2014-02-24 23:41:28,855, DEBUG, Serial Port opened
+2014-02-24 23:41:28,871, DEBUG, time_meter_command() myfile timing VALUE: <closed file 'BOOK2.csv', mode 'w' at 0x03A83F40>
+2014-02-24 23:41:28,871, DEBUG, readfiles() timing response: ['0, BIAS 0\n', '0.001, BIAS 100\n', '0.05, BIAS 500\n', '0.06, BIAS 100\n', '0.08, BIAS 500\n', '1, BIAS 100\n', '1.5, BIAS 500\n', '2, BIAS 200']
+2014-02-24 23:41:28,871, DEBUG, New command dict: {0.0: ('BIAS 0',), 1: ('BIAS 200', 'BIAS 100'), 2.0: ('BIAS 200',), 3: ('BIAS 500',), 4: ('BIAS 400',), 5: ('BIAS 300',), 0.05: ('BIAS 500',), 0.001: ('BIAS 100',), 0.06: ('BIAS 100',), 0.08: ('BIAS 500',), 1.5: ('BIAS 500',)}
+2014-02-24 23:41:28,871, DEBUG, SIM.write got 'NC \n'
+2014-02-24 23:41:28,871, DEBUG, SIM.write command parsed as: ['NC']
+2014-02-24 23:41:28,878, DEBUG, NC_SIM PARAM: 2
+2014-02-24 23:41:28,878, DEBUG, NC_SIM RECEIVED: 2
+2014-02-24 23:41:28,878, DEBUG, Tx: 'NC \n'bytes sent: 4
+2014-02-24 23:41:28,878, DEBUG, SIM.inWaiting has '2*', returning 2
+2014-02-24 23:41:28,878, DEBUG, SIM.read: asked for 1 returned: 2*
+2014-02-24 23:41:28,878, DEBUG, SIM.inWaiting has '*', returning 1
+2014-02-24 23:41:28,878, DEBUG, SIM.read: asked for 1 returned: *
+2014-02-24 23:41:28,878, DEBUG, Rx -  * received
+2014-02-24 23:41:28,933, DEBUG, Rx: '2' bytes read: 1
+2014-02-24 23:41:28,933, DEBUG, NC TIMER RESPONSE: '2'
+2014-02-24 23:41:28,933, DEBUG, SIM.write got 'AS \n'
+2014-02-24 23:41:28,933, DEBUG, SIM.write command parsed as: ['AS']
+2014-02-24 23:41:28,933, DEBUG, AS_SIM PARAM: -4
+2014-02-24 23:41:28,933, DEBUG, AS_SIM RECEIVED: -4
+2014-02-24 23:41:28,933, DEBUG, Tx: 'AS \n'bytes sent: 4
+2014-02-24 23:41:28,933, DEBUG, SIM.inWaiting has '-4*', returning 3
+2014-02-24 23:41:28,933, DEBUG, SIM.read: asked for 1 returned: -4*
+2014-02-24 23:41:28,933, DEBUG, SIM.inWaiting has '4*', returning 2
+2014-02-24 23:41:28,933, DEBUG, SIM.read: asked for 1 returned: 4*
+2014-02-24 23:41:28,933, DEBUG, SIM.inWaiting has '*', returning 1
+2014-02-24 23:41:28,933, DEBUG, SIM.read: asked for 1 returned: *
+2014-02-24 23:41:28,933, DEBUG, Rx -  * received
+2014-02-24 23:41:28,987, DEBUG, Rx: '-4' bytes read: 2
+2014-02-24 23:41:28,987, DEBUG, AS TIMER RESPONSE: '-4'
+2014-02-24 23:41:28,987, DEBUG, SIM.write got 'BIAS  \n'
+2014-02-24 23:41:28,987, DEBUG, SIM.write command parsed as: ['BIAS']
+2014-02-24 23:41:28,987, DEBUG, BIAS_SIM PARAM: 0
+2014-02-24 23:41:28,996, DEBUG, BIAS_SIM RECEIVED: 0
+2014-02-24 23:41:28,996, DEBUG, Tx: 'BIAS  \n'bytes sent: 7
+2014-02-24 23:41:28,996, DEBUG, SIM.inWaiting has '0*', returning 2
+2014-02-24 23:41:28,996, DEBUG, SIM.read: asked for 1 returned: 0*
+2014-02-24 23:41:28,996, DEBUG, SIM.inWaiting has '*', returning 1
+2014-02-24 23:41:28,996, DEBUG, SIM.read: asked for 1 returned: *
+2014-02-24 23:41:28,996, DEBUG, Rx -  * received
+2014-02-24 23:41:29,049, DEBUG, Rx: '0' bytes read: 1
+2014-02-24 23:41:29,049, DEBUG, BIAS TIMER RESPONSE: '0'
+2014-02-24 23:41:29,049, DEBUG, SIM.write got 'TP \n'
+2014-02-24 23:41:29,049, DEBUG, SIM.write command parsed as: ['TP']
+2014-02-24 23:41:29,049, DEBUG, TP_SIM PARAM: None
+2014-02-24 23:41:29,049, DEBUG, TP_SIM RECEIVED: 1497
+2014-02-24 23:41:29,049, DEBUG, Tx: 'TP \n'bytes sent: 4
+2014-02-24 23:41:29,049, DEBUG, SIM.inWaiting has '1497*', returning 5
+2014-02-24 23:41:29,049, DEBUG, SIM.read: asked for 1 returned: 1497*
+2014-02-24 23:41:29,049, DEBUG, SIM.inWaiting has '497*', returning 4
+2014-02-24 23:41:29,049, DEBUG, SIM.read: asked for 1 returned: 497*
+2014-02-24 23:41:29,049, DEBUG, SIM.inWaiting has '97*', returning 3
+2014-02-24 23:41:29,049, DEBUG, SIM.read: asked for 1 returned: 97*
+2014-02-24 23:41:29,049, DEBUG, SIM.inWaiting has '7*', returning 2
+2014-02-24 23:41:29,049, DEBUG, SIM.read: asked for 1 returned: 7*
+2014-02-24 23:41:29,049, DEBUG, SIM.inWaiting has '*', returning 1
+2014-02-24 23:41:29,049, DEBUG, SIM.read: asked for 1 returned: *
+2014-02-24 23:41:29,049, DEBUG, Rx -  * received
+2014-02-24 23:41:29,105, DEBUG, Rx: '1497' bytes read: 4
+2014-02-24 23:41:29,105, DEBUG, TP TIMER RESPONSE: '1497'
+2014-02-24 23:41:29,112, DEBUG, get_next_command() reply timing response: (0.0, ('BIAS 0',))
+2014-02-24 23:41:29,112, DEBUG, SIM.write got 'BIAS 0 \n'
+2014-02-24 23:41:29,112, DEBUG, SIM.write command parsed as: ['BIAS', '0']
+2014-02-24 23:41:29,112, DEBUG, BIAS_SIM PARAM: 0.0
+2014-02-24 23:41:29,112, DEBUG, BIAS_SIM RECEIVED: 0.0
+2014-02-24 23:41:29,112, DEBUG, Tx: 'BIAS 0 \n'bytes sent: 8
+2014-02-24 23:41:29,112, DEBUG, SIM.inWaiting has '0.0*', returning 4
+2014-02-24 23:41:29,121, DEBUG, SIM.read: asked for 1 returned: 0.0*
+2014-02-24 23:41:29,121, DEBUG, SIM.inWaiting has '.0*', returning 3
+2014-02-24 23:41:29,121, DEBUG, SIM.read: asked for 1 returned: .0*
+2014-02-24 23:41:29,121, DEBUG, SIM.inWaiting has '0*', returning 2
+2014-02-24 23:41:29,121, DEBUG, SIM.read: asked for 1 returned: 0*
+2014-02-24 23:41:29,121, DEBUG, SIM.inWaiting has '*', returning 1
+2014-02-24 23:41:29,121, DEBUG, SIM.read: asked for 1 returned: *
+2014-02-24 23:41:29,121, DEBUG, Rx -  * received
+2014-02-24 23:41:29,174, DEBUG, Rx: '0.0' bytes read: 3
+2014-02-24 23:41:29,174, DEBUG, command execute()reply timing response: 'BIAS 0'
+2014-02-24 23:41:29,174, DEBUG, SIM.write got 'NC \n'
+2014-02-24 23:41:29,174, DEBUG, SIM.write command parsed as: ['NC']
+2014-02-24 23:41:29,174, DEBUG, NC_SIM PARAM: 2
+2014-02-24 23:41:29,174, DEBUG, NC_SIM RECEIVED: 2
+2014-02-24 23:41:29,174, DEBUG, Tx: 'NC \n'bytes sent: 4
+2014-02-24 23:41:29,174, DEBUG, SIM.inWaiting has '2*', returning 2
+2014-02-24 23:41:29,174, DEBUG, SIM.read: asked for 1 returned: 2*
+2014-02-24 23:41:29,174, DEBUG, SIM.inWaiting has '*', returning 1
+2014-02-24 23:41:29,174, DEBUG, SIM.read: asked for 1 returned: *
+2014-02-24 23:41:29,174, DEBUG, Rx -  * received
+2014-02-24 23:41:29,230, DEBUG, Rx: '2' bytes read: 1
+2014-02-24 23:41:29,230, DEBUG, NC TIMER RESPONSE: '2'
+2014-02-24 23:41:29,230, DEBUG, SIM.write got 'AS \n'
+2014-02-24 23:41:29,230, DEBUG, SIM.write command parsed as: ['AS']
+2014-02-24 23:41:29,230, DEBUG, AS_SIM PARAM: -4
+2014-02-24 23:41:29,230, DEBUG, AS_SIM RECEIVED: -4
+2014-02-24 23:41:29,230, DEBUG, Tx: 'AS \n'bytes sent: 4
+2014-02-24 23:41:29,230, DEBUG, SIM.inWaiting has '-4*', returning 3
+2014-02-24 23:41:29,230, DEBUG, SIM.read: asked for 1 returned: -4*
+2014-02-24 23:41:29,230, DEBUG, SIM.inWaiting has '4*', returning 2
+2014-02-24 23:41:29,230, DEBUG, SIM.read: asked for 1 returned: 4*
+2014-02-24 23:41:29,230, DEBUG, SIM.inWaiting has '*', returning 1
+2014-02-24 23:41:29,230, DEBUG, SIM.read: asked for 1 returned: *
+2014-02-24 23:41:29,230, DEBUG, Rx -  * received
+2014-02-24 23:41:29,285, DEBUG, Rx: '-4' bytes read: 2
+2014-02-24 23:41:29,285, DEBUG, AS TIMER RESPONSE: '-4'
+2014-02-24 23:41:29,285, DEBUG, SIM.write got 'BIAS  \n'
+2014-02-24 23:41:29,285, DEBUG, SIM.write command parsed as: ['BIAS']
+2014-02-24 23:41:29,285, DEBUG, BIAS_SIM PARAM: 0.0
+2014-02-24 23:41:29,285, DEBUG, BIAS_SIM RECEIVED: 0.0
+2014-02-24 23:41:29,285, DEBUG, Tx: 'BIAS  \n'bytes sent: 7
+2014-02-24 23:41:29,285, DEBUG, SIM.inWaiting has '0.0*', returning 4
+2014-02-24 23:41:29,285, DEBUG, SIM.read: asked for 1 returned: 0.0*
+2014-02-24 23:41:29,285, DEBUG, SIM.inWaiting has '.0*', returning 3
+2014-02-24 23:41:29,285, DEBUG, SIM.read: asked for 1 returned: .0*
+2014-02-24 23:41:29,285, DEBUG, SIM.inWaiting has '0*', returning 2
+2014-02-24 23:41:29,285, DEBUG, SIM.read: asked for 1 returned: 0*
+2014-02-24 23:41:29,285, DEBUG, SIM.inWaiting has '*', returning 1
+2014-02-24 23:41:29,285, DEBUG, SIM.read: asked for 1 returned: *
+2014-02-24 23:41:29,285, DEBUG, Rx -  * received
+2014-02-24 23:41:29,338, DEBUG, Rx: '0.0' bytes read: 3
+2014-02-24 23:41:29,338, DEBUG, BIAS TIMER RESPONSE: '0.0'
+2014-02-24 23:41:29,338, DEBUG, SIM.write got 'TP \n'
+2014-02-24 23:41:29,338, DEBUG, SIM.write command parsed as: ['TP']
+2014-02-24 23:41:29,338, DEBUG, TP_SIM PARAM: None
+2014-02-24 23:41:29,338, DEBUG, TP_SIM RECEIVED: 1101
+2014-02-24 23:41:29,338, DEBUG, Tx: 'TP \n'bytes sent: 4
+2014-02-24 23:41:29,338, DEBUG, SIM.inWaiting has '1101*', returning 5
+2014-02-24 23:41:29,338, DEBUG, SIM.read: asked for 1 returned: 1101*
+2014-02-24 23:41:29,338, DEBUG, SIM.inWaiting has '101*', returning 4
+2014-02-24 23:41:29,338, DEBUG, SIM.read: asked for 1 returned: 101*
+2014-02-24 23:41:29,338, DEBUG, SIM.inWaiting has '01*', returning 3
+2014-02-24 23:41:29,338, DEBUG, SIM.read: asked for 1 returned: 01*
+2014-02-24 23:41:29,338, DEBUG, SIM.inWaiting has '1*', returning 2
+2014-02-24 23:41:29,338, DEBUG, SIM.read: asked for 1 returned: 1*
+2014-02-24 23:41:29,338, DEBUG, SIM.inWaiting has '*', returning 1
+2014-02-24 23:41:29,338, DEBUG, SIM.read: asked for 1 returned: *
+2014-02-24 23:41:29,338, DEBUG, Rx -  * received
+2014-02-24 23:41:29,394, DEBUG, Rx: '1101' bytes read: 4
+2014-02-24 23:41:29,394, DEBUG, TP TIMER RESPONSE: '1101'
+2014-02-24 23:41:30,109, DEBUG, SIM.write got 'NC \n'
+2014-02-24 23:41:30,109, DEBUG, SIM.write command parsed as: ['NC']
+2014-02-24 23:41:30,109, DEBUG, NC_SIM PARAM: 2
+2014-02-24 23:41:30,109, DEBUG, NC_SIM RECEIVED: 2
+2014-02-24 23:41:30,109, DEBUG, Tx: 'NC \n'bytes sent: 4
+2014-02-24 23:41:30,109, DEBUG, SIM.inWaiting has '2*', returning 2
+2014-02-24 23:41:30,109, DEBUG, SIM.read: asked for 1 returned: 2*
+2014-02-24 23:41:30,109, DEBUG, SIM.inWaiting has '*', returning 1
+2014-02-24 23:41:30,109, DEBUG, SIM.read: asked for 1 returned: *
+2014-02-24 23:41:30,109, DEBUG, Rx -  * received
+2014-02-24 23:41:30,164, DEBUG, Rx: '2' bytes read: 1
+2014-02-24 23:41:30,164, DEBUG, NC TIMER RESPONSE: '2'
+2014-02-24 23:41:30,164, DEBUG, SIM.write got 'AS \n'
+2014-02-24 23:41:30,164, DEBUG, SIM.write command parsed as: ['AS']
+2014-02-24 23:41:30,164, DEBUG, AS_SIM PARAM: -4
+2014-02-24 23:41:30,164, DEBUG, AS_SIM RECEIVED: -4
+2014-02-24 23:41:30,164, DEBUG, Tx: 'AS \n'bytes sent: 4
+2014-02-24 23:41:30,164, DEBUG, SIM.inWaiting has '-4*', returning 3
+2014-02-24 23:41:30,164, DEBUG, SIM.read: asked for 1 returned: -4*
+2014-02-24 23:41:30,164, DEBUG, SIM.inWaiting has '4*', returning 2
+2014-02-24 23:41:30,164, DEBUG, SIM.read: asked for 1 returned: 4*
+2014-02-24 23:41:30,164, DEBUG, SIM.inWaiting has '*', returning 1
+2014-02-24 23:41:30,164, DEBUG, SIM.read: asked for 1 returned: *
+2014-02-24 23:41:30,164, DEBUG, Rx -  * received
+2014-02-24 23:41:30,219, DEBUG, Rx: '-4' bytes read: 2
+2014-02-24 23:41:30,219, DEBUG, AS TIMER RESPONSE: '-4'
+2014-02-24 23:41:30,219, DEBUG, SIM.write got 'BIAS  \n'
+2014-02-24 23:41:30,219, DEBUG, SIM.write command parsed as: ['BIAS']
+2014-02-24 23:41:30,219, DEBUG, BIAS_SIM PARAM: 0.0
+2014-02-24 23:41:30,219, DEBUG, BIAS_SIM RECEIVED: 0.0
+2014-02-24 23:41:30,219, DEBUG, Tx: 'BIAS  \n'bytes sent: 7
+2014-02-24 23:41:30,226, DEBUG, SIM.inWaiting has '0.0*', returning 4
+2014-02-24 23:41:30,226, DEBUG, SIM.read: asked for 1 returned: 0.0*
+2014-02-24 23:41:30,226, DEBUG, SIM.inWaiting has '.0*', returning 3
+2014-02-24 23:41:30,226, DEBUG, SIM.read: asked for 1 returned: .0*
+2014-02-24 23:41:30,226, DEBUG, SIM.inWaiting has '0*', returning 2
+2014-02-24 23:41:30,226, DEBUG, SIM.read: asked for 1 returned: 0*
+2014-02-24 23:41:30,226, DEBUG, SIM.inWaiting has '*', returning 1
+2014-02-24 23:41:30,226, DEBUG, SIM.read: asked for 1 returned: *
+2014-02-24 23:41:30,226, DEBUG, Rx -  * received
+2014-02-24 23:41:30,282, DEBUG, Rx: '0.0' bytes read: 3
+2014-02-24 23:41:30,796, DEBUG, BIAS TIMER RESPONSE: '0.0'
+2014-02-24 23:41:30,796, DEBUG, SIM.write got 'TP \n'
+2014-02-24 23:41:30,805, DEBUG, SIM.write command parsed as: ['TP']
+2014-02-24 23:41:30,805, DEBUG, TP_SIM PARAM: None
+2014-02-24 23:41:30,805, DEBUG, TP_SIM RECEIVED: 1204
+2014-02-24 23:41:30,805, DEBUG, Tx: 'TP \n'bytes sent: 4
+2014-02-24 23:41:30,805, DEBUG, SIM.inWaiting has '1204*', returning 5
+2014-02-24 23:41:30,805, DEBUG, SIM.read: asked for 1 returned: 1204*
+2014-02-24 23:41:30,805, DEBUG, SIM.inWaiting has '204*', returning 4
+2014-02-24 23:41:30,805, DEBUG, SIM.read: asked for 1 returned: 204*
+2014-02-24 23:41:30,805, DEBUG, SIM.inWaiting has '04*', returning 3
+2014-02-24 23:41:30,805, DEBUG, SIM.read: asked for 1 returned: 04*
+2014-02-24 23:41:30,805, DEBUG, SIM.inWaiting has '4*', returning 2
+2014-02-24 23:41:30,805, DEBUG, SIM.read: asked for 1 returned: 4*
+2014-02-24 23:41:30,805, DEBUG, SIM.inWaiting has '*', returning 1
+2014-02-24 23:41:30,805, DEBUG, SIM.read: asked for 1 returned: *
+2014-02-24 23:41:30,805, DEBUG, Rx -  * received
+2014-02-24 23:41:30,868, DEBUG, Rx: '1204' bytes read: 4
+2014-02-24 23:41:30,868, DEBUG, TP TIMER RESPONSE: '1204'
+2014-02-24 23:41:30,892, DEBUG, get_next_command() reply timing response: (0.001, ('BIAS 100',))
+2014-02-24 23:41:30,894, DEBUG, SIM.write got 'BIAS 100 \n'
+2014-02-24 23:41:30,894, DEBUG, SIM.write command parsed as: ['BIAS', '100']
+2014-02-24 23:41:30,895, DEBUG, BIAS_SIM PARAM: 100.0
+2014-02-24 23:41:30,895, DEBUG, BIAS_SIM RECEIVED: 100.0
+2014-02-24 23:41:30,897, DEBUG, Tx: 'BIAS 100 \n'bytes sent: 10
+2014-02-24 23:41:30,897, DEBUG, SIM.inWaiting has '100.0*', returning 6
+2014-02-24 23:41:30,897, DEBUG, SIM.read: asked for 1 returned: 100.0*
+2014-02-24 23:41:30,897, DEBUG, SIM.inWaiting has '00.0*', returning 5
+2014-02-24 23:41:30,897, DEBUG, SIM.read: asked for 1 returned: 00.0*
+2014-02-24 23:41:30,897, DEBUG, SIM.inWaiting has '0.0*', returning 4
+2014-02-24 23:41:30,898, DEBUG, SIM.read: asked for 1 returned: 0.0*
+2014-02-24 23:41:30,898, DEBUG, SIM.inWaiting has '.0*', returning 3
+2014-02-24 23:41:30,898, DEBUG, SIM.read: asked for 1 returned: .0*
+2014-02-24 23:41:30,898, DEBUG, SIM.inWaiting has '0*', returning 2
+2014-02-24 23:41:30,898, DEBUG, SIM.read: asked for 1 returned: 0*
+2014-02-24 23:41:30,898, DEBUG, SIM.inWaiting has '*', returning 1
+2014-02-24 23:41:30,898, DEBUG, SIM.read: asked for 1 returned: *
+2014-02-24 23:41:30,898, DEBUG, Rx -  * received
+2014-02-24 23:41:30,976, DEBUG, Rx: '100.0' bytes read: 5
+2014-02-24 23:41:30,977, DEBUG, command execute()reply timing response: 'BIAS 100'
+2014-02-24 23:41:30,979, DEBUG, SIM.write got 'NC \n'
+2014-02-24 23:41:30,980, DEBUG, SIM.write command parsed as: ['NC']
+2014-02-24 23:41:30,980, DEBUG, NC_SIM PARAM: 2
+2014-02-24 23:41:30,980, DEBUG, NC_SIM RECEIVED: 2
+2014-02-24 23:41:30,980, DEBUG, Tx: 'NC \n'bytes sent: 4
+2014-02-24 23:41:30,980, DEBUG, SIM.inWaiting has '2*', returning 2
+2014-02-24 23:41:30,980, DEBUG, SIM.read: asked for 1 returned: 2*
+2014-02-24 23:41:30,980, DEBUG, SIM.inWaiting has '*', returning 1
+2014-02-24 23:41:30,983, DEBUG, SIM.read: asked for 1 returned: *
+2014-02-24 23:41:30,983, DEBUG, Rx -  * received
+2014-02-24 23:41:31,036, DEBUG, Rx: '2' bytes read: 1
+2014-02-24 23:41:31,036, DEBUG, NC TIMER RESPONSE: '2'
+2014-02-24 23:41:31,036, DEBUG, SIM.write got 'AS \n'
+2014-02-24 23:41:31,036, DEBUG, SIM.write command parsed as: ['AS']
+2014-02-24 23:41:31,036, DEBUG, AS_SIM PARAM: -4
+2014-02-24 23:41:31,036, DEBUG, AS_SIM RECEIVED: -4
+2014-02-24 23:41:31,036, DEBUG, Tx: 'AS \n'bytes sent: 4
+2014-02-24 23:41:31,036, DEBUG, SIM.inWaiting has '-4*', returning 3
+2014-02-24 23:41:31,036, DEBUG, SIM.read: asked for 1 returned: -4*
+2014-02-24 23:41:31,036, DEBUG, SIM.inWaiting has '4*', returning 2
+2014-02-24 23:41:31,036, DEBUG, SIM.read: asked for 1 returned: 4*
+2014-02-24 23:41:31,036, DEBUG, SIM.inWaiting has '*', returning 1
+2014-02-24 23:41:31,036, DEBUG, SIM.read: asked for 1 returned: *
+2014-02-24 23:41:31,036, DEBUG, Rx -  * received
+2014-02-24 23:41:31,091, DEBUG, Rx: '-4' bytes read: 2
+2014-02-24 23:41:31,091, DEBUG, AS TIMER RESPONSE: '-4'
+2014-02-24 23:41:31,091, DEBUG, SIM.write got 'BIAS  \n'
+2014-02-24 23:41:31,091, DEBUG, SIM.write command parsed as: ['BIAS']
+2014-02-24 23:41:31,091, DEBUG, BIAS_SIM PARAM: 100.0
+2014-02-24 23:41:31,091, DEBUG, BIAS_SIM RECEIVED: 100.0
+2014-02-24 23:41:31,091, DEBUG, Tx: 'BIAS  \n'bytes sent: 7
+2014-02-24 23:41:31,091, DEBUG, SIM.inWaiting has '100.0*', returning 6
+2014-02-24 23:41:31,091, DEBUG, SIM.read: asked for 1 returned: 100.0*
+2014-02-24 23:41:31,091, DEBUG, SIM.inWaiting has '00.0*', returning 5
+2014-02-24 23:41:31,091, DEBUG, SIM.read: asked for 1 returned: 00.0*
+2014-02-24 23:41:31,091, DEBUG, SIM.inWaiting has '0.0*', returning 4
+2014-02-24 23:41:31,091, DEBUG, SIM.read: asked for 1 returned: 0.0*
+2014-02-24 23:41:31,091, DEBUG, SIM.inWaiting has '.0*', returning 3
+2014-02-24 23:41:31,091, DEBUG, SIM.read: asked for 1 returned: .0*
+2014-02-24 23:41:31,091, DEBUG, SIM.inWaiting has '0*', returning 2
+2014-02-24 23:41:31,091, DEBUG, SIM.read: asked for 1 returned: 0*
+2014-02-24 23:41:31,091, DEBUG, SIM.inWaiting has '*', returning 1
+2014-02-24 23:41:31,091, DEBUG, SIM.read: asked for 1 returned: *
+2014-02-24 23:41:31,091, DEBUG, Rx -  * received
+2014-02-24 23:41:31,145, DEBUG, Rx: '100.0' bytes read: 5
+2014-02-24 23:41:31,145, DEBUG, BIAS TIMER RESPONSE: '100.0'
+2014-02-24 23:41:31,145, DEBUG, SIM.write got 'TP \n'
+2014-02-24 23:41:31,145, DEBUG, SIM.write command parsed as: ['TP']
+2014-02-24 23:41:31,145, DEBUG, TP_SIM PARAM: None
+2014-02-24 23:41:31,145, DEBUG, TP_SIM RECEIVED: 1139
+2014-02-24 23:41:31,145, DEBUG, Tx: 'TP \n'bytes sent: 4
+2014-02-24 23:41:31,145, DEBUG, SIM.inWaiting has '1139*', returning 5
+2014-02-24 23:41:31,145, DEBUG, SIM.read: asked for 1 returned: 1139*
+2014-02-24 23:41:31,145, DEBUG, SIM.inWaiting has '139*', returning 4
+2014-02-24 23:41:31,145, DEBUG, SIM.read: asked for 1 returned: 139*
+2014-02-24 23:41:31,145, DEBUG, SIM.inWaiting has '39*', returning 3
+2014-02-24 23:41:31,145, DEBUG, SIM.read: asked for 1 returned: 39*
+2014-02-24 23:41:31,145, DEBUG, SIM.inWaiting has '9*', returning 2
+2014-02-24 23:41:31,145, DEBUG, SIM.read: asked for 1 returned: 9*
+2014-02-24 23:41:31,145, DEBUG, SIM.inWaiting has '*', returning 1
+2014-02-24 23:41:31,145, DEBUG, SIM.read: asked for 1 returned: *
+2014-02-24 23:41:31,145, DEBUG, Rx -  * received
+2014-02-24 23:41:31,200, DEBUG, Rx: '1139' bytes read: 4
+2014-02-24 23:41:31,200, DEBUG, TP TIMER RESPONSE: '1139'
+2014-02-24 23:41:31,786, DEBUG, SIM.write got 'NC \n'
+2014-02-24 23:41:31,786, DEBUG, SIM.write command parsed as: ['NC']
+2014-02-24 23:41:31,786, DEBUG, NC_SIM PARAM: 2
+2014-02-24 23:41:31,786, DEBUG, NC_SIM RECEIVED: 2
+2014-02-24 23:41:31,786, DEBUG, Tx: 'NC \n'bytes sent: 4
+2014-02-24 23:41:31,786, DEBUG, SIM.inWaiting has '2*', returning 2
+2014-02-24 23:41:31,786, DEBUG, SIM.read: asked for 1 returned: 2*
+2014-02-24 23:41:31,786, DEBUG, SIM.inWaiting has '*', returning 1
+2014-02-24 23:41:31,786, DEBUG, SIM.read: asked for 1 returned: *
+2014-02-24 23:41:31,786, DEBUG, Rx -  * received
+2014-02-24 23:41:31,841, DEBUG, Rx: '2' bytes read: 1
+2014-02-24 23:41:31,841, DEBUG, NC TIMER RESPONSE: '2'
+2014-02-24 23:41:31,841, DEBUG, SIM.write got 'AS \n'
+2014-02-24 23:41:31,841, DEBUG, SIM.write command parsed as: ['AS']
+2014-02-24 23:41:31,841, DEBUG, AS_SIM PARAM: -4
+2014-02-24 23:41:31,841, DEBUG, AS_SIM RECEIVED: -4
+2014-02-24 23:41:31,841, DEBUG, Tx: 'AS \n'bytes sent: 4
+2014-02-24 23:41:31,841, DEBUG, SIM.inWaiting has '-4*', returning 3
+2014-02-24 23:41:31,841, DEBUG, SIM.read: asked for 1 returned: -4*
+2014-02-24 23:41:31,841, DEBUG, SIM.inWaiting has '4*', returning 2
+2014-02-24 23:41:31,841, DEBUG, SIM.read: asked for 1 returned: 4*
+2014-02-24 23:41:31,841, DEBUG, SIM.inWaiting has '*', returning 1
+2014-02-24 23:41:31,841, DEBUG, SIM.read: asked for 1 returned: *
+2014-02-24 23:41:31,841, DEBUG, Rx -  * received
+2014-02-24 23:41:31,895, DEBUG, Rx: '-4' bytes read: 2
+2014-02-24 23:41:31,895, DEBUG, AS TIMER RESPONSE: '-4'
+2014-02-24 23:41:31,895, DEBUG, SIM.write got 'BIAS  \n'
+2014-02-24 23:41:31,895, DEBUG, SIM.write command parsed as: ['BIAS']
+2014-02-24 23:41:31,895, DEBUG, BIAS_SIM PARAM: 100.0
+2014-02-24 23:41:31,895, DEBUG, BIAS_SIM RECEIVED: 100.0
+2014-02-24 23:41:31,904, DEBUG, Tx: 'BIAS  \n'bytes sent: 7
+2014-02-24 23:41:31,904, DEBUG, SIM.inWaiting has '100.0*', returning 6
+2014-02-24 23:41:31,904, DEBUG, SIM.read: asked for 1 returned: 100.0*
+2014-02-24 23:41:31,904, DEBUG, SIM.inWaiting has '00.0*', returning 5
+2014-02-24 23:41:31,904, DEBUG, SIM.read: asked for 1 returned: 00.0*
+2014-02-24 23:41:31,904, DEBUG, SIM.inWaiting has '0.0*', returning 4
+2014-02-24 23:41:31,904, DEBUG, SIM.read: asked for 1 returned: 0.0*
+2014-02-24 23:41:31,904, DEBUG, SIM.inWaiting has '.0*', returning 3
+2014-02-24 23:41:31,904, DEBUG, SIM.read: asked for 1 returned: .0*
+2014-02-24 23:41:31,904, DEBUG, SIM.inWaiting has '0*', returning 2
+2014-02-24 23:41:31,904, DEBUG, SIM.read: asked for 1 returned: 0*
+2014-02-24 23:41:31,904, DEBUG, SIM.inWaiting has '*', returning 1
+2014-02-24 23:41:31,904, DEBUG, SIM.read: asked for 1 returned: *
+2014-02-24 23:41:31,904, DEBUG, Rx -  * received
+2014-02-24 23:41:31,957, DEBUG, Rx: '100.0' bytes read: 5
+2014-02-24 23:41:31,957, DEBUG, BIAS TIMER RESPONSE: '100.0'
+2014-02-24 23:41:31,957, DEBUG, SIM.write got 'TP \n'
+2014-02-24 23:41:31,957, DEBUG, SIM.write command parsed as: ['TP']
+2014-02-24 23:41:31,957, DEBUG, TP_SIM PARAM: None
+2014-02-24 23:41:31,957, DEBUG, TP_SIM RECEIVED: 690
+2014-02-24 23:41:31,957, DEBUG, Tx: 'TP \n'bytes sent: 4
+2014-02-24 23:41:31,957, DEBUG, SIM.inWaiting has '690*', returning 4
+2014-02-24 23:41:31,957, DEBUG, SIM.read: asked for 1 returned: 690*
+2014-02-24 23:41:31,957, DEBUG, SIM.inWaiting has '90*', returning 3
+2014-02-24 23:41:31,957, DEBUG, SIM.read: asked for 1 returned: 90*
+2014-02-24 23:41:31,957, DEBUG, SIM.inWaiting has '0*', returning 2
+2014-02-24 23:41:31,957, DEBUG, SIM.read: asked for 1 returned: 0*
+2014-02-24 23:41:31,957, DEBUG, SIM.inWaiting has '*', returning 1
+2014-02-24 23:41:31,957, DEBUG, SIM.read: asked for 1 returned: *
+2014-02-24 23:41:31,957, DEBUG, Rx -  * received
+2014-02-24 23:41:32,013, DEBUG, Rx: '690' bytes read: 3
+2014-02-24 23:41:32,013, DEBUG, TP TIMER RESPONSE: '690'
+2014-02-24 23:41:32,020, DEBUG, get_next_command() reply timing response: (0.05, ('BIAS 500',))
+2014-02-24 23:41:32,020, DEBUG, SIM.write got 'BIAS 500 \n'
+2014-02-24 23:41:32,020, DEBUG, SIM.write command parsed as: ['BIAS', '500']
+2014-02-24 23:41:32,020, DEBUG, BIAS_SIM PARAM: 500.0
+2014-02-24 23:41:32,020, DEBUG, BIAS_SIM RECEIVED: 500.0
+2014-02-24 23:41:32,020, DEBUG, Tx: 'BIAS 500 \n'bytes sent: 10
+2014-02-24 23:41:32,020, DEBUG, SIM.inWaiting has '500.0*', returning 6
+2014-02-24 23:41:32,020, DEBUG, SIM.read: asked for 1 returned: 500.0*
+2014-02-24 23:41:32,020, DEBUG, SIM.inWaiting has '00.0*', returning 5
+2014-02-24 23:41:32,020, DEBUG, SIM.read: asked for 1 returned: 00.0*
+2014-02-24 23:41:32,020, DEBUG, SIM.inWaiting has '0.0*', returning 4
+2014-02-24 23:41:32,020, DEBUG, SIM.read: asked for 1 returned: 0.0*
+2014-02-24 23:41:32,020, DEBUG, SIM.inWaiting has '.0*', returning 3
+2014-02-24 23:41:32,020, DEBUG, SIM.read: asked for 1 returned: .0*
+2014-02-24 23:41:32,020, DEBUG, SIM.inWaiting has '0*', returning 2
+2014-02-24 23:41:32,020, DEBUG, SIM.read: asked for 1 returned: 0*
+2014-02-24 23:41:32,020, DEBUG, SIM.inWaiting has '*', returning 1
+2014-02-24 23:41:32,020, DEBUG, SIM.read: asked for 1 returned: *
+2014-02-24 23:41:32,020, DEBUG, Rx -  * received
+2014-02-24 23:41:32,075, DEBUG, Rx: '500.0' bytes read: 5
+2014-02-24 23:41:32,075, DEBUG, command execute()reply timing response: 'BIAS 500'
+2014-02-24 23:41:32,075, DEBUG, SIM.write got 'NC \n'
+2014-02-24 23:41:32,075, DEBUG, SIM.write command parsed as: ['NC']
+2014-02-24 23:41:32,075, DEBUG, NC_SIM PARAM: 2
+2014-02-24 23:41:32,075, DEBUG, NC_SIM RECEIVED: 2
+2014-02-24 23:41:32,075, DEBUG, Tx: 'NC \n'bytes sent: 4
+2014-02-24 23:41:32,075, DEBUG, SIM.inWaiting has '2*', returning 2
+2014-02-24 23:41:32,075, DEBUG, SIM.read: asked for 1 returned: 2*
+2014-02-24 23:41:32,075, DEBUG, SIM.inWaiting has '*', returning 1
+2014-02-24 23:41:32,075, DEBUG, SIM.read: asked for 1 returned: *
+2014-02-24 23:41:32,075, DEBUG, Rx -  * received
+2014-02-24 23:41:32,130, DEBUG, Rx: '2' bytes read: 1
+2014-02-24 23:41:32,130, DEBUG, NC TIMER RESPONSE: '2'
+2014-02-24 23:41:32,130, DEBUG, SIM.write got 'AS \n'
+2014-02-24 23:41:32,130, DEBUG, SIM.write command parsed as: ['AS']
+2014-02-24 23:41:32,130, DEBUG, AS_SIM PARAM: -4
+2014-02-24 23:41:32,130, DEBUG, AS_SIM RECEIVED: -4
+2014-02-24 23:41:32,130, DEBUG, Tx: 'AS \n'bytes sent: 4
+2014-02-24 23:41:32,130, DEBUG, SIM.inWaiting has '-4*', returning 3
+2014-02-24 23:41:32,130, DEBUG, SIM.read: asked for 1 returned: -4*
+2014-02-24 23:41:32,130, DEBUG, SIM.inWaiting has '4*', returning 2
+2014-02-24 23:41:32,130, DEBUG, SIM.read: asked for 1 returned: 4*
+2014-02-24 23:41:32,130, DEBUG, SIM.inWaiting has '*', returning 1
+2014-02-24 23:41:32,130, DEBUG, SIM.read: asked for 1 returned: *
+2014-02-24 23:41:32,130, DEBUG, Rx -  * received
+2014-02-24 23:41:32,184, DEBUG, Rx: '-4' bytes read: 2
+2014-02-24 23:41:32,184, DEBUG, AS TIMER RESPONSE: '-4'
+2014-02-24 23:41:32,184, DEBUG, SIM.write got 'BIAS  \n'
+2014-02-24 23:41:32,184, DEBUG, SIM.write command parsed as: ['BIAS']
+2014-02-24 23:41:32,184, DEBUG, BIAS_SIM PARAM: 500.0
+2014-02-24 23:41:32,184, DEBUG, BIAS_SIM RECEIVED: 500.0
+2014-02-24 23:41:32,184, DEBUG, Tx: 'BIAS  \n'bytes sent: 7
+2014-02-24 23:41:32,184, DEBUG, SIM.inWaiting has '500.0*', returning 6
+2014-02-24 23:41:32,184, DEBUG, SIM.read: asked for 1 returned: 500.0*
+2014-02-24 23:41:32,184, DEBUG, SIM.inWaiting has '00.0*', returning 5
+2014-02-24 23:41:32,184, DEBUG, SIM.read: asked for 1 returned: 00.0*
+2014-02-24 23:41:32,184, DEBUG, SIM.inWaiting has '0.0*', returning 4
+2014-02-24 23:41:32,184, DEBUG, SIM.read: asked for 1 returned: 0.0*
+2014-02-24 23:41:32,184, DEBUG, SIM.inWaiting has '.0*', returning 3
+2014-02-24 23:41:32,184, DEBUG, SIM.read: asked for 1 returned: .0*
+2014-02-24 23:41:32,184, DEBUG, SIM.inWaiting has '0*', returning 2
+2014-02-24 23:41:32,184, DEBUG, SIM.read: asked for 1 returned: 0*
+2014-02-24 23:41:32,184, DEBUG, SIM.inWaiting has '*', returning 1
+2014-02-24 23:41:32,184, DEBUG, SIM.read: asked for 1 returned: *
+2014-02-24 23:41:32,184, DEBUG, Rx -  * received
+2014-02-24 23:41:32,240, DEBUG, Rx: '500.0' bytes read: 5
+2014-02-24 23:41:32,240, DEBUG, BIAS TIMER RESPONSE: '500.0'
+2014-02-24 23:41:32,950, DEBUG, SIM.write got 'TP \n'
+2014-02-24 23:41:32,950, DEBUG, SIM.write command parsed as: ['TP']
+2014-02-24 23:41:32,950, DEBUG, TP_SIM PARAM: None
+2014-02-24 23:41:32,950, DEBUG, TP_SIM RECEIVED: 1190
+2014-02-24 23:41:32,950, DEBUG, Tx: 'TP \n'bytes sent: 4
+2014-02-24 23:41:32,950, DEBUG, SIM.inWaiting has '1190*', returning 5
+2014-02-24 23:41:32,950, DEBUG, SIM.read: asked for 1 returned: 1190*
+2014-02-24 23:41:32,950, DEBUG, SIM.inWaiting has '190*', returning 4
+2014-02-24 23:41:32,950, DEBUG, SIM.read: asked for 1 returned: 190*
+2014-02-24 23:41:32,957, DEBUG, SIM.inWaiting has '90*', returning 3
+2014-02-24 23:41:32,957, DEBUG, SIM.read: asked for 1 returned: 90*
+2014-02-24 23:41:32,957, DEBUG, SIM.inWaiting has '0*', returning 2
+2014-02-24 23:41:32,957, DEBUG, SIM.read: asked for 1 returned: 0*
+2014-02-24 23:41:32,957, DEBUG, SIM.inWaiting has '*', returning 1
+2014-02-24 23:41:32,957, DEBUG, SIM.read: asked for 1 returned: *
+2014-02-24 23:41:32,957, DEBUG, Rx -  * received
+2014-02-24 23:41:33,013, DEBUG, Rx: '1190' bytes read: 4
+2014-02-24 23:41:33,013, DEBUG, TP TIMER RESPONSE: '1190'
+2014-02-24 23:41:33,598, DEBUG, SIM.write got 'NC \n'
+2014-02-24 23:41:33,598, DEBUG, SIM.write command parsed as: ['NC']
+2014-02-24 23:41:33,598, DEBUG, NC_SIM PARAM: 2
+2014-02-24 23:41:33,598, DEBUG, NC_SIM RECEIVED: 2
+2014-02-24 23:41:33,598, DEBUG, Tx: 'NC \n'bytes sent: 4
+2014-02-24 23:41:33,598, DEBUG, SIM.inWaiting has '2*', returning 2
+2014-02-24 23:41:33,598, DEBUG, SIM.read: asked for 1 returned: 2*
+2014-02-24 23:41:33,598, DEBUG, SIM.inWaiting has '*', returning 1
+2014-02-24 23:41:33,598, DEBUG, SIM.read: asked for 1 returned: *
+2014-02-24 23:41:33,598, DEBUG, Rx -  * received
+2014-02-24 23:41:33,654, DEBUG, Rx: '2' bytes read: 1
+2014-02-24 23:41:33,654, DEBUG, NC TIMER RESPONSE: '2'
+2014-02-24 23:41:33,654, DEBUG, SIM.write got 'AS \n'
+2014-02-24 23:41:33,654, DEBUG, SIM.write command parsed as: ['AS']
+2014-02-24 23:41:33,654, DEBUG, AS_SIM PARAM: -4
+2014-02-24 23:41:33,654, DEBUG, AS_SIM RECEIVED: -4
+2014-02-24 23:41:33,654, DEBUG, Tx: 'AS \n'bytes sent: 4
+2014-02-24 23:41:33,654, DEBUG, SIM.inWaiting has '-4*', returning 3
+2014-02-24 23:41:33,654, DEBUG, SIM.read: asked for 1 returned: -4*
+2014-02-24 23:41:33,654, DEBUG, SIM.inWaiting has '4*', returning 2
+2014-02-24 23:41:33,654, DEBUG, SIM.read: asked for 1 returned: 4*
+2014-02-24 23:41:33,654, DEBUG, SIM.inWaiting has '*', returning 1
+2014-02-24 23:41:33,654, DEBUG, SIM.read: asked for 1 returned: *
+2014-02-24 23:41:33,654, DEBUG, Rx -  * received
+2014-02-24 23:41:33,707, DEBUG, Rx: '-4' bytes read: 2
+2014-02-24 23:41:33,707, DEBUG, AS TIMER RESPONSE: '-4'
+2014-02-24 23:41:33,707, DEBUG, SIM.write got 'BIAS  \n'
+2014-02-24 23:41:33,707, DEBUG, SIM.write command parsed as: ['BIAS']
+2014-02-24 23:41:33,707, DEBUG, BIAS_SIM PARAM: 500.0
+2014-02-24 23:41:33,707, DEBUG, BIAS_SIM RECEIVED: 500.0
+2014-02-24 23:41:33,707, DEBUG, Tx: 'BIAS  \n'bytes sent: 7
+2014-02-24 23:41:33,716, DEBUG, SIM.inWaiting has '500.0*', returning 6
+2014-02-24 23:41:33,716, DEBUG, SIM.read: asked for 1 returned: 500.0*
+2014-02-24 23:41:33,716, DEBUG, SIM.inWaiting has '00.0*', returning 5
+2014-02-24 23:41:33,716, DEBUG, SIM.read: asked for 1 returned: 00.0*
+2014-02-24 23:41:33,716, DEBUG, SIM.inWaiting has '0.0*', returning 4
+2014-02-24 23:41:33,716, DEBUG, SIM.read: asked for 1 returned: 0.0*
+2014-02-24 23:41:33,716, DEBUG, SIM.inWaiting has '.0*', returning 3
+2014-02-24 23:41:33,716, DEBUG, SIM.read: asked for 1 returned: .0*
+2014-02-24 23:41:33,716, DEBUG, SIM.inWaiting has '0*', returning 2
+2014-02-24 23:41:33,716, DEBUG, SIM.read: asked for 1 returned: 0*
+2014-02-24 23:41:33,716, DEBUG, SIM.inWaiting has '*', returning 1
+2014-02-24 23:41:33,716, DEBUG, SIM.read: asked for 1 returned: *
+2014-02-24 23:41:33,716, DEBUG, Rx -  * received
+2014-02-24 23:41:33,770, DEBUG, Rx: '500.0' bytes read: 5
+2014-02-24 23:41:33,770, DEBUG, BIAS TIMER RESPONSE: '500.0'
+2014-02-24 23:41:33,770, DEBUG, SIM.write got 'TP \n'
+2014-02-24 23:41:33,770, DEBUG, SIM.write command parsed as: ['TP']
+2014-02-24 23:41:33,770, DEBUG, TP_SIM PARAM: None
+2014-02-24 23:41:33,770, DEBUG, TP_SIM RECEIVED: 1573
+2014-02-24 23:41:33,770, DEBUG, Tx: 'TP \n'bytes sent: 4
+2014-02-24 23:41:33,770, DEBUG, SIM.inWaiting has '1573*', returning 5
+2014-02-24 23:41:33,770, DEBUG, SIM.read: asked for 1 returned: 1573*
+2014-02-24 23:41:33,770, DEBUG, SIM.inWaiting has '573*', returning 4
+2014-02-24 23:41:33,770, DEBUG, SIM.read: asked for 1 returned: 573*
+2014-02-24 23:41:33,770, DEBUG, SIM.inWaiting has '73*', returning 3
+2014-02-24 23:41:33,770, DEBUG, SIM.read: asked for 1 returned: 73*
+2014-02-24 23:41:33,770, DEBUG, SIM.inWaiting has '3*', returning 2
+2014-02-24 23:41:33,770, DEBUG, SIM.read: asked for 1 returned: 3*
+2014-02-24 23:41:33,770, DEBUG, SIM.inWaiting has '*', returning 1
+2014-02-24 23:41:33,770, DEBUG, SIM.read: asked for 1 returned: *
+2014-02-24 23:41:33,770, DEBUG, Rx -  * received
+2014-02-24 23:41:33,825, DEBUG, Rx: '1573' bytes read: 4
+2014-02-24 23:41:33,825, DEBUG, TP TIMER RESPONSE: '1573'
+2014-02-24 23:41:33,832, DEBUG, get_next_command() reply timing response: (0.06, ('BIAS 100',))
+2014-02-24 23:41:33,832, DEBUG, SIM.write got 'BIAS 100 \n'
+2014-02-24 23:41:33,832, DEBUG, SIM.write command parsed as: ['BIAS', '100']
+2014-02-24 23:41:33,841, DEBUG, BIAS_SIM PARAM: 100.0
+2014-02-24 23:41:33,841, DEBUG, BIAS_SIM RECEIVED: 100.0
+2014-02-24 23:41:33,841, DEBUG, Tx: 'BIAS 100 \n'bytes sent: 10
+2014-02-24 23:41:33,841, DEBUG, SIM.inWaiting has '100.0*', returning 6
+2014-02-24 23:41:33,841, DEBUG, SIM.read: asked for 1 returned: 100.0*
+2014-02-24 23:41:33,841, DEBUG, SIM.inWaiting has '00.0*', returning 5
+2014-02-24 23:41:33,841, DEBUG, SIM.read: asked for 1 returned: 00.0*
+2014-02-24 23:41:33,841, DEBUG, SIM.inWaiting has '0.0*', returning 4
+2014-02-24 23:41:33,841, DEBUG, SIM.read: asked for 1 returned: 0.0*
+2014-02-24 23:41:33,841, DEBUG, SIM.inWaiting has '.0*', returning 3
+2014-02-24 23:41:33,841, DEBUG, SIM.read: asked for 1 returned: .0*
+2014-02-24 23:41:33,841, DEBUG, SIM.inWaiting has '0*', returning 2
+2014-02-24 23:41:33,841, DEBUG, SIM.read: asked for 1 returned: 0*
+2014-02-24 23:41:33,841, DEBUG, SIM.inWaiting has '*', returning 1
+2014-02-24 23:41:33,841, DEBUG, SIM.read: asked for 1 returned: *
+2014-02-24 23:41:33,841, DEBUG, Rx -  * received
+2014-02-24 23:41:33,895, DEBUG, Rx: '100.0' bytes read: 5
+2014-02-24 23:41:33,895, DEBUG, command execute()reply timing response: 'BIAS 100'
+2014-02-24 23:41:33,895, DEBUG, SIM.write got 'NC \n'
+2014-02-24 23:41:33,895, DEBUG, SIM.write command parsed as: ['NC']
+2014-02-24 23:41:33,895, DEBUG, NC_SIM PARAM: 2
+2014-02-24 23:41:33,895, DEBUG, NC_SIM RECEIVED: 2
+2014-02-24 23:41:33,895, DEBUG, Tx: 'NC \n'bytes sent: 4
+2014-02-24 23:41:33,895, DEBUG, SIM.inWaiting has '2*', returning 2
+2014-02-24 23:41:33,895, DEBUG, SIM.read: asked for 1 returned: 2*
+2014-02-24 23:41:33,895, DEBUG, SIM.inWaiting has '*', returning 1
+2014-02-24 23:41:33,895, DEBUG, SIM.read: asked for 1 returned: *
+2014-02-24 23:41:33,895, DEBUG, Rx -  * received
+2014-02-24 23:41:33,950, DEBUG, Rx: '2' bytes read: 1
+2014-02-24 23:41:33,950, DEBUG, NC TIMER RESPONSE: '2'
+2014-02-24 23:41:33,950, DEBUG, SIM.write got 'AS \n'
+2014-02-24 23:41:33,950, DEBUG, SIM.write command parsed as: ['AS']
+2014-02-24 23:41:33,950, DEBUG, AS_SIM PARAM: -4
+2014-02-24 23:41:33,950, DEBUG, AS_SIM RECEIVED: -4
+2014-02-24 23:41:33,950, DEBUG, Tx: 'AS \n'bytes sent: 4
+2014-02-24 23:41:33,950, DEBUG, SIM.inWaiting has '-4*', returning 3
+2014-02-24 23:41:33,950, DEBUG, SIM.read: asked for 1 returned: -4*
+2014-02-24 23:41:33,950, DEBUG, SIM.inWaiting has '4*', returning 2
+2014-02-24 23:41:33,950, DEBUG, SIM.read: asked for 1 returned: 4*
+2014-02-24 23:41:33,950, DEBUG, SIM.inWaiting has '*', returning 1
+2014-02-24 23:41:33,950, DEBUG, SIM.read: asked for 1 returned: *
+2014-02-24 23:41:33,950, DEBUG, Rx -  * received
+2014-02-24 23:41:34,005, DEBUG, Rx: '-4' bytes read: 2
+2014-02-24 23:41:34,005, DEBUG, AS TIMER RESPONSE: '-4'
+2014-02-24 23:41:34,005, DEBUG, SIM.write got 'BIAS  \n'
+2014-02-24 23:41:34,005, DEBUG, SIM.write command parsed as: ['BIAS']
+2014-02-24 23:41:34,005, DEBUG, BIAS_SIM PARAM: 100.0
+2014-02-24 23:41:34,005, DEBUG, BIAS_SIM RECEIVED: 100.0
+2014-02-24 23:41:34,013, DEBUG, Tx: 'BIAS  \n'bytes sent: 7
+2014-02-24 23:41:34,013, DEBUG, SIM.inWaiting has '100.0*', returning 6
+2014-02-24 23:41:34,013, DEBUG, SIM.read: asked for 1 returned: 100.0*
+2014-02-24 23:41:34,013, DEBUG, SIM.inWaiting has '00.0*', returning 5
+2014-02-24 23:41:34,013, DEBUG, SIM.read: asked for 1 returned: 00.0*
+2014-02-24 23:41:34,013, DEBUG, SIM.inWaiting has '0.0*', returning 4
+2014-02-24 23:41:34,013, DEBUG, SIM.read: asked for 1 returned: 0.0*
+2014-02-24 23:41:34,013, DEBUG, SIM.inWaiting has '.0*', returning 3
+2014-02-24 23:41:34,013, DEBUG, SIM.read: asked for 1 returned: .0*
+2014-02-24 23:41:34,013, DEBUG, SIM.inWaiting has '0*', returning 2
+2014-02-24 23:41:34,013, DEBUG, SIM.read: asked for 1 returned: 0*
+2014-02-24 23:41:34,013, DEBUG, SIM.inWaiting has '*', returning 1
+2014-02-24 23:41:34,013, DEBUG, SIM.read: asked for 1 returned: *
+2014-02-24 23:41:34,013, DEBUG, Rx -  * received
+2014-02-24 23:41:34,075, DEBUG, Rx: '100.0' bytes read: 5
+2014-02-24 23:41:34,075, DEBUG, BIAS TIMER RESPONSE: '100.0'
+2014-02-24 23:41:34,075, DEBUG, SIM.write got 'TP \n'
+2014-02-24 23:41:34,075, DEBUG, SIM.write command parsed as: ['TP']
+2014-02-24 23:41:34,082, DEBUG, TP_SIM PARAM: None
+2014-02-24 23:41:34,082, DEBUG, TP_SIM RECEIVED: 1497
+2014-02-24 23:41:34,082, DEBUG, Tx: 'TP \n'bytes sent: 4
+2014-02-24 23:41:34,082, DEBUG, SIM.inWaiting has '1497*', returning 5
+2014-02-24 23:41:34,082, DEBUG, SIM.read: asked for 1 returned: 1497*
+2014-02-24 23:41:34,082, DEBUG, SIM.inWaiting has '497*', returning 4
+2014-02-24 23:41:34,082, DEBUG, SIM.read: asked for 1 returned: 497*
+2014-02-24 23:41:34,082, DEBUG, SIM.inWaiting has '97*', returning 3
+2014-02-24 23:41:34,082, DEBUG, SIM.read: asked for 1 returned: 97*
+2014-02-24 23:41:34,082, DEBUG, SIM.inWaiting has '7*', returning 2
+2014-02-24 23:41:34,082, DEBUG, SIM.read: asked for 1 returned: 7*
+2014-02-24 23:41:34,082, DEBUG, SIM.inWaiting has '*', returning 1
+2014-02-24 23:41:34,082, DEBUG, SIM.read: asked for 1 returned: *
+2014-02-24 23:41:34,082, DEBUG, Rx -  * received
+2014-02-24 23:41:34,138, DEBUG, Rx: '1497' bytes read: 4
+2014-02-24 23:41:34,138, DEBUG, TP TIMER RESPONSE: '1497'
+2014-02-24 23:41:34,693, DEBUG, SIM.write got 'NC \n'
+2014-02-24 23:41:34,700, DEBUG, SIM.write command parsed as: ['NC']
+2014-02-24 23:41:34,700, DEBUG, NC_SIM PARAM: 2
+2014-02-24 23:41:34,700, DEBUG, NC_SIM RECEIVED: 2
+2014-02-24 23:41:34,700, DEBUG, Tx: 'NC \n'bytes sent: 4
+2014-02-24 23:41:34,700, DEBUG, SIM.inWaiting has '2*', returning 2
+2014-02-24 23:41:34,700, DEBUG, SIM.read: asked for 1 returned: 2*
+2014-02-24 23:41:34,700, DEBUG, SIM.inWaiting has '*', returning 1
+2014-02-24 23:41:34,700, DEBUG, SIM.read: asked for 1 returned: *
+2014-02-24 23:41:34,700, DEBUG, Rx -  * received
+2014-02-24 23:41:34,755, DEBUG, Rx: '2' bytes read: 1
+2014-02-24 23:41:34,755, DEBUG, NC TIMER RESPONSE: '2'
+2014-02-24 23:41:34,755, DEBUG, SIM.write got 'AS \n'
+2014-02-24 23:41:34,755, DEBUG, SIM.write command parsed as: ['AS']
+2014-02-24 23:41:34,755, DEBUG, AS_SIM PARAM: -4
+2014-02-24 23:41:34,755, DEBUG, AS_SIM RECEIVED: -4
+2014-02-24 23:41:34,755, DEBUG, Tx: 'AS \n'bytes sent: 4
+2014-02-24 23:41:34,755, DEBUG, SIM.inWaiting has '-4*', returning 3
+2014-02-24 23:41:34,755, DEBUG, SIM.read: asked for 1 returned: -4*
+2014-02-24 23:41:34,755, DEBUG, SIM.inWaiting has '4*', returning 2
+2014-02-24 23:41:34,755, DEBUG, SIM.read: asked for 1 returned: 4*
+2014-02-24 23:41:34,755, DEBUG, SIM.inWaiting has '*', returning 1
+2014-02-24 23:41:34,755, DEBUG, SIM.read: asked for 1 returned: *
+2014-02-24 23:41:34,755, DEBUG, Rx -  * received
+2014-02-24 23:41:34,809, DEBUG, Rx: '-4' bytes read: 2
+2014-02-24 23:41:34,809, DEBUG, AS TIMER RESPONSE: '-4'
+2014-02-24 23:41:34,809, DEBUG, SIM.write got 'BIAS  \n'
+2014-02-24 23:41:34,809, DEBUG, SIM.write command parsed as: ['BIAS']
+2014-02-24 23:41:34,809, DEBUG, BIAS_SIM PARAM: 100.0
+2014-02-24 23:41:34,809, DEBUG, BIAS_SIM RECEIVED: 100.0
+2014-02-24 23:41:34,809, DEBUG, Tx: 'BIAS  \n'bytes sent: 7
+2014-02-24 23:41:34,818, DEBUG, SIM.inWaiting has '100.0*', returning 6
+2014-02-24 23:41:34,818, DEBUG, SIM.read: asked for 1 returned: 100.0*
+2014-02-24 23:41:34,818, DEBUG, SIM.inWaiting has '00.0*', returning 5
+2014-02-24 23:41:34,818, DEBUG, SIM.read: asked for 1 returned: 00.0*
+2014-02-24 23:41:34,818, DEBUG, SIM.inWaiting has '0.0*', returning 4
+2014-02-24 23:41:34,818, DEBUG, SIM.read: asked for 1 returned: 0.0*
+2014-02-24 23:41:34,818, DEBUG, SIM.inWaiting has '.0*', returning 3
+2014-02-24 23:41:34,818, DEBUG, SIM.read: asked for 1 returned: .0*
+2014-02-24 23:41:34,818, DEBUG, SIM.inWaiting has '0*', returning 2
+2014-02-24 23:41:34,818, DEBUG, SIM.read: asked for 1 returned: 0*
+2014-02-24 23:41:34,818, DEBUG, SIM.inWaiting has '*', returning 1
+2014-02-24 23:41:34,818, DEBUG, SIM.read: asked for 1 returned: *
+2014-02-24 23:41:34,818, DEBUG, Rx -  * received
+2014-02-24 23:41:34,872, DEBUG, Rx: '100.0' bytes read: 5
+2014-02-24 23:41:34,872, DEBUG, BIAS TIMER RESPONSE: '100.0'
+2014-02-24 23:41:34,872, DEBUG, SIM.write got 'TP \n'
+2014-02-24 23:41:34,872, DEBUG, SIM.write command parsed as: ['TP']
+2014-02-24 23:41:34,872, DEBUG, TP_SIM PARAM: None
+2014-02-24 23:41:34,872, DEBUG, TP_SIM RECEIVED: 194
+2014-02-24 23:41:34,872, DEBUG, Tx: 'TP \n'bytes sent: 4
+2014-02-24 23:41:34,872, DEBUG, SIM.inWaiting has '194*', returning 4
+2014-02-24 23:41:34,872, DEBUG, SIM.read: asked for 1 returned: 194*
+2014-02-24 23:41:34,872, DEBUG, SIM.inWaiting has '94*', returning 3
+2014-02-24 23:41:34,872, DEBUG, SIM.read: asked for 1 returned: 94*
+2014-02-24 23:41:34,872, DEBUG, SIM.inWaiting has '4*', returning 2
+2014-02-24 23:41:34,872, DEBUG, SIM.read: asked for 1 returned: 4*
+2014-02-24 23:41:34,872, DEBUG, SIM.inWaiting has '*', returning 1
+2014-02-24 23:41:34,872, DEBUG, SIM.read: asked for 1 returned: *
+2014-02-24 23:41:34,872, DEBUG, Rx -  * received
+2014-02-24 23:41:34,927, DEBUG, Rx: '194' bytes read: 3
+2014-02-24 23:41:34,927, DEBUG, TP TIMER RESPONSE: '194'
+2014-02-24 23:41:34,934, DEBUG, get_next_command() reply timing response: (0.08, ('BIAS 500',))
+2014-02-24 23:41:34,934, DEBUG, SIM.write got 'BIAS 500 \n'
+2014-02-24 23:41:34,934, DEBUG, SIM.write command parsed as: ['BIAS', '500']
+2014-02-24 23:41:34,943, DEBUG, BIAS_SIM PARAM: 500.0
+2014-02-24 23:41:34,943, DEBUG, BIAS_SIM RECEIVED: 500.0
+2014-02-24 23:41:34,943, DEBUG, Tx: 'BIAS 500 \n'bytes sent: 10
+2014-02-24 23:41:34,943, DEBUG, SIM.inWaiting has '500.0*', returning 6
+2014-02-24 23:41:34,943, DEBUG, SIM.read: asked for 1 returned: 500.0*
+2014-02-24 23:41:34,943, DEBUG, SIM.inWaiting has '00.0*', returning 5
+2014-02-24 23:41:34,943, DEBUG, SIM.read: asked for 1 returned: 00.0*
+2014-02-24 23:41:34,943, DEBUG, SIM.inWaiting has '0.0*', returning 4
+2014-02-24 23:41:34,943, DEBUG, SIM.read: asked for 1 returned: 0.0*
+2014-02-24 23:41:34,943, DEBUG, SIM.inWaiting has '.0*', returning 3
+2014-02-24 23:41:34,943, DEBUG, SIM.read: asked for 1 returned: .0*
+2014-02-24 23:41:34,943, DEBUG, SIM.inWaiting has '0*', returning 2
+2014-02-24 23:41:34,943, DEBUG, SIM.read: asked for 1 returned: 0*
+2014-02-24 23:41:34,943, DEBUG, SIM.inWaiting has '*', returning 1
+2014-02-24 23:41:34,950, DEBUG, SIM.read: asked for 1 returned: *
+2014-02-24 23:41:34,950, DEBUG, Rx -  * received
+2014-02-24 23:41:35,005, DEBUG, Rx: '500.0' bytes read: 5
+2014-02-24 23:41:35,005, DEBUG, command execute()reply timing response: 'BIAS 500'
+2014-02-24 23:41:35,005, DEBUG, SIM.write got 'NC \n'
+2014-02-24 23:41:35,005, DEBUG, SIM.write command parsed as: ['NC']
+2014-02-24 23:41:35,005, DEBUG, NC_SIM PARAM: 2
+2014-02-24 23:41:35,005, DEBUG, NC_SIM RECEIVED: 2
+2014-02-24 23:41:35,005, DEBUG, Tx: 'NC \n'bytes sent: 4
+2014-02-24 23:41:35,005, DEBUG, SIM.inWaiting has '2*', returning 2
+2014-02-24 23:41:35,005, DEBUG, SIM.read: asked for 1 returned: 2*
+2014-02-24 23:41:35,005, DEBUG, SIM.inWaiting has '*', returning 1
+2014-02-24 23:41:35,005, DEBUG, SIM.read: asked for 1 returned: *
+2014-02-24 23:41:35,005, DEBUG, Rx -  * received
+2014-02-24 23:41:35,059, DEBUG, Rx: '2' bytes read: 1
+2014-02-24 23:41:35,082, DEBUG, NC TIMER RESPONSE: '2'
+2014-02-24 23:41:35,082, DEBUG, SIM.write got 'AS \n'
+2014-02-24 23:41:35,082, DEBUG, SIM.write command parsed as: ['AS']
+2014-02-24 23:41:35,082, DEBUG, AS_SIM PARAM: -4
+2014-02-24 23:41:35,082, DEBUG, AS_SIM RECEIVED: -4
+2014-02-24 23:41:35,082, DEBUG, Tx: 'AS \n'bytes sent: 4
+2014-02-24 23:41:35,091, DEBUG, SIM.inWaiting has '-4*', returning 3
+2014-02-24 23:41:35,091, DEBUG, SIM.read: asked for 1 returned: -4*
+2014-02-24 23:41:35,091, DEBUG, SIM.inWaiting has '4*', returning 2
+2014-02-24 23:41:35,091, DEBUG, SIM.read: asked for 1 returned: 4*
+2014-02-24 23:41:35,091, DEBUG, SIM.inWaiting has '*', returning 1
+2014-02-24 23:41:35,091, DEBUG, SIM.read: asked for 1 returned: *
+2014-02-24 23:41:35,091, DEBUG, Rx -  * received
+2014-02-24 23:41:35,142, DEBUG, Rx: '-4' bytes read: 2
+2014-02-24 23:41:35,142, DEBUG, AS TIMER RESPONSE: '-4'
+2014-02-24 23:41:35,142, DEBUG, SIM.write got 'BIAS  \n'
+2014-02-24 23:41:35,142, DEBUG, SIM.write command parsed as: ['BIAS']
+2014-02-24 23:41:35,142, DEBUG, BIAS_SIM PARAM: 500.0
+2014-02-24 23:41:35,142, DEBUG, BIAS_SIM RECEIVED: 500.0
+2014-02-24 23:41:35,142, DEBUG, Tx: 'BIAS  \n'bytes sent: 7
+2014-02-24 23:41:35,142, DEBUG, SIM.inWaiting has '500.0*', returning 6
+2014-02-24 23:41:35,142, DEBUG, SIM.read: asked for 1 returned: 500.0*
+2014-02-24 23:41:35,142, DEBUG, SIM.inWaiting has '00.0*', returning 5
+2014-02-24 23:41:35,142, DEBUG, SIM.read: asked for 1 returned: 00.0*
+2014-02-24 23:41:35,142, DEBUG, SIM.inWaiting has '0.0*', returning 4
+2014-02-24 23:41:35,142, DEBUG, SIM.read: asked for 1 returned: 0.0*
+2014-02-24 23:41:35,142, DEBUG, SIM.inWaiting has '.0*', returning 3
+2014-02-24 23:41:35,142, DEBUG, SIM.read: asked for 1 returned: .0*
+2014-02-24 23:41:35,142, DEBUG, SIM.inWaiting has '0*', returning 2
+2014-02-24 23:41:35,142, DEBUG, SIM.read: asked for 1 returned: 0*
+2014-02-24 23:41:35,142, DEBUG, SIM.inWaiting has '*', returning 1
+2014-02-24 23:41:35,142, DEBUG, SIM.read: asked for 1 returned: *
+2014-02-24 23:41:35,142, DEBUG, Rx -  * received
+2014-02-24 23:41:35,197, DEBUG, Rx: '500.0' bytes read: 5
+2014-02-24 23:41:35,197, DEBUG, BIAS TIMER RESPONSE: '500.0'
+2014-02-24 23:41:35,197, DEBUG, SIM.write got 'TP \n'
+2014-02-24 23:41:35,197, DEBUG, SIM.write command parsed as: ['TP']
+2014-02-24 23:41:35,197, DEBUG, TP_SIM PARAM: None
+2014-02-24 23:41:35,197, DEBUG, TP_SIM RECEIVED: 661
+2014-02-24 23:41:35,197, DEBUG, Tx: 'TP \n'bytes sent: 4
+2014-02-24 23:41:35,197, DEBUG, SIM.inWaiting has '661*', returning 4
+2014-02-24 23:41:35,197, DEBUG, SIM.read: asked for 1 returned: 661*
+2014-02-24 23:41:35,197, DEBUG, SIM.inWaiting has '61*', returning 3
+2014-02-24 23:41:35,197, DEBUG, SIM.read: asked for 1 returned: 61*
+2014-02-24 23:41:35,197, DEBUG, SIM.inWaiting has '1*', returning 2
+2014-02-24 23:41:35,197, DEBUG, SIM.read: asked for 1 returned: 1*
+2014-02-24 23:41:35,197, DEBUG, SIM.inWaiting has '*', returning 1
+2014-02-24 23:41:35,197, DEBUG, SIM.read: asked for 1 returned: *
+2014-02-24 23:41:35,197, DEBUG, Rx -  * received
+2014-02-24 23:41:35,252, DEBUG, Rx: '661' bytes read: 3
+2014-02-24 23:41:35,252, DEBUG, TP TIMER RESPONSE: '661'
+2014-02-24 23:41:35,828, DEBUG, SIM.write got 'NC \n'
+2014-02-24 23:41:35,828, DEBUG, SIM.write command parsed as: ['NC']
+2014-02-24 23:41:35,828, DEBUG, NC_SIM PARAM: 2
+2014-02-24 23:41:35,828, DEBUG, NC_SIM RECEIVED: 2
+2014-02-24 23:41:35,828, DEBUG, Tx: 'NC \n'bytes sent: 4
+2014-02-24 23:41:35,828, DEBUG, SIM.inWaiting has '2*', returning 2
+2014-02-24 23:41:35,828, DEBUG, SIM.read: asked for 1 returned: 2*
+2014-02-24 23:41:35,828, DEBUG, SIM.inWaiting has '*', returning 1
+2014-02-24 23:41:35,828, DEBUG, SIM.read: asked for 1 returned: *
+2014-02-24 23:41:35,828, DEBUG, Rx -  * received
+2014-02-24 23:41:35,881, DEBUG, Rx: '2' bytes read: 1
+2014-02-24 23:41:35,881, DEBUG, NC TIMER RESPONSE: '2'
+2014-02-24 23:41:35,881, DEBUG, SIM.write got 'AS \n'
+2014-02-24 23:41:35,881, DEBUG, SIM.write command parsed as: ['AS']
+2014-02-24 23:41:35,881, DEBUG, AS_SIM PARAM: -4
+2014-02-24 23:41:35,881, DEBUG, AS_SIM RECEIVED: -4
+2014-02-24 23:41:35,881, DEBUG, Tx: 'AS \n'bytes sent: 4
+2014-02-24 23:41:35,881, DEBUG, SIM.inWaiting has '-4*', returning 3
+2014-02-24 23:41:35,881, DEBUG, SIM.read: asked for 1 returned: -4*
+2014-02-24 23:41:35,881, DEBUG, SIM.inWaiting has '4*', returning 2
+2014-02-24 23:41:35,881, DEBUG, SIM.read: asked for 1 returned: 4*
+2014-02-24 23:41:35,881, DEBUG, SIM.inWaiting has '*', returning 1
+2014-02-24 23:41:35,881, DEBUG, SIM.read: asked for 1 returned: *
+2014-02-24 23:41:35,881, DEBUG, Rx -  * received
+2014-02-24 23:41:35,937, DEBUG, Rx: '-4' bytes read: 2
+2014-02-24 23:41:35,937, DEBUG, AS TIMER RESPONSE: '-4'
+2014-02-24 23:41:35,937, DEBUG, SIM.write got 'BIAS  \n'
+2014-02-24 23:41:35,937, DEBUG, SIM.write command parsed as: ['BIAS']
+2014-02-24 23:41:35,937, DEBUG, BIAS_SIM PARAM: 500.0
+2014-02-24 23:41:35,937, DEBUG, BIAS_SIM RECEIVED: 500.0
+2014-02-24 23:41:35,937, DEBUG, Tx: 'BIAS  \n'bytes sent: 7
+2014-02-24 23:41:35,944, DEBUG, SIM.inWaiting has '500.0*', returning 6
+2014-02-24 23:41:35,944, DEBUG, SIM.read: asked for 1 returned: 500.0*
+2014-02-24 23:41:35,944, DEBUG, SIM.inWaiting has '00.0*', returning 5
+2014-02-24 23:41:35,944, DEBUG, SIM.read: asked for 1 returned: 00.0*
+2014-02-24 23:41:35,944, DEBUG, SIM.inWaiting has '0.0*', returning 4
+2014-02-24 23:41:35,944, DEBUG, SIM.read: asked for 1 returned: 0.0*
+2014-02-24 23:41:35,944, DEBUG, SIM.inWaiting has '.0*', returning 3
+2014-02-24 23:41:35,944, DEBUG, SIM.read: asked for 1 returned: .0*
+2014-02-24 23:41:35,944, DEBUG, SIM.inWaiting has '0*', returning 2
+2014-02-24 23:41:35,944, DEBUG, SIM.read: asked for 1 returned: 0*
+2014-02-24 23:41:35,944, DEBUG, SIM.inWaiting has '*', returning 1
+2014-02-24 23:41:35,944, DEBUG, SIM.read: asked for 1 returned: *
+2014-02-24 23:41:35,944, DEBUG, Rx -  * received
+2014-02-24 23:41:36,000, DEBUG, Rx: '500.0' bytes read: 5
+2014-02-24 23:41:36,000, DEBUG, BIAS TIMER RESPONSE: '500.0'
+2014-02-24 23:41:36,000, DEBUG, SIM.write got 'TP \n'
+2014-02-24 23:41:36,000, DEBUG, SIM.write command parsed as: ['TP']
+2014-02-24 23:41:36,000, DEBUG, TP_SIM PARAM: None
+2014-02-24 23:41:36,000, DEBUG, TP_SIM RECEIVED: 814
+2014-02-24 23:41:36,000, DEBUG, Tx: 'TP \n'bytes sent: 4
+2014-02-24 23:41:36,000, DEBUG, SIM.inWaiting has '814*', returning 4
+2014-02-24 23:41:36,000, DEBUG, SIM.read: asked for 1 returned: 814*
+2014-02-24 23:41:36,000, DEBUG, SIM.inWaiting has '14*', returning 3
+2014-02-24 23:41:36,000, DEBUG, SIM.read: asked for 1 returned: 14*
+2014-02-24 23:41:36,000, DEBUG, SIM.inWaiting has '4*', returning 2
+2014-02-24 23:41:36,000, DEBUG, SIM.read: asked for 1 returned: 4*
+2014-02-24 23:41:36,000, DEBUG, SIM.inWaiting has '*', returning 1
+2014-02-24 23:41:36,000, DEBUG, SIM.read: asked for 1 returned: *
+2014-02-24 23:41:36,000, DEBUG, Rx -  * received
+2014-02-24 23:41:36,053, DEBUG, Rx: '814' bytes read: 3
+2014-02-24 23:41:36,053, DEBUG, TP TIMER RESPONSE: '814'
+2014-02-24 23:41:36,062, DEBUG, get_next_command() reply timing response: (1, ('BIAS 200', 'BIAS 100'))
+2014-02-24 23:41:36,062, DEBUG, SIM.write got 'BIAS 200 \n'
+2014-02-24 23:41:36,062, DEBUG, SIM.write command parsed as: ['BIAS', '200']
+2014-02-24 23:41:36,062, DEBUG, BIAS_SIM PARAM: 200.0
+2014-02-24 23:41:36,062, DEBUG, BIAS_SIM RECEIVED: 200.0
+2014-02-24 23:41:36,062, DEBUG, Tx: 'BIAS 200 \n'bytes sent: 10
+2014-02-24 23:41:36,062, DEBUG, SIM.inWaiting has '200.0*', returning 6
+2014-02-24 23:41:36,062, DEBUG, SIM.read: asked for 1 returned: 200.0*
+2014-02-24 23:41:36,062, DEBUG, SIM.inWaiting has '00.0*', returning 5
+2014-02-24 23:41:36,069, DEBUG, SIM.read: asked for 1 returned: 00.0*
+2014-02-24 23:41:36,069, DEBUG, SIM.inWaiting has '0.0*', returning 4
+2014-02-24 23:41:36,069, DEBUG, SIM.read: asked for 1 returned: 0.0*
+2014-02-24 23:41:36,069, DEBUG, SIM.inWaiting has '.0*', returning 3
+2014-02-24 23:41:36,069, DEBUG, SIM.read: asked for 1 returned: .0*
+2014-02-24 23:41:36,069, DEBUG, SIM.inWaiting has '0*', returning 2
+2014-02-24 23:41:36,069, DEBUG, SIM.read: asked for 1 returned: 0*
+2014-02-24 23:41:36,069, DEBUG, SIM.inWaiting has '*', returning 1
+2014-02-24 23:41:36,069, DEBUG, SIM.read: asked for 1 returned: *
+2014-02-24 23:41:36,069, DEBUG, Rx -  * received
+2014-02-24 23:41:36,125, DEBUG, Rx: '200.0' bytes read: 5
+2014-02-24 23:41:36,125, DEBUG, command execute()reply timing response: 'BIAS 200'
+2014-02-24 23:41:36,125, DEBUG, SIM.write got 'NC \n'
+2014-02-24 23:41:36,125, DEBUG, SIM.write command parsed as: ['NC']
+2014-02-24 23:41:36,125, DEBUG, NC_SIM PARAM: 2
+2014-02-24 23:41:36,125, DEBUG, NC_SIM RECEIVED: 2
+2014-02-24 23:41:36,125, DEBUG, Tx: 'NC \n'bytes sent: 4
+2014-02-24 23:41:36,125, DEBUG, SIM.inWaiting has '2*', returning 2
+2014-02-24 23:41:36,125, DEBUG, SIM.read: asked for 1 returned: 2*
+2014-02-24 23:41:36,125, DEBUG, SIM.inWaiting has '*', returning 1
+2014-02-24 23:41:36,125, DEBUG, SIM.read: asked for 1 returned: *
+2014-02-24 23:41:36,125, DEBUG, Rx -  * received
+2014-02-24 23:41:36,178, DEBUG, Rx: '2' bytes read: 1
+2014-02-24 23:41:36,178, DEBUG, NC TIMER RESPONSE: '2'
+2014-02-24 23:41:36,178, DEBUG, SIM.write got 'AS \n'
+2014-02-24 23:41:36,178, DEBUG, SIM.write command parsed as: ['AS']
+2014-02-24 23:41:36,178, DEBUG, AS_SIM PARAM: -4
+2014-02-24 23:41:36,178, DEBUG, AS_SIM RECEIVED: -4
+2014-02-24 23:41:36,178, DEBUG, Tx: 'AS \n'bytes sent: 4
+2014-02-24 23:41:36,178, DEBUG, SIM.inWaiting has '-4*', returning 3
+2014-02-24 23:41:36,178, DEBUG, SIM.read: asked for 1 returned: -4*
+2014-02-24 23:41:36,178, DEBUG, SIM.inWaiting has '4*', returning 2
+2014-02-24 23:41:36,178, DEBUG, SIM.read: asked for 1 returned: 4*
+2014-02-24 23:41:36,178, DEBUG, SIM.inWaiting has '*', returning 1
+2014-02-24 23:41:36,178, DEBUG, SIM.read: asked for 1 returned: *
+2014-02-24 23:41:36,178, DEBUG, Rx -  * received
+2014-02-24 23:41:36,233, DEBUG, Rx: '-4' bytes read: 2
+2014-02-24 23:41:36,242, DEBUG, AS TIMER RESPONSE: '-4'
+2014-02-24 23:41:36,242, DEBUG, SIM.write got 'BIAS  \n'
+2014-02-24 23:41:36,242, DEBUG, SIM.write command parsed as: ['BIAS']
+2014-02-24 23:41:36,250, DEBUG, BIAS_SIM PARAM: 200.0
+2014-02-24 23:41:36,250, DEBUG, BIAS_SIM RECEIVED: 200.0
+2014-02-24 23:41:36,250, DEBUG, Tx: 'BIAS  \n'bytes sent: 7
+2014-02-24 23:41:36,250, DEBUG, SIM.inWaiting has '200.0*', returning 6
+2014-02-24 23:41:36,250, DEBUG, SIM.read: asked for 1 returned: 200.0*
+2014-02-24 23:41:36,250, DEBUG, SIM.inWaiting has '00.0*', returning 5
+2014-02-24 23:41:36,250, DEBUG, SIM.read: asked for 1 returned: 00.0*
+2014-02-24 23:41:36,250, DEBUG, SIM.inWaiting has '0.0*', returning 4
+2014-02-24 23:41:36,250, DEBUG, SIM.read: asked for 1 returned: 0.0*
+2014-02-24 23:41:36,250, DEBUG, SIM.inWaiting has '.0*', returning 3
+2014-02-24 23:41:36,250, DEBUG, SIM.read: asked for 1 returned: .0*
+2014-02-24 23:41:36,250, DEBUG, SIM.inWaiting has '0*', returning 2
+2014-02-24 23:41:36,250, DEBUG, SIM.read: asked for 1 returned: 0*
+2014-02-24 23:41:36,250, DEBUG, SIM.inWaiting has '*', returning 1
+2014-02-24 23:41:36,250, DEBUG, SIM.read: asked for 1 returned: *
+2014-02-24 23:41:36,250, DEBUG, Rx -  * received
+2014-02-24 23:41:36,303, DEBUG, Rx: '200.0' bytes read: 5
+2014-02-24 23:41:36,303, DEBUG, BIAS TIMER RESPONSE: '200.0'
+2014-02-24 23:41:36,303, DEBUG, SIM.write got 'TP \n'
+2014-02-24 23:41:36,303, DEBUG, SIM.write command parsed as: ['TP']
+2014-02-24 23:41:36,303, DEBUG, TP_SIM PARAM: None
+2014-02-24 23:41:36,303, DEBUG, TP_SIM RECEIVED: 1476
+2014-02-24 23:41:36,303, DEBUG, Tx: 'TP \n'bytes sent: 4
+2014-02-24 23:41:36,303, DEBUG, SIM.inWaiting has '1476*', returning 5
+2014-02-24 23:41:36,303, DEBUG, SIM.read: asked for 1 returned: 1476*
+2014-02-24 23:41:36,303, DEBUG, SIM.inWaiting has '476*', returning 4
+2014-02-24 23:41:36,303, DEBUG, SIM.read: asked for 1 returned: 476*
+2014-02-24 23:41:36,303, DEBUG, SIM.inWaiting has '76*', returning 3
+2014-02-24 23:41:36,303, DEBUG, SIM.read: asked for 1 returned: 76*
+2014-02-24 23:41:36,303, DEBUG, SIM.inWaiting has '6*', returning 2
+2014-02-24 23:41:36,303, DEBUG, SIM.read: asked for 1 returned: 6*
+2014-02-24 23:41:36,303, DEBUG, SIM.inWaiting has '*', returning 1
+2014-02-24 23:41:36,303, DEBUG, SIM.read: asked for 1 returned: *
+2014-02-24 23:41:36,303, DEBUG, Rx -  * received
+2014-02-24 23:41:36,358, DEBUG, Rx: '1476' bytes read: 4
+2014-02-24 23:41:36,358, DEBUG, TP TIMER RESPONSE: '1476'
+2014-02-24 23:41:36,375, DEBUG, SIM.write got 'BIAS 100 \n'
+2014-02-24 23:41:36,375, DEBUG, SIM.write command parsed as: ['BIAS', '100']
+2014-02-24 23:41:36,375, DEBUG, BIAS_SIM PARAM: 100.0
+2014-02-24 23:41:36,375, DEBUG, BIAS_SIM RECEIVED: 100.0
+2014-02-24 23:41:36,375, DEBUG, Tx: 'BIAS 100 \n'bytes sent: 10
+2014-02-24 23:41:36,375, DEBUG, SIM.inWaiting has '100.0*', returning 6
+2014-02-24 23:41:36,375, DEBUG, SIM.read: asked for 1 returned: 100.0*
+2014-02-24 23:41:36,375, DEBUG, SIM.inWaiting has '00.0*', returning 5
+2014-02-24 23:41:36,375, DEBUG, SIM.read: asked for 1 returned: 00.0*
+2014-02-24 23:41:36,375, DEBUG, SIM.inWaiting has '0.0*', returning 4
+2014-02-24 23:41:36,381, DEBUG, SIM.read: asked for 1 returned: 0.0*
+2014-02-24 23:41:36,381, DEBUG, SIM.inWaiting has '.0*', returning 3
+2014-02-24 23:41:36,381, DEBUG, SIM.read: asked for 1 returned: .0*
+2014-02-24 23:41:36,381, DEBUG, SIM.inWaiting has '0*', returning 2
+2014-02-24 23:41:36,381, DEBUG, SIM.read: asked for 1 returned: 0*
+2014-02-24 23:41:36,381, DEBUG, SIM.inWaiting has '*', returning 1
+2014-02-24 23:41:36,381, DEBUG, SIM.read: asked for 1 returned: *
+2014-02-24 23:41:36,381, DEBUG, Rx -  * received
+2014-02-24 23:41:36,437, DEBUG, Rx: '100.0' bytes read: 5
+2014-02-24 23:41:36,437, DEBUG, command execute()reply timing response: 'BIAS 100'
+2014-02-24 23:41:36,437, DEBUG, SIM.write got 'NC \n'
+2014-02-24 23:41:36,437, DEBUG, SIM.write command parsed as: ['NC']
+2014-02-24 23:41:36,437, DEBUG, NC_SIM PARAM: 2
+2014-02-24 23:41:36,437, DEBUG, NC_SIM RECEIVED: 2
+2014-02-24 23:41:36,437, DEBUG, Tx: 'NC \n'bytes sent: 4
+2014-02-24 23:41:36,437, DEBUG, SIM.inWaiting has '2*', returning 2
+2014-02-24 23:41:36,437, DEBUG, SIM.read: asked for 1 returned: 2*
+2014-02-24 23:41:36,437, DEBUG, SIM.inWaiting has '*', returning 1
+2014-02-24 23:41:36,437, DEBUG, SIM.read: asked for 1 returned: *
+2014-02-24 23:41:36,437, DEBUG, Rx -  * received
+2014-02-24 23:41:36,492, DEBUG, Rx: '2' bytes read: 1
+2014-02-24 23:41:36,492, DEBUG, NC TIMER RESPONSE: '2'
+2014-02-24 23:41:36,492, DEBUG, SIM.write got 'AS \n'
+2014-02-24 23:41:36,492, DEBUG, SIM.write command parsed as: ['AS']
+2014-02-24 23:41:36,492, DEBUG, AS_SIM PARAM: -4
+2014-02-24 23:41:36,492, DEBUG, AS_SIM RECEIVED: -4
+2014-02-24 23:41:36,492, DEBUG, Tx: 'AS \n'bytes sent: 4
+2014-02-24 23:41:36,492, DEBUG, SIM.inWaiting has '-4*', returning 3
+2014-02-24 23:41:36,492, DEBUG, SIM.read: asked for 1 returned: -4*
+2014-02-24 23:41:36,492, DEBUG, SIM.inWaiting has '4*', returning 2
+2014-02-24 23:41:36,492, DEBUG, SIM.read: asked for 1 returned: 4*
+2014-02-24 23:41:36,492, DEBUG, SIM.inWaiting has '*', returning 1
+2014-02-24 23:41:36,492, DEBUG, SIM.read: asked for 1 returned: *
+2014-02-24 23:41:36,492, DEBUG, Rx -  * received
+2014-02-24 23:41:36,546, DEBUG, Rx: '-4' bytes read: 2
+2014-02-24 23:41:36,546, DEBUG, AS TIMER RESPONSE: '-4'
+2014-02-24 23:41:36,546, DEBUG, SIM.write got 'BIAS  \n'
+2014-02-24 23:41:36,546, DEBUG, SIM.write command parsed as: ['BIAS']
+2014-02-24 23:41:36,546, DEBUG, BIAS_SIM PARAM: 100.0
+2014-02-24 23:41:36,546, DEBUG, BIAS_SIM RECEIVED: 100.0
+2014-02-24 23:41:36,546, DEBUG, Tx: 'BIAS  \n'bytes sent: 7
+2014-02-24 23:41:36,553, DEBUG, SIM.inWaiting has '100.0*', returning 6
+2014-02-24 23:41:36,553, DEBUG, SIM.read: asked for 1 returned: 100.0*
+2014-02-24 23:41:36,553, DEBUG, SIM.inWaiting has '00.0*', returning 5
+2014-02-24 23:41:36,553, DEBUG, SIM.read: asked for 1 returned: 00.0*
+2014-02-24 23:41:36,553, DEBUG, SIM.inWaiting has '0.0*', returning 4
+2014-02-24 23:41:36,553, DEBUG, SIM.read: asked for 1 returned: 0.0*
+2014-02-24 23:41:36,553, DEBUG, SIM.inWaiting has '.0*', returning 3
+2014-02-24 23:41:36,553, DEBUG, SIM.read: asked for 1 returned: .0*
+2014-02-24 23:41:36,553, DEBUG, SIM.inWaiting has '0*', returning 2
+2014-02-24 23:41:36,553, DEBUG, SIM.read: asked for 1 returned: 0*
+2014-02-24 23:41:36,553, DEBUG, SIM.inWaiting has '*', returning 1
+2014-02-24 23:41:36,553, DEBUG, SIM.read: asked for 1 returned: *
+2014-02-24 23:41:36,553, DEBUG, Rx -  * received
+2014-02-24 23:41:36,608, DEBUG, Rx: '100.0' bytes read: 5
+2014-02-24 23:41:36,608, DEBUG, BIAS TIMER RESPONSE: '100.0'
+2014-02-24 23:41:36,608, DEBUG, SIM.write got 'TP \n'
+2014-02-24 23:41:36,608, DEBUG, SIM.write command parsed as: ['TP']
+2014-02-24 23:41:36,608, DEBUG, TP_SIM PARAM: None
+2014-02-24 23:41:36,608, DEBUG, TP_SIM RECEIVED: 1425
+2014-02-24 23:41:36,608, DEBUG, Tx: 'TP \n'bytes sent: 4
+2014-02-24 23:41:36,608, DEBUG, SIM.inWaiting has '1425*', returning 5
+2014-02-24 23:41:36,608, DEBUG, SIM.read: asked for 1 returned: 1425*
+2014-02-24 23:41:36,608, DEBUG, SIM.inWaiting has '425*', returning 4
+2014-02-24 23:41:36,608, DEBUG, SIM.read: asked for 1 returned: 425*
+2014-02-24 23:41:36,608, DEBUG, SIM.inWaiting has '25*', returning 3
+2014-02-24 23:41:36,608, DEBUG, SIM.read: asked for 1 returned: 25*
+2014-02-24 23:41:36,608, DEBUG, SIM.inWaiting has '5*', returning 2
+2014-02-24 23:41:36,608, DEBUG, SIM.read: asked for 1 returned: 5*
+2014-02-24 23:41:36,608, DEBUG, SIM.inWaiting has '*', returning 1
+2014-02-24 23:41:36,608, DEBUG, SIM.read: asked for 1 returned: *
+2014-02-24 23:41:36,608, DEBUG, Rx -  * received
+2014-02-24 23:41:36,664, DEBUG, Rx: '1425' bytes read: 4
+2014-02-24 23:41:36,664, DEBUG, TP TIMER RESPONSE: '1425'
+2014-02-24 23:41:37,325, DEBUG, SIM.write got 'NC \n'
+2014-02-24 23:41:37,325, DEBUG, SIM.write command parsed as: ['NC']
+2014-02-24 23:41:37,325, DEBUG, NC_SIM PARAM: 2
+2014-02-24 23:41:37,325, DEBUG, NC_SIM RECEIVED: 2
+2014-02-24 23:41:37,325, DEBUG, Tx: 'NC \n'bytes sent: 4
+2014-02-24 23:41:37,325, DEBUG, SIM.inWaiting has '2*', returning 2
+2014-02-24 23:41:37,325, DEBUG, SIM.read: asked for 1 returned: 2*
+2014-02-24 23:41:37,325, DEBUG, SIM.inWaiting has '*', returning 1
+2014-02-24 23:41:37,325, DEBUG, SIM.read: asked for 1 returned: *
+2014-02-24 23:41:37,325, DEBUG, Rx -  * received
+2014-02-24 23:41:37,378, DEBUG, Rx: '2' bytes read: 1
+2014-02-24 23:41:37,378, DEBUG, NC TIMER RESPONSE: '2'
+2014-02-24 23:41:37,378, DEBUG, SIM.write got 'AS \n'
+2014-02-24 23:41:37,378, DEBUG, SIM.write command parsed as: ['AS']
+2014-02-24 23:41:37,378, DEBUG, AS_SIM PARAM: -4
+2014-02-24 23:41:37,378, DEBUG, AS_SIM RECEIVED: -4
+2014-02-24 23:41:37,378, DEBUG, Tx: 'AS \n'bytes sent: 4
+2014-02-24 23:41:37,378, DEBUG, SIM.inWaiting has '-4*', returning 3
+2014-02-24 23:41:37,378, DEBUG, SIM.read: asked for 1 returned: -4*
+2014-02-24 23:41:37,378, DEBUG, SIM.inWaiting has '4*', returning 2
+2014-02-24 23:41:37,378, DEBUG, SIM.read: asked for 1 returned: 4*
+2014-02-24 23:41:37,378, DEBUG, SIM.inWaiting has '*', returning 1
+2014-02-24 23:41:37,378, DEBUG, SIM.read: asked for 1 returned: *
+2014-02-24 23:41:37,378, DEBUG, Rx -  * received
+2014-02-24 23:41:37,434, DEBUG, Rx: '-4' bytes read: 2
+2014-02-24 23:41:37,434, DEBUG, AS TIMER RESPONSE: '-4'
+2014-02-24 23:41:37,434, DEBUG, SIM.write got 'BIAS  \n'
+2014-02-24 23:41:37,434, DEBUG, SIM.write command parsed as: ['BIAS']
+2014-02-24 23:41:37,434, DEBUG, BIAS_SIM PARAM: 100.0
+2014-02-24 23:41:37,434, DEBUG, BIAS_SIM RECEIVED: 100.0
+2014-02-24 23:41:37,441, DEBUG, Tx: 'BIAS  \n'bytes sent: 7
+2014-02-24 23:41:37,441, DEBUG, SIM.inWaiting has '100.0*', returning 6
+2014-02-24 23:41:37,441, DEBUG, SIM.read: asked for 1 returned: 100.0*
+2014-02-24 23:41:37,441, DEBUG, SIM.inWaiting has '00.0*', returning 5
+2014-02-24 23:41:37,441, DEBUG, SIM.read: asked for 1 returned: 00.0*
+2014-02-24 23:41:37,441, DEBUG, SIM.inWaiting has '0.0*', returning 4
+2014-02-24 23:41:37,441, DEBUG, SIM.read: asked for 1 returned: 0.0*
+2014-02-24 23:41:37,441, DEBUG, SIM.inWaiting has '.0*', returning 3
+2014-02-24 23:41:37,441, DEBUG, SIM.read: asked for 1 returned: .0*
+2014-02-24 23:41:37,441, DEBUG, SIM.inWaiting has '0*', returning 2
+2014-02-24 23:41:37,441, DEBUG, SIM.read: asked for 1 returned: 0*
+2014-02-24 23:41:37,441, DEBUG, SIM.inWaiting has '*', returning 1
+2014-02-24 23:41:37,441, DEBUG, SIM.read: asked for 1 returned: *
+2014-02-24 23:41:37,441, DEBUG, Rx -  * received
+2014-02-24 23:41:37,496, DEBUG, Rx: '100.0' bytes read: 5
+2014-02-24 23:41:37,496, DEBUG, BIAS TIMER RESPONSE: '100.0'
+2014-02-24 23:41:37,496, DEBUG, SIM.write got 'TP \n'
+2014-02-24 23:41:37,496, DEBUG, SIM.write command parsed as: ['TP']
+2014-02-24 23:41:37,496, DEBUG, TP_SIM PARAM: None
+2014-02-24 23:41:37,496, DEBUG, TP_SIM RECEIVED: 1665
+2014-02-24 23:41:37,496, DEBUG, Tx: 'TP \n'bytes sent: 4
+2014-02-24 23:41:37,496, DEBUG, SIM.inWaiting has '1665*', returning 5
+2014-02-24 23:41:37,496, DEBUG, SIM.read: asked for 1 returned: 1665*
+2014-02-24 23:41:37,496, DEBUG, SIM.inWaiting has '665*', returning 4
+2014-02-24 23:41:37,496, DEBUG, SIM.read: asked for 1 returned: 665*
+2014-02-24 23:41:37,496, DEBUG, SIM.inWaiting has '65*', returning 3
+2014-02-24 23:41:37,496, DEBUG, SIM.read: asked for 1 returned: 65*
+2014-02-24 23:41:37,496, DEBUG, SIM.inWaiting has '5*', returning 2
+2014-02-24 23:41:37,496, DEBUG, SIM.read: asked for 1 returned: 5*
+2014-02-24 23:41:37,496, DEBUG, SIM.inWaiting has '*', returning 1
+2014-02-24 23:41:37,496, DEBUG, SIM.read: asked for 1 returned: *
+2014-02-24 23:41:37,496, DEBUG, Rx -  * received
+2014-02-24 23:41:37,551, DEBUG, Rx: '1665' bytes read: 4
+2014-02-24 23:41:37,551, DEBUG, TP TIMER RESPONSE: '1665'
+2014-02-24 23:41:37,559, DEBUG, get_next_command() reply timing response: (1.5, ('BIAS 500',))
+2014-02-24 23:41:37,559, DEBUG, SIM.write got 'BIAS 500 \n'
+2014-02-24 23:41:37,566, DEBUG, SIM.write command parsed as: ['BIAS', '500']
+2014-02-24 23:41:37,566, DEBUG, BIAS_SIM PARAM: 500.0
+2014-02-24 23:41:37,566, DEBUG, BIAS_SIM RECEIVED: 500.0
+2014-02-24 23:41:37,566, DEBUG, Tx: 'BIAS 500 \n'bytes sent: 10
+2014-02-24 23:41:37,566, DEBUG, SIM.inWaiting has '500.0*', returning 6
+2014-02-24 23:41:37,566, DEBUG, SIM.read: asked for 1 returned: 500.0*
+2014-02-24 23:41:37,566, DEBUG, SIM.inWaiting has '00.0*', returning 5
+2014-02-24 23:41:37,566, DEBUG, SIM.read: asked for 1 returned: 00.0*
+2014-02-24 23:41:37,566, DEBUG, SIM.inWaiting has '0.0*', returning 4
+2014-02-24 23:41:37,566, DEBUG, SIM.read: asked for 1 returned: 0.0*
+2014-02-24 23:41:37,566, DEBUG, SIM.inWaiting has '.0*', returning 3
+2014-02-24 23:41:37,566, DEBUG, SIM.read: asked for 1 returned: .0*
+2014-02-24 23:41:37,566, DEBUG, SIM.inWaiting has '0*', returning 2
+2014-02-24 23:41:37,566, DEBUG, SIM.read: asked for 1 returned: 0*
+2014-02-24 23:41:37,566, DEBUG, SIM.inWaiting has '*', returning 1
+2014-02-24 23:41:37,575, DEBUG, SIM.read: asked for 1 returned: *
+2014-02-24 23:41:37,575, DEBUG, Rx -  * received
+2014-02-24 23:41:37,628, DEBUG, Rx: '500.0' bytes read: 5
+2014-02-24 23:41:37,628, DEBUG, command execute()reply timing response: 'BIAS 500'
+2014-02-24 23:41:37,628, DEBUG, SIM.write got 'NC \n'
+2014-02-24 23:41:37,628, DEBUG, SIM.write command parsed as: ['NC']
+2014-02-24 23:41:37,628, DEBUG, NC_SIM PARAM: 2
+2014-02-24 23:41:37,628, DEBUG, NC_SIM RECEIVED: 2
+2014-02-24 23:41:37,628, DEBUG, Tx: 'NC \n'bytes sent: 4
+2014-02-24 23:41:37,628, DEBUG, SIM.inWaiting has '2*', returning 2
+2014-02-24 23:41:37,628, DEBUG, SIM.read: asked for 1 returned: 2*
+2014-02-24 23:41:37,628, DEBUG, SIM.inWaiting has '*', returning 1
+2014-02-24 23:41:37,628, DEBUG, SIM.read: asked for 1 returned: *
+2014-02-24 23:41:37,628, DEBUG, Rx -  * received
+2014-02-24 23:41:37,684, DEBUG, Rx: '2' bytes read: 1
+2014-02-24 23:41:37,684, DEBUG, NC TIMER RESPONSE: '2'
+2014-02-24 23:41:37,684, DEBUG, SIM.write got 'AS \n'
+2014-02-24 23:41:37,684, DEBUG, SIM.write command parsed as: ['AS']
+2014-02-24 23:41:37,684, DEBUG, AS_SIM PARAM: -4
+2014-02-24 23:41:37,684, DEBUG, AS_SIM RECEIVED: -4
+2014-02-24 23:41:37,684, DEBUG, Tx: 'AS \n'bytes sent: 4
+2014-02-24 23:41:37,684, DEBUG, SIM.inWaiting has '-4*', returning 3
+2014-02-24 23:41:37,684, DEBUG, SIM.read: asked for 1 returned: -4*
+2014-02-24 23:41:37,684, DEBUG, SIM.inWaiting has '4*', returning 2
+2014-02-24 23:41:37,684, DEBUG, SIM.read: asked for 1 returned: 4*
+2014-02-24 23:41:37,684, DEBUG, SIM.inWaiting has '*', returning 1
+2014-02-24 23:41:37,684, DEBUG, SIM.read: asked for 1 returned: *
+2014-02-24 23:41:37,684, DEBUG, Rx -  * received
+2014-02-24 23:41:37,739, DEBUG, Rx: '-4' bytes read: 2
+2014-02-24 23:41:37,739, DEBUG, AS TIMER RESPONSE: '-4'
+2014-02-24 23:41:37,739, DEBUG, SIM.write got 'BIAS  \n'
+2014-02-24 23:41:37,739, DEBUG, SIM.write command parsed as: ['BIAS']
+2014-02-24 23:41:37,739, DEBUG, BIAS_SIM PARAM: 500.0
+2014-02-24 23:41:37,739, DEBUG, BIAS_SIM RECEIVED: 500.0
+2014-02-24 23:41:37,739, DEBUG, Tx: 'BIAS  \n'bytes sent: 7
+2014-02-24 23:41:37,746, DEBUG, SIM.inWaiting has '500.0*', returning 6
+2014-02-24 23:41:37,746, DEBUG, SIM.read: asked for 1 returned: 500.0*
+2014-02-24 23:41:37,746, DEBUG, SIM.inWaiting has '00.0*', returning 5
+2014-02-24 23:41:37,746, DEBUG, SIM.read: asked for 1 returned: 00.0*
+2014-02-24 23:41:37,746, DEBUG, SIM.inWaiting has '0.0*', returning 4
+2014-02-24 23:41:37,746, DEBUG, SIM.read: asked for 1 returned: 0.0*
+2014-02-24 23:41:37,746, DEBUG, SIM.inWaiting has '.0*', returning 3
+2014-02-24 23:41:37,746, DEBUG, SIM.read: asked for 1 returned: .0*
+2014-02-24 23:41:37,746, DEBUG, SIM.inWaiting has '0*', returning 2
+2014-02-24 23:41:37,746, DEBUG, SIM.read: asked for 1 returned: 0*
+2014-02-24 23:41:37,746, DEBUG, SIM.inWaiting has '*', returning 1
+2014-02-24 23:41:37,746, DEBUG, SIM.read: asked for 1 returned: *
+2014-02-24 23:41:37,746, DEBUG, Rx -  * received
+2014-02-24 23:41:37,801, DEBUG, Rx: '500.0' bytes read: 5
+2014-02-24 23:41:37,801, DEBUG, BIAS TIMER RESPONSE: '500.0'
+2014-02-24 23:41:37,801, DEBUG, SIM.write got 'TP \n'
+2014-02-24 23:41:37,801, DEBUG, SIM.write command parsed as: ['TP']
+2014-02-24 23:41:37,801, DEBUG, TP_SIM PARAM: None
+2014-02-24 23:41:37,801, DEBUG, TP_SIM RECEIVED: 650
+2014-02-24 23:41:37,801, DEBUG, Tx: 'TP \n'bytes sent: 4
+2014-02-24 23:41:37,801, DEBUG, SIM.inWaiting has '650*', returning 4
+2014-02-24 23:41:37,801, DEBUG, SIM.read: asked for 1 returned: 650*
+2014-02-24 23:41:37,801, DEBUG, SIM.inWaiting has '50*', returning 3
+2014-02-24 23:41:37,801, DEBUG, SIM.read: asked for 1 returned: 50*
+2014-02-24 23:41:37,801, DEBUG, SIM.inWaiting has '0*', returning 2
+2014-02-24 23:41:37,801, DEBUG, SIM.read: asked for 1 returned: 0*
+2014-02-24 23:41:37,801, DEBUG, SIM.inWaiting has '*', returning 1
+2014-02-24 23:41:37,801, DEBUG, SIM.read: asked for 1 returned: *
+2014-02-24 23:41:37,801, DEBUG, Rx -  * received
+2014-02-24 23:41:37,855, DEBUG, Rx: '650' bytes read: 3
+2014-02-24 23:41:37,855, DEBUG, TP TIMER RESPONSE: '650'
+2014-02-24 23:41:38,473, DEBUG, SIM.write got 'NC \n'
+2014-02-24 23:41:38,473, DEBUG, SIM.write command parsed as: ['NC']
+2014-02-24 23:41:38,473, DEBUG, NC_SIM PARAM: 2
+2014-02-24 23:41:38,473, DEBUG, NC_SIM RECEIVED: 2
+2014-02-24 23:41:38,473, DEBUG, Tx: 'NC \n'bytes sent: 4
+2014-02-24 23:41:38,473, DEBUG, SIM.inWaiting has '2*', returning 2
+2014-02-24 23:41:38,473, DEBUG, SIM.read: asked for 1 returned: 2*
+2014-02-24 23:41:38,473, DEBUG, SIM.inWaiting has '*', returning 1
+2014-02-24 23:41:38,473, DEBUG, SIM.read: asked for 1 returned: *
+2014-02-24 23:41:38,473, DEBUG, Rx -  * received
+2014-02-24 23:41:38,528, DEBUG, Rx: '2' bytes read: 1
+2014-02-24 23:41:38,528, DEBUG, NC TIMER RESPONSE: '2'
+2014-02-24 23:41:38,528, DEBUG, SIM.write got 'AS \n'
+2014-02-24 23:41:38,528, DEBUG, SIM.write command parsed as: ['AS']
+2014-02-24 23:41:38,528, DEBUG, AS_SIM PARAM: -4
+2014-02-24 23:41:38,528, DEBUG, AS_SIM RECEIVED: -4
+2014-02-24 23:41:38,528, DEBUG, Tx: 'AS \n'bytes sent: 4
+2014-02-24 23:41:38,528, DEBUG, SIM.inWaiting has '-4*', returning 3
+2014-02-24 23:41:38,528, DEBUG, SIM.read: asked for 1 returned: -4*
+2014-02-24 23:41:38,528, DEBUG, SIM.inWaiting has '4*', returning 2
+2014-02-24 23:41:38,528, DEBUG, SIM.read: asked for 1 returned: 4*
+2014-02-24 23:41:38,528, DEBUG, SIM.inWaiting has '*', returning 1
+2014-02-24 23:41:38,528, DEBUG, SIM.read: asked for 1 returned: *
+2014-02-24 23:41:38,528, DEBUG, Rx -  * received
+2014-02-24 23:41:38,582, DEBUG, Rx: '-4' bytes read: 2
+2014-02-24 23:41:38,582, DEBUG, AS TIMER RESPONSE: '-4'
+2014-02-24 23:41:38,582, DEBUG, SIM.write got 'BIAS  \n'
+2014-02-24 23:41:38,582, DEBUG, SIM.write command parsed as: ['BIAS']
+2014-02-24 23:41:38,589, DEBUG, BIAS_SIM PARAM: 500.0
+2014-02-24 23:41:38,589, DEBUG, BIAS_SIM RECEIVED: 500.0
+2014-02-24 23:41:38,589, DEBUG, Tx: 'BIAS  \n'bytes sent: 7
+2014-02-24 23:41:38,589, DEBUG, SIM.inWaiting has '500.0*', returning 6
+2014-02-24 23:41:38,589, DEBUG, SIM.read: asked for 1 returned: 500.0*
+2014-02-24 23:41:38,589, DEBUG, SIM.inWaiting has '00.0*', returning 5
+2014-02-24 23:41:38,589, DEBUG, SIM.read: asked for 1 returned: 00.0*
+2014-02-24 23:41:38,589, DEBUG, SIM.inWaiting has '0.0*', returning 4
+2014-02-24 23:41:38,589, DEBUG, SIM.read: asked for 1 returned: 0.0*
+2014-02-24 23:41:38,589, DEBUG, SIM.inWaiting has '.0*', returning 3
+2014-02-24 23:41:38,589, DEBUG, SIM.read: asked for 1 returned: .0*
+2014-02-24 23:41:38,589, DEBUG, SIM.inWaiting has '0*', returning 2
+2014-02-24 23:41:38,589, DEBUG, SIM.read: asked for 1 returned: 0*
+2014-02-24 23:41:38,589, DEBUG, SIM.inWaiting has '*', returning 1
+2014-02-24 23:41:38,589, DEBUG, SIM.read: asked for 1 returned: *
+2014-02-24 23:41:38,589, DEBUG, Rx -  * received
+2014-02-24 23:41:38,644, DEBUG, Rx: '500.0' bytes read: 5
+2014-02-24 23:41:38,644, DEBUG, BIAS TIMER RESPONSE: '500.0'
+2014-02-24 23:41:38,644, DEBUG, SIM.write got 'TP \n'
+2014-02-24 23:41:38,644, DEBUG, SIM.write command parsed as: ['TP']
+2014-02-24 23:41:38,644, DEBUG, TP_SIM PARAM: None
+2014-02-24 23:41:38,644, DEBUG, TP_SIM RECEIVED: 423
+2014-02-24 23:41:38,644, DEBUG, Tx: 'TP \n'bytes sent: 4
+2014-02-24 23:41:38,644, DEBUG, SIM.inWaiting has '423*', returning 4
+2014-02-24 23:41:38,644, DEBUG, SIM.read: asked for 1 returned: 423*
+2014-02-24 23:41:38,644, DEBUG, SIM.inWaiting has '23*', returning 3
+2014-02-24 23:41:38,644, DEBUG, SIM.read: asked for 1 returned: 23*
+2014-02-24 23:41:38,644, DEBUG, SIM.inWaiting has '3*', returning 2
+2014-02-24 23:41:38,644, DEBUG, SIM.read: asked for 1 returned: 3*
+2014-02-24 23:41:38,644, DEBUG, SIM.inWaiting has '*', returning 1
+2014-02-24 23:41:38,644, DEBUG, SIM.read: asked for 1 returned: *
+2014-02-24 23:41:38,644, DEBUG, Rx -  * received
+2014-02-24 23:41:38,700, DEBUG, Rx: '423' bytes read: 3
+2014-02-24 23:41:38,700, DEBUG, TP TIMER RESPONSE: '423'
+2014-02-24 23:41:38,700, DEBUG, get_next_command() reply timing response: (2.0, ('BIAS 200',))
+2014-02-24 23:41:38,700, DEBUG, SIM.write got 'BIAS 200 \n'
+2014-02-24 23:41:38,700, DEBUG, SIM.write command parsed as: ['BIAS', '200']
+2014-02-24 23:41:38,707, DEBUG, BIAS_SIM PARAM: 200.0
+2014-02-24 23:41:38,707, DEBUG, BIAS_SIM RECEIVED: 200.0
+2014-02-24 23:41:38,707, DEBUG, Tx: 'BIAS 200 \n'bytes sent: 10
+2014-02-24 23:41:38,707, DEBUG, SIM.inWaiting has '200.0*', returning 6
+2014-02-24 23:41:38,707, DEBUG, SIM.read: asked for 1 returned: 200.0*
+2014-02-24 23:41:38,707, DEBUG, SIM.inWaiting has '00.0*', returning 5
+2014-02-24 23:41:38,707, DEBUG, SIM.read: asked for 1 returned: 00.0*
+2014-02-24 23:41:38,707, DEBUG, SIM.inWaiting has '0.0*', returning 4
+2014-02-24 23:41:38,707, DEBUG, SIM.read: asked for 1 returned: 0.0*
+2014-02-24 23:41:38,707, DEBUG, SIM.inWaiting has '.0*', returning 3
+2014-02-24 23:41:38,707, DEBUG, SIM.read: asked for 1 returned: .0*
+2014-02-24 23:41:38,707, DEBUG, SIM.inWaiting has '0*', returning 2
+2014-02-24 23:41:38,707, DEBUG, SIM.read: asked for 1 returned: 0*
+2014-02-24 23:41:38,707, DEBUG, SIM.inWaiting has '*', returning 1
+2014-02-24 23:41:38,707, DEBUG, SIM.read: asked for 1 returned: *
+2014-02-24 23:41:38,707, DEBUG, Rx -  * received
+2014-02-24 23:41:38,762, DEBUG, Rx: '200.0' bytes read: 5
+2014-02-24 23:41:38,762, DEBUG, command execute()reply timing response: 'BIAS 200'
+2014-02-24 23:41:38,762, DEBUG, SIM.write got 'NC \n'
+2014-02-24 23:41:38,762, DEBUG, SIM.write command parsed as: ['NC']
+2014-02-24 23:41:38,762, DEBUG, NC_SIM PARAM: 2
+2014-02-24 23:41:38,762, DEBUG, NC_SIM RECEIVED: 2
+2014-02-24 23:41:38,762, DEBUG, Tx: 'NC \n'bytes sent: 4
+2014-02-24 23:41:38,762, DEBUG, SIM.inWaiting has '2*', returning 2
+2014-02-24 23:41:38,762, DEBUG, SIM.read: asked for 1 returned: 2*
+2014-02-24 23:41:38,762, DEBUG, SIM.inWaiting has '*', returning 1
+2014-02-24 23:41:38,762, DEBUG, SIM.read: asked for 1 returned: *
+2014-02-24 23:41:38,762, DEBUG, Rx -  * received
+2014-02-24 23:41:38,816, DEBUG, Rx: '2' bytes read: 1
+2014-02-24 23:41:38,816, DEBUG, NC TIMER RESPONSE: '2'
+2014-02-24 23:41:38,816, DEBUG, SIM.write got 'AS \n'
+2014-02-24 23:41:38,816, DEBUG, SIM.write command parsed as: ['AS']
+2014-02-24 23:41:38,816, DEBUG, AS_SIM PARAM: -4
+2014-02-24 23:41:38,816, DEBUG, AS_SIM RECEIVED: -4
+2014-02-24 23:41:38,816, DEBUG, Tx: 'AS \n'bytes sent: 4
+2014-02-24 23:41:38,816, DEBUG, SIM.inWaiting has '-4*', returning 3
+2014-02-24 23:41:38,816, DEBUG, SIM.read: asked for 1 returned: -4*
+2014-02-24 23:41:38,816, DEBUG, SIM.inWaiting has '4*', returning 2
+2014-02-24 23:41:38,816, DEBUG, SIM.read: asked for 1 returned: 4*
+2014-02-24 23:41:38,816, DEBUG, SIM.inWaiting has '*', returning 1
+2014-02-24 23:41:38,816, DEBUG, SIM.read: asked for 1 returned: *
+2014-02-24 23:41:38,816, DEBUG, Rx -  * received
+2014-02-24 23:41:38,871, DEBUG, Rx: '-4' bytes read: 2
+2014-02-24 23:41:38,871, DEBUG, AS TIMER RESPONSE: '-4'
+2014-02-24 23:41:38,871, DEBUG, SIM.write got 'BIAS  \n'
+2014-02-24 23:41:38,871, DEBUG, SIM.write command parsed as: ['BIAS']
+2014-02-24 23:41:38,871, DEBUG, BIAS_SIM PARAM: 200.0
+2014-02-24 23:41:38,871, DEBUG, BIAS_SIM RECEIVED: 200.0
+2014-02-24 23:41:38,871, DEBUG, Tx: 'BIAS  \n'bytes sent: 7
+2014-02-24 23:41:38,871, DEBUG, SIM.inWaiting has '200.0*', returning 6
+2014-02-24 23:41:38,871, DEBUG, SIM.read: asked for 1 returned: 200.0*
+2014-02-24 23:41:38,871, DEBUG, SIM.inWaiting has '00.0*', returning 5
+2014-02-24 23:41:38,871, DEBUG, SIM.read: asked for 1 returned: 00.0*
+2014-02-24 23:41:38,871, DEBUG, SIM.inWaiting has '0.0*', returning 4
+2014-02-24 23:41:38,871, DEBUG, SIM.read: asked for 1 returned: 0.0*
+2014-02-24 23:41:38,871, DEBUG, SIM.inWaiting has '.0*', returning 3
+2014-02-24 23:41:38,871, DEBUG, SIM.read: asked for 1 returned: .0*
+2014-02-24 23:41:38,871, DEBUG, SIM.inWaiting has '0*', returning 2
+2014-02-24 23:41:38,871, DEBUG, SIM.read: asked for 1 returned: 0*
+2014-02-24 23:41:38,871, DEBUG, SIM.inWaiting has '*', returning 1
+2014-02-24 23:41:38,871, DEBUG, SIM.read: asked for 1 returned: *
+2014-02-24 23:41:38,871, DEBUG, Rx -  * received
+2014-02-24 23:41:38,926, DEBUG, Rx: '200.0' bytes read: 5
+2014-02-24 23:41:38,926, DEBUG, BIAS TIMER RESPONSE: '200.0'
+2014-02-24 23:41:38,926, DEBUG, SIM.write got 'TP \n'
+2014-02-24 23:41:38,926, DEBUG, SIM.write command parsed as: ['TP']
+2014-02-24 23:41:38,926, DEBUG, TP_SIM PARAM: None
+2014-02-24 23:41:38,926, DEBUG, TP_SIM RECEIVED: 722
+2014-02-24 23:41:38,926, DEBUG, Tx: 'TP \n'bytes sent: 4
+2014-02-24 23:41:38,926, DEBUG, SIM.inWaiting has '722*', returning 4
+2014-02-24 23:41:38,926, DEBUG, SIM.read: asked for 1 returned: 722*
+2014-02-24 23:41:38,926, DEBUG, SIM.inWaiting has '22*', returning 3
+2014-02-24 23:41:38,926, DEBUG, SIM.read: asked for 1 returned: 22*
+2014-02-24 23:41:38,926, DEBUG, SIM.inWaiting has '2*', returning 2
+2014-02-24 23:41:38,926, DEBUG, SIM.read: asked for 1 returned: 2*
+2014-02-24 23:41:38,926, DEBUG, SIM.inWaiting has '*', returning 1
+2014-02-24 23:41:38,926, DEBUG, SIM.read: asked for 1 returned: *
+2014-02-24 23:41:38,926, DEBUG, Rx -  * received
+2014-02-24 23:41:38,980, DEBUG, Rx: '722' bytes read: 3
+2014-02-24 23:41:38,980, DEBUG, TP TIMER RESPONSE: '722'
+2014-02-24 23:41:39,595, DEBUG, SIM.write got 'NC \n'
+2014-02-24 23:41:39,602, DEBUG, SIM.write command parsed as: ['NC']
+2014-02-24 23:41:39,602, DEBUG, NC_SIM PARAM: 2
+2014-02-24 23:41:39,602, DEBUG, NC_SIM RECEIVED: 2
+2014-02-24 23:41:39,602, DEBUG, Tx: 'NC \n'bytes sent: 4
+2014-02-24 23:41:39,602, DEBUG, SIM.inWaiting has '2*', returning 2
+2014-02-24 23:41:39,602, DEBUG, SIM.read: asked for 1 returned: 2*
+2014-02-24 23:41:39,602, DEBUG, SIM.inWaiting has '*', returning 1
+2014-02-24 23:41:39,602, DEBUG, SIM.read: asked for 1 returned: *
+2014-02-24 23:41:39,602, DEBUG, Rx -  * received
+2014-02-24 23:41:39,657, DEBUG, Rx: '2' bytes read: 1
+2014-02-24 23:41:39,657, DEBUG, NC TIMER RESPONSE: '2'
+2014-02-24 23:41:39,657, DEBUG, SIM.write got 'AS \n'
+2014-02-24 23:41:39,657, DEBUG, SIM.write command parsed as: ['AS']
+2014-02-24 23:41:39,657, DEBUG, AS_SIM PARAM: -4
+2014-02-24 23:41:39,657, DEBUG, AS_SIM RECEIVED: -4
+2014-02-24 23:41:39,657, DEBUG, Tx: 'AS \n'bytes sent: 4
+2014-02-24 23:41:39,657, DEBUG, SIM.inWaiting has '-4*', returning 3
+2014-02-24 23:41:39,657, DEBUG, SIM.read: asked for 1 returned: -4*
+2014-02-24 23:41:39,657, DEBUG, SIM.inWaiting has '4*', returning 2
+2014-02-24 23:41:39,657, DEBUG, SIM.read: asked for 1 returned: 4*
+2014-02-24 23:41:39,657, DEBUG, SIM.inWaiting has '*', returning 1
+2014-02-24 23:41:39,657, DEBUG, SIM.read: asked for 1 returned: *
+2014-02-24 23:41:39,657, DEBUG, Rx -  * received
+2014-02-24 23:41:39,711, DEBUG, Rx: '-4' bytes read: 2
+2014-02-24 23:41:39,711, DEBUG, AS TIMER RESPONSE: '-4'
+2014-02-24 23:41:39,711, DEBUG, SIM.write got 'BIAS  \n'
+2014-02-24 23:41:39,711, DEBUG, SIM.write command parsed as: ['BIAS']
+2014-02-24 23:41:39,711, DEBUG, BIAS_SIM PARAM: 200.0
+2014-02-24 23:41:39,711, DEBUG, BIAS_SIM RECEIVED: 200.0
+2014-02-24 23:41:39,711, DEBUG, Tx: 'BIAS  \n'bytes sent: 7
+2014-02-24 23:41:39,720, DEBUG, SIM.inWaiting has '200.0*', returning 6
+2014-02-24 23:41:39,720, DEBUG, SIM.read: asked for 1 returned: 200.0*
+2014-02-24 23:41:39,720, DEBUG, SIM.inWaiting has '00.0*', returning 5
+2014-02-24 23:41:39,720, DEBUG, SIM.read: asked for 1 returned: 00.0*
+2014-02-24 23:41:39,720, DEBUG, SIM.inWaiting has '0.0*', returning 4
+2014-02-24 23:41:39,720, DEBUG, SIM.read: asked for 1 returned: 0.0*
+2014-02-24 23:41:39,720, DEBUG, SIM.inWaiting has '.0*', returning 3
+2014-02-24 23:41:39,720, DEBUG, SIM.read: asked for 1 returned: .0*
+2014-02-24 23:41:39,720, DEBUG, SIM.inWaiting has '0*', returning 2
+2014-02-24 23:41:39,720, DEBUG, SIM.read: asked for 1 returned: 0*
+2014-02-24 23:41:39,720, DEBUG, SIM.inWaiting has '*', returning 1
+2014-02-24 23:41:39,720, DEBUG, SIM.read: asked for 1 returned: *
+2014-02-24 23:41:39,720, DEBUG, Rx -  * received
+2014-02-24 23:41:39,775, DEBUG, Rx: '200.0' bytes read: 5
+2014-02-24 23:41:39,775, DEBUG, BIAS TIMER RESPONSE: '200.0'
+2014-02-24 23:41:39,775, DEBUG, SIM.write got 'TP \n'
+2014-02-24 23:41:39,775, DEBUG, SIM.write command parsed as: ['TP']
+2014-02-24 23:41:39,775, DEBUG, TP_SIM PARAM: None
+2014-02-24 23:41:39,775, DEBUG, TP_SIM RECEIVED: 99
+2014-02-24 23:41:39,775, DEBUG, Tx: 'TP \n'bytes sent: 4
+2014-02-24 23:41:39,775, DEBUG, SIM.inWaiting has '99*', returning 3
+2014-02-24 23:41:39,775, DEBUG, SIM.read: asked for 1 returned: 99*
+2014-02-24 23:41:39,775, DEBUG, SIM.inWaiting has '9*', returning 2
+2014-02-24 23:41:39,775, DEBUG, SIM.read: asked for 1 returned: 9*
+2014-02-24 23:41:39,775, DEBUG, SIM.inWaiting has '*', returning 1
+2014-02-24 23:41:39,775, DEBUG, SIM.read: asked for 1 returned: *
+2014-02-24 23:41:39,775, DEBUG, Rx -  * received
+2014-02-24 23:41:39,829, DEBUG, Rx: '99' bytes read: 2
+2014-02-24 23:41:39,829, DEBUG, TP TIMER RESPONSE: '99'
+2014-02-24 23:41:39,845, DEBUG, get_next_command() reply timing response: (3, ('BIAS 500',))
+2014-02-24 23:41:39,845, DEBUG, SIM.write got 'BIAS 500 \n'
+2014-02-24 23:41:39,845, DEBUG, SIM.write command parsed as: ['BIAS', '500']
+2014-02-24 23:41:39,845, DEBUG, BIAS_SIM PARAM: 500.0
+2014-02-24 23:41:39,845, DEBUG, BIAS_SIM RECEIVED: 500.0
+2014-02-24 23:41:39,845, DEBUG, Tx: 'BIAS 500 \n'bytes sent: 10
+2014-02-24 23:41:39,845, DEBUG, SIM.inWaiting has '500.0*', returning 6
+2014-02-24 23:41:39,845, DEBUG, SIM.read: asked for 1 returned: 500.0*
+2014-02-24 23:41:39,845, DEBUG, SIM.inWaiting has '00.0*', returning 5
+2014-02-24 23:41:39,845, DEBUG, SIM.read: asked for 1 returned: 00.0*
+2014-02-24 23:41:39,852, DEBUG, SIM.inWaiting has '0.0*', returning 4
+2014-02-24 23:41:39,852, DEBUG, SIM.read: asked for 1 returned: 0.0*
+2014-02-24 23:41:39,852, DEBUG, SIM.inWaiting has '.0*', returning 3
+2014-02-24 23:41:39,852, DEBUG, SIM.read: asked for 1 returned: .0*
+2014-02-24 23:41:39,852, DEBUG, SIM.inWaiting has '0*', returning 2
+2014-02-24 23:41:39,852, DEBUG, SIM.read: asked for 1 returned: 0*
+2014-02-24 23:41:39,852, DEBUG, SIM.inWaiting has '*', returning 1
+2014-02-24 23:41:39,852, DEBUG, SIM.read: asked for 1 returned: *
+2014-02-24 23:41:39,852, DEBUG, Rx -  * received
+2014-02-24 23:41:39,907, DEBUG, Rx: '500.0' bytes read: 5
+2014-02-24 23:41:39,907, DEBUG, command execute()reply timing response: 'BIAS 500'
+2014-02-24 23:41:39,907, DEBUG, SIM.write got 'NC \n'
+2014-02-24 23:41:39,907, DEBUG, SIM.write command parsed as: ['NC']
+2014-02-24 23:41:39,907, DEBUG, NC_SIM PARAM: 2
+2014-02-24 23:41:39,907, DEBUG, NC_SIM RECEIVED: 2
+2014-02-24 23:41:39,907, DEBUG, Tx: 'NC \n'bytes sent: 4
+2014-02-24 23:41:39,907, DEBUG, SIM.inWaiting has '2*', returning 2
+2014-02-24 23:41:39,907, DEBUG, SIM.read: asked for 1 returned: 2*
+2014-02-24 23:41:39,907, DEBUG, SIM.inWaiting has '*', returning 1
+2014-02-24 23:41:39,907, DEBUG, SIM.read: asked for 1 returned: *
+2014-02-24 23:41:39,907, DEBUG, Rx -  * received
+2014-02-24 23:41:39,961, DEBUG, Rx: '2' bytes read: 1
+2014-02-24 23:41:39,961, DEBUG, NC TIMER RESPONSE: '2'
+2014-02-24 23:41:39,961, DEBUG, SIM.write got 'AS \n'
+2014-02-24 23:41:39,961, DEBUG, SIM.write command parsed as: ['AS']
+2014-02-24 23:41:39,961, DEBUG, AS_SIM PARAM: -4
+2014-02-24 23:41:39,961, DEBUG, AS_SIM RECEIVED: -4
+2014-02-24 23:41:39,961, DEBUG, Tx: 'AS \n'bytes sent: 4
+2014-02-24 23:41:39,961, DEBUG, SIM.inWaiting has '-4*', returning 3
+2014-02-24 23:41:39,961, DEBUG, SIM.read: asked for 1 returned: -4*
+2014-02-24 23:41:39,961, DEBUG, SIM.inWaiting has '4*', returning 2
+2014-02-24 23:41:39,961, DEBUG, SIM.read: asked for 1 returned: 4*
+2014-02-24 23:41:39,961, DEBUG, SIM.inWaiting has '*', returning 1
+2014-02-24 23:41:39,961, DEBUG, SIM.read: asked for 1 returned: *
+2014-02-24 23:41:39,961, DEBUG, Rx -  * received
+2014-02-24 23:41:40,016, DEBUG, Rx: '-4' bytes read: 2
+2014-02-24 23:41:40,016, DEBUG, AS TIMER RESPONSE: '-4'
+2014-02-24 23:41:40,016, DEBUG, SIM.write got 'BIAS  \n'
+2014-02-24 23:41:40,016, DEBUG, SIM.write command parsed as: ['BIAS']
+2014-02-24 23:41:40,016, DEBUG, BIAS_SIM PARAM: 500.0
+2014-02-24 23:41:40,016, DEBUG, BIAS_SIM RECEIVED: 500.0
+2014-02-24 23:41:40,016, DEBUG, Tx: 'BIAS  \n'bytes sent: 7
+2014-02-24 23:41:40,016, DEBUG, SIM.inWaiting has '500.0*', returning 6
+2014-02-24 23:41:40,025, DEBUG, SIM.read: asked for 1 returned: 500.0*
+2014-02-24 23:41:40,025, DEBUG, SIM.inWaiting has '00.0*', returning 5
+2014-02-24 23:41:40,025, DEBUG, SIM.read: asked for 1 returned: 00.0*
+2014-02-24 23:41:40,025, DEBUG, SIM.inWaiting has '0.0*', returning 4
+2014-02-24 23:41:40,025, DEBUG, SIM.read: asked for 1 returned: 0.0*
+2014-02-24 23:41:40,025, DEBUG, SIM.inWaiting has '.0*', returning 3
+2014-02-24 23:41:40,025, DEBUG, SIM.read: asked for 1 returned: .0*
+2014-02-24 23:41:40,025, DEBUG, SIM.inWaiting has '0*', returning 2
+2014-02-24 23:41:40,025, DEBUG, SIM.read: asked for 1 returned: 0*
+2014-02-24 23:41:40,025, DEBUG, SIM.inWaiting has '*', returning 1
+2014-02-24 23:41:40,025, DEBUG, SIM.read: asked for 1 returned: *
+2014-02-24 23:41:40,025, DEBUG, Rx -  * received
+2014-02-24 23:41:40,079, DEBUG, Rx: '500.0' bytes read: 5
+2014-02-24 23:41:40,079, DEBUG, BIAS TIMER RESPONSE: '500.0'
+2014-02-24 23:41:40,079, DEBUG, SIM.write got 'TP \n'
+2014-02-24 23:41:40,079, DEBUG, SIM.write command parsed as: ['TP']
+2014-02-24 23:41:40,079, DEBUG, TP_SIM PARAM: None
+2014-02-24 23:41:40,079, DEBUG, TP_SIM RECEIVED: 365
+2014-02-24 23:41:40,079, DEBUG, Tx: 'TP \n'bytes sent: 4
+2014-02-24 23:41:40,079, DEBUG, SIM.inWaiting has '365*', returning 4
+2014-02-24 23:41:40,079, DEBUG, SIM.read: asked for 1 returned: 365*
+2014-02-24 23:41:40,079, DEBUG, SIM.inWaiting has '65*', returning 3
+2014-02-24 23:41:40,079, DEBUG, SIM.read: asked for 1 returned: 65*
+2014-02-24 23:41:40,079, DEBUG, SIM.inWaiting has '5*', returning 2
+2014-02-24 23:41:40,079, DEBUG, SIM.read: asked for 1 returned: 5*
+2014-02-24 23:41:40,079, DEBUG, SIM.inWaiting has '*', returning 1
+2014-02-24 23:41:40,079, DEBUG, SIM.read: asked for 1 returned: *
+2014-02-24 23:41:40,079, DEBUG, Rx -  * received
+2014-02-24 23:41:40,134, DEBUG, Rx: '365' bytes read: 3
+2014-02-24 23:41:40,134, DEBUG, TP TIMER RESPONSE: '365'
+2014-02-24 23:41:40,688, DEBUG, SIM.write got 'NC \n'
+2014-02-24 23:41:40,688, DEBUG, SIM.write command parsed as: ['NC']
+2014-02-24 23:41:40,688, DEBUG, NC_SIM PARAM: 2
+2014-02-24 23:41:40,688, DEBUG, NC_SIM RECEIVED: 2
+2014-02-24 23:41:40,697, DEBUG, Tx: 'NC \n'bytes sent: 4
+2014-02-24 23:41:40,697, DEBUG, SIM.inWaiting has '2*', returning 2
+2014-02-24 23:41:40,697, DEBUG, SIM.read: asked for 1 returned: 2*
+2014-02-24 23:41:40,697, DEBUG, SIM.inWaiting has '*', returning 1
+2014-02-24 23:41:40,697, DEBUG, SIM.read: asked for 1 returned: *
+2014-02-24 23:41:40,697, DEBUG, Rx -  * received
+2014-02-24 23:41:40,750, DEBUG, Rx: '2' bytes read: 1
+2014-02-24 23:41:40,750, DEBUG, NC TIMER RESPONSE: '2'
+2014-02-24 23:41:40,750, DEBUG, SIM.write got 'AS \n'
+2014-02-24 23:41:40,750, DEBUG, SIM.write command parsed as: ['AS']
+2014-02-24 23:41:40,750, DEBUG, AS_SIM PARAM: -4
+2014-02-24 23:41:40,750, DEBUG, AS_SIM RECEIVED: -4
+2014-02-24 23:41:40,750, DEBUG, Tx: 'AS \n'bytes sent: 4
+2014-02-24 23:41:40,750, DEBUG, SIM.inWaiting has '-4*', returning 3
+2014-02-24 23:41:40,750, DEBUG, SIM.read: asked for 1 returned: -4*
+2014-02-24 23:41:40,750, DEBUG, SIM.inWaiting has '4*', returning 2
+2014-02-24 23:41:40,750, DEBUG, SIM.read: asked for 1 returned: 4*
+2014-02-24 23:41:40,750, DEBUG, SIM.inWaiting has '*', returning 1
+2014-02-24 23:41:40,750, DEBUG, SIM.read: asked for 1 returned: *
+2014-02-24 23:41:40,750, DEBUG, Rx -  * received
+2014-02-24 23:41:40,805, DEBUG, Rx: '-4' bytes read: 2
+2014-02-24 23:41:40,805, DEBUG, AS TIMER RESPONSE: '-4'
+2014-02-24 23:41:40,805, DEBUG, SIM.write got 'BIAS  \n'
+2014-02-24 23:41:40,805, DEBUG, SIM.write command parsed as: ['BIAS']
+2014-02-24 23:41:40,805, DEBUG, BIAS_SIM PARAM: 500.0
+2014-02-24 23:41:40,805, DEBUG, BIAS_SIM RECEIVED: 500.0
+2014-02-24 23:41:40,805, DEBUG, Tx: 'BIAS  \n'bytes sent: 7
+2014-02-24 23:41:40,813, DEBUG, SIM.inWaiting has '500.0*', returning 6
+2014-02-24 23:41:40,813, DEBUG, SIM.read: asked for 1 returned: 500.0*
+2014-02-24 23:41:40,813, DEBUG, SIM.inWaiting has '00.0*', returning 5
+2014-02-24 23:41:40,813, DEBUG, SIM.read: asked for 1 returned: 00.0*
+2014-02-24 23:41:40,813, DEBUG, SIM.inWaiting has '0.0*', returning 4
+2014-02-24 23:41:40,813, DEBUG, SIM.read: asked for 1 returned: 0.0*
+2014-02-24 23:41:40,813, DEBUG, SIM.inWaiting has '.0*', returning 3
+2014-02-24 23:41:40,813, DEBUG, SIM.read: asked for 1 returned: .0*
+2014-02-24 23:41:40,813, DEBUG, SIM.inWaiting has '0*', returning 2
+2014-02-24 23:41:40,813, DEBUG, SIM.read: asked for 1 returned: 0*
+2014-02-24 23:41:40,813, DEBUG, SIM.inWaiting has '*', returning 1
+2014-02-24 23:41:40,813, DEBUG, SIM.read: asked for 1 returned: *
+2014-02-24 23:41:40,813, DEBUG, Rx -  * received
+2014-02-24 23:41:40,868, DEBUG, Rx: '500.0' bytes read: 5
+2014-02-24 23:41:40,868, DEBUG, BIAS TIMER RESPONSE: '500.0'
+2014-02-24 23:41:40,868, DEBUG, SIM.write got 'TP \n'
+2014-02-24 23:41:40,868, DEBUG, SIM.write command parsed as: ['TP']
+2014-02-24 23:41:40,868, DEBUG, TP_SIM PARAM: None
+2014-02-24 23:41:40,868, DEBUG, TP_SIM RECEIVED: 555
+2014-02-24 23:41:40,868, DEBUG, Tx: 'TP \n'bytes sent: 4
+2014-02-24 23:41:40,868, DEBUG, SIM.inWaiting has '555*', returning 4
+2014-02-24 23:41:40,868, DEBUG, SIM.read: asked for 1 returned: 555*
+2014-02-24 23:41:40,868, DEBUG, SIM.inWaiting has '55*', returning 3
+2014-02-24 23:41:40,868, DEBUG, SIM.read: asked for 1 returned: 55*
+2014-02-24 23:41:40,868, DEBUG, SIM.inWaiting has '5*', returning 2
+2014-02-24 23:41:40,868, DEBUG, SIM.read: asked for 1 returned: 5*
+2014-02-24 23:41:40,868, DEBUG, SIM.inWaiting has '*', returning 1
+2014-02-24 23:41:40,868, DEBUG, SIM.read: asked for 1 returned: *
+2014-02-24 23:41:40,868, DEBUG, Rx -  * received
+2014-02-24 23:41:40,923, DEBUG, Rx: '555' bytes read: 3
+2014-02-24 23:41:40,923, DEBUG, TP TIMER RESPONSE: '555'
+2014-02-24 23:41:40,930, DEBUG, get_next_command() reply timing response: (4, ('BIAS 400',))
+2014-02-24 23:41:40,930, DEBUG, SIM.write got 'BIAS 400 \n'
+2014-02-24 23:41:40,930, DEBUG, SIM.write command parsed as: ['BIAS', '400']
+2014-02-24 23:41:40,930, DEBUG, BIAS_SIM PARAM: 400.0
+2014-02-24 23:41:40,930, DEBUG, BIAS_SIM RECEIVED: 400.0
+2014-02-24 23:41:40,930, DEBUG, Tx: 'BIAS 400 \n'bytes sent: 10
+2014-02-24 23:41:40,930, DEBUG, SIM.inWaiting has '400.0*', returning 6
+2014-02-24 23:41:40,930, DEBUG, SIM.read: asked for 1 returned: 400.0*
+2014-02-24 23:41:40,930, DEBUG, SIM.inWaiting has '00.0*', returning 5
+2014-02-24 23:41:40,930, DEBUG, SIM.read: asked for 1 returned: 00.0*
+2014-02-24 23:41:40,930, DEBUG, SIM.inWaiting has '0.0*', returning 4
+2014-02-24 23:41:40,930, DEBUG, SIM.read: asked for 1 returned: 0.0*
+2014-02-24 23:41:40,930, DEBUG, SIM.inWaiting has '.0*', returning 3
+2014-02-24 23:41:40,930, DEBUG, SIM.read: asked for 1 returned: .0*
+2014-02-24 23:41:40,930, DEBUG, SIM.inWaiting has '0*', returning 2
+2014-02-24 23:41:40,930, DEBUG, SIM.read: asked for 1 returned: 0*
+2014-02-24 23:41:40,930, DEBUG, SIM.inWaiting has '*', returning 1
+2014-02-24 23:41:40,930, DEBUG, SIM.read: asked for 1 returned: *
+2014-02-24 23:41:40,930, DEBUG, Rx -  * received
+2014-02-24 23:41:40,986, DEBUG, Rx: '400.0' bytes read: 5
+2014-02-24 23:41:40,986, DEBUG, command execute()reply timing response: 'BIAS 400'
+2014-02-24 23:41:40,986, DEBUG, SIM.write got 'NC \n'
+2014-02-24 23:41:40,986, DEBUG, SIM.write command parsed as: ['NC']
+2014-02-24 23:41:40,986, DEBUG, NC_SIM PARAM: 2
+2014-02-24 23:41:40,986, DEBUG, NC_SIM RECEIVED: 2
+2014-02-24 23:41:40,986, DEBUG, Tx: 'NC \n'bytes sent: 4
+2014-02-24 23:41:40,986, DEBUG, SIM.inWaiting has '2*', returning 2
+2014-02-24 23:41:40,986, DEBUG, SIM.read: asked for 1 returned: 2*
+2014-02-24 23:41:40,986, DEBUG, SIM.inWaiting has '*', returning 1
+2014-02-24 23:41:40,986, DEBUG, SIM.read: asked for 1 returned: *
+2014-02-24 23:41:40,986, DEBUG, Rx -  * received
+2014-02-24 23:41:41,040, DEBUG, Rx: '2' bytes read: 1
+2014-02-24 23:41:41,040, DEBUG, NC TIMER RESPONSE: '2'
+2014-02-24 23:41:41,040, DEBUG, SIM.write got 'AS \n'
+2014-02-24 23:41:41,040, DEBUG, SIM.write command parsed as: ['AS']
+2014-02-24 23:41:41,040, DEBUG, AS_SIM PARAM: -4
+2014-02-24 23:41:41,040, DEBUG, AS_SIM RECEIVED: -4
+2014-02-24 23:41:41,040, DEBUG, Tx: 'AS \n'bytes sent: 4
+2014-02-24 23:41:41,040, DEBUG, SIM.inWaiting has '-4*', returning 3
+2014-02-24 23:41:41,040, DEBUG, SIM.read: asked for 1 returned: -4*
+2014-02-24 23:41:41,040, DEBUG, SIM.inWaiting has '4*', returning 2
+2014-02-24 23:41:41,040, DEBUG, SIM.read: asked for 1 returned: 4*
+2014-02-24 23:41:41,040, DEBUG, SIM.inWaiting has '*', returning 1
+2014-02-24 23:41:41,040, DEBUG, SIM.read: asked for 1 returned: *
+2014-02-24 23:41:41,040, DEBUG, Rx -  * received
+2014-02-24 23:41:41,095, DEBUG, Rx: '-4' bytes read: 2
+2014-02-24 23:41:41,095, DEBUG, AS TIMER RESPONSE: '-4'
+2014-02-24 23:41:41,095, DEBUG, SIM.write got 'BIAS  \n'
+2014-02-24 23:41:41,095, DEBUG, SIM.write command parsed as: ['BIAS']
+2014-02-24 23:41:41,095, DEBUG, BIAS_SIM PARAM: 400.0
+2014-02-24 23:41:41,095, DEBUG, BIAS_SIM RECEIVED: 400.0
+2014-02-24 23:41:41,095, DEBUG, Tx: 'BIAS  \n'bytes sent: 7
+2014-02-24 23:41:41,095, DEBUG, SIM.inWaiting has '400.0*', returning 6
+2014-02-24 23:41:41,095, DEBUG, SIM.read: asked for 1 returned: 400.0*
+2014-02-24 23:41:41,095, DEBUG, SIM.inWaiting has '00.0*', returning 5
+2014-02-24 23:41:41,095, DEBUG, SIM.read: asked for 1 returned: 00.0*
+2014-02-24 23:41:41,095, DEBUG, SIM.inWaiting has '0.0*', returning 4
+2014-02-24 23:41:41,095, DEBUG, SIM.read: asked for 1 returned: 0.0*
+2014-02-24 23:41:41,095, DEBUG, SIM.inWaiting has '.0*', returning 3
+2014-02-24 23:41:41,095, DEBUG, SIM.read: asked for 1 returned: .0*
+2014-02-24 23:41:41,095, DEBUG, SIM.inWaiting has '0*', returning 2
+2014-02-24 23:41:41,095, DEBUG, SIM.read: asked for 1 returned: 0*
+2014-02-24 23:41:41,095, DEBUG, SIM.inWaiting has '*', returning 1
+2014-02-24 23:41:41,095, DEBUG, SIM.read: asked for 1 returned: *
+2014-02-24 23:41:41,095, DEBUG, Rx -  * received
+2014-02-24 23:41:41,150, DEBUG, Rx: '400.0' bytes read: 5
+2014-02-24 23:41:41,150, DEBUG, BIAS TIMER RESPONSE: '400.0'
+2014-02-24 23:41:41,150, DEBUG, SIM.write got 'TP \n'
+2014-02-24 23:41:41,150, DEBUG, SIM.write command parsed as: ['TP']
+2014-02-24 23:41:41,150, DEBUG, TP_SIM PARAM: None
+2014-02-24 23:41:41,150, DEBUG, TP_SIM RECEIVED: 701
+2014-02-24 23:41:41,150, DEBUG, Tx: 'TP \n'bytes sent: 4
+2014-02-24 23:41:41,150, DEBUG, SIM.inWaiting has '701*', returning 4
+2014-02-24 23:41:41,150, DEBUG, SIM.read: asked for 1 returned: 701*
+2014-02-24 23:41:41,150, DEBUG, SIM.inWaiting has '01*', returning 3
+2014-02-24 23:41:41,150, DEBUG, SIM.read: asked for 1 returned: 01*
+2014-02-24 23:41:41,150, DEBUG, SIM.inWaiting has '1*', returning 2
+2014-02-24 23:41:41,150, DEBUG, SIM.read: asked for 1 returned: 1*
+2014-02-24 23:41:41,150, DEBUG, SIM.inWaiting has '*', returning 1
+2014-02-24 23:41:41,150, DEBUG, SIM.read: asked for 1 returned: *
+2014-02-24 23:41:41,150, DEBUG, Rx -  * received
+2014-02-24 23:41:41,204, DEBUG, Rx: '701' bytes read: 3
+2014-02-24 23:41:41,204, DEBUG, TP TIMER RESPONSE: '701'
+2014-02-24 23:41:41,813, DEBUG, SIM.write got 'NC \n'
+2014-02-24 23:41:41,813, DEBUG, SIM.write command parsed as: ['NC']
+2014-02-24 23:41:41,813, DEBUG, NC_SIM PARAM: 2
+2014-02-24 23:41:41,813, DEBUG, NC_SIM RECEIVED: 2
+2014-02-24 23:41:41,813, DEBUG, Tx: 'NC \n'bytes sent: 4
+2014-02-24 23:41:41,813, DEBUG, SIM.inWaiting has '2*', returning 2
+2014-02-24 23:41:41,813, DEBUG, SIM.read: asked for 1 returned: 2*
+2014-02-24 23:41:41,813, DEBUG, SIM.inWaiting has '*', returning 1
+2014-02-24 23:41:41,813, DEBUG, SIM.read: asked for 1 returned: *
+2014-02-24 23:41:41,813, DEBUG, Rx -  * received
+2014-02-24 23:41:41,868, DEBUG, Rx: '2' bytes read: 1
+2014-02-24 23:41:41,868, DEBUG, NC TIMER RESPONSE: '2'
+2014-02-24 23:41:41,868, DEBUG, SIM.write got 'AS \n'
+2014-02-24 23:41:41,868, DEBUG, SIM.write command parsed as: ['AS']
+2014-02-24 23:41:41,868, DEBUG, AS_SIM PARAM: -4
+2014-02-24 23:41:41,868, DEBUG, AS_SIM RECEIVED: -4
+2014-02-24 23:41:41,868, DEBUG, Tx: 'AS \n'bytes sent: 4
+2014-02-24 23:41:41,868, DEBUG, SIM.inWaiting has '-4*', returning 3
+2014-02-24 23:41:41,868, DEBUG, SIM.read: asked for 1 returned: -4*
+2014-02-24 23:41:41,868, DEBUG, SIM.inWaiting has '4*', returning 2
+2014-02-24 23:41:41,868, DEBUG, SIM.read: asked for 1 returned: 4*
+2014-02-24 23:41:41,868, DEBUG, SIM.inWaiting has '*', returning 1
+2014-02-24 23:41:41,868, DEBUG, SIM.read: asked for 1 returned: *
+2014-02-24 23:41:41,868, DEBUG, Rx -  * received
+2014-02-24 23:41:41,923, DEBUG, Rx: '-4' bytes read: 2
+2014-02-24 23:41:41,923, DEBUG, AS TIMER RESPONSE: '-4'
+2014-02-24 23:41:41,923, DEBUG, SIM.write got 'BIAS  \n'
+2014-02-24 23:41:41,923, DEBUG, SIM.write command parsed as: ['BIAS']
+2014-02-24 23:41:41,923, DEBUG, BIAS_SIM PARAM: 400.0
+2014-02-24 23:41:41,923, DEBUG, BIAS_SIM RECEIVED: 400.0
+2014-02-24 23:41:41,923, DEBUG, Tx: 'BIAS  \n'bytes sent: 7
+2014-02-24 23:41:41,930, DEBUG, SIM.inWaiting has '400.0*', returning 6
+2014-02-24 23:41:41,930, DEBUG, SIM.read: asked for 1 returned: 400.0*
+2014-02-24 23:41:41,930, DEBUG, SIM.inWaiting has '00.0*', returning 5
+2014-02-24 23:41:41,930, DEBUG, SIM.read: asked for 1 returned: 00.0*
+2014-02-24 23:41:41,930, DEBUG, SIM.inWaiting has '0.0*', returning 4
+2014-02-24 23:41:41,930, DEBUG, SIM.read: asked for 1 returned: 0.0*
+2014-02-24 23:41:41,930, DEBUG, SIM.inWaiting has '.0*', returning 3
+2014-02-24 23:41:41,930, DEBUG, SIM.read: asked for 1 returned: .0*
+2014-02-24 23:41:41,930, DEBUG, SIM.inWaiting has '0*', returning 2
+2014-02-24 23:41:41,930, DEBUG, SIM.read: asked for 1 returned: 0*
+2014-02-24 23:41:41,930, DEBUG, SIM.inWaiting has '*', returning 1
+2014-02-24 23:41:41,930, DEBUG, SIM.read: asked for 1 returned: *
+2014-02-24 23:41:41,930, DEBUG, Rx -  * received
+2014-02-24 23:41:41,986, DEBUG, Rx: '400.0' bytes read: 5
+2014-02-24 23:41:41,986, DEBUG, BIAS TIMER RESPONSE: '400.0'
+2014-02-24 23:41:41,986, DEBUG, SIM.write got 'TP \n'
+2014-02-24 23:41:41,986, DEBUG, SIM.write command parsed as: ['TP']
+2014-02-24 23:41:41,986, DEBUG, TP_SIM PARAM: None
+2014-02-24 23:41:41,986, DEBUG, TP_SIM RECEIVED: 953
+2014-02-24 23:41:41,986, DEBUG, Tx: 'TP \n'bytes sent: 4
+2014-02-24 23:41:41,986, DEBUG, SIM.inWaiting has '953*', returning 4
+2014-02-24 23:41:41,986, DEBUG, SIM.read: asked for 1 returned: 953*
+2014-02-24 23:41:41,986, DEBUG, SIM.inWaiting has '53*', returning 3
+2014-02-24 23:41:41,986, DEBUG, SIM.read: asked for 1 returned: 53*
+2014-02-24 23:41:41,986, DEBUG, SIM.inWaiting has '3*', returning 2
+2014-02-24 23:41:41,986, DEBUG, SIM.read: asked for 1 returned: 3*
+2014-02-24 23:41:41,986, DEBUG, SIM.inWaiting has '*', returning 1
+2014-02-24 23:41:41,986, DEBUG, SIM.read: asked for 1 returned: *
+2014-02-24 23:41:41,986, DEBUG, Rx -  * received
+2014-02-24 23:41:42,040, DEBUG, Rx: '953' bytes read: 3
+2014-02-24 23:41:42,040, DEBUG, TP TIMER RESPONSE: '953'
+2014-02-24 23:41:42,048, DEBUG, get_next_command() reply timing response: (5, ('BIAS 300',))
+2014-02-24 23:41:42,048, DEBUG, SIM.write got 'BIAS 300 \n'
+2014-02-24 23:41:42,048, DEBUG, SIM.write command parsed as: ['BIAS', '300']
+2014-02-24 23:41:42,055, DEBUG, BIAS_SIM PARAM: 300.0
+2014-02-24 23:41:42,055, DEBUG, BIAS_SIM RECEIVED: 300.0
+2014-02-24 23:41:42,055, DEBUG, Tx: 'BIAS 300 \n'bytes sent: 10
+2014-02-24 23:41:42,055, DEBUG, SIM.inWaiting has '300.0*', returning 6
+2014-02-24 23:41:42,055, DEBUG, SIM.read: asked for 1 returned: 300.0*
+2014-02-24 23:41:42,055, DEBUG, SIM.inWaiting has '00.0*', returning 5
+2014-02-24 23:41:42,055, DEBUG, SIM.read: asked for 1 returned: 00.0*
+2014-02-24 23:41:42,055, DEBUG, SIM.inWaiting has '0.0*', returning 4
+2014-02-24 23:41:42,055, DEBUG, SIM.read: asked for 1 returned: 0.0*
+2014-02-24 23:41:42,055, DEBUG, SIM.inWaiting has '.0*', returning 3
+2014-02-24 23:41:42,055, DEBUG, SIM.read: asked for 1 returned: .0*
+2014-02-24 23:41:42,055, DEBUG, SIM.inWaiting has '0*', returning 2
+2014-02-24 23:41:42,055, DEBUG, SIM.read: asked for 1 returned: 0*
+2014-02-24 23:41:42,055, DEBUG, SIM.inWaiting has '*', returning 1
+2014-02-24 23:41:42,055, DEBUG, SIM.read: asked for 1 returned: *
+2014-02-24 23:41:42,063, DEBUG, Rx -  * received
+2014-02-24 23:41:42,118, DEBUG, Rx: '300.0' bytes read: 5
+2014-02-24 23:41:42,118, DEBUG, command execute()reply timing response: 'BIAS 300'
+2014-02-24 23:41:42,118, DEBUG, SIM.write got 'NC \n'
+2014-02-24 23:41:42,118, DEBUG, SIM.write command parsed as: ['NC']
+2014-02-24 23:41:42,118, DEBUG, NC_SIM PARAM: 2
+2014-02-24 23:41:42,118, DEBUG, NC_SIM RECEIVED: 2
+2014-02-24 23:41:42,118, DEBUG, Tx: 'NC \n'bytes sent: 4
+2014-02-24 23:41:42,118, DEBUG, SIM.inWaiting has '2*', returning 2
+2014-02-24 23:41:42,118, DEBUG, SIM.read: asked for 1 returned: 2*
+2014-02-24 23:41:42,118, DEBUG, SIM.inWaiting has '*', returning 1
+2014-02-24 23:41:42,118, DEBUG, SIM.read: asked for 1 returned: *
+2014-02-24 23:41:42,118, DEBUG, Rx -  * received
+2014-02-24 23:41:42,173, DEBUG, Rx: '2' bytes read: 1
+2014-02-24 23:41:42,173, DEBUG, NC TIMER RESPONSE: '2'
+2014-02-24 23:41:42,173, DEBUG, SIM.write got 'AS \n'
+2014-02-24 23:41:42,173, DEBUG, SIM.write command parsed as: ['AS']
+2014-02-24 23:41:42,173, DEBUG, AS_SIM PARAM: -4
+2014-02-24 23:41:42,173, DEBUG, AS_SIM RECEIVED: -4
+2014-02-24 23:41:42,173, DEBUG, Tx: 'AS \n'bytes sent: 4
+2014-02-24 23:41:42,173, DEBUG, SIM.inWaiting has '-4*', returning 3
+2014-02-24 23:41:42,173, DEBUG, SIM.read: asked for 1 returned: -4*
+2014-02-24 23:41:42,173, DEBUG, SIM.inWaiting has '4*', returning 2
+2014-02-24 23:41:42,173, DEBUG, SIM.read: asked for 1 returned: 4*
+2014-02-24 23:41:42,173, DEBUG, SIM.inWaiting has '*', returning 1
+2014-02-24 23:41:42,173, DEBUG, SIM.read: asked for 1 returned: *
+2014-02-24 23:41:42,173, DEBUG, Rx -  * received
+2014-02-24 23:41:42,227, DEBUG, Rx: '-4' bytes read: 2
+2014-02-24 23:41:42,227, DEBUG, AS TIMER RESPONSE: '-4'
+2014-02-24 23:41:42,227, DEBUG, SIM.write got 'BIAS  \n'
+2014-02-24 23:41:42,227, DEBUG, SIM.write command parsed as: ['BIAS']
+2014-02-24 23:41:42,227, DEBUG, BIAS_SIM PARAM: 300.0
+2014-02-24 23:41:42,227, DEBUG, BIAS_SIM RECEIVED: 300.0
+2014-02-24 23:41:42,227, DEBUG, Tx: 'BIAS  \n'bytes sent: 7
+2014-02-24 23:41:42,236, DEBUG, SIM.inWaiting has '300.0*', returning 6
+2014-02-24 23:41:42,236, DEBUG, SIM.read: asked for 1 returned: 300.0*
+2014-02-24 23:41:42,236, DEBUG, SIM.inWaiting has '00.0*', returning 5
+2014-02-24 23:41:42,236, DEBUG, SIM.read: asked for 1 returned: 00.0*
+2014-02-24 23:41:42,236, DEBUG, SIM.inWaiting has '0.0*', returning 4
+2014-02-24 23:41:42,236, DEBUG, SIM.read: asked for 1 returned: 0.0*
+2014-02-24 23:41:42,236, DEBUG, SIM.inWaiting has '.0*', returning 3
+2014-02-24 23:41:42,236, DEBUG, SIM.read: asked for 1 returned: .0*
+2014-02-24 23:41:42,236, DEBUG, SIM.inWaiting has '0*', returning 2
+2014-02-24 23:41:42,236, DEBUG, SIM.read: asked for 1 returned: 0*
+2014-02-24 23:41:42,236, DEBUG, SIM.inWaiting has '*', returning 1
+2014-02-24 23:41:42,236, DEBUG, SIM.read: asked for 1 returned: *
+2014-02-24 23:41:42,236, DEBUG, Rx -  * received
+2014-02-24 23:41:42,290, DEBUG, Rx: '300.0' bytes read: 5
+2014-02-24 23:41:42,290, DEBUG, BIAS TIMER RESPONSE: '300.0'
+2014-02-24 23:41:42,290, DEBUG, SIM.write got 'TP \n'
+2014-02-24 23:41:42,290, DEBUG, SIM.write command parsed as: ['TP']
+2014-02-24 23:41:42,290, DEBUG, TP_SIM PARAM: None
+2014-02-24 23:41:42,290, DEBUG, TP_SIM RECEIVED: 268
+2014-02-24 23:41:42,290, DEBUG, Tx: 'TP \n'bytes sent: 4
+2014-02-24 23:41:42,290, DEBUG, SIM.inWaiting has '268*', returning 4
+2014-02-24 23:41:42,290, DEBUG, SIM.read: asked for 1 returned: 268*
+2014-02-24 23:41:42,290, DEBUG, SIM.inWaiting has '68*', returning 3
+2014-02-24 23:41:42,290, DEBUG, SIM.read: asked for 1 returned: 68*
+2014-02-24 23:41:42,290, DEBUG, SIM.inWaiting has '8*', returning 2
+2014-02-24 23:41:42,290, DEBUG, SIM.read: asked for 1 returned: 8*
+2014-02-24 23:41:42,290, DEBUG, SIM.inWaiting has '*', returning 1
+2014-02-24 23:41:42,290, DEBUG, SIM.read: asked for 1 returned: *
+2014-02-24 23:41:42,290, DEBUG, Rx -  * received
+2014-02-24 23:41:42,345, DEBUG, Rx: '268' bytes read: 3
+2014-02-24 23:41:42,345, DEBUG, TP TIMER RESPONSE: '268'
+2014-02-24 23:41:42,852, DEBUG, SIM.write got 'NC \n'
+2014-02-24 23:41:42,852, DEBUG, SIM.write command parsed as: ['NC']
+2014-02-24 23:41:42,852, DEBUG, NC_SIM PARAM: 2
+2014-02-24 23:41:42,852, DEBUG, NC_SIM RECEIVED: 2
+2014-02-24 23:41:42,852, DEBUG, Tx: 'NC \n'bytes sent: 4
+2014-02-24 23:41:42,852, DEBUG, SIM.inWaiting has '2*', returning 2
+2014-02-24 23:41:42,852, DEBUG, SIM.read: asked for 1 returned: 2*
+2014-02-24 23:41:42,852, DEBUG, SIM.inWaiting has '*', returning 1
+2014-02-24 23:41:42,852, DEBUG, SIM.read: asked for 1 returned: *
+2014-02-24 23:41:42,852, DEBUG, Rx -  * received
+2014-02-24 23:41:42,907, DEBUG, Rx: '2' bytes read: 1
+2014-02-24 23:41:42,907, DEBUG, NC TIMER RESPONSE: '2'
+2014-02-24 23:41:42,907, DEBUG, SIM.write got 'AS \n'
+2014-02-24 23:41:42,907, DEBUG, SIM.write command parsed as: ['AS']
+2014-02-24 23:41:42,907, DEBUG, AS_SIM PARAM: -4
+2014-02-24 23:41:42,907, DEBUG, AS_SIM RECEIVED: -4
+2014-02-24 23:41:42,907, DEBUG, Tx: 'AS \n'bytes sent: 4
+2014-02-24 23:41:42,907, DEBUG, SIM.inWaiting has '-4*', returning 3
+2014-02-24 23:41:42,907, DEBUG, SIM.read: asked for 1 returned: -4*
+2014-02-24 23:41:42,907, DEBUG, SIM.inWaiting has '4*', returning 2
+2014-02-24 23:41:42,907, DEBUG, SIM.read: asked for 1 returned: 4*
+2014-02-24 23:41:42,907, DEBUG, SIM.inWaiting has '*', returning 1
+2014-02-24 23:41:42,907, DEBUG, SIM.read: asked for 1 returned: *
+2014-02-24 23:41:42,907, DEBUG, Rx -  * received
+2014-02-24 23:41:42,961, DEBUG, Rx: '-4' bytes read: 2
+2014-02-24 23:41:42,961, DEBUG, AS TIMER RESPONSE: '-4'
+2014-02-24 23:41:42,961, DEBUG, SIM.write got 'BIAS  \n'
+2014-02-24 23:41:42,961, DEBUG, SIM.write command parsed as: ['BIAS']
+2014-02-24 23:41:42,961, DEBUG, BIAS_SIM PARAM: 300.0
+2014-02-24 23:41:42,961, DEBUG, BIAS_SIM RECEIVED: 300.0
+2014-02-24 23:41:42,970, DEBUG, Tx: 'BIAS  \n'bytes sent: 7
+2014-02-24 23:41:42,970, DEBUG, SIM.inWaiting has '300.0*', returning 6
+2014-02-24 23:41:42,970, DEBUG, SIM.read: asked for 1 returned: 300.0*
+2014-02-24 23:41:42,970, DEBUG, SIM.inWaiting has '00.0*', returning 5
+2014-02-24 23:41:42,970, DEBUG, SIM.read: asked for 1 returned: 00.0*
+2014-02-24 23:41:42,970, DEBUG, SIM.inWaiting has '0.0*', returning 4
+2014-02-24 23:41:42,970, DEBUG, SIM.read: asked for 1 returned: 0.0*
+2014-02-24 23:41:42,970, DEBUG, SIM.inWaiting has '.0*', returning 3
+2014-02-24 23:41:42,970, DEBUG, SIM.read: asked for 1 returned: .0*
+2014-02-24 23:41:42,970, DEBUG, SIM.inWaiting has '0*', returning 2
+2014-02-24 23:41:42,970, DEBUG, SIM.read: asked for 1 returned: 0*
+2014-02-24 23:41:42,970, DEBUG, SIM.inWaiting has '*', returning 1
+2014-02-24 23:41:42,970, DEBUG, SIM.read: asked for 1 returned: *
+2014-02-24 23:41:42,970, DEBUG, Rx -  * received
+2014-02-24 23:41:43,025, DEBUG, Rx: '300.0' bytes read: 5
+2014-02-24 23:41:43,025, DEBUG, BIAS TIMER RESPONSE: '300.0'
+2014-02-24 23:41:43,025, DEBUG, SIM.write got 'TP \n'
+2014-02-24 23:41:43,025, DEBUG, SIM.write command parsed as: ['TP']
+2014-02-24 23:41:43,025, DEBUG, TP_SIM PARAM: None
+2014-02-24 23:41:43,025, DEBUG, TP_SIM RECEIVED: 876
+2014-02-24 23:41:43,025, DEBUG, Tx: 'TP \n'bytes sent: 4
+2014-02-24 23:41:43,025, DEBUG, SIM.inWaiting has '876*', returning 4
+2014-02-24 23:41:43,025, DEBUG, SIM.read: asked for 1 returned: 876*
+2014-02-24 23:41:43,025, DEBUG, SIM.inWaiting has '76*', returning 3
+2014-02-24 23:41:43,025, DEBUG, SIM.read: asked for 1 returned: 76*
+2014-02-24 23:41:43,025, DEBUG, SIM.inWaiting has '6*', returning 2
+2014-02-24 23:41:43,025, DEBUG, SIM.read: asked for 1 returned: 6*
+2014-02-24 23:41:43,025, DEBUG, SIM.inWaiting has '*', returning 1
+2014-02-24 23:41:43,025, DEBUG, SIM.read: asked for 1 returned: *
+2014-02-24 23:41:43,025, DEBUG, Rx -  * received
+2014-02-24 23:41:43,079, DEBUG, Rx: '876' bytes read: 3
+2014-02-24 23:41:43,079, DEBUG, TP TIMER RESPONSE: '876'
+2014-02-24 23:41:43,615, DEBUG, Closing Serial Port
+2014-02-24 23:41:43,615, DEBUG, Serial Port opened
+2014-02-24 23:41:43,615, DEBUG, Closing Serial Port
+2014-02-24 23:41:43,624, DEBUG, Serial Port opened
+2014-02-24 23:41:44,124, DEBUG, time_meter_command() myfile timing VALUE: <closed file 'BOOK2.csv', mode 'w' at 0x03A83F40>
+2014-02-24 23:41:44,124, DEBUG, readfiles() timing response: ['0, BIAS 0\n', '0.001, BIAS 100\n', '0.05, BIAS 500\n', '0.06, BIAS 100\n', '0.08, BIAS 500\n', '1, BIAS 100\n', '1.5, BIAS 500\n', '2, BIAS 200']
+2014-02-24 23:41:44,124, DEBUG, New command dict: {0.0: ('BIAS 0',), 1.0: ('BIAS 100',), 2.0: ('BIAS 200',), 0.05: ('BIAS 500',), 0.001: ('BIAS 100',), 0.06: ('BIAS 100',), 0.08: ('BIAS 500',), 1.5: ('BIAS 500',)}
+2014-02-24 23:41:44,124, DEBUG, SIM.write got 'NC \n'
+2014-02-24 23:41:44,131, DEBUG, SIM.write command parsed as: ['NC']
+2014-02-24 23:41:44,131, DEBUG, NC_SIM PARAM: 2
+2014-02-24 23:41:44,131, DEBUG, NC_SIM RECEIVED: 2
+2014-02-24 23:41:44,131, DEBUG, Tx: 'NC \n'bytes sent: 4
+2014-02-24 23:41:44,131, DEBUG, SIM.inWaiting has '2*', returning 2
+2014-02-24 23:41:44,131, DEBUG, SIM.read: asked for 1 returned: 2*
+2014-02-24 23:41:44,131, DEBUG, SIM.inWaiting has '*', returning 1
+2014-02-24 23:41:44,131, DEBUG, SIM.read: asked for 1 returned: *
+2014-02-24 23:41:44,131, DEBUG, Rx -  * received
+2014-02-24 23:41:44,186, DEBUG, Rx: '2' bytes read: 1
+2014-02-24 23:41:44,186, DEBUG, NC TIMER RESPONSE: '2'
+2014-02-24 23:41:44,186, DEBUG, SIM.write got 'AS \n'
+2014-02-24 23:41:44,186, DEBUG, SIM.write command parsed as: ['AS']
+2014-02-24 23:41:44,186, DEBUG, AS_SIM PARAM: -4
+2014-02-24 23:41:44,186, DEBUG, AS_SIM RECEIVED: -4
+2014-02-24 23:41:44,186, DEBUG, Tx: 'AS \n'bytes sent: 4
+2014-02-24 23:41:44,186, DEBUG, SIM.inWaiting has '-4*', returning 3
+2014-02-24 23:41:44,186, DEBUG, SIM.read: asked for 1 returned: -4*
+2014-02-24 23:41:44,186, DEBUG, SIM.inWaiting has '4*', returning 2
+2014-02-24 23:41:44,186, DEBUG, SIM.read: asked for 1 returned: 4*
+2014-02-24 23:41:44,186, DEBUG, SIM.inWaiting has '*', returning 1
+2014-02-24 23:41:44,186, DEBUG, SIM.read: asked for 1 returned: *
+2014-02-24 23:41:44,186, DEBUG, Rx -  * received
+2014-02-24 23:41:44,240, DEBUG, Rx: '-4' bytes read: 2
+2014-02-24 23:41:44,240, DEBUG, AS TIMER RESPONSE: '-4'
+2014-02-24 23:41:44,240, DEBUG, SIM.write got 'BIAS  \n'
+2014-02-24 23:41:44,240, DEBUG, SIM.write command parsed as: ['BIAS']
+2014-02-24 23:41:44,240, DEBUG, BIAS_SIM PARAM: 0
+2014-02-24 23:41:44,240, DEBUG, BIAS_SIM RECEIVED: 0
+2014-02-24 23:41:44,240, DEBUG, Tx: 'BIAS  \n'bytes sent: 7
+2014-02-24 23:41:44,240, DEBUG, SIM.inWaiting has '0*', returning 2
+2014-02-24 23:41:44,240, DEBUG, SIM.read: asked for 1 returned: 0*
+2014-02-24 23:41:44,240, DEBUG, SIM.inWaiting has '*', returning 1
+2014-02-24 23:41:44,240, DEBUG, SIM.read: asked for 1 returned: *
+2014-02-24 23:41:44,240, DEBUG, Rx -  * received
+2014-02-24 23:41:44,295, DEBUG, Rx: '0' bytes read: 1
+2014-02-24 23:41:44,295, DEBUG, BIAS TIMER RESPONSE: '0'
+2014-02-24 23:41:44,295, DEBUG, SIM.write got 'TP \n'
+2014-02-24 23:41:44,295, DEBUG, SIM.write command parsed as: ['TP']
+2014-02-24 23:41:44,295, DEBUG, TP_SIM PARAM: None
+2014-02-24 23:41:44,295, DEBUG, TP_SIM RECEIVED: 513
+2014-02-24 23:41:44,295, DEBUG, Tx: 'TP \n'bytes sent: 4
+2014-02-24 23:41:44,295, DEBUG, SIM.inWaiting has '513*', returning 4
+2014-02-24 23:41:44,295, DEBUG, SIM.read: asked for 1 returned: 513*
+2014-02-24 23:41:44,295, DEBUG, SIM.inWaiting has '13*', returning 3
+2014-02-24 23:41:44,295, DEBUG, SIM.read: asked for 1 returned: 13*
+2014-02-24 23:41:44,295, DEBUG, SIM.inWaiting has '3*', returning 2
+2014-02-24 23:41:44,295, DEBUG, SIM.read: asked for 1 returned: 3*
+2014-02-24 23:41:44,295, DEBUG, SIM.inWaiting has '*', returning 1
+2014-02-24 23:41:44,295, DEBUG, SIM.read: asked for 1 returned: *
+2014-02-24 23:41:44,295, DEBUG, Rx -  * received
+2014-02-24 23:41:44,349, DEBUG, Rx: '513' bytes read: 3
+2014-02-24 23:41:44,349, DEBUG, TP TIMER RESPONSE: '513'
+2014-02-24 23:41:44,365, DEBUG, get_next_command() reply timing response: (0.0, ('BIAS 0',))
+2014-02-24 23:41:44,365, DEBUG, SIM.write got 'BIAS 0 \n'
+2014-02-24 23:41:44,365, DEBUG, SIM.write command parsed as: ['BIAS', '0']
+2014-02-24 23:41:44,365, DEBUG, BIAS_SIM PARAM: 0.0
+2014-02-24 23:41:44,365, DEBUG, BIAS_SIM RECEIVED: 0.0
+2014-02-24 23:41:44,365, DEBUG, Tx: 'BIAS 0 \n'bytes sent: 8
+2014-02-24 23:41:44,365, DEBUG, SIM.inWaiting has '0.0*', returning 4
+2014-02-24 23:41:44,365, DEBUG, SIM.read: asked for 1 returned: 0.0*
+2014-02-24 23:41:44,365, DEBUG, SIM.inWaiting has '.0*', returning 3
+2014-02-24 23:41:44,365, DEBUG, SIM.read: asked for 1 returned: .0*
+2014-02-24 23:41:44,365, DEBUG, SIM.inWaiting has '0*', returning 2
+2014-02-24 23:41:44,365, DEBUG, SIM.read: asked for 1 returned: 0*
+2014-02-24 23:41:44,365, DEBUG, SIM.inWaiting has '*', returning 1
+2014-02-24 23:41:44,365, DEBUG, SIM.read: asked for 1 returned: *
+2014-02-24 23:41:44,365, DEBUG, Rx -  * received
+2014-02-24 23:41:44,420, DEBUG, Rx: '0.0' bytes read: 3
+2014-02-24 23:41:44,420, DEBUG, command execute()reply timing response: 'BIAS 0'
+2014-02-24 23:41:44,420, DEBUG, SIM.write got 'NC \n'
+2014-02-24 23:41:44,420, DEBUG, SIM.write command parsed as: ['NC']
+2014-02-24 23:41:44,420, DEBUG, NC_SIM PARAM: 2
+2014-02-24 23:41:44,420, DEBUG, NC_SIM RECEIVED: 2
+2014-02-24 23:41:44,420, DEBUG, Tx: 'NC \n'bytes sent: 4
+2014-02-24 23:41:44,420, DEBUG, SIM.inWaiting has '2*', returning 2
+2014-02-24 23:41:44,420, DEBUG, SIM.read: asked for 1 returned: 2*
+2014-02-24 23:41:44,420, DEBUG, SIM.inWaiting has '*', returning 1
+2014-02-24 23:41:44,420, DEBUG, SIM.read: asked for 1 returned: *
+2014-02-24 23:41:44,420, DEBUG, Rx -  * received
+2014-02-24 23:41:44,474, DEBUG, Rx: '2' bytes read: 1
+2014-02-24 23:41:44,474, DEBUG, NC TIMER RESPONSE: '2'
+2014-02-24 23:41:44,474, DEBUG, SIM.write got 'AS \n'
+2014-02-24 23:41:44,474, DEBUG, SIM.write command parsed as: ['AS']
+2014-02-24 23:41:44,474, DEBUG, AS_SIM PARAM: -4
+2014-02-24 23:41:44,474, DEBUG, AS_SIM RECEIVED: -4
+2014-02-24 23:41:44,474, DEBUG, Tx: 'AS \n'bytes sent: 4
+2014-02-24 23:41:44,474, DEBUG, SIM.inWaiting has '-4*', returning 3
+2014-02-24 23:41:44,474, DEBUG, SIM.read: asked for 1 returned: -4*
+2014-02-24 23:41:44,474, DEBUG, SIM.inWaiting has '4*', returning 2
+2014-02-24 23:41:44,474, DEBUG, SIM.read: asked for 1 returned: 4*
+2014-02-24 23:41:44,474, DEBUG, SIM.inWaiting has '*', returning 1
+2014-02-24 23:41:44,474, DEBUG, SIM.read: asked for 1 returned: *
+2014-02-24 23:41:44,474, DEBUG, Rx -  * received
+2014-02-24 23:41:44,529, DEBUG, Rx: '-4' bytes read: 2
+2014-02-24 23:41:44,529, DEBUG, AS TIMER RESPONSE: '-4'
+2014-02-24 23:41:44,529, DEBUG, SIM.write got 'BIAS  \n'
+2014-02-24 23:41:44,529, DEBUG, SIM.write command parsed as: ['BIAS']
+2014-02-24 23:41:44,529, DEBUG, BIAS_SIM PARAM: 0.0
+2014-02-24 23:41:44,529, DEBUG, BIAS_SIM RECEIVED: 0.0
+2014-02-24 23:41:44,529, DEBUG, Tx: 'BIAS  \n'bytes sent: 7
+2014-02-24 23:41:44,538, DEBUG, SIM.inWaiting has '0.0*', returning 4
+2014-02-24 23:41:44,538, DEBUG, SIM.read: asked for 1 returned: 0.0*
+2014-02-24 23:41:44,538, DEBUG, SIM.inWaiting has '.0*', returning 3
+2014-02-24 23:41:44,538, DEBUG, SIM.read: asked for 1 returned: .0*
+2014-02-24 23:41:44,538, DEBUG, SIM.inWaiting has '0*', returning 2
+2014-02-24 23:41:44,538, DEBUG, SIM.read: asked for 1 returned: 0*
+2014-02-24 23:41:44,538, DEBUG, SIM.inWaiting has '*', returning 1
+2014-02-24 23:41:44,538, DEBUG, SIM.read: asked for 1 returned: *
+2014-02-24 23:41:44,538, DEBUG, Rx -  * received
+2014-02-24 23:41:44,592, DEBUG, Rx: '0.0' bytes read: 3
+2014-02-24 23:41:44,592, DEBUG, BIAS TIMER RESPONSE: '0.0'
+2014-02-24 23:41:44,592, DEBUG, SIM.write got 'TP \n'
+2014-02-24 23:41:44,592, DEBUG, SIM.write command parsed as: ['TP']
+2014-02-24 23:41:44,592, DEBUG, TP_SIM PARAM: None
+2014-02-24 23:41:44,599, DEBUG, TP_SIM RECEIVED: 605
+2014-02-24 23:41:44,599, DEBUG, Tx: 'TP \n'bytes sent: 4
+2014-02-24 23:41:44,599, DEBUG, SIM.inWaiting has '605*', returning 4
+2014-02-24 23:41:44,599, DEBUG, SIM.read: asked for 1 returned: 605*
+2014-02-24 23:41:44,599, DEBUG, SIM.inWaiting has '05*', returning 3
+2014-02-24 23:41:44,599, DEBUG, SIM.read: asked for 1 returned: 05*
+2014-02-24 23:41:44,599, DEBUG, SIM.inWaiting has '5*', returning 2
+2014-02-24 23:41:44,599, DEBUG, SIM.read: asked for 1 returned: 5*
+2014-02-24 23:41:44,599, DEBUG, SIM.inWaiting has '*', returning 1
+2014-02-24 23:41:44,599, DEBUG, SIM.read: asked for 1 returned: *
+2014-02-24 23:41:44,599, DEBUG, Rx -  * received
+2014-02-24 23:41:44,654, DEBUG, Rx: '605' bytes read: 3
+2014-02-24 23:41:44,654, DEBUG, TP TIMER RESPONSE: '605'
+2014-02-24 23:41:45,249, DEBUG, SIM.write got 'NC \n'
+2014-02-24 23:41:45,249, DEBUG, SIM.write command parsed as: ['NC']
+2014-02-24 23:41:45,249, DEBUG, NC_SIM PARAM: 2
+2014-02-24 23:41:45,249, DEBUG, NC_SIM RECEIVED: 2
+2014-02-24 23:41:45,249, DEBUG, Tx: 'NC \n'bytes sent: 4
+2014-02-24 23:41:45,249, DEBUG, SIM.inWaiting has '2*', returning 2
+2014-02-24 23:41:45,249, DEBUG, SIM.read: asked for 1 returned: 2*
+2014-02-24 23:41:45,249, DEBUG, SIM.inWaiting has '*', returning 1
+2014-02-24 23:41:45,249, DEBUG, SIM.read: asked for 1 returned: *
+2014-02-24 23:41:45,249, DEBUG, Rx -  * received
+2014-02-24 23:41:45,302, DEBUG, Rx: '2' bytes read: 1
+2014-02-24 23:41:45,302, DEBUG, NC TIMER RESPONSE: '2'
+2014-02-24 23:41:45,302, DEBUG, SIM.write got 'AS \n'
+2014-02-24 23:41:45,302, DEBUG, SIM.write command parsed as: ['AS']
+2014-02-24 23:41:45,302, DEBUG, AS_SIM PARAM: -4
+2014-02-24 23:41:45,302, DEBUG, AS_SIM RECEIVED: -4
+2014-02-24 23:41:45,302, DEBUG, Tx: 'AS \n'bytes sent: 4
+2014-02-24 23:41:45,302, DEBUG, SIM.inWaiting has '-4*', returning 3
+2014-02-24 23:41:45,302, DEBUG, SIM.read: asked for 1 returned: -4*
+2014-02-24 23:41:45,302, DEBUG, SIM.inWaiting has '4*', returning 2
+2014-02-24 23:41:45,302, DEBUG, SIM.read: asked for 1 returned: 4*
+2014-02-24 23:41:45,302, DEBUG, SIM.inWaiting has '*', returning 1
+2014-02-24 23:41:45,302, DEBUG, SIM.read: asked for 1 returned: *
+2014-02-24 23:41:45,302, DEBUG, Rx -  * received
+2014-02-24 23:41:45,358, DEBUG, Rx: '-4' bytes read: 2
+2014-02-24 23:41:45,358, DEBUG, AS TIMER RESPONSE: '-4'
+2014-02-24 23:41:45,358, DEBUG, SIM.write got 'BIAS  \n'
+2014-02-24 23:41:45,358, DEBUG, SIM.write command parsed as: ['BIAS']
+2014-02-24 23:41:45,358, DEBUG, BIAS_SIM PARAM: 0.0
+2014-02-24 23:41:45,358, DEBUG, BIAS_SIM RECEIVED: 0.0
+2014-02-24 23:41:45,358, DEBUG, Tx: 'BIAS  \n'bytes sent: 7
+2014-02-24 23:41:45,365, DEBUG, SIM.inWaiting has '0.0*', returning 4
+2014-02-24 23:41:45,365, DEBUG, SIM.read: asked for 1 returned: 0.0*
+2014-02-24 23:41:45,365, DEBUG, SIM.inWaiting has '.0*', returning 3
+2014-02-24 23:41:45,365, DEBUG, SIM.read: asked for 1 returned: .0*
+2014-02-24 23:41:45,365, DEBUG, SIM.inWaiting has '0*', returning 2
+2014-02-24 23:41:45,365, DEBUG, SIM.read: asked for 1 returned: 0*
+2014-02-24 23:41:45,365, DEBUG, SIM.inWaiting has '*', returning 1
+2014-02-24 23:41:45,365, DEBUG, SIM.read: asked for 1 returned: *
+2014-02-24 23:41:45,365, DEBUG, Rx -  * received
+2014-02-24 23:41:45,420, DEBUG, Rx: '0.0' bytes read: 3
+2014-02-24 23:41:45,420, DEBUG, BIAS TIMER RESPONSE: '0.0'
+2014-02-24 23:41:45,420, DEBUG, SIM.write got 'TP \n'
+2014-02-24 23:41:45,420, DEBUG, SIM.write command parsed as: ['TP']
+2014-02-24 23:41:45,420, DEBUG, TP_SIM PARAM: None
+2014-02-24 23:41:45,420, DEBUG, TP_SIM RECEIVED: 798
+2014-02-24 23:41:45,420, DEBUG, Tx: 'TP \n'bytes sent: 4
+2014-02-24 23:41:45,420, DEBUG, SIM.inWaiting has '798*', returning 4
+2014-02-24 23:41:45,420, DEBUG, SIM.read: asked for 1 returned: 798*
+2014-02-24 23:41:45,420, DEBUG, SIM.inWaiting has '98*', returning 3
+2014-02-24 23:41:45,420, DEBUG, SIM.read: asked for 1 returned: 98*
+2014-02-24 23:41:45,420, DEBUG, SIM.inWaiting has '8*', returning 2
+2014-02-24 23:41:45,420, DEBUG, SIM.read: asked for 1 returned: 8*
+2014-02-24 23:41:45,420, DEBUG, SIM.inWaiting has '*', returning 1
+2014-02-24 23:41:45,420, DEBUG, SIM.read: asked for 1 returned: *
+2014-02-24 23:41:45,420, DEBUG, Rx -  * received
+2014-02-24 23:41:45,474, DEBUG, Rx: '798' bytes read: 3
+2014-02-24 23:41:45,474, DEBUG, TP TIMER RESPONSE: '798'
+2014-02-24 23:41:45,490, DEBUG, get_next_command() reply timing response: (0.001, ('BIAS 100',))
+2014-02-24 23:41:45,490, DEBUG, SIM.write got 'BIAS 100 \n'
+2014-02-24 23:41:45,490, DEBUG, SIM.write command parsed as: ['BIAS', '100']
+2014-02-24 23:41:45,490, DEBUG, BIAS_SIM PARAM: 100.0
+2014-02-24 23:41:45,490, DEBUG, BIAS_SIM RECEIVED: 100.0
+2014-02-24 23:41:45,490, DEBUG, Tx: 'BIAS 100 \n'bytes sent: 10
+2014-02-24 23:41:45,490, DEBUG, SIM.inWaiting has '100.0*', returning 6
+2014-02-24 23:41:45,490, DEBUG, SIM.read: asked for 1 returned: 100.0*
+2014-02-24 23:41:45,490, DEBUG, SIM.inWaiting has '00.0*', returning 5
+2014-02-24 23:41:45,499, DEBUG, SIM.read: asked for 1 returned: 00.0*
+2014-02-24 23:41:45,499, DEBUG, SIM.inWaiting has '0.0*', returning 4
+2014-02-24 23:41:45,499, DEBUG, SIM.read: asked for 1 returned: 0.0*
+2014-02-24 23:41:45,499, DEBUG, SIM.inWaiting has '.0*', returning 3
+2014-02-24 23:41:45,499, DEBUG, SIM.read: asked for 1 returned: .0*
+2014-02-24 23:41:45,499, DEBUG, SIM.inWaiting has '0*', returning 2
+2014-02-24 23:41:45,499, DEBUG, SIM.read: asked for 1 returned: 0*
+2014-02-24 23:41:45,499, DEBUG, SIM.inWaiting has '*', returning 1
+2014-02-24 23:41:45,499, DEBUG, SIM.read: asked for 1 returned: *
+2014-02-24 23:41:45,499, DEBUG, Rx -  * received
+2014-02-24 23:41:45,552, DEBUG, Rx: '100.0' bytes read: 5
+2014-02-24 23:41:45,552, DEBUG, command execute()reply timing response: 'BIAS 100'
+2014-02-24 23:41:45,552, DEBUG, SIM.write got 'NC \n'
+2014-02-24 23:41:45,552, DEBUG, SIM.write command parsed as: ['NC']
+2014-02-24 23:41:45,552, DEBUG, NC_SIM PARAM: 2
+2014-02-24 23:41:45,552, DEBUG, NC_SIM RECEIVED: 2
+2014-02-24 23:41:45,552, DEBUG, Tx: 'NC \n'bytes sent: 4
+2014-02-24 23:41:45,552, DEBUG, SIM.inWaiting has '2*', returning 2
+2014-02-24 23:41:45,552, DEBUG, SIM.read: asked for 1 returned: 2*
+2014-02-24 23:41:45,552, DEBUG, SIM.inWaiting has '*', returning 1
+2014-02-24 23:41:45,552, DEBUG, SIM.read: asked for 1 returned: *
+2014-02-24 23:41:45,552, DEBUG, Rx -  * received
+2014-02-24 23:41:45,608, DEBUG, Rx: '2' bytes read: 1
+2014-02-24 23:41:45,608, DEBUG, NC TIMER RESPONSE: '2'
+2014-02-24 23:41:45,608, DEBUG, SIM.write got 'AS \n'
+2014-02-24 23:41:45,608, DEBUG, SIM.write command parsed as: ['AS']
+2014-02-24 23:41:45,608, DEBUG, AS_SIM PARAM: -4
+2014-02-24 23:41:45,608, DEBUG, AS_SIM RECEIVED: -4
+2014-02-24 23:41:45,608, DEBUG, Tx: 'AS \n'bytes sent: 4
+2014-02-24 23:41:45,608, DEBUG, SIM.inWaiting has '-4*', returning 3
+2014-02-24 23:41:45,608, DEBUG, SIM.read: asked for 1 returned: -4*
+2014-02-24 23:41:45,608, DEBUG, SIM.inWaiting has '4*', returning 2
+2014-02-24 23:41:45,608, DEBUG, SIM.read: asked for 1 returned: 4*
+2014-02-24 23:41:45,608, DEBUG, SIM.inWaiting has '*', returning 1
+2014-02-24 23:41:45,608, DEBUG, SIM.read: asked for 1 returned: *
+2014-02-24 23:41:45,608, DEBUG, Rx -  * received
+2014-02-24 23:41:45,663, DEBUG, Rx: '-4' bytes read: 2
+2014-02-24 23:41:45,663, DEBUG, AS TIMER RESPONSE: '-4'
+2014-02-24 23:41:45,663, DEBUG, SIM.write got 'BIAS  \n'
+2014-02-24 23:41:45,663, DEBUG, SIM.write command parsed as: ['BIAS']
+2014-02-24 23:41:45,663, DEBUG, BIAS_SIM PARAM: 100.0
+2014-02-24 23:41:45,663, DEBUG, BIAS_SIM RECEIVED: 100.0
+2014-02-24 23:41:45,663, DEBUG, Tx: 'BIAS  \n'bytes sent: 7
+2014-02-24 23:41:45,663, DEBUG, SIM.inWaiting has '100.0*', returning 6
+2014-02-24 23:41:45,663, DEBUG, SIM.read: asked for 1 returned: 100.0*
+2014-02-24 23:41:45,663, DEBUG, SIM.inWaiting has '00.0*', returning 5
+2014-02-24 23:41:45,663, DEBUG, SIM.read: asked for 1 returned: 00.0*
+2014-02-24 23:41:45,663, DEBUG, SIM.inWaiting has '0.0*', returning 4
+2014-02-24 23:41:45,663, DEBUG, SIM.read: asked for 1 returned: 0.0*
+2014-02-24 23:41:45,663, DEBUG, SIM.inWaiting has '.0*', returning 3
+2014-02-24 23:41:45,663, DEBUG, SIM.read: asked for 1 returned: .0*
+2014-02-24 23:41:45,663, DEBUG, SIM.inWaiting has '0*', returning 2
+2014-02-24 23:41:45,663, DEBUG, SIM.read: asked for 1 returned: 0*
+2014-02-24 23:41:45,663, DEBUG, SIM.inWaiting has '*', returning 1
+2014-02-24 23:41:45,663, DEBUG, SIM.read: asked for 1 returned: *
+2014-02-24 23:41:45,663, DEBUG, Rx -  * received
+2014-02-24 23:41:45,717, DEBUG, Rx: '100.0' bytes read: 5
+2014-02-24 23:41:45,717, DEBUG, BIAS TIMER RESPONSE: '100.0'
+2014-02-24 23:41:45,717, DEBUG, SIM.write got 'TP \n'
+2014-02-24 23:41:45,717, DEBUG, SIM.write command parsed as: ['TP']
+2014-02-24 23:41:45,717, DEBUG, TP_SIM PARAM: None
+2014-02-24 23:41:45,717, DEBUG, TP_SIM RECEIVED: 1311
+2014-02-24 23:41:45,717, DEBUG, Tx: 'TP \n'bytes sent: 4
+2014-02-24 23:41:45,717, DEBUG, SIM.inWaiting has '1311*', returning 5
+2014-02-24 23:41:45,717, DEBUG, SIM.read: asked for 1 returned: 1311*
+2014-02-24 23:41:45,717, DEBUG, SIM.inWaiting has '311*', returning 4
+2014-02-24 23:41:45,717, DEBUG, SIM.read: asked for 1 returned: 311*
+2014-02-24 23:41:45,717, DEBUG, SIM.inWaiting has '11*', returning 3
+2014-02-24 23:41:45,717, DEBUG, SIM.read: asked for 1 returned: 11*
+2014-02-24 23:41:45,717, DEBUG, SIM.inWaiting has '1*', returning 2
+2014-02-24 23:41:45,717, DEBUG, SIM.read: asked for 1 returned: 1*
+2014-02-24 23:41:45,717, DEBUG, SIM.inWaiting has '*', returning 1
+2014-02-24 23:41:45,717, DEBUG, SIM.read: asked for 1 returned: *
+2014-02-24 23:41:45,717, DEBUG, Rx -  * received
+2014-02-24 23:41:45,772, DEBUG, Rx: '1311' bytes read: 4
+2014-02-24 23:41:45,772, DEBUG, TP TIMER RESPONSE: '1311'
+2014-02-24 23:41:46,381, DEBUG, SIM.write got 'NC \n'
+2014-02-24 23:41:46,381, DEBUG, SIM.write command parsed as: ['NC']
+2014-02-24 23:41:46,381, DEBUG, NC_SIM PARAM: 2
+2014-02-24 23:41:46,381, DEBUG, NC_SIM RECEIVED: 2
+2014-02-24 23:41:46,381, DEBUG, Tx: 'NC \n'bytes sent: 4
+2014-02-24 23:41:46,381, DEBUG, SIM.inWaiting has '2*', returning 2
+2014-02-24 23:41:46,381, DEBUG, SIM.read: asked for 1 returned: 2*
+2014-02-24 23:41:46,381, DEBUG, SIM.inWaiting has '*', returning 1
+2014-02-24 23:41:46,381, DEBUG, SIM.read: asked for 1 returned: *
+2014-02-24 23:41:46,381, DEBUG, Rx -  * received
+2014-02-24 23:41:46,436, DEBUG, Rx: '2' bytes read: 1
+2014-02-24 23:41:46,436, DEBUG, NC TIMER RESPONSE: '2'
+2014-02-24 23:41:46,436, DEBUG, SIM.write got 'AS \n'
+2014-02-24 23:41:46,436, DEBUG, SIM.write command parsed as: ['AS']
+2014-02-24 23:41:46,436, DEBUG, AS_SIM PARAM: -4
+2014-02-24 23:41:46,436, DEBUG, AS_SIM RECEIVED: -4
+2014-02-24 23:41:46,436, DEBUG, Tx: 'AS \n'bytes sent: 4
+2014-02-24 23:41:46,436, DEBUG, SIM.inWaiting has '-4*', returning 3
+2014-02-24 23:41:46,436, DEBUG, SIM.read: asked for 1 returned: -4*
+2014-02-24 23:41:46,436, DEBUG, SIM.inWaiting has '4*', returning 2
+2014-02-24 23:41:46,436, DEBUG, SIM.read: asked for 1 returned: 4*
+2014-02-24 23:41:46,436, DEBUG, SIM.inWaiting has '*', returning 1
+2014-02-24 23:41:46,436, DEBUG, SIM.read: asked for 1 returned: *
+2014-02-24 23:41:46,436, DEBUG, Rx -  * received
+2014-02-24 23:41:46,490, DEBUG, Rx: '-4' bytes read: 2
+2014-02-24 23:41:46,490, DEBUG, AS TIMER RESPONSE: '-4'
+2014-02-24 23:41:46,490, DEBUG, SIM.write got 'BIAS  \n'
+2014-02-24 23:41:46,490, DEBUG, SIM.write command parsed as: ['BIAS']
+2014-02-24 23:41:46,490, DEBUG, BIAS_SIM PARAM: 100.0
+2014-02-24 23:41:46,490, DEBUG, BIAS_SIM RECEIVED: 100.0
+2014-02-24 23:41:46,499, DEBUG, Tx: 'BIAS  \n'bytes sent: 7
+2014-02-24 23:41:46,499, DEBUG, SIM.inWaiting has '100.0*', returning 6
+2014-02-24 23:41:46,499, DEBUG, SIM.read: asked for 1 returned: 100.0*
+2014-02-24 23:41:46,499, DEBUG, SIM.inWaiting has '00.0*', returning 5
+2014-02-24 23:41:46,499, DEBUG, SIM.read: asked for 1 returned: 00.0*
+2014-02-24 23:41:46,499, DEBUG, SIM.inWaiting has '0.0*', returning 4
+2014-02-24 23:41:46,499, DEBUG, SIM.read: asked for 1 returned: 0.0*
+2014-02-24 23:41:46,499, DEBUG, SIM.inWaiting has '.0*', returning 3
+2014-02-24 23:41:46,499, DEBUG, SIM.read: asked for 1 returned: .0*
+2014-02-24 23:41:46,499, DEBUG, SIM.inWaiting has '0*', returning 2
+2014-02-24 23:41:46,499, DEBUG, SIM.read: asked for 1 returned: 0*
+2014-02-24 23:41:46,499, DEBUG, SIM.inWaiting has '*', returning 1
+2014-02-24 23:41:46,499, DEBUG, SIM.read: asked for 1 returned: *
+2014-02-24 23:41:46,499, DEBUG, Rx -  * received
+2014-02-24 23:41:46,552, DEBUG, Rx: '100.0' bytes read: 5
+2014-02-24 23:41:46,552, DEBUG, BIAS TIMER RESPONSE: '100.0'
+2014-02-24 23:41:46,552, DEBUG, SIM.write got 'TP \n'
+2014-02-24 23:41:46,552, DEBUG, SIM.write command parsed as: ['TP']
+2014-02-24 23:41:46,552, DEBUG, TP_SIM PARAM: None
+2014-02-24 23:41:46,552, DEBUG, TP_SIM RECEIVED: 1385
+2014-02-24 23:41:46,552, DEBUG, Tx: 'TP \n'bytes sent: 4
+2014-02-24 23:41:46,552, DEBUG, SIM.inWaiting has '1385*', returning 5
+2014-02-24 23:41:46,552, DEBUG, SIM.read: asked for 1 returned: 1385*
+2014-02-24 23:41:46,552, DEBUG, SIM.inWaiting has '385*', returning 4
+2014-02-24 23:41:46,552, DEBUG, SIM.read: asked for 1 returned: 385*
+2014-02-24 23:41:46,552, DEBUG, SIM.inWaiting has '85*', returning 3
+2014-02-24 23:41:46,552, DEBUG, SIM.read: asked for 1 returned: 85*
+2014-02-24 23:41:46,552, DEBUG, SIM.inWaiting has '5*', returning 2
+2014-02-24 23:41:46,552, DEBUG, SIM.read: asked for 1 returned: 5*
+2014-02-24 23:41:46,552, DEBUG, SIM.inWaiting has '*', returning 1
+2014-02-24 23:41:46,552, DEBUG, SIM.read: asked for 1 returned: *
+2014-02-24 23:41:46,552, DEBUG, Rx -  * received
+2014-02-24 23:41:46,608, DEBUG, Rx: '1385' bytes read: 4
+2014-02-24 23:41:46,608, DEBUG, TP TIMER RESPONSE: '1385'
+2014-02-24 23:41:46,624, DEBUG, get_next_command() reply timing response: (0.05, ('BIAS 500',))
+2014-02-24 23:41:46,624, DEBUG, SIM.write got 'BIAS 500 \n'
+2014-02-24 23:41:46,624, DEBUG, SIM.write command parsed as: ['BIAS', '500']
+2014-02-24 23:41:46,631, DEBUG, BIAS_SIM PARAM: 500.0
+2014-02-24 23:41:46,631, DEBUG, BIAS_SIM RECEIVED: 500.0
+2014-02-24 23:41:46,631, DEBUG, Tx: 'BIAS 500 \n'bytes sent: 10
+2014-02-24 23:41:46,631, DEBUG, SIM.inWaiting has '500.0*', returning 6
+2014-02-24 23:41:46,631, DEBUG, SIM.read: asked for 1 returned: 500.0*
+2014-02-24 23:41:46,631, DEBUG, SIM.inWaiting has '00.0*', returning 5
+2014-02-24 23:41:46,631, DEBUG, SIM.read: asked for 1 returned: 00.0*
+2014-02-24 23:41:46,631, DEBUG, SIM.inWaiting has '0.0*', returning 4
+2014-02-24 23:41:46,631, DEBUG, SIM.read: asked for 1 returned: 0.0*
+2014-02-24 23:41:46,631, DEBUG, SIM.inWaiting has '.0*', returning 3
+2014-02-24 23:41:46,631, DEBUG, SIM.read: asked for 1 returned: .0*
+2014-02-24 23:41:46,631, DEBUG, SIM.inWaiting has '0*', returning 2
+2014-02-24 23:41:46,631, DEBUG, SIM.read: asked for 1 returned: 0*
+2014-02-24 23:41:46,631, DEBUG, SIM.inWaiting has '*', returning 1
+2014-02-24 23:41:46,631, DEBUG, SIM.read: asked for 1 returned: *
+2014-02-24 23:41:46,631, DEBUG, Rx -  * received
+2014-02-24 23:41:46,686, DEBUG, Rx: '500.0' bytes read: 5
+2014-02-24 23:41:46,686, DEBUG, command execute()reply timing response: 'BIAS 500'
+2014-02-24 23:41:46,686, DEBUG, SIM.write got 'NC \n'
+2014-02-24 23:41:46,686, DEBUG, SIM.write command parsed as: ['NC']
+2014-02-24 23:41:46,686, DEBUG, NC_SIM PARAM: 2
+2014-02-24 23:41:46,686, DEBUG, NC_SIM RECEIVED: 2
+2014-02-24 23:41:46,686, DEBUG, Tx: 'NC \n'bytes sent: 4
+2014-02-24 23:41:46,686, DEBUG, SIM.inWaiting has '2*', returning 2
+2014-02-24 23:41:46,686, DEBUG, SIM.read: asked for 1 returned: 2*
+2014-02-24 23:41:46,686, DEBUG, SIM.inWaiting has '*', returning 1
+2014-02-24 23:41:46,686, DEBUG, SIM.read: asked for 1 returned: *
+2014-02-24 23:41:46,686, DEBUG, Rx -  * received
+2014-02-24 23:41:46,740, DEBUG, Rx: '2' bytes read: 1
+2014-02-24 23:41:46,740, DEBUG, NC TIMER RESPONSE: '2'
+2014-02-24 23:41:46,740, DEBUG, SIM.write got 'AS \n'
+2014-02-24 23:41:46,740, DEBUG, SIM.write command parsed as: ['AS']
+2014-02-24 23:41:46,740, DEBUG, AS_SIM PARAM: -4
+2014-02-24 23:41:46,740, DEBUG, AS_SIM RECEIVED: -4
+2014-02-24 23:41:46,740, DEBUG, Tx: 'AS \n'bytes sent: 4
+2014-02-24 23:41:46,740, DEBUG, SIM.inWaiting has '-4*', returning 3
+2014-02-24 23:41:46,740, DEBUG, SIM.read: asked for 1 returned: -4*
+2014-02-24 23:41:46,740, DEBUG, SIM.inWaiting has '4*', returning 2
+2014-02-24 23:41:46,740, DEBUG, SIM.read: asked for 1 returned: 4*
+2014-02-24 23:41:46,740, DEBUG, SIM.inWaiting has '*', returning 1
+2014-02-24 23:41:46,740, DEBUG, SIM.read: asked for 1 returned: *
+2014-02-24 23:41:46,740, DEBUG, Rx -  * received
+2014-02-24 23:41:46,795, DEBUG, Rx: '-4' bytes read: 2
+2014-02-24 23:41:46,795, DEBUG, AS TIMER RESPONSE: '-4'
+2014-02-24 23:41:46,795, DEBUG, SIM.write got 'BIAS  \n'
+2014-02-24 23:41:46,795, DEBUG, SIM.write command parsed as: ['BIAS']
+2014-02-24 23:41:46,795, DEBUG, BIAS_SIM PARAM: 500.0
+2014-02-24 23:41:46,795, DEBUG, BIAS_SIM RECEIVED: 500.0
+2014-02-24 23:41:46,795, DEBUG, Tx: 'BIAS  \n'bytes sent: 7
+2014-02-24 23:41:46,802, DEBUG, SIM.inWaiting has '500.0*', returning 6
+2014-02-24 23:41:46,802, DEBUG, SIM.read: asked for 1 returned: 500.0*
+2014-02-24 23:41:46,802, DEBUG, SIM.inWaiting has '00.0*', returning 5
+2014-02-24 23:41:46,802, DEBUG, SIM.read: asked for 1 returned: 00.0*
+2014-02-24 23:41:46,802, DEBUG, SIM.inWaiting has '0.0*', returning 4
+2014-02-24 23:41:46,802, DEBUG, SIM.read: asked for 1 returned: 0.0*
+2014-02-24 23:41:46,802, DEBUG, SIM.inWaiting has '.0*', returning 3
+2014-02-24 23:41:46,802, DEBUG, SIM.read: asked for 1 returned: .0*
+2014-02-24 23:41:46,802, DEBUG, SIM.inWaiting has '0*', returning 2
+2014-02-24 23:41:46,802, DEBUG, SIM.read: asked for 1 returned: 0*
+2014-02-24 23:41:46,802, DEBUG, SIM.inWaiting has '*', returning 1
+2014-02-24 23:41:46,802, DEBUG, SIM.read: asked for 1 returned: *
+2014-02-24 23:41:46,802, DEBUG, Rx -  * received
+2014-02-24 23:41:46,858, DEBUG, Rx: '500.0' bytes read: 5
+2014-02-24 23:41:46,858, DEBUG, BIAS TIMER RESPONSE: '500.0'
+2014-02-24 23:41:46,858, DEBUG, SIM.write got 'TP \n'
+2014-02-24 23:41:46,858, DEBUG, SIM.write command parsed as: ['TP']
+2014-02-24 23:41:46,858, DEBUG, TP_SIM PARAM: None
+2014-02-24 23:41:46,858, DEBUG, TP_SIM RECEIVED: 1657
+2014-02-24 23:41:46,858, DEBUG, Tx: 'TP \n'bytes sent: 4
+2014-02-24 23:41:46,858, DEBUG, SIM.inWaiting has '1657*', returning 5
+2014-02-24 23:41:46,858, DEBUG, SIM.read: asked for 1 returned: 1657*
+2014-02-24 23:41:46,858, DEBUG, SIM.inWaiting has '657*', returning 4
+2014-02-24 23:41:46,858, DEBUG, SIM.read: asked for 1 returned: 657*
+2014-02-24 23:41:46,858, DEBUG, SIM.inWaiting has '57*', returning 3
+2014-02-24 23:41:46,858, DEBUG, SIM.read: asked for 1 returned: 57*
+2014-02-24 23:41:46,858, DEBUG, SIM.inWaiting has '7*', returning 2
+2014-02-24 23:41:46,858, DEBUG, SIM.read: asked for 1 returned: 7*
+2014-02-24 23:41:46,858, DEBUG, SIM.inWaiting has '*', returning 1
+2014-02-24 23:41:46,858, DEBUG, SIM.read: asked for 1 returned: *
+2014-02-24 23:41:46,858, DEBUG, Rx -  * received
+2014-02-24 23:41:46,913, DEBUG, Rx: '1657' bytes read: 4
+2014-02-24 23:41:46,913, DEBUG, TP TIMER RESPONSE: '1657'
+2014-02-24 23:41:47,451, DEBUG, SIM.write got 'NC \n'
+2014-02-24 23:41:47,451, DEBUG, SIM.write command parsed as: ['NC']
+2014-02-24 23:41:47,451, DEBUG, NC_SIM PARAM: 2
+2014-02-24 23:41:47,451, DEBUG, NC_SIM RECEIVED: 2
+2014-02-24 23:41:47,451, DEBUG, Tx: 'NC \n'bytes sent: 4
+2014-02-24 23:41:47,451, DEBUG, SIM.inWaiting has '2*', returning 2
+2014-02-24 23:41:47,451, DEBUG, SIM.read: asked for 1 returned: 2*
+2014-02-24 23:41:47,451, DEBUG, SIM.inWaiting has '*', returning 1
+2014-02-24 23:41:47,451, DEBUG, SIM.read: asked for 1 returned: *
+2014-02-24 23:41:47,451, DEBUG, Rx -  * received
+2014-02-24 23:41:47,506, DEBUG, Rx: '2' bytes read: 1
+2014-02-24 23:41:47,506, DEBUG, NC TIMER RESPONSE: '2'
+2014-02-24 23:41:47,506, DEBUG, SIM.write got 'AS \n'
+2014-02-24 23:41:47,506, DEBUG, SIM.write command parsed as: ['AS']
+2014-02-24 23:41:47,506, DEBUG, AS_SIM PARAM: -4
+2014-02-24 23:41:47,506, DEBUG, AS_SIM RECEIVED: -4
+2014-02-24 23:41:47,506, DEBUG, Tx: 'AS \n'bytes sent: 4
+2014-02-24 23:41:47,506, DEBUG, SIM.inWaiting has '-4*', returning 3
+2014-02-24 23:41:47,506, DEBUG, SIM.read: asked for 1 returned: -4*
+2014-02-24 23:41:47,506, DEBUG, SIM.inWaiting has '4*', returning 2
+2014-02-24 23:41:47,506, DEBUG, SIM.read: asked for 1 returned: 4*
+2014-02-24 23:41:47,506, DEBUG, SIM.inWaiting has '*', returning 1
+2014-02-24 23:41:47,506, DEBUG, SIM.read: asked for 1 returned: *
+2014-02-24 23:41:47,506, DEBUG, Rx -  * received
+2014-02-24 23:41:47,561, DEBUG, Rx: '-4' bytes read: 2
+2014-02-24 23:41:47,561, DEBUG, AS TIMER RESPONSE: '-4'
+2014-02-24 23:41:47,561, DEBUG, SIM.write got 'BIAS  \n'
+2014-02-24 23:41:47,561, DEBUG, SIM.write command parsed as: ['BIAS']
+2014-02-24 23:41:47,561, DEBUG, BIAS_SIM PARAM: 500.0
+2014-02-24 23:41:47,561, DEBUG, BIAS_SIM RECEIVED: 500.0
+2014-02-24 23:41:47,561, DEBUG, Tx: 'BIAS  \n'bytes sent: 7
+2014-02-24 23:41:47,569, DEBUG, SIM.inWaiting has '500.0*', returning 6
+2014-02-24 23:41:47,569, DEBUG, SIM.read: asked for 1 returned: 500.0*
+2014-02-24 23:41:47,569, DEBUG, SIM.inWaiting has '00.0*', returning 5
+2014-02-24 23:41:47,569, DEBUG, SIM.read: asked for 1 returned: 00.0*
+2014-02-24 23:41:47,569, DEBUG, SIM.inWaiting has '0.0*', returning 4
+2014-02-24 23:41:47,569, DEBUG, SIM.read: asked for 1 returned: 0.0*
+2014-02-24 23:41:47,569, DEBUG, SIM.inWaiting has '.0*', returning 3
+2014-02-24 23:41:47,569, DEBUG, SIM.read: asked for 1 returned: .0*
+2014-02-24 23:41:47,569, DEBUG, SIM.inWaiting has '0*', returning 2
+2014-02-24 23:41:47,569, DEBUG, SIM.read: asked for 1 returned: 0*
+2014-02-24 23:41:47,569, DEBUG, SIM.inWaiting has '*', returning 1
+2014-02-24 23:41:47,569, DEBUG, SIM.read: asked for 1 returned: *
+2014-02-24 23:41:47,569, DEBUG, Rx -  * received
+2014-02-24 23:41:47,624, DEBUG, Rx: '500.0' bytes read: 5
+2014-02-24 23:41:47,624, DEBUG, BIAS TIMER RESPONSE: '500.0'
+2014-02-24 23:41:47,624, DEBUG, SIM.write got 'TP \n'
+2014-02-24 23:41:47,624, DEBUG, SIM.write command parsed as: ['TP']
+2014-02-24 23:41:47,624, DEBUG, TP_SIM PARAM: None
+2014-02-24 23:41:47,624, DEBUG, TP_SIM RECEIVED: 640
+2014-02-24 23:41:47,624, DEBUG, Tx: 'TP \n'bytes sent: 4
+2014-02-24 23:41:47,624, DEBUG, SIM.inWaiting has '640*', returning 4
+2014-02-24 23:41:47,624, DEBUG, SIM.read: asked for 1 returned: 640*
+2014-02-24 23:41:47,624, DEBUG, SIM.inWaiting has '40*', returning 3
+2014-02-24 23:41:47,624, DEBUG, SIM.read: asked for 1 returned: 40*
+2014-02-24 23:41:47,624, DEBUG, SIM.inWaiting has '0*', returning 2
+2014-02-24 23:41:47,624, DEBUG, SIM.read: asked for 1 returned: 0*
+2014-02-24 23:41:47,624, DEBUG, SIM.inWaiting has '*', returning 1
+2014-02-24 23:41:47,624, DEBUG, SIM.read: asked for 1 returned: *
+2014-02-24 23:41:47,624, DEBUG, Rx -  * received
+2014-02-24 23:41:47,677, DEBUG, Rx: '640' bytes read: 3
+2014-02-24 23:41:47,677, DEBUG, TP TIMER RESPONSE: '640'
+2014-02-24 23:41:47,716, DEBUG, get_next_command() reply timing response: (0.06, ('BIAS 100',))
+2014-02-24 23:41:47,716, DEBUG, SIM.write got 'BIAS 100 \n'
+2014-02-24 23:41:47,716, DEBUG, SIM.write command parsed as: ['BIAS', '100']
+2014-02-24 23:41:47,717, DEBUG, BIAS_SIM PARAM: 100.0
+2014-02-24 23:41:47,717, DEBUG, BIAS_SIM RECEIVED: 100.0
+2014-02-24 23:41:47,719, DEBUG, Tx: 'BIAS 100 \n'bytes sent: 10
+2014-02-24 23:41:47,719, DEBUG, SIM.inWaiting has '100.0*', returning 6
+2014-02-24 23:41:47,720, DEBUG, SIM.read: asked for 1 returned: 100.0*
+2014-02-24 23:41:47,720, DEBUG, SIM.inWaiting has '00.0*', returning 5
+2014-02-24 23:41:47,720, DEBUG, SIM.read: asked for 1 returned: 00.0*
+2014-02-24 23:41:47,720, DEBUG, SIM.inWaiting has '0.0*', returning 4
+2014-02-24 23:41:47,720, DEBUG, SIM.read: asked for 1 returned: 0.0*
+2014-02-24 23:41:47,720, DEBUG, SIM.inWaiting has '.0*', returning 3
+2014-02-24 23:41:47,720, DEBUG, SIM.read: asked for 1 returned: .0*
+2014-02-24 23:41:47,720, DEBUG, SIM.inWaiting has '0*', returning 2
+2014-02-24 23:41:47,720, DEBUG, SIM.read: asked for 1 returned: 0*
+2014-02-24 23:41:47,720, DEBUG, SIM.inWaiting has '*', returning 1
+2014-02-24 23:41:47,720, DEBUG, SIM.read: asked for 1 returned: *
+2014-02-24 23:41:47,720, DEBUG, Rx -  * received
+2014-02-24 23:41:47,776, DEBUG, Rx: '100.0' bytes read: 5
+2014-02-24 23:41:47,776, DEBUG, command execute()reply timing response: 'BIAS 100'
+2014-02-24 23:41:47,776, DEBUG, SIM.write got 'NC \n'
+2014-02-24 23:41:47,776, DEBUG, SIM.write command parsed as: ['NC']
+2014-02-24 23:41:47,776, DEBUG, NC_SIM PARAM: 2
+2014-02-24 23:41:47,776, DEBUG, NC_SIM RECEIVED: 2
+2014-02-24 23:41:47,776, DEBUG, Tx: 'NC \n'bytes sent: 4
+2014-02-24 23:41:47,776, DEBUG, SIM.inWaiting has '2*', returning 2
+2014-02-24 23:41:47,776, DEBUG, SIM.read: asked for 1 returned: 2*
+2014-02-24 23:41:47,776, DEBUG, SIM.inWaiting has '*', returning 1
+2014-02-24 23:41:47,776, DEBUG, SIM.read: asked for 1 returned: *
+2014-02-24 23:41:47,776, DEBUG, Rx -  * received
+2014-02-24 23:41:47,832, DEBUG, Rx: '2' bytes read: 1
+2014-02-24 23:41:47,832, DEBUG, NC TIMER RESPONSE: '2'
+2014-02-24 23:41:47,832, DEBUG, SIM.write got 'AS \n'
+2014-02-24 23:41:47,832, DEBUG, SIM.write command parsed as: ['AS']
+2014-02-24 23:41:47,832, DEBUG, AS_SIM PARAM: -4
+2014-02-24 23:41:47,832, DEBUG, AS_SIM RECEIVED: -4
+2014-02-24 23:41:47,832, DEBUG, Tx: 'AS \n'bytes sent: 4
+2014-02-24 23:41:47,832, DEBUG, SIM.inWaiting has '-4*', returning 3
+2014-02-24 23:41:47,832, DEBUG, SIM.read: asked for 1 returned: -4*
+2014-02-24 23:41:47,832, DEBUG, SIM.inWaiting has '4*', returning 2
+2014-02-24 23:41:47,832, DEBUG, SIM.read: asked for 1 returned: 4*
+2014-02-24 23:41:47,832, DEBUG, SIM.inWaiting has '*', returning 1
+2014-02-24 23:41:47,832, DEBUG, SIM.read: asked for 1 returned: *
+2014-02-24 23:41:47,832, DEBUG, Rx -  * received
+2014-02-24 23:41:47,885, DEBUG, Rx: '-4' bytes read: 2
+2014-02-24 23:41:47,885, DEBUG, AS TIMER RESPONSE: '-4'
+2014-02-24 23:41:47,885, DEBUG, SIM.write got 'BIAS  \n'
+2014-02-24 23:41:47,885, DEBUG, SIM.write command parsed as: ['BIAS']
+2014-02-24 23:41:47,885, DEBUG, BIAS_SIM PARAM: 100.0
+2014-02-24 23:41:47,885, DEBUG, BIAS_SIM RECEIVED: 100.0
+2014-02-24 23:41:47,885, DEBUG, Tx: 'BIAS  \n'bytes sent: 7
+2014-02-24 23:41:47,885, DEBUG, SIM.inWaiting has '100.0*', returning 6
+2014-02-24 23:41:47,885, DEBUG, SIM.read: asked for 1 returned: 100.0*
+2014-02-24 23:41:47,885, DEBUG, SIM.inWaiting has '00.0*', returning 5
+2014-02-24 23:41:47,885, DEBUG, SIM.read: asked for 1 returned: 00.0*
+2014-02-24 23:41:47,885, DEBUG, SIM.inWaiting has '0.0*', returning 4
+2014-02-24 23:41:47,885, DEBUG, SIM.read: asked for 1 returned: 0.0*
+2014-02-24 23:41:47,885, DEBUG, SIM.inWaiting has '.0*', returning 3
+2014-02-24 23:41:47,885, DEBUG, SIM.read: asked for 1 returned: .0*
+2014-02-24 23:41:47,885, DEBUG, SIM.inWaiting has '0*', returning 2
+2014-02-24 23:41:47,885, DEBUG, SIM.read: asked for 1 returned: 0*
+2014-02-24 23:41:47,885, DEBUG, SIM.inWaiting has '*', returning 1
+2014-02-24 23:41:47,885, DEBUG, SIM.read: asked for 1 returned: *
+2014-02-24 23:41:47,885, DEBUG, Rx -  * received
+2014-02-24 23:41:47,940, DEBUG, Rx: '100.0' bytes read: 5
+2014-02-24 23:41:47,940, DEBUG, BIAS TIMER RESPONSE: '100.0'
+2014-02-24 23:41:47,940, DEBUG, SIM.write got 'TP \n'
+2014-02-24 23:41:47,940, DEBUG, SIM.write command parsed as: ['TP']
+2014-02-24 23:41:47,940, DEBUG, TP_SIM PARAM: None
+2014-02-24 23:41:47,940, DEBUG, TP_SIM RECEIVED: 1762
+2014-02-24 23:41:47,940, DEBUG, Tx: 'TP \n'bytes sent: 4
+2014-02-24 23:41:47,940, DEBUG, SIM.inWaiting has '1762*', returning 5
+2014-02-24 23:41:47,940, DEBUG, SIM.read: asked for 1 returned: 1762*
+2014-02-24 23:41:47,940, DEBUG, SIM.inWaiting has '762*', returning 4
+2014-02-24 23:41:47,940, DEBUG, SIM.read: asked for 1 returned: 762*
+2014-02-24 23:41:47,940, DEBUG, SIM.inWaiting has '62*', returning 3
+2014-02-24 23:41:47,940, DEBUG, SIM.read: asked for 1 returned: 62*
+2014-02-24 23:41:47,940, DEBUG, SIM.inWaiting has '2*', returning 2
+2014-02-24 23:41:47,940, DEBUG, SIM.read: asked for 1 returned: 2*
+2014-02-24 23:41:47,940, DEBUG, SIM.inWaiting has '*', returning 1
+2014-02-24 23:41:47,940, DEBUG, SIM.read: asked for 1 returned: *
+2014-02-24 23:41:47,940, DEBUG, Rx -  * received
+2014-02-24 23:41:47,996, DEBUG, Rx: '1762' bytes read: 4
+2014-02-24 23:41:47,996, DEBUG, TP TIMER RESPONSE: '1762'
+2014-02-24 23:41:48,605, DEBUG, SIM.write got 'NC \n'
+2014-02-24 23:41:48,605, DEBUG, SIM.write command parsed as: ['NC']
+2014-02-24 23:41:48,605, DEBUG, NC_SIM PARAM: 2
+2014-02-24 23:41:48,605, DEBUG, NC_SIM RECEIVED: 2
+2014-02-24 23:41:48,605, DEBUG, Tx: 'NC \n'bytes sent: 4
+2014-02-24 23:41:48,605, DEBUG, SIM.inWaiting has '2*', returning 2
+2014-02-24 23:41:48,605, DEBUG, SIM.read: asked for 1 returned: 2*
+2014-02-24 23:41:48,605, DEBUG, SIM.inWaiting has '*', returning 1
+2014-02-24 23:41:48,605, DEBUG, SIM.read: asked for 1 returned: *
+2014-02-24 23:41:48,605, DEBUG, Rx -  * received
+2014-02-24 23:41:48,660, DEBUG, Rx: '2' bytes read: 1
+2014-02-24 23:41:48,660, DEBUG, NC TIMER RESPONSE: '2'
+2014-02-24 23:41:48,660, DEBUG, SIM.write got 'AS \n'
+2014-02-24 23:41:48,660, DEBUG, SIM.write command parsed as: ['AS']
+2014-02-24 23:41:48,660, DEBUG, AS_SIM PARAM: -4
+2014-02-24 23:41:48,660, DEBUG, AS_SIM RECEIVED: -4
+2014-02-24 23:41:48,660, DEBUG, Tx: 'AS \n'bytes sent: 4
+2014-02-24 23:41:48,660, DEBUG, SIM.inWaiting has '-4*', returning 3
+2014-02-24 23:41:48,660, DEBUG, SIM.read: asked for 1 returned: -4*
+2014-02-24 23:41:48,660, DEBUG, SIM.inWaiting has '4*', returning 2
+2014-02-24 23:41:48,660, DEBUG, SIM.read: asked for 1 returned: 4*
+2014-02-24 23:41:48,660, DEBUG, SIM.inWaiting has '*', returning 1
+2014-02-24 23:41:48,660, DEBUG, SIM.read: asked for 1 returned: *
+2014-02-24 23:41:48,660, DEBUG, Rx -  * received
+2014-02-24 23:41:48,713, DEBUG, Rx: '-4' bytes read: 2
+2014-02-24 23:41:48,713, DEBUG, AS TIMER RESPONSE: '-4'
+2014-02-24 23:41:48,713, DEBUG, SIM.write got 'BIAS  \n'
+2014-02-24 23:41:48,713, DEBUG, SIM.write command parsed as: ['BIAS']
+2014-02-24 23:41:48,713, DEBUG, BIAS_SIM PARAM: 100.0
+2014-02-24 23:41:48,713, DEBUG, BIAS_SIM RECEIVED: 100.0
+2014-02-24 23:41:48,713, DEBUG, Tx: 'BIAS  \n'bytes sent: 7
+2014-02-24 23:41:48,721, DEBUG, SIM.inWaiting has '100.0*', returning 6
+2014-02-24 23:41:48,721, DEBUG, SIM.read: asked for 1 returned: 100.0*
+2014-02-24 23:41:48,721, DEBUG, SIM.inWaiting has '00.0*', returning 5
+2014-02-24 23:41:48,721, DEBUG, SIM.read: asked for 1 returned: 00.0*
+2014-02-24 23:41:48,721, DEBUG, SIM.inWaiting has '0.0*', returning 4
+2014-02-24 23:41:48,721, DEBUG, SIM.read: asked for 1 returned: 0.0*
+2014-02-24 23:41:48,721, DEBUG, SIM.inWaiting has '.0*', returning 3
+2014-02-24 23:41:48,721, DEBUG, SIM.read: asked for 1 returned: .0*
+2014-02-24 23:41:48,721, DEBUG, SIM.inWaiting has '0*', returning 2
+2014-02-24 23:41:48,721, DEBUG, SIM.read: asked for 1 returned: 0*
+2014-02-24 23:41:48,721, DEBUG, SIM.inWaiting has '*', returning 1
+2014-02-24 23:41:48,721, DEBUG, SIM.read: asked for 1 returned: *
+2014-02-24 23:41:48,721, DEBUG, Rx -  * received
+2014-02-24 23:41:48,776, DEBUG, Rx: '100.0' bytes read: 5
+2014-02-24 23:41:48,776, DEBUG, BIAS TIMER RESPONSE: '100.0'
+2014-02-24 23:41:48,776, DEBUG, SIM.write got 'TP \n'
+2014-02-24 23:41:48,776, DEBUG, SIM.write command parsed as: ['TP']
+2014-02-24 23:41:48,776, DEBUG, TP_SIM PARAM: None
+2014-02-24 23:41:48,776, DEBUG, TP_SIM RECEIVED: 1532
+2014-02-24 23:41:48,776, DEBUG, Tx: 'TP \n'bytes sent: 4
+2014-02-24 23:41:48,776, DEBUG, SIM.inWaiting has '1532*', returning 5
+2014-02-24 23:41:48,776, DEBUG, SIM.read: asked for 1 returned: 1532*
+2014-02-24 23:41:48,776, DEBUG, SIM.inWaiting has '532*', returning 4
+2014-02-24 23:41:48,776, DEBUG, SIM.read: asked for 1 returned: 532*
+2014-02-24 23:41:48,776, DEBUG, SIM.inWaiting has '32*', returning 3
+2014-02-24 23:41:48,776, DEBUG, SIM.read: asked for 1 returned: 32*
+2014-02-24 23:41:48,776, DEBUG, SIM.inWaiting has '2*', returning 2
+2014-02-24 23:41:48,776, DEBUG, SIM.read: asked for 1 returned: 2*
+2014-02-24 23:41:48,776, DEBUG, SIM.inWaiting has '*', returning 1
+2014-02-24 23:41:48,776, DEBUG, SIM.read: asked for 1 returned: *
+2014-02-24 23:41:48,776, DEBUG, Rx -  * received
+2014-02-24 23:41:48,832, DEBUG, Rx: '1532' bytes read: 4
+2014-02-24 23:41:48,832, DEBUG, TP TIMER RESPONSE: '1532'
+2014-02-24 23:41:48,846, DEBUG, get_next_command() reply timing response: (0.08, ('BIAS 500',))
+2014-02-24 23:41:48,846, DEBUG, SIM.write got 'BIAS 500 \n'
+2014-02-24 23:41:48,846, DEBUG, SIM.write command parsed as: ['BIAS', '500']
+2014-02-24 23:41:48,846, DEBUG, BIAS_SIM PARAM: 500.0
+2014-02-24 23:41:48,855, DEBUG, BIAS_SIM RECEIVED: 500.0
+2014-02-24 23:41:48,855, DEBUG, Tx: 'BIAS 500 \n'bytes sent: 10
+2014-02-24 23:41:48,855, DEBUG, SIM.inWaiting has '500.0*', returning 6
+2014-02-24 23:41:48,855, DEBUG, SIM.read: asked for 1 returned: 500.0*
+2014-02-24 23:41:48,855, DEBUG, SIM.inWaiting has '00.0*', returning 5
+2014-02-24 23:41:48,855, DEBUG, SIM.read: asked for 1 returned: 00.0*
+2014-02-24 23:41:48,855, DEBUG, SIM.inWaiting has '0.0*', returning 4
+2014-02-24 23:41:48,855, DEBUG, SIM.read: asked for 1 returned: 0.0*
+2014-02-24 23:41:48,855, DEBUG, SIM.inWaiting has '.0*', returning 3
+2014-02-24 23:41:48,855, DEBUG, SIM.read: asked for 1 returned: .0*
+2014-02-24 23:41:48,855, DEBUG, SIM.inWaiting has '0*', returning 2
+2014-02-24 23:41:48,855, DEBUG, SIM.read: asked for 1 returned: 0*
+2014-02-24 23:41:48,855, DEBUG, SIM.inWaiting has '*', returning 1
+2014-02-24 23:41:48,855, DEBUG, SIM.read: asked for 1 returned: *
+2014-02-24 23:41:48,855, DEBUG, Rx -  * received
+2014-02-24 23:41:48,910, DEBUG, Rx: '500.0' bytes read: 5
+2014-02-24 23:41:48,910, DEBUG, command execute()reply timing response: 'BIAS 500'
+2014-02-24 23:41:48,910, DEBUG, SIM.write got 'NC \n'
+2014-02-24 23:41:48,910, DEBUG, SIM.write command parsed as: ['NC']
+2014-02-24 23:41:48,910, DEBUG, NC_SIM PARAM: 2
+2014-02-24 23:41:48,910, DEBUG, NC_SIM RECEIVED: 2
+2014-02-24 23:41:48,910, DEBUG, Tx: 'NC \n'bytes sent: 4
+2014-02-24 23:41:48,910, DEBUG, SIM.inWaiting has '2*', returning 2
+2014-02-24 23:41:48,910, DEBUG, SIM.read: asked for 1 returned: 2*
+2014-02-24 23:41:48,910, DEBUG, SIM.inWaiting has '*', returning 1
+2014-02-24 23:41:48,910, DEBUG, SIM.read: asked for 1 returned: *
+2014-02-24 23:41:48,910, DEBUG, Rx -  * received
+2014-02-24 23:41:48,963, DEBUG, Rx: '2' bytes read: 1
+2014-02-24 23:41:48,963, DEBUG, NC TIMER RESPONSE: '2'
+2014-02-24 23:41:48,963, DEBUG, SIM.write got 'AS \n'
+2014-02-24 23:41:48,963, DEBUG, SIM.write command parsed as: ['AS']
+2014-02-24 23:41:48,963, DEBUG, AS_SIM PARAM: -4
+2014-02-24 23:41:48,963, DEBUG, AS_SIM RECEIVED: -4
+2014-02-24 23:41:48,963, DEBUG, Tx: 'AS \n'bytes sent: 4
+2014-02-24 23:41:48,963, DEBUG, SIM.inWaiting has '-4*', returning 3
+2014-02-24 23:41:48,963, DEBUG, SIM.read: asked for 1 returned: -4*
+2014-02-24 23:41:48,963, DEBUG, SIM.inWaiting has '4*', returning 2
+2014-02-24 23:41:48,963, DEBUG, SIM.read: asked for 1 returned: 4*
+2014-02-24 23:41:48,963, DEBUG, SIM.inWaiting has '*', returning 1
+2014-02-24 23:41:48,963, DEBUG, SIM.read: asked for 1 returned: *
+2014-02-24 23:41:48,963, DEBUG, Rx -  * received
+2014-02-24 23:41:49,019, DEBUG, Rx: '-4' bytes read: 2
+2014-02-24 23:41:49,019, DEBUG, AS TIMER RESPONSE: '-4'
+2014-02-24 23:41:49,019, DEBUG, SIM.write got 'BIAS  \n'
+2014-02-24 23:41:49,019, DEBUG, SIM.write command parsed as: ['BIAS']
+2014-02-24 23:41:49,019, DEBUG, BIAS_SIM PARAM: 500.0
+2014-02-24 23:41:49,019, DEBUG, BIAS_SIM RECEIVED: 500.0
+2014-02-24 23:41:49,019, DEBUG, Tx: 'BIAS  \n'bytes sent: 7
+2014-02-24 23:41:49,026, DEBUG, SIM.inWaiting has '500.0*', returning 6
+2014-02-24 23:41:49,026, DEBUG, SIM.read: asked for 1 returned: 500.0*
+2014-02-24 23:41:49,026, DEBUG, SIM.inWaiting has '00.0*', returning 5
+2014-02-24 23:41:49,026, DEBUG, SIM.read: asked for 1 returned: 00.0*
+2014-02-24 23:41:49,026, DEBUG, SIM.inWaiting has '0.0*', returning 4
+2014-02-24 23:41:49,026, DEBUG, SIM.read: asked for 1 returned: 0.0*
+2014-02-24 23:41:49,026, DEBUG, SIM.inWaiting has '.0*', returning 3
+2014-02-24 23:41:49,026, DEBUG, SIM.read: asked for 1 returned: .0*
+2014-02-24 23:41:49,026, DEBUG, SIM.inWaiting has '0*', returning 2
+2014-02-24 23:41:49,026, DEBUG, SIM.read: asked for 1 returned: 0*
+2014-02-24 23:41:49,026, DEBUG, SIM.inWaiting has '*', returning 1
+2014-02-24 23:41:49,026, DEBUG, SIM.read: asked for 1 returned: *
+2014-02-24 23:41:49,026, DEBUG, Rx -  * received
+2014-02-24 23:41:49,082, DEBUG, Rx: '500.0' bytes read: 5
+2014-02-24 23:41:49,082, DEBUG, BIAS TIMER RESPONSE: '500.0'
+2014-02-24 23:41:49,082, DEBUG, SIM.write got 'TP \n'
+2014-02-24 23:41:49,082, DEBUG, SIM.write command parsed as: ['TP']
+2014-02-24 23:41:49,082, DEBUG, TP_SIM PARAM: None
+2014-02-24 23:41:49,082, DEBUG, TP_SIM RECEIVED: 654
+2014-02-24 23:41:49,082, DEBUG, Tx: 'TP \n'bytes sent: 4
+2014-02-24 23:41:49,082, DEBUG, SIM.inWaiting has '654*', returning 4
+2014-02-24 23:41:49,082, DEBUG, SIM.read: asked for 1 returned: 654*
+2014-02-24 23:41:49,082, DEBUG, SIM.inWaiting has '54*', returning 3
+2014-02-24 23:41:49,082, DEBUG, SIM.read: asked for 1 returned: 54*
+2014-02-24 23:41:49,082, DEBUG, SIM.inWaiting has '4*', returning 2
+2014-02-24 23:41:49,082, DEBUG, SIM.read: asked for 1 returned: 4*
+2014-02-24 23:41:49,082, DEBUG, SIM.inWaiting has '*', returning 1
+2014-02-24 23:41:49,082, DEBUG, SIM.read: asked for 1 returned: *
+2014-02-24 23:41:49,082, DEBUG, Rx -  * received
+2014-02-24 23:41:49,135, DEBUG, Rx: '654' bytes read: 3
+2014-02-24 23:41:49,135, DEBUG, TP TIMER RESPONSE: '654'
+2014-02-24 23:41:49,730, DEBUG, SIM.write got 'NC \n'
+2014-02-24 23:41:49,730, DEBUG, SIM.write command parsed as: ['NC']
+2014-02-24 23:41:49,730, DEBUG, NC_SIM PARAM: 2
+2014-02-24 23:41:49,730, DEBUG, NC_SIM RECEIVED: 2
+2014-02-24 23:41:49,730, DEBUG, Tx: 'NC \n'bytes sent: 4
+2014-02-24 23:41:49,730, DEBUG, SIM.inWaiting has '2*', returning 2
+2014-02-24 23:41:49,730, DEBUG, SIM.read: asked for 1 returned: 2*
+2014-02-24 23:41:49,730, DEBUG, SIM.inWaiting has '*', returning 1
+2014-02-24 23:41:49,730, DEBUG, SIM.read: asked for 1 returned: *
+2014-02-24 23:41:49,730, DEBUG, Rx -  * received
+2014-02-24 23:41:49,785, DEBUG, Rx: '2' bytes read: 1
+2014-02-24 23:41:49,785, DEBUG, NC TIMER RESPONSE: '2'
+2014-02-24 23:41:49,785, DEBUG, SIM.write got 'AS \n'
+2014-02-24 23:41:49,785, DEBUG, SIM.write command parsed as: ['AS']
+2014-02-24 23:41:49,785, DEBUG, AS_SIM PARAM: -4
+2014-02-24 23:41:49,785, DEBUG, AS_SIM RECEIVED: -4
+2014-02-24 23:41:49,785, DEBUG, Tx: 'AS \n'bytes sent: 4
+2014-02-24 23:41:49,785, DEBUG, SIM.inWaiting has '-4*', returning 3
+2014-02-24 23:41:49,785, DEBUG, SIM.read: asked for 1 returned: -4*
+2014-02-24 23:41:49,785, DEBUG, SIM.inWaiting has '4*', returning 2
+2014-02-24 23:41:49,785, DEBUG, SIM.read: asked for 1 returned: 4*
+2014-02-24 23:41:49,785, DEBUG, SIM.inWaiting has '*', returning 1
+2014-02-24 23:41:49,785, DEBUG, SIM.read: asked for 1 returned: *
+2014-02-24 23:41:49,785, DEBUG, Rx -  * received
+2014-02-24 23:41:49,838, DEBUG, Rx: '-4' bytes read: 2
+2014-02-24 23:41:49,838, DEBUG, AS TIMER RESPONSE: '-4'
+2014-02-24 23:41:49,838, DEBUG, SIM.write got 'BIAS  \n'
+2014-02-24 23:41:49,838, DEBUG, SIM.write command parsed as: ['BIAS']
+2014-02-24 23:41:49,838, DEBUG, BIAS_SIM PARAM: 500.0
+2014-02-24 23:41:49,838, DEBUG, BIAS_SIM RECEIVED: 500.0
+2014-02-24 23:41:49,838, DEBUG, Tx: 'BIAS  \n'bytes sent: 7
+2014-02-24 23:41:49,846, DEBUG, SIM.inWaiting has '500.0*', returning 6
+2014-02-24 23:41:49,846, DEBUG, SIM.read: asked for 1 returned: 500.0*
+2014-02-24 23:41:49,846, DEBUG, SIM.inWaiting has '00.0*', returning 5
+2014-02-24 23:41:49,846, DEBUG, SIM.read: asked for 1 returned: 00.0*
+2014-02-24 23:41:49,846, DEBUG, SIM.inWaiting has '0.0*', returning 4
+2014-02-24 23:41:49,846, DEBUG, SIM.read: asked for 1 returned: 0.0*
+2014-02-24 23:41:49,846, DEBUG, SIM.inWaiting has '.0*', returning 3
+2014-02-24 23:41:49,846, DEBUG, SIM.read: asked for 1 returned: .0*
+2014-02-24 23:41:49,846, DEBUG, SIM.inWaiting has '0*', returning 2
+2014-02-24 23:41:49,846, DEBUG, SIM.read: asked for 1 returned: 0*
+2014-02-24 23:41:49,846, DEBUG, SIM.inWaiting has '*', returning 1
+2014-02-24 23:41:49,846, DEBUG, SIM.read: asked for 1 returned: *
+2014-02-24 23:41:49,846, DEBUG, Rx -  * received
+2014-02-24 23:41:49,901, DEBUG, Rx: '500.0' bytes read: 5
+2014-02-24 23:41:49,901, DEBUG, BIAS TIMER RESPONSE: '500.0'
+2014-02-24 23:41:49,901, DEBUG, SIM.write got 'TP \n'
+2014-02-24 23:41:49,901, DEBUG, SIM.write command parsed as: ['TP']
+2014-02-24 23:41:49,901, DEBUG, TP_SIM PARAM: None
+2014-02-24 23:41:49,901, DEBUG, TP_SIM RECEIVED: 1131
+2014-02-24 23:41:49,901, DEBUG, Tx: 'TP \n'bytes sent: 4
+2014-02-24 23:41:49,901, DEBUG, SIM.inWaiting has '1131*', returning 5
+2014-02-24 23:41:49,901, DEBUG, SIM.read: asked for 1 returned: 1131*
+2014-02-24 23:41:49,901, DEBUG, SIM.inWaiting has '131*', returning 4
+2014-02-24 23:41:49,901, DEBUG, SIM.read: asked for 1 returned: 131*
+2014-02-24 23:41:49,901, DEBUG, SIM.inWaiting has '31*', returning 3
+2014-02-24 23:41:49,901, DEBUG, SIM.read: asked for 1 returned: 31*
+2014-02-24 23:41:49,901, DEBUG, SIM.inWaiting has '1*', returning 2
+2014-02-24 23:41:49,901, DEBUG, SIM.read: asked for 1 returned: 1*
+2014-02-24 23:41:49,901, DEBUG, SIM.inWaiting has '*', returning 1
+2014-02-24 23:41:49,901, DEBUG, SIM.read: asked for 1 returned: *
+2014-02-24 23:41:49,901, DEBUG, Rx -  * received
+2014-02-24 23:41:49,957, DEBUG, Rx: '1131' bytes read: 4
+2014-02-24 23:41:49,957, DEBUG, TP TIMER RESPONSE: '1131'
+2014-02-24 23:41:49,963, DEBUG, get_next_command() reply timing response: (1.0, ('BIAS 100',))
+2014-02-24 23:41:49,963, DEBUG, SIM.write got 'BIAS 100 \n'
+2014-02-24 23:41:49,963, DEBUG, SIM.write command parsed as: ['BIAS', '100']
+2014-02-24 23:41:49,971, DEBUG, BIAS_SIM PARAM: 100.0
+2014-02-24 23:41:49,971, DEBUG, BIAS_SIM RECEIVED: 100.0
+2014-02-24 23:41:49,971, DEBUG, Tx: 'BIAS 100 \n'bytes sent: 10
+2014-02-24 23:41:49,971, DEBUG, SIM.inWaiting has '100.0*', returning 6
+2014-02-24 23:41:49,971, DEBUG, SIM.read: asked for 1 returned: 100.0*
+2014-02-24 23:41:49,971, DEBUG, SIM.inWaiting has '00.0*', returning 5
+2014-02-24 23:41:49,971, DEBUG, SIM.read: asked for 1 returned: 00.0*
+2014-02-24 23:41:49,971, DEBUG, SIM.inWaiting has '0.0*', returning 4
+2014-02-24 23:41:49,971, DEBUG, SIM.read: asked for 1 returned: 0.0*
+2014-02-24 23:41:49,971, DEBUG, SIM.inWaiting has '.0*', returning 3
+2014-02-24 23:41:49,971, DEBUG, SIM.read: asked for 1 returned: .0*
+2014-02-24 23:41:49,971, DEBUG, SIM.inWaiting has '0*', returning 2
+2014-02-24 23:41:49,971, DEBUG, SIM.read: asked for 1 returned: 0*
+2014-02-24 23:41:49,971, DEBUG, SIM.inWaiting has '*', returning 1
+2014-02-24 23:41:49,971, DEBUG, SIM.read: asked for 1 returned: *
+2014-02-24 23:41:49,971, DEBUG, Rx -  * received
+2014-02-24 23:41:50,026, DEBUG, Rx: '100.0' bytes read: 5
+2014-02-24 23:41:50,026, DEBUG, command execute()reply timing response: 'BIAS 100'
+2014-02-24 23:41:50,026, DEBUG, SIM.write got 'NC \n'
+2014-02-24 23:41:50,026, DEBUG, SIM.write command parsed as: ['NC']
+2014-02-24 23:41:50,026, DEBUG, NC_SIM PARAM: 2
+2014-02-24 23:41:50,026, DEBUG, NC_SIM RECEIVED: 2
+2014-02-24 23:41:50,026, DEBUG, Tx: 'NC \n'bytes sent: 4
+2014-02-24 23:41:50,026, DEBUG, SIM.inWaiting has '2*', returning 2
+2014-02-24 23:41:50,026, DEBUG, SIM.read: asked for 1 returned: 2*
+2014-02-24 23:41:50,026, DEBUG, SIM.inWaiting has '*', returning 1
+2014-02-24 23:41:50,026, DEBUG, SIM.read: asked for 1 returned: *
+2014-02-24 23:41:50,026, DEBUG, Rx -  * received
+2014-02-24 23:41:50,082, DEBUG, Rx: '2' bytes read: 1
+2014-02-24 23:41:50,082, DEBUG, NC TIMER RESPONSE: '2'
+2014-02-24 23:41:50,082, DEBUG, SIM.write got 'AS \n'
+2014-02-24 23:41:50,082, DEBUG, SIM.write command parsed as: ['AS']
+2014-02-24 23:41:50,082, DEBUG, AS_SIM PARAM: -4
+2014-02-24 23:41:50,082, DEBUG, AS_SIM RECEIVED: -4
+2014-02-24 23:41:50,082, DEBUG, Tx: 'AS \n'bytes sent: 4
+2014-02-24 23:41:50,082, DEBUG, SIM.inWaiting has '-4*', returning 3
+2014-02-24 23:41:50,082, DEBUG, SIM.read: asked for 1 returned: -4*
+2014-02-24 23:41:50,082, DEBUG, SIM.inWaiting has '4*', returning 2
+2014-02-24 23:41:50,082, DEBUG, SIM.read: asked for 1 returned: 4*
+2014-02-24 23:41:50,082, DEBUG, SIM.inWaiting has '*', returning 1
+2014-02-24 23:41:50,082, DEBUG, SIM.read: asked for 1 returned: *
+2014-02-24 23:41:50,082, DEBUG, Rx -  * received
+2014-02-24 23:41:50,135, DEBUG, Rx: '-4' bytes read: 2
+2014-02-24 23:41:50,135, DEBUG, AS TIMER RESPONSE: '-4'
+2014-02-24 23:41:50,135, DEBUG, SIM.write got 'BIAS  \n'
+2014-02-24 23:41:50,135, DEBUG, SIM.write command parsed as: ['BIAS']
+2014-02-24 23:41:50,135, DEBUG, BIAS_SIM PARAM: 100.0
+2014-02-24 23:41:50,135, DEBUG, BIAS_SIM RECEIVED: 100.0
+2014-02-24 23:41:50,135, DEBUG, Tx: 'BIAS  \n'bytes sent: 7
+2014-02-24 23:41:50,135, DEBUG, SIM.inWaiting has '100.0*', returning 6
+2014-02-24 23:41:50,135, DEBUG, SIM.read: asked for 1 returned: 100.0*
+2014-02-24 23:41:50,135, DEBUG, SIM.inWaiting has '00.0*', returning 5
+2014-02-24 23:41:50,135, DEBUG, SIM.read: asked for 1 returned: 00.0*
+2014-02-24 23:41:50,135, DEBUG, SIM.inWaiting has '0.0*', returning 4
+2014-02-24 23:41:50,135, DEBUG, SIM.read: asked for 1 returned: 0.0*
+2014-02-24 23:41:50,135, DEBUG, SIM.inWaiting has '.0*', returning 3
+2014-02-24 23:41:50,135, DEBUG, SIM.read: asked for 1 returned: .0*
+2014-02-24 23:41:50,135, DEBUG, SIM.inWaiting has '0*', returning 2
+2014-02-24 23:41:50,135, DEBUG, SIM.read: asked for 1 returned: 0*
+2014-02-24 23:41:50,135, DEBUG, SIM.inWaiting has '*', returning 1
+2014-02-24 23:41:50,135, DEBUG, SIM.read: asked for 1 returned: *
+2014-02-24 23:41:50,135, DEBUG, Rx -  * received
+2014-02-24 23:41:50,190, DEBUG, Rx: '100.0' bytes read: 5
+2014-02-24 23:41:50,190, DEBUG, BIAS TIMER RESPONSE: '100.0'
+2014-02-24 23:41:50,190, DEBUG, SIM.write got 'TP \n'
+2014-02-24 23:41:50,190, DEBUG, SIM.write command parsed as: ['TP']
+2014-02-24 23:41:50,190, DEBUG, TP_SIM PARAM: None
+2014-02-24 23:41:50,190, DEBUG, TP_SIM RECEIVED: 1556
+2014-02-24 23:41:50,190, DEBUG, Tx: 'TP \n'bytes sent: 4
+2014-02-24 23:41:50,190, DEBUG, SIM.inWaiting has '1556*', returning 5
+2014-02-24 23:41:50,190, DEBUG, SIM.read: asked for 1 returned: 1556*
+2014-02-24 23:41:50,190, DEBUG, SIM.inWaiting has '556*', returning 4
+2014-02-24 23:41:50,190, DEBUG, SIM.read: asked for 1 returned: 556*
+2014-02-24 23:41:50,190, DEBUG, SIM.inWaiting has '56*', returning 3
+2014-02-24 23:41:50,190, DEBUG, SIM.read: asked for 1 returned: 56*
+2014-02-24 23:41:50,190, DEBUG, SIM.inWaiting has '6*', returning 2
+2014-02-24 23:41:50,190, DEBUG, SIM.read: asked for 1 returned: 6*
+2014-02-24 23:41:50,190, DEBUG, SIM.inWaiting has '*', returning 1
+2014-02-24 23:41:50,190, DEBUG, SIM.read: asked for 1 returned: *
+2014-02-24 23:41:50,190, DEBUG, Rx -  * received
+2014-02-24 23:41:50,246, DEBUG, Rx: '1556' bytes read: 4
+2014-02-24 23:41:50,246, DEBUG, TP TIMER RESPONSE: '1556'
+2014-02-24 23:41:50,838, DEBUG, SIM.write got 'NC \n'
+2014-02-24 23:41:50,838, DEBUG, SIM.write command parsed as: ['NC']
+2014-02-24 23:41:50,838, DEBUG, NC_SIM PARAM: 2
+2014-02-24 23:41:50,838, DEBUG, NC_SIM RECEIVED: 2
+2014-02-24 23:41:50,838, DEBUG, Tx: 'NC \n'bytes sent: 4
+2014-02-24 23:41:50,838, DEBUG, SIM.inWaiting has '2*', returning 2
+2014-02-24 23:41:50,838, DEBUG, SIM.read: asked for 1 returned: 2*
+2014-02-24 23:41:50,838, DEBUG, SIM.inWaiting has '*', returning 1
+2014-02-24 23:41:50,838, DEBUG, SIM.read: asked for 1 returned: *
+2014-02-24 23:41:50,838, DEBUG, Rx -  * received
+2014-02-24 23:41:50,901, DEBUG, Rx: '2' bytes read: 1
+2014-02-24 23:41:50,901, DEBUG, NC TIMER RESPONSE: '2'
+2014-02-24 23:41:50,901, DEBUG, SIM.write got 'AS \n'
+2014-02-24 23:41:50,901, DEBUG, SIM.write command parsed as: ['AS']
+2014-02-24 23:41:50,901, DEBUG, AS_SIM PARAM: -4
+2014-02-24 23:41:50,901, DEBUG, AS_SIM RECEIVED: -4
+2014-02-24 23:41:50,901, DEBUG, Tx: 'AS \n'bytes sent: 4
+2014-02-24 23:41:50,901, DEBUG, SIM.inWaiting has '-4*', returning 3
+2014-02-24 23:41:50,901, DEBUG, SIM.read: asked for 1 returned: -4*
+2014-02-24 23:41:50,901, DEBUG, SIM.inWaiting has '4*', returning 2
+2014-02-24 23:41:50,901, DEBUG, SIM.read: asked for 1 returned: 4*
+2014-02-24 23:41:50,901, DEBUG, SIM.inWaiting has '*', returning 1
+2014-02-24 23:41:50,901, DEBUG, SIM.read: asked for 1 returned: *
+2014-02-24 23:41:50,901, DEBUG, Rx -  * received
+2014-02-24 23:41:50,957, DEBUG, Rx: '-4' bytes read: 2
+2014-02-24 23:41:50,957, DEBUG, AS TIMER RESPONSE: '-4'
+2014-02-24 23:41:50,957, DEBUG, SIM.write got 'BIAS  \n'
+2014-02-24 23:41:50,957, DEBUG, SIM.write command parsed as: ['BIAS']
+2014-02-24 23:41:50,957, DEBUG, BIAS_SIM PARAM: 100.0
+2014-02-24 23:41:50,957, DEBUG, BIAS_SIM RECEIVED: 100.0
+2014-02-24 23:41:50,957, DEBUG, Tx: 'BIAS  \n'bytes sent: 7
+2014-02-24 23:41:50,963, DEBUG, SIM.inWaiting has '100.0*', returning 6
+2014-02-24 23:41:50,963, DEBUG, SIM.read: asked for 1 returned: 100.0*
+2014-02-24 23:41:50,963, DEBUG, SIM.inWaiting has '00.0*', returning 5
+2014-02-24 23:41:50,963, DEBUG, SIM.read: asked for 1 returned: 00.0*
+2014-02-24 23:41:50,963, DEBUG, SIM.inWaiting has '0.0*', returning 4
+2014-02-24 23:41:50,963, DEBUG, SIM.read: asked for 1 returned: 0.0*
+2014-02-24 23:41:50,963, DEBUG, SIM.inWaiting has '.0*', returning 3
+2014-02-24 23:41:50,963, DEBUG, SIM.read: asked for 1 returned: .0*
+2014-02-24 23:41:50,963, DEBUG, SIM.inWaiting has '0*', returning 2
+2014-02-24 23:41:50,963, DEBUG, SIM.read: asked for 1 returned: 0*
+2014-02-24 23:41:50,963, DEBUG, SIM.inWaiting has '*', returning 1
+2014-02-24 23:41:50,963, DEBUG, SIM.read: asked for 1 returned: *
+2014-02-24 23:41:50,963, DEBUG, Rx -  * received
+2014-02-24 23:41:51,019, DEBUG, Rx: '100.0' bytes read: 5
+2014-02-24 23:41:51,019, DEBUG, BIAS TIMER RESPONSE: '100.0'
+2014-02-24 23:41:51,019, DEBUG, SIM.write got 'TP \n'
+2014-02-24 23:41:51,019, DEBUG, SIM.write command parsed as: ['TP']
+2014-02-24 23:41:51,019, DEBUG, TP_SIM PARAM: None
+2014-02-24 23:41:51,019, DEBUG, TP_SIM RECEIVED: 171
+2014-02-24 23:41:51,019, DEBUG, Tx: 'TP \n'bytes sent: 4
+2014-02-24 23:41:51,019, DEBUG, SIM.inWaiting has '171*', returning 4
+2014-02-24 23:41:51,019, DEBUG, SIM.read: asked for 1 returned: 171*
+2014-02-24 23:41:51,019, DEBUG, SIM.inWaiting has '71*', returning 3
+2014-02-24 23:41:51,019, DEBUG, SIM.read: asked for 1 returned: 71*
+2014-02-24 23:41:51,019, DEBUG, SIM.inWaiting has '1*', returning 2
+2014-02-24 23:41:51,019, DEBUG, SIM.read: asked for 1 returned: 1*
+2014-02-24 23:41:51,019, DEBUG, SIM.inWaiting has '*', returning 1
+2014-02-24 23:41:51,019, DEBUG, SIM.read: asked for 1 returned: *
+2014-02-24 23:41:51,019, DEBUG, Rx -  * received
+2014-02-24 23:41:51,073, DEBUG, Rx: '171' bytes read: 3
+2014-02-24 23:41:51,073, DEBUG, TP TIMER RESPONSE: '171'
+2014-02-24 23:41:51,230, DEBUG, get_next_command() reply timing response: (1.5, ('BIAS 500',))
+2014-02-24 23:41:51,230, DEBUG, SIM.write got 'BIAS 500 \n'
+2014-02-24 23:41:51,230, DEBUG, SIM.write command parsed as: ['BIAS', '500']
+2014-02-24 23:41:51,237, DEBUG, BIAS_SIM PARAM: 500.0
+2014-02-24 23:41:51,730, DEBUG, BIAS_SIM RECEIVED: 500.0
+2014-02-24 23:41:51,730, DEBUG, Tx: 'BIAS 500 \n'bytes sent: 10
+2014-02-24 23:41:51,730, DEBUG, SIM.inWaiting has '500.0*', returning 6
+2014-02-24 23:41:51,730, DEBUG, SIM.read: asked for 1 returned: 500.0*
+2014-02-24 23:41:51,730, DEBUG, SIM.inWaiting has '00.0*', returning 5
+2014-02-24 23:41:51,730, DEBUG, SIM.read: asked for 1 returned: 00.0*
+2014-02-24 23:41:51,730, DEBUG, SIM.inWaiting has '0.0*', returning 4
+2014-02-24 23:41:51,730, DEBUG, SIM.read: asked for 1 returned: 0.0*
+2014-02-24 23:41:51,730, DEBUG, SIM.inWaiting has '.0*', returning 3
+2014-02-24 23:41:51,730, DEBUG, SIM.read: asked for 1 returned: .0*
+2014-02-24 23:41:51,730, DEBUG, SIM.inWaiting has '0*', returning 2
+2014-02-24 23:41:51,730, DEBUG, SIM.read: asked for 1 returned: 0*
+2014-02-24 23:41:51,730, DEBUG, SIM.inWaiting has '*', returning 1
+2014-02-24 23:41:51,730, DEBUG, SIM.read: asked for 1 returned: *
+2014-02-24 23:41:51,730, DEBUG, Rx -  * received
+2014-02-24 23:41:51,785, DEBUG, Rx: '500.0' bytes read: 5
+2014-02-24 23:41:51,785, DEBUG, command execute()reply timing response: 'BIAS 500'
+2014-02-24 23:41:51,785, DEBUG, SIM.write got 'NC \n'
+2014-02-24 23:41:51,785, DEBUG, SIM.write command parsed as: ['NC']
+2014-02-24 23:41:51,785, DEBUG, NC_SIM PARAM: 2
+2014-02-24 23:41:51,785, DEBUG, NC_SIM RECEIVED: 2
+2014-02-24 23:41:51,785, DEBUG, Tx: 'NC \n'bytes sent: 4
+2014-02-24 23:41:51,785, DEBUG, SIM.inWaiting has '2*', returning 2
+2014-02-24 23:41:51,785, DEBUG, SIM.read: asked for 1 returned: 2*
+2014-02-24 23:41:51,785, DEBUG, SIM.inWaiting has '*', returning 1
+2014-02-24 23:41:51,785, DEBUG, SIM.read: asked for 1 returned: *
+2014-02-24 23:41:51,785, DEBUG, Rx -  * received
+2014-02-24 23:41:51,838, DEBUG, Rx: '2' bytes read: 1
+2014-02-24 23:41:51,838, DEBUG, NC TIMER RESPONSE: '2'
+2014-02-24 23:41:51,838, DEBUG, SIM.write got 'AS \n'
+2014-02-24 23:41:51,838, DEBUG, SIM.write command parsed as: ['AS']
+2014-02-24 23:41:51,838, DEBUG, AS_SIM PARAM: -4
+2014-02-24 23:41:51,838, DEBUG, AS_SIM RECEIVED: -4
+2014-02-24 23:41:51,838, DEBUG, Tx: 'AS \n'bytes sent: 4
+2014-02-24 23:41:51,838, DEBUG, SIM.inWaiting has '-4*', returning 3
+2014-02-24 23:41:51,838, DEBUG, SIM.read: asked for 1 returned: -4*
+2014-02-24 23:41:51,838, DEBUG, SIM.inWaiting has '4*', returning 2
+2014-02-24 23:41:51,838, DEBUG, SIM.read: asked for 1 returned: 4*
+2014-02-24 23:41:51,838, DEBUG, SIM.inWaiting has '*', returning 1
+2014-02-24 23:41:51,838, DEBUG, SIM.read: asked for 1 returned: *
+2014-02-24 23:41:51,838, DEBUG, Rx -  * received
+2014-02-24 23:41:51,894, DEBUG, Rx: '-4' bytes read: 2
+2014-02-24 23:41:51,894, DEBUG, AS TIMER RESPONSE: '-4'
+2014-02-24 23:41:51,894, DEBUG, SIM.write got 'BIAS  \n'
+2014-02-24 23:41:51,894, DEBUG, SIM.write command parsed as: ['BIAS']
+2014-02-24 23:41:51,894, DEBUG, BIAS_SIM PARAM: 500.0
+2014-02-24 23:41:51,894, DEBUG, BIAS_SIM RECEIVED: 500.0
+2014-02-24 23:41:51,894, DEBUG, Tx: 'BIAS  \n'bytes sent: 7
+2014-02-24 23:41:51,901, DEBUG, SIM.inWaiting has '500.0*', returning 6
+2014-02-24 23:41:51,901, DEBUG, SIM.read: asked for 1 returned: 500.0*
+2014-02-24 23:41:51,901, DEBUG, SIM.inWaiting has '00.0*', returning 5
+2014-02-24 23:41:51,901, DEBUG, SIM.read: asked for 1 returned: 00.0*
+2014-02-24 23:41:51,901, DEBUG, SIM.inWaiting has '0.0*', returning 4
+2014-02-24 23:41:51,901, DEBUG, SIM.read: asked for 1 returned: 0.0*
+2014-02-24 23:41:51,901, DEBUG, SIM.inWaiting has '.0*', returning 3
+2014-02-24 23:41:51,901, DEBUG, SIM.read: asked for 1 returned: .0*
+2014-02-24 23:41:51,901, DEBUG, SIM.inWaiting has '0*', returning 2
+2014-02-24 23:41:51,901, DEBUG, SIM.read: asked for 1 returned: 0*
+2014-02-24 23:41:51,901, DEBUG, SIM.inWaiting has '*', returning 1
+2014-02-24 23:41:51,901, DEBUG, SIM.read: asked for 1 returned: *
+2014-02-24 23:41:51,901, DEBUG, Rx -  * received
+2014-02-24 23:41:51,957, DEBUG, Rx: '500.0' bytes read: 5
+2014-02-24 23:41:51,957, DEBUG, BIAS TIMER RESPONSE: '500.0'
+2014-02-24 23:41:51,957, DEBUG, SIM.write got 'TP \n'
+2014-02-24 23:41:51,957, DEBUG, SIM.write command parsed as: ['TP']
+2014-02-24 23:41:51,957, DEBUG, TP_SIM PARAM: None
+2014-02-24 23:41:51,957, DEBUG, TP_SIM RECEIVED: 1127
+2014-02-24 23:41:51,957, DEBUG, Tx: 'TP \n'bytes sent: 4
+2014-02-24 23:41:51,957, DEBUG, SIM.inWaiting has '1127*', returning 5
+2014-02-24 23:41:51,957, DEBUG, SIM.read: asked for 1 returned: 1127*
+2014-02-24 23:41:51,957, DEBUG, SIM.inWaiting has '127*', returning 4
+2014-02-24 23:41:51,957, DEBUG, SIM.read: asked for 1 returned: 127*
+2014-02-24 23:41:51,957, DEBUG, SIM.inWaiting has '27*', returning 3
+2014-02-24 23:41:51,957, DEBUG, SIM.read: asked for 1 returned: 27*
+2014-02-24 23:41:51,957, DEBUG, SIM.inWaiting has '7*', returning 2
+2014-02-24 23:41:51,957, DEBUG, SIM.read: asked for 1 returned: 7*
+2014-02-24 23:41:51,957, DEBUG, SIM.inWaiting has '*', returning 1
+2014-02-24 23:41:51,957, DEBUG, SIM.read: asked for 1 returned: *
+2014-02-24 23:41:51,957, DEBUG, Rx -  * received
+2014-02-24 23:41:52,010, DEBUG, Rx: '1127' bytes read: 4
+2014-02-24 23:41:52,010, DEBUG, TP TIMER RESPONSE: '1127'
+2014-02-24 23:41:52,857, DEBUG, SIM.write got 'NC \n'
+2014-02-24 23:41:52,857, DEBUG, SIM.write command parsed as: ['NC']
+2014-02-24 23:41:52,857, DEBUG, NC_SIM PARAM: 2
+2014-02-24 23:41:52,857, DEBUG, NC_SIM RECEIVED: 2
+2014-02-24 23:41:52,857, DEBUG, Tx: 'NC \n'bytes sent: 4
+2014-02-24 23:41:52,857, DEBUG, SIM.inWaiting has '2*', returning 2
+2014-02-24 23:41:52,857, DEBUG, SIM.read: asked for 1 returned: 2*
+2014-02-24 23:41:52,857, DEBUG, SIM.inWaiting has '*', returning 1
+2014-02-24 23:41:52,857, DEBUG, SIM.read: asked for 1 returned: *
+2014-02-24 23:41:52,857, DEBUG, Rx -  * received
+2014-02-24 23:41:52,911, DEBUG, Rx: '2' bytes read: 1
+2014-02-24 23:41:52,911, DEBUG, NC TIMER RESPONSE: '2'
+2014-02-24 23:41:52,911, DEBUG, SIM.write got 'AS \n'
+2014-02-24 23:41:52,911, DEBUG, SIM.write command parsed as: ['AS']
+2014-02-24 23:41:52,911, DEBUG, AS_SIM PARAM: -4
+2014-02-24 23:41:52,911, DEBUG, AS_SIM RECEIVED: -4
+2014-02-24 23:41:52,911, DEBUG, Tx: 'AS \n'bytes sent: 4
+2014-02-24 23:41:52,911, DEBUG, SIM.inWaiting has '-4*', returning 3
+2014-02-24 23:41:52,911, DEBUG, SIM.read: asked for 1 returned: -4*
+2014-02-24 23:41:52,911, DEBUG, SIM.inWaiting has '4*', returning 2
+2014-02-24 23:41:52,911, DEBUG, SIM.read: asked for 1 returned: 4*
+2014-02-24 23:41:52,911, DEBUG, SIM.inWaiting has '*', returning 1
+2014-02-24 23:41:52,911, DEBUG, SIM.read: asked for 1 returned: *
+2014-02-24 23:41:52,911, DEBUG, Rx -  * received
+2014-02-24 23:41:52,966, DEBUG, Rx: '-4' bytes read: 2
+2014-02-24 23:41:52,966, DEBUG, AS TIMER RESPONSE: '-4'
+2014-02-24 23:41:52,966, DEBUG, SIM.write got 'BIAS  \n'
+2014-02-24 23:41:52,966, DEBUG, SIM.write command parsed as: ['BIAS']
+2014-02-24 23:41:52,966, DEBUG, BIAS_SIM PARAM: 500.0
+2014-02-24 23:41:52,966, DEBUG, BIAS_SIM RECEIVED: 500.0
+2014-02-24 23:41:52,966, DEBUG, Tx: 'BIAS  \n'bytes sent: 7
+2014-02-24 23:41:52,973, DEBUG, SIM.inWaiting has '500.0*', returning 6
+2014-02-24 23:41:52,973, DEBUG, SIM.read: asked for 1 returned: 500.0*
+2014-02-24 23:41:52,973, DEBUG, SIM.inWaiting has '00.0*', returning 5
+2014-02-24 23:41:52,973, DEBUG, SIM.read: asked for 1 returned: 00.0*
+2014-02-24 23:41:52,973, DEBUG, SIM.inWaiting has '0.0*', returning 4
+2014-02-24 23:41:52,973, DEBUG, SIM.read: asked for 1 returned: 0.0*
+2014-02-24 23:41:52,973, DEBUG, SIM.inWaiting has '.0*', returning 3
+2014-02-24 23:41:52,973, DEBUG, SIM.read: asked for 1 returned: .0*
+2014-02-24 23:41:52,973, DEBUG, SIM.inWaiting has '0*', returning 2
+2014-02-24 23:41:52,973, DEBUG, SIM.read: asked for 1 returned: 0*
+2014-02-24 23:41:52,973, DEBUG, SIM.inWaiting has '*', returning 1
+2014-02-24 23:41:52,973, DEBUG, SIM.read: asked for 1 returned: *
+2014-02-24 23:41:52,973, DEBUG, Rx -  * received
+2014-02-24 23:41:53,029, DEBUG, Rx: '500.0' bytes read: 5
+2014-02-24 23:41:53,029, DEBUG, BIAS TIMER RESPONSE: '500.0'
+2014-02-24 23:41:53,029, DEBUG, SIM.write got 'TP \n'
+2014-02-24 23:41:53,029, DEBUG, SIM.write command parsed as: ['TP']
+2014-02-24 23:41:53,029, DEBUG, TP_SIM PARAM: None
+2014-02-24 23:41:53,029, DEBUG, TP_SIM RECEIVED: 996
+2014-02-24 23:41:53,029, DEBUG, Tx: 'TP \n'bytes sent: 4
+2014-02-24 23:41:53,029, DEBUG, SIM.inWaiting has '996*', returning 4
+2014-02-24 23:41:53,029, DEBUG, SIM.read: asked for 1 returned: 996*
+2014-02-24 23:41:53,029, DEBUG, SIM.inWaiting has '96*', returning 3
+2014-02-24 23:41:53,029, DEBUG, SIM.read: asked for 1 returned: 96*
+2014-02-24 23:41:53,029, DEBUG, SIM.inWaiting has '6*', returning 2
+2014-02-24 23:41:53,029, DEBUG, SIM.read: asked for 1 returned: 6*
+2014-02-24 23:41:53,029, DEBUG, SIM.inWaiting has '*', returning 1
+2014-02-24 23:41:53,029, DEBUG, SIM.read: asked for 1 returned: *
+2014-02-24 23:41:53,029, DEBUG, Rx -  * received
+2014-02-24 23:41:53,082, DEBUG, Rx: '996' bytes read: 3
+2014-02-24 23:41:53,082, DEBUG, TP TIMER RESPONSE: '996'
+2014-02-24 23:41:53,591, DEBUG, get_next_command() reply timing response: (2.0, ('BIAS 200',))
+2014-02-24 23:41:53,591, DEBUG, SIM.write got 'BIAS 200 \n'
+2014-02-24 23:41:53,591, DEBUG, SIM.write command parsed as: ['BIAS', '200']
+2014-02-24 23:41:53,591, DEBUG, BIAS_SIM PARAM: 200.0
+2014-02-24 23:41:53,591, DEBUG, BIAS_SIM RECEIVED: 200.0
+2014-02-24 23:41:53,591, DEBUG, Tx: 'BIAS 200 \n'bytes sent: 10
+2014-02-24 23:41:53,591, DEBUG, SIM.inWaiting has '200.0*', returning 6
+2014-02-24 23:41:53,591, DEBUG, SIM.read: asked for 1 returned: 200.0*
+2014-02-24 23:41:53,591, DEBUG, SIM.inWaiting has '00.0*', returning 5
+2014-02-24 23:41:53,591, DEBUG, SIM.read: asked for 1 returned: 00.0*
+2014-02-24 23:41:53,598, DEBUG, SIM.inWaiting has '0.0*', returning 4
+2014-02-24 23:41:53,598, DEBUG, SIM.read: asked for 1 returned: 0.0*
+2014-02-24 23:41:53,598, DEBUG, SIM.inWaiting has '.0*', returning 3
+2014-02-24 23:41:53,598, DEBUG, SIM.read: asked for 1 returned: .0*
+2014-02-24 23:41:53,598, DEBUG, SIM.inWaiting has '0*', returning 2
+2014-02-24 23:41:53,598, DEBUG, SIM.read: asked for 1 returned: 0*
+2014-02-24 23:41:53,598, DEBUG, SIM.inWaiting has '*', returning 1
+2014-02-24 23:41:53,598, DEBUG, SIM.read: asked for 1 returned: *
+2014-02-24 23:41:53,598, DEBUG, Rx -  * received
+2014-02-24 23:41:53,654, DEBUG, Rx: '200.0' bytes read: 5
+2014-02-24 23:41:53,661, DEBUG, command execute()reply timing response: 'BIAS 200'
+2014-02-24 23:41:53,661, DEBUG, SIM.write got 'NC \n'
+2014-02-24 23:41:53,661, DEBUG, SIM.write command parsed as: ['NC']
+2014-02-24 23:41:53,661, DEBUG, NC_SIM PARAM: 2
+2014-02-24 23:41:53,661, DEBUG, NC_SIM RECEIVED: 2
+2014-02-24 23:41:53,661, DEBUG, Tx: 'NC \n'bytes sent: 4
+2014-02-24 23:41:53,661, DEBUG, SIM.inWaiting has '2*', returning 2
+2014-02-24 23:41:53,661, DEBUG, SIM.read: asked for 1 returned: 2*
+2014-02-24 23:41:53,661, DEBUG, SIM.inWaiting has '*', returning 1
+2014-02-24 23:41:53,661, DEBUG, SIM.read: asked for 1 returned: *
+2014-02-24 23:41:53,661, DEBUG, Rx -  * received
+2014-02-24 23:41:53,713, DEBUG, Rx: '2' bytes read: 1
+2014-02-24 23:41:53,713, DEBUG, NC TIMER RESPONSE: '2'
+2014-02-24 23:41:53,713, DEBUG, SIM.write got 'AS \n'
+2014-02-24 23:41:53,713, DEBUG, SIM.write command parsed as: ['AS']
+2014-02-24 23:41:53,713, DEBUG, AS_SIM PARAM: -4
+2014-02-24 23:41:53,713, DEBUG, AS_SIM RECEIVED: -4
+2014-02-24 23:41:53,713, DEBUG, Tx: 'AS \n'bytes sent: 4
+2014-02-24 23:41:53,713, DEBUG, SIM.inWaiting has '-4*', returning 3
+2014-02-24 23:41:53,713, DEBUG, SIM.read: asked for 1 returned: -4*
+2014-02-24 23:41:53,713, DEBUG, SIM.inWaiting has '4*', returning 2
+2014-02-24 23:41:53,713, DEBUG, SIM.read: asked for 1 returned: 4*
+2014-02-24 23:41:53,713, DEBUG, SIM.inWaiting has '*', returning 1
+2014-02-24 23:41:53,713, DEBUG, SIM.read: asked for 1 returned: *
+2014-02-24 23:41:53,713, DEBUG, Rx -  * received
+2014-02-24 23:41:53,767, DEBUG, Rx: '-4' bytes read: 2
+2014-02-24 23:41:53,767, DEBUG, AS TIMER RESPONSE: '-4'
+2014-02-24 23:41:53,767, DEBUG, SIM.write got 'BIAS  \n'
+2014-02-24 23:41:53,767, DEBUG, SIM.write command parsed as: ['BIAS']
+2014-02-24 23:41:53,767, DEBUG, BIAS_SIM PARAM: 200.0
+2014-02-24 23:41:53,767, DEBUG, BIAS_SIM RECEIVED: 200.0
+2014-02-24 23:41:53,767, DEBUG, Tx: 'BIAS  \n'bytes sent: 7
+2014-02-24 23:41:53,767, DEBUG, SIM.inWaiting has '200.0*', returning 6
+2014-02-24 23:41:53,767, DEBUG, SIM.read: asked for 1 returned: 200.0*
+2014-02-24 23:41:53,767, DEBUG, SIM.inWaiting has '00.0*', returning 5
+2014-02-24 23:41:53,767, DEBUG, SIM.read: asked for 1 returned: 00.0*
+2014-02-24 23:41:53,767, DEBUG, SIM.inWaiting has '0.0*', returning 4
+2014-02-24 23:41:53,767, DEBUG, SIM.read: asked for 1 returned: 0.0*
+2014-02-24 23:41:53,767, DEBUG, SIM.inWaiting has '.0*', returning 3
+2014-02-24 23:41:53,767, DEBUG, SIM.read: asked for 1 returned: .0*
+2014-02-24 23:41:53,767, DEBUG, SIM.inWaiting has '0*', returning 2
+2014-02-24 23:41:53,767, DEBUG, SIM.read: asked for 1 returned: 0*
+2014-02-24 23:41:53,767, DEBUG, SIM.inWaiting has '*', returning 1
+2014-02-24 23:41:53,767, DEBUG, SIM.read: asked for 1 returned: *
+2014-02-24 23:41:53,767, DEBUG, Rx -  * received
+2014-02-24 23:41:53,822, DEBUG, Rx: '200.0' bytes read: 5
+2014-02-24 23:41:53,822, DEBUG, BIAS TIMER RESPONSE: '200.0'
+2014-02-24 23:41:53,822, DEBUG, SIM.write got 'TP \n'
+2014-02-24 23:41:53,822, DEBUG, SIM.write command parsed as: ['TP']
+2014-02-24 23:41:53,822, DEBUG, TP_SIM PARAM: None
+2014-02-24 23:41:53,822, DEBUG, TP_SIM RECEIVED: 88
+2014-02-24 23:41:53,822, DEBUG, Tx: 'TP \n'bytes sent: 4
+2014-02-24 23:41:53,822, DEBUG, SIM.inWaiting has '88*', returning 3
+2014-02-24 23:41:53,822, DEBUG, SIM.read: asked for 1 returned: 88*
+2014-02-24 23:41:53,822, DEBUG, SIM.inWaiting has '8*', returning 2
+2014-02-24 23:41:53,822, DEBUG, SIM.read: asked for 1 returned: 8*
+2014-02-24 23:41:53,822, DEBUG, SIM.inWaiting has '*', returning 1
+2014-02-24 23:41:53,822, DEBUG, SIM.read: asked for 1 returned: *
+2014-02-24 23:41:53,822, DEBUG, Rx -  * received
+2014-02-24 23:41:53,877, DEBUG, Rx: '88' bytes read: 2
+2014-02-24 23:41:53,877, DEBUG, TP TIMER RESPONSE: '88'
+2014-02-24 23:41:54,479, DEBUG, SIM.write got 'NC \n'
+2014-02-24 23:41:54,479, DEBUG, SIM.write command parsed as: ['NC']
+2014-02-24 23:41:54,479, DEBUG, NC_SIM PARAM: 2
+2014-02-24 23:41:54,479, DEBUG, NC_SIM RECEIVED: 2
+2014-02-24 23:41:54,479, DEBUG, Tx: 'NC \n'bytes sent: 4
+2014-02-24 23:41:54,479, DEBUG, SIM.inWaiting has '2*', returning 2
+2014-02-24 23:41:54,479, DEBUG, SIM.read: asked for 1 returned: 2*
+2014-02-24 23:41:54,479, DEBUG, SIM.inWaiting has '*', returning 1
+2014-02-24 23:41:54,479, DEBUG, SIM.read: asked for 1 returned: *
+2014-02-24 23:41:54,479, DEBUG, Rx -  * received
+2014-02-24 23:41:54,533, DEBUG, Rx: '2' bytes read: 1
+2014-02-24 23:41:54,533, DEBUG, NC TIMER RESPONSE: '2'
+2014-02-24 23:41:54,533, DEBUG, SIM.write got 'AS \n'
+2014-02-24 23:41:54,533, DEBUG, SIM.write command parsed as: ['AS']
+2014-02-24 23:41:54,533, DEBUG, AS_SIM PARAM: -4
+2014-02-24 23:41:54,533, DEBUG, AS_SIM RECEIVED: -4
+2014-02-24 23:41:54,533, DEBUG, Tx: 'AS \n'bytes sent: 4
+2014-02-24 23:41:54,533, DEBUG, SIM.inWaiting has '-4*', returning 3
+2014-02-24 23:41:54,533, DEBUG, SIM.read: asked for 1 returned: -4*
+2014-02-24 23:41:54,533, DEBUG, SIM.inWaiting has '4*', returning 2
+2014-02-24 23:41:54,533, DEBUG, SIM.read: asked for 1 returned: 4*
+2014-02-24 23:41:54,533, DEBUG, SIM.inWaiting has '*', returning 1
+2014-02-24 23:41:54,533, DEBUG, SIM.read: asked for 1 returned: *
+2014-02-24 23:41:54,533, DEBUG, Rx -  * received
+2014-02-24 23:41:54,588, DEBUG, Rx: '-4' bytes read: 2
+2014-02-24 23:41:54,588, DEBUG, AS TIMER RESPONSE: '-4'
+2014-02-24 23:41:54,588, DEBUG, SIM.write got 'BIAS  \n'
+2014-02-24 23:41:54,588, DEBUG, SIM.write command parsed as: ['BIAS']
+2014-02-24 23:41:54,588, DEBUG, BIAS_SIM PARAM: 200.0
+2014-02-24 23:41:54,588, DEBUG, BIAS_SIM RECEIVED: 200.0
+2014-02-24 23:41:54,588, DEBUG, Tx: 'BIAS  \n'bytes sent: 7
+2014-02-24 23:41:54,595, DEBUG, SIM.inWaiting has '200.0*', returning 6
+2014-02-24 23:41:54,595, DEBUG, SIM.read: asked for 1 returned: 200.0*
+2014-02-24 23:41:54,595, DEBUG, SIM.inWaiting has '00.0*', returning 5
+2014-02-24 23:41:54,595, DEBUG, SIM.read: asked for 1 returned: 00.0*
+2014-02-24 23:41:54,595, DEBUG, SIM.inWaiting has '0.0*', returning 4
+2014-02-24 23:41:54,595, DEBUG, SIM.read: asked for 1 returned: 0.0*
+2014-02-24 23:41:54,595, DEBUG, SIM.inWaiting has '.0*', returning 3
+2014-02-24 23:41:54,595, DEBUG, SIM.read: asked for 1 returned: .0*
+2014-02-24 23:41:54,595, DEBUG, SIM.inWaiting has '0*', returning 2
+2014-02-24 23:41:54,595, DEBUG, SIM.read: asked for 1 returned: 0*
+2014-02-24 23:41:54,595, DEBUG, SIM.inWaiting has '*', returning 1
+2014-02-24 23:41:54,595, DEBUG, SIM.read: asked for 1 returned: *
+2014-02-24 23:41:54,595, DEBUG, Rx -  * received
+2014-02-24 23:41:54,651, DEBUG, Rx: '200.0' bytes read: 5
+2014-02-24 23:41:54,651, DEBUG, BIAS TIMER RESPONSE: '200.0'
+2014-02-24 23:41:54,651, DEBUG, SIM.write got 'TP \n'
+2014-02-24 23:41:54,651, DEBUG, SIM.write command parsed as: ['TP']
+2014-02-24 23:41:54,651, DEBUG, TP_SIM PARAM: None
+2014-02-24 23:41:54,651, DEBUG, TP_SIM RECEIVED: 1205
+2014-02-24 23:41:54,651, DEBUG, Tx: 'TP \n'bytes sent: 4
+2014-02-24 23:41:54,651, DEBUG, SIM.inWaiting has '1205*', returning 5
+2014-02-24 23:41:54,651, DEBUG, SIM.read: asked for 1 returned: 1205*
+2014-02-24 23:41:54,651, DEBUG, SIM.inWaiting has '205*', returning 4
+2014-02-24 23:41:54,651, DEBUG, SIM.read: asked for 1 returned: 205*
+2014-02-24 23:41:54,651, DEBUG, SIM.inWaiting has '05*', returning 3
+2014-02-24 23:41:54,651, DEBUG, SIM.read: asked for 1 returned: 05*
+2014-02-24 23:41:54,651, DEBUG, SIM.inWaiting has '5*', returning 2
+2014-02-24 23:41:54,651, DEBUG, SIM.read: asked for 1 returned: 5*
+2014-02-24 23:41:54,651, DEBUG, SIM.inWaiting has '*', returning 1
+2014-02-24 23:41:54,651, DEBUG, SIM.read: asked for 1 returned: *
+2014-02-24 23:41:54,651, DEBUG, Rx -  * received
+2014-02-24 23:41:54,706, DEBUG, Rx: '1205' bytes read: 4
+2014-02-24 23:41:54,706, DEBUG, TP TIMER RESPONSE: '1205'
+2014-02-24 23:41:54,713, DEBUG, Closing Serial Port
+2014-02-24 23:41:54,720, DEBUG, Serial Port opened
+2014-02-24 23:41:54,720, DEBUG, Closing Serial Port

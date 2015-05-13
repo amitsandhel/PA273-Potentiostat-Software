@@ -1,0 +1,55 @@
+H:\beastie_python\test>test_main
+
+New System Path:
+['H:\\beastie_python',
+ 'H:\\beastie_python\\test',
+ 'C:\\Python27\\lib\\site-packages\\slate-0.3-py2.7.egg',
+ 'C:\\Python27\\lib\\site-packages\\distribute-0.6.30-py2.7.egg',
+ 'C:\\Windows\\system32\\python27.zip',
+ 'C:\\Python27\\DLLs',
+ 'C:\\Python27\\lib',
+ 'C:\\Python27\\lib\\plat-win',
+ 'C:\\Python27\\lib\\lib-tk',
+ 'C:\\Python27',
+ 'C:\\Python27\\lib\\site-packages',
+ 'C:\\Python27\\lib\\site-packages\\win32',
+ 'C:\\Python27\\lib\\site-packages\\win32\\lib',
+ 'C:\\Python27\\lib\\site-packages\\Pythonwin',
+ 'C:\\Python27\\lib\\site-packages\\wx-2.8-msw-unicode']
+EE
+
+New System Path:
+['H:\\beastie_python\\test',
+ 'H:\\beastie_python',
+ 'C:\\Python27\\lib\\site-packages\\slate-0.3-py2.7.egg',
+ 'C:\\Python27\\lib\\site-packages\\distribute-0.6.30-py2.7.egg',
+ 'C:\\Windows\\system32\\python27.zip',
+ 'C:\\Python27\\DLLs',
+ 'C:\\Python27\\lib',
+ 'C:\\Python27\\lib\\plat-win',
+ 'C:\\Python27\\lib\\lib-tk',
+ 'C:\\Python27',
+ 'C:\\Python27\\lib\\site-packages',
+ 'C:\\Python27\\lib\\site-packages\\win32',
+ 'C:\\Python27\\lib\\site-packages\\win32\\lib',
+ 'C:\\Python27\\lib\\site-packages\\Pythonwin',
+ 'C:\\Python27\\lib\\site-packages\\wx-2.8-msw-unicode']
+
+
+New System Path:
+['H:\\beastie_python\\test',
+ 'C:\\Python27\\lib\\site-packages\\slate-0.3-py2.7.egg',
+ 'H:\\beastie_python',
+ 'C:\\Python27\\lib\\site-packages\\distribute-0.6.30-py2.7.egg',
+ 'C:\\Windows\\system32\\python27.zip',
+ 'C:\\Python27\\DLLs',
+ 'C:\\Python27\\lib',
+ 'C:\\Python27\\lib\\plat-win',
+ 'C:\\Python27\\lib\\lib-tk',
+ 'C:\\Python27',
+ 'C:\\Python27\\lib\\site-packages',
+ 'C:\\Python27\\lib\\site-packages\\win32',
+ 'C:\\Python27\\lib\\site-packages\\win32\\lib',
+ 'C:\\Python27\\lib\\site-packages\\Pythonwin',
+ 'C:\\Python27\\lib\\site-packages\\wx-2.8-msw-unicode']
+.........
