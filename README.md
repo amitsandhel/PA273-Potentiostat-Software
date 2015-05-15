@@ -1,11 +1,11 @@
-#Created by Amit Sandhel
+#PA273-Potentiostat Software
 
 This software is designed to operate the PA273 potentiostat. 
-Two pdf manuals are provided. It is recommended to read both manuals to understand all the commands possible to implement with PA273. It is also advised to run the software using the simulator to understand software functionality.
+Two pdf manuals are provided. Read both manuals before operating the potentiostat. It is also recommended to run the software using the simulator setting to understand software functionality.
 
 Currently the software has two versions
 
-1. pa273v1.py: This version (version 1) runs the potentiostat manually. This version is designed to run single voltage experiements for long periods of time  A simple version called pa273v1 which runs the potentiostat manually. Ideal for single voltage measurements.
+1. **pa273v1.py:** Version 1 runs the potentiostat manually. This version is designed to run single voltage experiements for long periods of time  A simple version called pa273v1 which runs the potentiostat manually. Ideal for single voltage measurements.
 2. pa273v2.py: This version (version 2) runs the potentionstat via a custom command language. Version 2 is designed for waveform programming Read the manuals provided for more information on waveform programming.
 
 # Requirements
