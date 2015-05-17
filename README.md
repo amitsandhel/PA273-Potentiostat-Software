@@ -70,6 +70,7 @@ The following instructions are how to operate the software using both versions. 
 ##**Version 1 py273_v1.py**
 
 **Running With Simulator:**
+
 1. Commands to be passed in to set the parameters
 2. Change COM Port setting. Open the pa273_v1.py script in a text editor software. Go to line 61 of code. Section is named **COM PORT SETTINGS**. Change the comport setting to the number desired.
 3. Save the pa273_v1.py script **(DO NOT RENAME THIS FILE OVERRIDE AND SAVE IT)**.
@@ -85,17 +86,19 @@ The following instructions are how to operate the software using both versions. 
 **Note**BOOK3.csv records the time, BIAS [mV], the EGIAN, IGAIN, I-RANGE (set to auto manually on machine), voltage readout, and current charge and Qexp. 
 
 **Running To Actual Serial Port-Without Simulator Setting:**
+
 To run the software without the simulator setting (running to actual serial comport). Note that the only change is the argparse terminal command used. All other setting commands have to be used as is. 
 
-1.  Change COM Port setting. Open the pa273_v1.py script in a text editor software. Go to line 61 of code. Section is named **COM PORT SETTINGS**. Change the comport setting to the number desired.
-3. save the pa273_v1.py script **(DO NOT RENAME THIS FILE OVERRIDE AND SAVE IT)**.
+1. Change COM Port setting. Open the pa273_v1.py script in a text editor software. Go to line 61 of code. Section is named **COM PORT SETTINGS**. Change the comport setting to the number desired.
+3. Save the pa273_v1.py script **(DO NOT RENAME THIS FILE OVERRIDE AND SAVE IT)**.
 4. In terminal/command prompt type **"main -v1"** To run the program.
 5. Execute commands 5-12 as needed. 
    
 ##**Version 2 py273_v2.py**
 
 **Running With Simulator:**
-1.  open "beastiecommand.csv" excel file
+
+1.  Open "beastiecommand.csv" excel file
 2.  write the desired times (in milliseconds) and the voltages (millivolts) needed for waveform programming 
 3.  save the csv excel file and close it 
 4.  to change the COM setting open the pa273_v2.py script in a text editor software. Go to line 61 Section is named 
