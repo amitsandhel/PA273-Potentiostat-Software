@@ -1,4 +1,6 @@
 #PA273-Potentiostat Software
+Version 1.0
+Amit Sandhel
 
 This software is designed to operate the PA273 potentiostat. 
 Two pdf manuals are provided. Read both manuals before operating the potentiostat. It is also recommended to run the software using the simulator setting to understand software functionality.
@@ -40,13 +42,6 @@ The following scripts exist in this software.
 10. **BOOK3.csv:** csv file where the data is recorded for pa273_v1.py script.
 11. **Examples:** Folder that contains sample log files and sample recorded data. This data can be generated via the simulator parameter or when running the real experiment. 
 12. **manuals folder:** Folder containing the manuals to operate the potentiostat in pdf format. 
-
-#Notes of Caution:
-* The simultaor accepts the BIAS command only. Adding in any other potentiostat commands will result in the simulator failing. However additional commands can be easily developed by the user by increasing functionality of the user. 
-* The Simulator class is built within the pa273_v1.py and pa273_v2.py scripts individually. Class is called Fake_Serial(). 
-* The command language file name beastiecommand.csv and the filename BOOK2.csv must not be changed. These filenames are opened by py273v2.py and postrun.py scripts respectively. 
-* Many spike and concept tests have been commented out. User may wish to uncomment them for testing purposes 
-
 
 #Operating Instructions
 * Read the pdf manuals provided on the potentiostat to fully understand all the commands available and how to operate the potentiostat.  
@@ -98,18 +93,29 @@ To run the software without the simulator setting (running to actual serial comp
 
 **Running With Simulator:**
 
-1.  Open "beastiecommand.csv" excel file
-2.  write the desired times (in milliseconds) and the voltages (millivolts) needed for waveform programming 
-3.  save the csv excel file and close it 
-4.  to change the COM setting open the pa273_v2.py script in a text editor software. Go to line 61 Section is named 
-'''COM PORT SETTINGS''' and adjust the comport setting to the number desired.
-5. save the pa273_v2.py script **(DO NOT RENAME THIS FILE OVERRIDE AND SAVE IT)** 
-6. In terminal type "main -s -v2" To run via the simulator. 
-7. To run without simulator (to real serial comport) type "main -v2"
-8. software will execute. Note that a graph in real time will be displayed. The data is stored in another csv file called "BOOK2.csv". That file is then opened by postrun.py script automatically to display the static data and saves the data as a png image as well
+1.  Open **"beastiecommand.csv"** command file. This is a csv excel file.
+2.  Write the desired times (in milliseconds) and the voltages (millivolts) needed for waveform programming 
+3.  save the csv excel file and close it. Do not rename this file.  
+4.  Change COM Port setting. Open the pa273_v1.py script in a text editor software. Go to line 61 of code. Section is named **COM PORT SETTINGS**. Change the comport setting to the number desired.
+5. Save the pa273_v2.py script 
+6. In terminal/command prompt type **"main -s -v2"** To run the program using the simulator.
+7. Software will execute. Note that a graph in real time will be displayed. The data is stored in another csv file called "BOOK2.csv". That file is then opened by postrun.py script automatically to display the static data and saves the data as a png image as well.
 **Note:**BOOK2.csv records the Time, AS, BIAS(voltage mV), TP-point (current)
 
 **Running To Actual Serial Port-Without Simulator Setting:**
+
+To run the software without the simulator setting (running to actual serial comport). Note that the only change is the argparse terminal command used. All other setting commands have to be used as is. Change the command file beastiecommand.csv as needed. 
+
+1. Change COM Port setting. Open the pa273_v1.py script in a text editor software. Go to line 61 of code. Section is named **COM PORT SETTINGS**. Change the comport setting to the number desired.
+3. Save the pa273_v2.py script.
+4. In terminal/command prompt type **"main -v2"** To run the program.
+
+
+#Notes of Caution:
+* The simultaor accepts the BIAS command only. Adding in any other potentiostat commands will result in the simulator failing. However additional commands can be easily developed by the user by increasing functionality of the user. 
+* The Simulator class is built within the pa273_v1.py and pa273_v2.py scripts individually. Class is called Fake_Serial(). 
+* The command language file name beastiecommand.csv and the filename BOOK2.csv must not be changed. These filenames are opened by py273v2.py and postrun.py scripts respectively. 
+* Many spike and concept tests have been commented out. User may wish to uncomment them for testing purposes 
 
 
 #To Do/Future Features:
