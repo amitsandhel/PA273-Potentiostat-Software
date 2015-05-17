@@ -95,17 +95,17 @@ To run the software without the simulator setting (running to actual serial comp
 1.  Open **"beastiecommand.csv"** command file. This is a csv excel file.
 2.  Write the desired times (in milliseconds) and the voltages (millivolts) needed for waveform programming 
 3.  save the csv excel file and close it. Do not rename this file.  
-4.  Change COM Port setting. Open the pa273_v1.py script in a text editor software. Go to line 61 of code. Section is named **COM PORT SETTINGS**. Change the comport setting to the number desired.
-5. Save the pa273_v2.py script 
+4.  Change COM Port setting. Open the **pa273_v2.py** script in a text editor software. Go to line 61 of code. Section is named **COM PORT SETTINGS**. Change the comport setting to the number desired.
+5. Save the **pa273_v2.py** script. Do not rename file.  
 6. In terminal/command prompt type **"main -s -v2"** To run the program using the simulator.
-7. Software will execute. Note that a graph in real time will be displayed. The data is stored in another csv file called "BOOK2.csv". That file is then opened by postrun.py script automatically to display the static data and saves the data as a png image as well.
-**Note:**BOOK2.csv records the Time, AS, BIAS(voltage mV), TP-point (current)
+7. Software will execute. Note that a graph in real time will be displayed. The data is stored in another csv file called **"BOOK2.csv"**. This file is then opened by postrun.py script automatically to display the static data and saves the data as a png image as well.
+**Note:** BOOK2.csv records the Time, AS, BIAS(voltage mV), TP-point (current)
 
 **Running To Actual Serial Port-Without Simulator Setting:**
 
 To run the software without the simulator setting (running to actual serial comport). Note that the only change is the argparse terminal command used. All other setting commands have to be used as is. Change the command file beastiecommand.csv as needed. 
 
-1. Change COM Port setting. Open the pa273_v1.py script in a text editor software. Go to line 61 of code. Section is named **COM PORT SETTINGS**. Change the comport setting to the number desired.
+1. Change COM Port setting. Open the **pa273_v2.py** script in a text editor software. Go to line 61 of code. Section is named **COM PORT SETTINGS**. Change the comport setting to the number desired.
 3. Save the pa273_v2.py script.
 4. In terminal/command prompt type **"main -v2"** To run the program.
 
