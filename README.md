@@ -85,7 +85,7 @@ Note: Commands have to be set directly within the software. The comport setting 
 9. Software will run potentiostat with new voltage and continue to record data in BOOK3.csv file.
 10. Press **"Q"** to exit the software.
 
-BOOK3.csv records the time, BIAS [mV], the EGIAN, IGAIN, I-RANGE (set to auto manually on machine), voltage readout, and current charge and Qexp. 
+**BOOK3.csv** records the time, BIAS [mV], the EGIAN, IGAIN, I-RANGE (set to auto manually on machine), voltage readout, and current charge and Qexp. 
 
 **Running To Actual Serial Port-Without Simulator Setting:**
 
@@ -108,7 +108,7 @@ To run the software without the simulator setting (running to actual serial comp
 6. In terminal/command prompt type **"main -s -v2"** to run the program using the simulator.
 7. Software will execute. A real time graph will be displayed showing the voltage and the current output. The voltage is displayed in the top graph and the current is displayed in the bottom graph. The data is stored in a csv file called **"BOOK2.csv"**. This file is then opened by postrun.py script automatically to display the static data and saves the data as a png image as well.
 
-BOOK2.csv records the Time, AS, BIAS(voltage mV), TP-point (current)
+**BOOK2.csv** records the Time, AS, BIAS(voltage mV), TP-point (current)
 
 **Running To Actual Serial Port-Without Simulator Setting:**
 
