@@ -7,7 +7,7 @@
 Created by Amit Sandhel on 2013-05-27.
 This module is to probe a COM port for the PA273 potentiostat 
 
-This script runs the beastie script that operates the potentiostat
+This script runs the potentiostat script that operates the potentiostat
 This script comes with a built in simulator which simulates the serial port if one is not present. Designed for testing and software development 
 purposes
 There are two serial classes Fake_Serial() class is a class that connects to a virtual/fake serial port. 
