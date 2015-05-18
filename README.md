@@ -73,6 +73,7 @@ The following instructions are how to operate the software using both versions. 
 **Running With Simulator:**
 
 Note: Commands have to be set directly within the software. The comport setting in Windows can be determined in the **Devices and Printers** folder. A new comport driver should be identified and labelled in the folder. 
+
 1. **Change COM Port setting.** Open the pa273_v1.py script in a text editor software. Go to line 61 of code. Section is named **COM PORT SETTINGS**. Change the comport setting to the number desired.
 2. Save the pa273_v1.py script **(DO NOT RENAME THIS FILE OVERRIDE AND SAVE IT)**.
 3. In terminal/command prompt type **"main -s -v1"** To run the program using the simulator.
@@ -101,16 +102,17 @@ To run the software without the simulator setting (running to actual serial comp
 
 1.  Open **"beastiecommand.csv"** command file. This is a csv excel file.
 2.  Write the desired times (in milliseconds) and the voltages (millivolts) needed for waveform programming 
-3.  save the csv excel file and close it. Do not rename this file.  
-4.  Change COM Port setting. Open the **pa273_v2.py** script in a text editor software. Go to line 61 of code. Section is named **COM PORT SETTINGS**. Change the comport setting to the number desired.
+3.  Save the csv excel file and close it. Do not rename this file.  
+4.  Change COM Port setting. Open the **pa273_v2.py** script in a text editor software. Go to line 61 of the code. Section is named **COM PORT SETTINGS**. Change the comport settings to the number desired.
 5. Save the **pa273_v2.py** script. Do not rename file.  
-6. In terminal/command prompt type **"main -s -v2"** To run the program using the simulator.
-7. Software will execute. Note that a graph in real time will be displayed. The data is stored in another csv file called **"BOOK2.csv"**. This file is then opened by postrun.py script automatically to display the static data and saves the data as a png image as well.
-**Note:** BOOK2.csv records the Time, AS, BIAS(voltage mV), TP-point (current)
+6. In terminal/command prompt type **"main -s -v2"** to run the program using the simulator.
+7. Software will execute. A real time graph will be displayed showing the voltage and the current output. The voltage is displayed in the top graph and the current is displayed in the bottom graph. The data is stored in a csv file called **"BOOK2.csv"**. This file is then opened by postrun.py script automatically to display the static data and saves the data as a png image as well.
+
+BOOK2.csv records the Time, AS, BIAS(voltage mV), TP-point (current)
 
 **Running To Actual Serial Port-Without Simulator Setting:**
 
-To run the software without the simulator setting (running to actual serial comport). Note that the only change is the argparse terminal command used. All other setting commands have to be used as is. Change the command file beastiecommand.csv as needed. 
+To run the software without the simulator setting (running to actual serial comport). The only change is the argparse terminal command used. All other setting commands have to be used as is. Change the command file beastiecommand.csv as needed. 
 
 1. Change COM Port setting. Open the **pa273_v2.py** script in a text editor software. Go to line 61 of code. Section is named **COM PORT SETTINGS**. Change the comport setting to the number desired.
 3. Save the pa273_v2.py script.
@@ -119,9 +121,9 @@ To run the software without the simulator setting (running to actual serial comp
 
 #Notes of Caution:
 * The simultaor accepts the BIAS command only. Adding in any other potentiostat commands will result in the simulator failing. However additional commands can be easily developed by the user by increasing functionality of the user. 
-* The Simulator class is built within the pa273_v1.py and pa273_v2.py scripts individually. Class is called Fake_Serial(). 
+* The Simulator class is built within the pa273_v1.py and pa273_v2.py scripts individually. The Class is called Fake_Serial() in both py273_v1.py and py273_v2.py scripts. 
 * The command language file name beastiecommand.csv and the filename BOOK2.csv must not be changed. These filenames are opened by py273v2.py and postrun.py scripts respectively. 
-* Many spike and concept tests have been commented out. User may wish to uncomment them for testing purposes
+* Some unittests have been commented out. User may wish to uncomment them for testing purposes. They are commented out because they are design and concept tests.
 
 
 #To Do/Future Features:
