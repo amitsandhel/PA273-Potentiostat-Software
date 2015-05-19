@@ -4,10 +4,10 @@
 
 
 """
-Created by Amit Sandhel on 2013-05-27.
+Created by Amit Sandhel.
 This module is to probe a COM port for the PA273 potentiostat 
 
-This script runs the beastie script that operates the potentiostat
+This script runs the potentiostat using a custom command language.
 This script comes with a built in simulator which simulates the serial port if one is not present. Designed for testing and software development 
 purposes
 There are two serial classes Fake_Serial() class is a class that connects to a virtual/fake serial port. 
@@ -279,7 +279,7 @@ class MySerialPort():
         self.s.close()
     
     def readfiles(self):
-        '''reading the beastie command csv file''' 
+        '''reading the command csv file called beastiecommandfile''' 
         file = "beastiecommand.csv"
         global command_list
         command_list = []
@@ -412,7 +412,7 @@ class MySerialPort():
 module = sys.modules[__name__]
 
 class Main():
-    """Main class which executes the entire beastie script"""
+    """Main class which executes the entire pa273_v2 script"""
     
     def __init__(self, parser):
         args = parser.parse_args()

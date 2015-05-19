@@ -2,7 +2,7 @@
 # encoding: utf-8
 #graphclass.py
 '''
-Created by Amit Sandhel on 2013-05-27.
+Created by Amit Sandhel.
 This script is designed to display the graph in real time
 '''
 

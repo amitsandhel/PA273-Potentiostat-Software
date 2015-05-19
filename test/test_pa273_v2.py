@@ -2,9 +2,8 @@
 # encoding: utf-8
 # test_beastie.py
 '''
-Created by Amit Sandhel on 2013-05-27.
-Copyright (c) 2013  All rights reserved.
-This module is tests the beastie.py script
+Created by Amit Sandhel.
+This module is tests the py273_v2.py script
 '''
 import sys
 import os
@@ -19,15 +18,15 @@ sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..")
 #pp(sys.path) 
 
 #importing beastie module for testing 
-import beastie
+import pa273_v2
 
-beastie.Serial = beastie.Fake_Serial
+pa273_v2.Serial = pa273_v2.Fake_Serial
 
-class beastietest(unittest.TestCase):
+class pa273_v2test(unittest.TestCase):
     '''unittest class for testing and TDD of beastie.py script ONLY'''
     
     def setUp(self):
-        self.m= beastie.MySerialPort()
+        self.m= pa273_v2.MySerialPort()
         self.m.open_port()
         self.debug = True
         self.logger = logging.getLogger('MAIN')

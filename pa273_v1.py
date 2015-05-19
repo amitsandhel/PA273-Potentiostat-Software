@@ -412,7 +412,7 @@ class MySerialPort():
 module = sys.modules[__name__]
 
 class Main():
-    """Main class which executes the entire beastie script"""
+    """Main class which executes the entire pa273_v1 script"""
     def __init__(self, parser):
         args = parser.parse_args()
         self.sim = args.sim #sim parameter

@@ -1,10 +1,9 @@
-se#!/usr/bin/python
+#!/usr/bin/python
 # encoding: utf-8
 #test_graphclass.py
 
 """
-Created by Amit Sandhel on 2013-05-27.
-Copyright (c) 2013  All rights reserved.
+Created by Amit Sandhel.
 This module is to test the graphclass.py script
 """
 
