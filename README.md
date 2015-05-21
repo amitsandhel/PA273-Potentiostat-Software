@@ -3,7 +3,7 @@
 
 **by Amit Sandhel**
 
-This software is designed to operate the PA273 potentiostat developed using Python. 
+This software is designed to operate the PA273 potentiostat developed using Python with a built in simulator for software and hardware testing development. 
 Two pdf manuals are provided. Read both manuals before operating the potentiostat. It is recommended to run the software using the simulator setting to understand software functionality.
 
 Currently the software has two versions:
@@ -124,6 +124,12 @@ To run the software without the simulator setting (running to actual serial comp
 * The Simulator class is built within the pa273_v1.py and pa273_v2.py scripts individually. The Class is called Fake_Serial() in both py273_v1.py and py273_v2.py scripts. 
 * The command language file name beastiecommand.csv and the filename BOOK2.csv must not be changed. These filenames are opened by py273v2.py and postrun.py scripts respectively. 
 * Some unittests have been commented out. User may wish to uncomment them for testing purposes. They are commented out because they are design and concept tests.
+* unittests are in a separate file and are run separately. To run the test files, open the terminal/command prompt in the **test** folder and type the name of the script. Examples included are 
+
+"C:\>test_graphclass.py" 
+
+"C:\>test_pa273_v2.py"
+
 
 
 #To Do/Future Features:
