@@ -16,6 +16,7 @@ Currently the software has two versions:
   1. Python (2.6, 2.7)
   2. Numpy
   3. Matplotlib
+  4. PySerial
     
 
 **The software comes with the following built in features: ** 
