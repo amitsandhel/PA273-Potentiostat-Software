@@ -7,11 +7,7 @@
 Created by Amit Sandhel.
 This module is to probe a COM port for the PA273 potentiostat 
 
-<<<<<<< HEAD
 This script runs the potentiostat using a custom command language.
-=======
-This script runs the potentiostat script that operates the potentiostat
->>>>>>> origin/master
 This script comes with a built in simulator which simulates the serial port if one is not present. Designed for testing and software development 
 purposes
 There are two serial classes Fake_Serial() class is a class that connects to a virtual/fake serial port. 
@@ -36,6 +32,7 @@ Note: this program requires:
         4) SciPy
         4) math-built in to Pyton
         5) logging-built in to Python
+        6) Pyserial
 """
 
 import sys
@@ -50,6 +47,11 @@ import subprocess
 #import argparse for argparse commands
 import argparse
 from main import setup_parser as sp
+
+from Fake_Serial import Fake_Serial as fake_serial
+
+
+
 
 '''Setting up logging'''
 logging.basicConfig(filename='pa273v2.log', filemode='a', level=logging.DEBUG, format='%(asctime)s, %(levelname)s, %(message)s')
@@ -84,128 +86,6 @@ def list_ports():
     print "COM4"
     return ["COM4",]
     
-   
-class Fake_Serial():
-    """Fake serial class for simulator development and testing
-    This serial class mimicks a serial port  
-    when user uses the -s setting Fake_Serial() is the class used """     
-    
-    def __init__(self, port, baudrate, bytesize, parity, stopbits, timeout, xonxoff, rtscts,
-                        writeTimeout, dsrdtr, interCharTimeout):
-        '''This function is called when a class it first instantiated'''
-        #potentiostat commands needed
-        self.reply = ""
-        self.bias = 0
-        self.b = None
-        self.NC = 0
-        self.As  = 0
-        self.TP = 0
-    
-    def write(self, str_to_write):
-        '''Fake sending a string to a serial device'''
-        #TODO: Capture all sent text to a list in case you want to check it later
-        chars_sent = len(str_to_write)
-        self.b = str_to_write.strip().split(" ")
-        # Flush Rx buffer:
-        self.reply = ""
-            
-        logger2.debug("SIM.write got " + repr(str_to_write)) 
-        logger2.debug("SIM.write command parsed as: "  + repr(self.b))
-           
-        if self.b[0] == 'BIAS':
-            if len(self.b) == 2:
-                self.e = float(self.b[1])
-                self.Bias_Sim(self.e)
-            else:
-                self.Bias_Sim()
-            
-        elif self.b[0] == 'AS':
-            if len(self.b) ==2:
-                self.As_Sim(self.b[1])
-            else:
-                self.As_Sim()
-                    
-        elif self.b[0] == 'NC':
-            if len(self.b) ==2:
-                self.NC_Sim(self.b[1])
-            else:
-                self.NC_Sim()
-                    
-        elif self.b[0] == 'TP':
-            if len(self.b) == 2:
-                self.TP_Sim(self.b[1])
-            else:
-                self.TP_Sim()
-                
-        else:
-            print 'NOT HANDLING CALL', repr(self.b)
-
-        return chars_sent # this is a constant
-        
-    def Bias_Sim(self, param=None):
-        #Bias Command function
-        if param in range(-8000,8000):
-            self.bias = param
-            self.reply = str(self.bias) + "*"
-                
-        if param == None:
-            param = self.bias
-            self.reply = str(self.bias)  +"*"
-            
-        logger2.debug("BIAS_SIM PARAM: " + repr(param))
-        logger2.debug("BIAS_SIM RECEIVED: " + repr(self.bias))
-        
-    def As_Sim(self, param=None):
-        #Current Command function
-        self.reply = ""
-        param = -4
-        self.As = param
-        self.reply = str(self.As) + "*"
-            
-        logger2.debug("AS_SIM PARAM: " + repr(param))
-        logger2.debug("AS_SIM RECEIVED: " + repr(self.As))
-        
-        
-    def NC_Sim(self, param = None):
-        self.reply = ""
-        param = 2
-        self.NC = param
-        self.reply = str(self.NC) + "*"
-            
-        logger2.debug("NC_SIM PARAM: " + repr(param))
-        logger2.debug("NC_SIM RECEIVED: " + repr(self.NC))
-            
-    def TP_Sim(self, param = None):
-        self.reply = ""
-        #adding a random generator to generate a random current value output 
-        x= random.randrange(0,2000)
-        #param = [1,x,0]
-        param1 = 1
-        param2 = x
-        param3 = 0
-        self.TP = param2
-        self.reply = str(self.TP) + "*"
-            
-        logger2.debug("TP_SIM PARAM: " + repr(param))
-        logger2.debug("TP_SIM RECEIVED: " + repr(self.TP))
-    
-        
-    def inWaiting(self):
-        logger2.debug("SIM.inWaiting has '" + str(self.reply) + "', returning %d" %len(self.reply))
-        return len(self.reply)
-        
-    def read(self, chars_to_send): 
-        logger2.debug("SIM.read: asked for " + str(chars_to_send) + " returned: " + str(self.reply))
-        rtn = self.reply[0:chars_to_send]
-        self.reply = self.reply[chars_to_send:]
-        return rtn
-
-    def close(self):
-        #closes the virtual serial port via a pass command
-        pass
-
-
-    
 class MySerialPort():
     '''potentiostat class that reads the command file, runs the command file from a serial port 
     '''
@@ -228,7 +108,8 @@ class MySerialPort():
         self.data3= self.reply4
         
         self.mygraph = GraphClass(self.data, self.data2, self.data3)
-     
+
+
     def my_ports():
         '''Call tool to detect and list all serial ports'''
         return list_ports.main()
@@ -366,6 +247,7 @@ class MySerialPort():
         myfile.close()
 
 
+
     def run(self): 
         '''main while loop that controls, runs and executes all other commands'''
         
@@ -404,12 +286,18 @@ class MySerialPort():
                     
                 '''running the graphclass script to output the graph in real time '''
                 self.mygraph.analysis(self.elapsed_time, self.reply3, self.reply4)
+
+            
+                #updating the new_time from the tupule above
+                new_time = newtime 
+             
+                
                 logger2.debug('mygraph elapsed_time data: ' + repr(self.elapsed_time) )
                 logger2.debug('mygraph self.reply3 data: ' + repr(self.reply3) )
                 logger2.debug('mygraph self.reply4 data: ' + repr(self.reply4) )
+            
                 
-                #updating the new_time from the tupule above
-                new_time = newtime
+                
 
 #running the Main() class to execute everything off argparse
 
@@ -427,7 +315,7 @@ class Main():
     
     def fake_serial(self):
         '''runs the Fake_Serial() Class if simulator is True'''
-        setattr(module, "Serial", Fake_Serial)
+        setattr(module, "Serial", fake_serial) #Fake_Serial)
         self.myfile.open_port()
         self.myfile.run()
         '''closing serial port after run'''

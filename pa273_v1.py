@@ -16,6 +16,7 @@ Note: this program requires:
         4) SciPy
         4) math-built in to Pyton
         5) logging-built in to Python
+        6) PySerial
 """
 
 import sys
@@ -28,6 +29,8 @@ import argparse
 
 from main import setup_parser as sp
 import msvcrt
+
+from Fake_Serial import Fake_Serial as fake_serial
 
 #making a logging file
 logging.basicConfig(filename='pa273v1.log', filemode='a', level=logging.DEBUG, format='%(asctime)s, %(levelname)s, %(message)s')
@@ -63,163 +66,6 @@ COM="COM4" #pick whichever com port your computer will need defaulted to COM4 he
 def list_ports():
     print "COM4"
     return ["COM4",]
-
-class Fake_Serial():
-    """Fake serial class for simulator development and testing
-    this serial class mimicks a serial port  
-    when user uses the -s setting Fake_Serial() is the class used """ 
-    def __init__(self, port, baudrate, bytesize, parity, stopbits, timeout, xonxoff, rtscts,
-                        writeTimeout, dsrdtr, interCharTimeout):
-        '''This function is called when a class it first instantiated'''
-        self.reply = ""
-        self.bias = 0
-        self.egain = 0
-        self.b = None
-        self.igain = 0
-        self.As  = 0
-        self.Sie = 0
-        self.Sete = 0
-        self.list = []
-
-    def write(self, str_to_write):
-        '''Fake sending a string to a serial device'''
-        #TODO: Capture all sent text to a list in case you want to check it later
-        chars_sent = len(str_to_write)
-        self.b = str_to_write.strip().split(" ")
-        # Flush Rx buffer:
-        self.reply = ""
-        
-        
-        logging1.debug("SIM.write got " + repr(str_to_write)) 
-        logging1.debug("SIM.write command parsed as: "  + repr(self.b))
-       
-        if self.b[0] == 'EGAIN':
-            if len(self.b) == 2:
-                self.c = float(self.b[1])
-                self.Egain_Sim(self.c)
-            else:
-                self.Egain_Sim()
-                
-        elif self.b[0] == 'IGAIN':
-            if len(self.b) == 2:
-                self.d = float(self.b[1])
-                self.Igain_Sim(self.d)
-            else:
-                self.Igain_Sim()
-                
-        elif self.b[0] == 'BIAS':
-            if len(self.b) == 2:
-                self.e = float(self.b[1])
-                self.Bias_Sim(self.e)
-            else:
-                self.Bias_Sim()
-        
-        elif self.b[0] == 'AS':
-            if len(self.b) ==2:
-                self.As_Sim(self.b[1])
-            else:
-                self.As_Sim()
-                
-        elif self.b[0] == 'SIE':
-            if len(self.b) == 3:
-                self.Sie_Sim(self.b[2])
-            else:
-                self.Sie_Sim()
-                
-        elif self.b[0] == 'SETE':
-            if len(self.b) == 2:
-                self.Sete_Sim(self.b[1])
-            else:
-                self.Sete_Sim()
-                
-        else:
-            print 'NOT HANDLING CALL', repr(self.b)
-
-        return chars_sent # this is a constant
-    
-    def Egain_Sim(self, param=None):
-        self.reply = ""
-        
-        if param in [1,5,10,50]:
-            self.egain = param
-            self.reply = str(self.egain) + "*"
-            
-        if param == None:
-            param = self.egain 
-            self.reply = str(self.egain) + "*" 
-        
-        logging1.debug("EGAIN_SIM PARAM: " + repr(param))
-        logging1.debug("EGAIN_SIM RECEIVED: " + repr(self.egain))
-        
-    
-    def Igain_Sim(self, param=None):
-        self.reply = ""
-        
-        if param in [1,5,10,50]:
-            self.igain = param
-            self.reply = str(self.igain) + "*"
-        
-        if param == None:
-            param = self.igain
-            self.reply = str(self.igain) + "*"
-        
-        logging1.debug("IGAIN_SIM PARAM: " + repr(param))
-        logging1.debug("IGAIN_SIM RECEIVED: " + repr(self.egain))
-        
-    def Bias_Sim(self, param=None):
-        if param in range(-8000,8000):
-            self.bias = param
-            self.reply = str(self.bias) + "*"
-            
-        if param == None:
-            param = self.bias
-            self.reply = str(self.bias)  +"*"
-        
-        logging1.debug("BIAS_SIM PARAM: " + repr(param))
-        logging1.debug("BIAS_SIM RECEIVED: " + repr(self.egain))
-    
-    def As_Sim(self, param=None):
-        self.reply = ""
-        param = -4
-        self.As = param
-        self.reply = str(self.As) + "*"
-        
-        logging1.debug("AS_SIM PARAM: " + repr(param))
-        logging1.debug("AS_SIM RECEIVED: " + repr(self.egain))
-    
-    
-    def Sie_Sim(self, param = None):
-        self.reply = ""
-        param = 300
-        self.Sie = param
-        self.reply = str(self.Sie) + "*"
-        
-        logging1.debug("SIE_SIM PARAM: " + repr(param))
-        logging1.debug("SIE_SIM RECEIVED: " + repr(self.egain))
-        
-    def Sete_Sim(self, param = None):
-        self.reply = ""
-        param = 1000
-        self.Sete = param
-        self.reply - str(self.Sete) + "*"
-        
-        logging1.debug("SETE_SIM PARAM: " + repr(param))
-        logging1.debug("SETE_SIM RECEIVED: " + repr(self.egain))
-    
-    def inWaiting(self):
-        logging1.debug("SIM.inWaiting has '" + str(self.reply) + "', returning %d" %len(self.reply))
-        return len(self.reply)
-    
-    def read(self, chars_to_send): 
-        logging1.debug("SIM.read: asked for " + str(chars_to_send) + " returned: " + str(self.reply))
-        rtn = self.reply[0:chars_to_send]
-        self.reply = self.reply[chars_to_send:]
-        return rtn
-
-    def close(self):
-        #to close the virtual serial port
-        pass
-
 
 class MySerialPort():
     '''potentiostat class that reads the command file, runs the command file from a serial port 
@@ -425,7 +271,7 @@ class Main():
             print 'running sim: ', self.sim
             
             '''calling fake serial function opening serial port in simulator class only'''
-            setattr(module, "Serial", Fake_Serial)
+            setattr(module, "Serial", fake_serial) #Fake_Serial)
             self.myfile.open_port()
             self.myfile.run() 
             

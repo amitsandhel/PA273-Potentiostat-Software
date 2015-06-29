@@ -15,7 +15,13 @@ Note: this program requires:
         4) math-built in to Pyton
         5) logging-built in to Python
 """
+import logging
+'''Setting up logging'''
+logging.basicConfig(filename='graphclass.log', filemode='a', level=logging.DEBUG, format='%(asctime)s, %(levelname)s, %(message)s')
+logging.info(" ---------------------- root (%s) --------------------------------" % __file__)
 
+#name for log file
+logger = logging.getLogger('graphclass.log')
 
 '''Testing to ensure all libraries exist on computer'''
 

@@ -26,7 +26,7 @@ try:
     
 except:
     GRAPH = False
-    logger.debug('Error: Please install Matplotlib and Numpy')
+    logging.debug('Error: Please install Matplotlib and Numpy')
 
 #Does Numpy library exist
 NUMPY = True
@@ -37,7 +37,7 @@ except:
     NUMPY = False
     #print statement to let user know to install properly libraries
     print 'Error: Please install Numpy and SciPy'
-    logger.debug('Error: Please install Numpy and SciPy')
+    logging.debug('Error: Please install Numpy and SciPy')
     sys.exit(0)
 
 from datetime import datetime
