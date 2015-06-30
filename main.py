@@ -63,12 +63,12 @@ class Main():
         self.version = args.version
         self.test = args.test
 
-        # self variables, will be set and used based on the argparse settings
+        # self variable, will be set and used based on the argparse settings
+        # this is actually not necessary because it is done below
+        # still being kept for now until Amit is finished with it
         self.string_1 = ""
 
     def run(self):
-        '''runs the class'''
-
         # if the user has input the 'test' argument
         if self.test:
             '''If the test parameter is TRUE, then inform user to run the test
@@ -80,20 +80,20 @@ class Main():
             '''all these settings can be changed together'''
             print "Testing skipped"
 
-            if self.sim is True:
-                # adding a -s string character
+            if self.sim:
+                # add a -s string character
                 self.string_1 = " -s"
 
             else:
                 # keep empty
                 self.string_1 = ""
 
-            # naming a string variable called COMMAND
-            # combining all the strings together
-            # two command strings exist for each "potentiostat version script"
+            # Naming a string variable called COMMAND that combines all the
+            # strings together. Each "potentiostat version script" can be
+            # run with or without the '-s'.
 
             '''Note: If you don't add the 'python' command before the file then
-            it won't work on some computers (possible Windows 8/UNIX due to
+            it won't work on some computers (possibly Windows 8/UNIX due to
             argparse not registering correctly.
             '''
             # potentiostat version1

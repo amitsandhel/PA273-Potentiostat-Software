@@ -10,13 +10,12 @@ Two pdf manuals are provided. Read both manuals before operating the potentiosta
 Currently the software has two versions:
 
 1. **pa273_v1.py:** Version 1 runs the potentiostat manually. Version 1 is designed to run single voltage experiements for long periods of time  
-2. **pa273_v2.py:** Version 2 runs the potentionstat using a custom command language. Version 2 is designed for waveform programming Manuals provide more information regarding waveform programming.
+2. **pa273_v2.py:** Version 2 runs the potentiostat using a custom command language. Version 2 is designed for waveform programming. Manuals provide more information regarding waveform programming.
 
 # Requirements
   1. Python (2.6, 2.7)
-  2. Numpy
-  3. Matplotlib
-  4. PySerial
+  2. Matplotlib
+  3. PySerial
     
 
 **The software comes with the following built in features: ** 
@@ -46,7 +45,7 @@ The following scripts exist in this software.
 11. **Examples:** Folder contains sample log files and sample recorded data. This data will be generated using the simulator parameter or when running the real experiment. Records all command and serial executions. 
 12. **Manuals folder:** Folder containing the manuals to operate the potentiostat in pdf format. 
 
-#Operating Instructions
+# Operating Instructions
 * Read the manuals provided on the potentiostat to understand all available commands and how to operate the potentiostat.  
 * Run the software with the simulator to have a full understanding of how the software works, the log files generated and the graph display.
 
@@ -70,7 +69,7 @@ The following scripts exist in this software.
 
 The following instructions are how to operate the software using both versions. Read the manuals to understand setting parameters required/needed.
 
-##**Version 1 py273_v1.py**
+## **Version 1 py273_v1.py**
 
 **Running With Simulator:**
 
@@ -98,7 +97,7 @@ To run the software without the simulator setting (running to actual serial comp
 4. In terminal/command prompt type **"main -v1"** To run the program.
 5. Execute commands 4-10 as needed. 
    
-##**Version 2 py273_v2.py**
+## **Version 2 py273_v2.py**
 
 **Running With Simulator:**
 
@@ -121,8 +120,8 @@ To run the software without the simulator setting (running to actual serial comp
 4. In terminal/command prompt type **"main -v2"** To run the program.
 
 
-#Notes of Caution:
-* The simultaor accepts the BIAS command only. Adding in any other potentiostat commands will result in the simulator failing. However additional commands can be easily developed by the user by increasing functionality of the user. 
+# Notes of Caution:
+* The simulator accepts the BIAS command only. Adding in any other potentiostat commands will result in the simulator failing. However additional commands can be easily developed by the user by increasing functionality of the user. 
 * The Simulator class is built within the pa273_v1.py and pa273_v2.py scripts individually. The Class is called Fake_Serial() in both py273_v1.py and py273_v2.py scripts. 
 * The command language file name beastiecommand.csv and the filename BOOK2.csv must not be changed. These filenames are opened by py273v2.py and postrun.py scripts respectively. 
 * Some unittests have been commented out. User may wish to uncomment them for testing purposes. They are commented out because they are design and concept tests.
@@ -131,7 +130,7 @@ To run the software without the simulator setting (running to actual serial comp
 
 
 
-#To Do/Future Features:
+# To Do/Future Features:
 * Add threads and a callback feature.
 * Separate the serial simulator class into a separate individual script.
 * Add a comport setting to argparse-change the comport setting from argparse.

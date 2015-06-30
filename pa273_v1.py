@@ -32,13 +32,6 @@ logging1 = logging.getLogger('pa273v1.log')
 FILENAME = "BOOK3.csv"
 NEWLINE = "\n"
 
-'''COM PORT SETTINGS
-Change the com port setting to the com port value desired
-COM PORT SETTINGS CHANGE
-NOTE: Must be STRING and have the  WORD "COM" in front of it in order to be
-used by MySerialPort.open_port() function.
-'''
-
 # STATIC DATA - DO NOT TOUCH! BASED ON POTENTIOSTAT MANUAL'''
 TIMEDELAY = 1
 EIGHTBITS = 8
@@ -46,18 +39,11 @@ PARITY_NONE = 'N'
 STOPBITS_ONE = 1
 
 
-# Change COM PORT AS NEEDED
-# String varuiable with word COM in caplocks in front is a must
+# Change COM PORT as needed, used by MySerialPort.open_port() function.
+# String variable with word COM in caplocks in front is a must!
 # example: "COM4", "COM2", "COM1", etc...
-
-# pick whichever com port your computer will need defaulted to COM4 here
+# Defaulted to COM4 here
 COM = "COM4"
-
-
-# define the ports you have available
-def list_ports():
-    print "COM4"
-    return ["COM4", ]
 
 
 class MySerialPort():
@@ -69,10 +55,6 @@ class MySerialPort():
         self.s port and remain open.
         '''
         self.s = None
-
-    def my_ports():
-        '''Call tool to detect and list all serial ports'''
-        return list_ports.main()
 
     def open_port(self, port=COM, baudrate=19200, bytesize=EIGHTBITS,
                   parity=PARITY_NONE, stopbits=STOPBITS_ONE, timeout=1,
@@ -99,7 +81,7 @@ class MySerialPort():
         '''
         data_string = ""
         start_time = time.time()
-        # Are units seconds or milliseconds? Look up time.now()
+        # TODO Are units seconds or milliseconds? Look up time.now()
         MAXRECEIVETIMEOUT = 3
         while True:
             b = self.s.inWaiting()
@@ -110,8 +92,8 @@ class MySerialPort():
                     break
 
                 elif new_char == "\r" or new_char == "\n":
-                    '''watch for other special characters like "\r \f" review
-                    your logs to see if anything else is embedded.
+                    '''Watch for other special characters like "\r \f".
+                    Review your logs to see if anything else is embedded.
                     '''
                     pass
                 else:
