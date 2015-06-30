@@ -2,6 +2,7 @@
 **Version 1.0**
 
 **by Amit Sandhel**
+**with contributions by Fredrick Leber**
 
 This software is designed to operate the PA273 potentiostat developed using Python with a built in simulator for software and hardware testing development. 
 
@@ -55,13 +56,14 @@ The following scripts exist in this software.
 1. **"main -h":** Opens the help file for the argparse commands. Lists all the argparse commands available with descriptions.
 2. **"main -t":** Runs the various test folders. 
 3. **"main -s":** Runs the simulator. Must be run with the potentiostat version you wish to run via the -v (version) command. If no version is present number is presented, default version is version 1. 
+4. **"main -c1":** Changes the COM PORT. The number 1 shown in the example can be changed to any number as desired.
 
 **simulator Setting**
 
 4. **"main -s -v1":** Runs version 1 on the simulator (py273_v1.py).
 5. **"main -s -v2":** Runs version 2 on the simulator (py273_v2.py).
 
-**Real Serial Commport Setting**
+**Real Serial COM PORT Setting**
 
 6. **"main -v1":** Runs version 1 on the real serial comport (py273_v1.py).
 7. **"main -v2":** Runs version 2 on the real serial comport (py273_v2.py). 
@@ -131,9 +133,9 @@ To run the software without the simulator setting (running to actual serial comp
 
 
 # To Do/Future Features:
-* Add threads and a callback feature.
-* Separate the serial simulator class into a separate individual script.
-* Add a comport setting to argparse-change the comport setting from argparse.
+* (WILL NOT BE DONE) Add threads and a callback feature.
+* (DONE) Separate the serial simulator class into a separate individual script.
+* (DONE) Add a comport setting to argparse-change the comport setting from argparse.
 * Add axes labels to graphs.
 * Add ability to change filenames if necessary using command line.
 * Run test files using command line.

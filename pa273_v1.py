@@ -254,10 +254,12 @@ class Main():
     def __init__(self, parser):
         args = parser.parse_args()
         self.sim = args.sim  # sim parameter
-
+        self.com = args.com
         self.myfile = MySerialPort()
 
     def run(self):
+        COM = 'COM' + str(self.com)
+        print 'The COM PORT is ' + COM
         if self.sim is True:
             logging1.debug("FAKE/VIRTUAL SIM VALUE: " + repr(self.sim))
             print 'running sim: ', self.sim

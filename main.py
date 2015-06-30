@@ -37,12 +37,12 @@ def setup_parser():
                         type=int, default=1)
     parser.add_argument('-test', '-t',  help='Run unit tests',
                         action="store_true")
+    parser.add_argument('-com', '-c',  help="Change COM PORT Settings",
+                        type=int, default=4)  # default comport setting
 
     '''parser commands to be added in later:
     parser.add_argument('-debug', '-d', help='enhance log file output',
                         action = "store_true")
-    parser.add_argument('-com', '-c',  help = "Change COM PORT Settings",
-                        type = str, default = 4) # default comport setting
     parser.add_argument('-filename','-f', help='change name of data saving \
                         file deprecated function', action = "store_true")
     parser.add_argument('-postrun', '-p', help='post run graph of entire \
@@ -62,11 +62,7 @@ class Main():
         self.sim = args.sim
         self.version = args.version
         self.test = args.test
-
-        # self variable, will be set and used based on the argparse settings
-        # this is actually not necessary because it is done below
-        # still being kept for now until Amit is finished with it
-        self.string_1 = ""
+        self.com = args.com
 
     def run(self):
         # if the user has input the 'test' argument
@@ -82,11 +78,11 @@ class Main():
 
             if self.sim:
                 # add a -s string character
-                self.string_1 = " -s"
+                self.string_sim = " -s"
 
-            else:
-                # keep empty
-                self.string_1 = ""
+            if self.com:
+                # add the COM PORT as a string character
+                self.string_com = ' -c' + str(self.com)
 
             # Naming a string variable called COMMAND that combines all the
             # strings together. Each "potentiostat version script" can be
@@ -97,10 +93,10 @@ class Main():
             argparse not registering correctly.
             '''
             # potentiostat version1
-            COMMAND = "python pa273_v1.py" + self.string_1
+            COMMAND = "python pa273_v1.py" + self.string_sim + self.string_com
 
             # potentiostat version2
-            COMMAND2 = "python pa273_v2.py" + self.string_1
+            COMMAND2 = "python pa273_v2.py" + self.string_sim + self.string_com
 
             # running version 1 subcommands
             if self.version == 1:
