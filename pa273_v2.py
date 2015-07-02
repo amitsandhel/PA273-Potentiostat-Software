@@ -61,7 +61,9 @@ logging.info(" ---------------------- root (%s) --------------------------------
 logger2 = logging.getLogger('pa273v2.log')
 
 #SETTING UP CSV FILE
-FILENAME = "BOOK2.csv"
+
+b = time.strftime('%Y-%m-%d-%H-%M-%S')
+FILENAME = "pa273_Version_2%s.csv"%b
 NEWLINE = "\n"
 
 
@@ -108,6 +110,8 @@ class MySerialPort():
         self.data3= self.reply4
         
         self.mygraph = GraphClass(self.data, self.data2, self.data3)
+        
+        self.filename = FILENAME
 
         self.filename = FILENAME
         
@@ -280,13 +284,13 @@ class MySerialPort():
                 for item in newcmd:
                     reply = (newtime, item)
                     self.command_execute(reply)
-                    
+                
                     exceldata = self.always_read_commands()
                     self.record_data(exceldata)
                     
                     
                 '''running the graphclass script to output the graph in real time '''
-                self.mygraph.analysis(self.elapsed_time, self.reply3, self.reply4)
+                #self.mygraph.analysis(self.elapsed_time, self.reply3, self.reply4)
 
             
                 #updating the new_time from the tupule above
