@@ -34,6 +34,9 @@ bias = []
 time = []
 current = []
 
+# default scale is the smallest (100nA or 10^-7A)
+currentScale = int(-7)
+
 # setting up the matplot figures and their geometrical sizes
 fig = plt.figure(1)
 ax1 = plt.subplot(2, 1, 1)
@@ -47,12 +50,16 @@ foo = open("BOOK2.csv", "r")
 z = foo.readline()
 
 # parsing the lines into various temporary variables into various lists
-# time, bias and current from lines 23-25
+# time, bias and current from lines 32-35
 for line in foo:
     b = line.strip().split(',')
     time.append(float(b[0]))
     bias.append(float(b[2]))
-    current.append(float(b[3]))
+    current.append(float(b[3])*10**int(b[1]))
+
+    # set the scale to accomodate the largest current value
+    if int(b[1]) > int(currentScale):
+        currentScale = int(b[1])
 
     logging.debug("time list values: " + repr(time))
     logging.debug("bias list values: " + repr(bias))
@@ -66,9 +73,30 @@ def graph(n_d_time, n_d1_bias, n_d2_current):
     logging.debug("n_d_time arg values: " + repr(n_d_time))
     logging.debug("n_d1_bias arg values: " + repr(n_d1_bias))
     logging.debug("n_d2_current arg values: " + repr(n_d2_current))
+
+    # labeling the time axis and the voltage bias axis
+    ax1.set_ylabel('Voltage Bias (mV)')
+    ax2.set_xlabel('Time (seconds)')
+
+    adjustedCurrent = []
+
+    # labeling the current axis
+    if currentScale == 0 or currentScale <= -7:
+        ax2.set_ylabel('Current (A)')
+        for values in n_d2_current:
+            adjustedCurrent.append(values)
+    elif currentScale >= -3:
+        ax2.set_ylabel('Current (mA)')
+        for values in n_d2_current:
+            adjustedCurrent.append(values * 10**3)
+    elif currentScale >= -6:
+        ax2.set_ylabel('Current (microamps)')
+        for values in n_d2_current:
+            adjustedCurrent.append(values * 10**6)
+
     # graph each section independently
     ax1.plot(n_d_time, n_d1_bias, "-m")
-    ax2.plot(n_d_time, n_d2_current, "-r")
+    ax2.plot(n_d_time, adjustedCurrent, "-r")
 
     # autoscale the axis
     plt.autoscale(enable=True, axis='both', tight=True)
