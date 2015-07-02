@@ -1,14 +1,15 @@
 import logging
+from pa273_v2 import MySerialPort
 
 # !/usr/bin/python
 # encoding: utf-8
 # postrun,py
 
-'''Created by Amit Sandhel.
-This script is designed to take the saved raw data from "BOOK2.csv" and
-automatically output the data into graphs for graphing and plotting purposes.
-The data is saved as images for the user's behalf. Note that the filename
-BOOK2.csv MUST be left as is and not be renamed.
+'''Created by Amit Sandhel with contributions by Fredrick Leber.
+This script is designed to take the saved raw data from the filename specified
+in v2 script and automatically graph the data. The graphs are saved as images
+for the user's behalf. The filename is currently "BOOK2.csv" but in a later
+version will be auto-named according to the current date and time.
 '''
 
 logging.basicConfig(filename='postrun.log', filemode='a', level=logging.DEBUG,
@@ -42,9 +43,12 @@ fig = plt.figure(1)
 ax1 = plt.subplot(2, 1, 1)
 ax2 = plt.subplot(2, 1, 2)
 
+# taking the filename saved by the v2 script
+mygraphfile = MySerialPort()
+
 # opening the csv file as a readline
 # and reading the csv file line by line using readline
-foo = open("BOOK2.csv", "r")
+foo = open(mygraphfile.filename, "r")
 
 # removing the header of the csv file so it won't be parsed
 z = foo.readline()

@@ -109,7 +109,8 @@ class MySerialPort():
         
         self.mygraph = GraphClass(self.data, self.data2, self.data3)
 
-
+        self.filename = FILENAME
+        
     def my_ports():
         '''Call tool to detect and list all serial ports'''
         return list_ports.main()

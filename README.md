@@ -137,7 +137,7 @@ To run the software without the simulator setting (running to actual serial comp
 * (DONE) Separate the serial simulator class into a separate individual script.
 * (DONE) Add a comport setting to argparse-change the comport setting from argparse.
 * (DONE) Add axes labels to graphs.
-* Add ability to change filenames if necessary using command line.
+* Add auto-naming feature that names the log file (the current BOOK2) after the current date and time.
 * Run test files using command line.
 * Improve test coverage.
 * improve Documentation.
