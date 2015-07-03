@@ -1,145 +1,124 @@
-#!/usr/bin/python
-# encoding: utf-8
-#pa273_v2.py
-
-
-"""
-Created by Amit Sandhel.
-This module is to probe a COM port for the PA273 potentiostat 
-
-This script runs the potentiostat using a custom command language.
-This script comes with a built in simulator which simulates the serial port if one is not present. Designed for testing and software development 
-purposes
-There are two serial classes Fake_Serial() class is a class that connects to a virtual/fake serial port. 
-This class also is the simulator which simlates the potentiostat commands 
-"""
-
-
-'''References/ Sources of information used '''
-#website references
-#http://stackoverflow.com/questions/423379/using-global-variables-in-a-function-other-than-the-one-that-created-them
-#http://stackoverflow.com/questions/1429814/how-to-programmatically-set-a-global-module-variable  http://www.sitepoint.com/forums/showthread.php?1175398-Python-Django-Can-t-use-quot-setattr-quot-with-FileField
-#http://stackoverflow.com/questions/1419470/python-init-setattr-on-arguments/1419950#1419950
-#http://stackoverflow.com/questions/2933470/how-do-i-call-setattr-on-the-current-module
-#https://www.inkling.com/read/learning-python-mark-lutz-4th/chapter-37/--getattr---and---getattribute--
-
-
-"""
-Note: this program requires:
-        1) Python 2.7
-        2) Matplotlib
-        3) NumPy
-        4) SciPy
-        4) math-built in to Pyton
-        5) logging-built in to Python
-        6) Pyserial
-"""
-
 import sys
 import time
-import logging 
-import random
-
-#import graphclass script for real-time graphing
-from graphclass import GraphClass 
-
-import subprocess
-#import argparse for argparse commands
-import argparse
+import logging
+from postrun import PostRun
 from main import setup_parser as sp
-
 from Fake_Serial import Fake_Serial as fake_serial
+# import graphclass script for real-time graphing
+from graphclass import GraphClass
 
+# !/usr/bin/python
+# encoding: utf-8
+# pa273_v2.py
 
+"""Created by Amit Sandhel with contributions by Fredrick Leber.
 
+This script runs the potentiostat using a custom command language. This script
+comes with a built in simulator which simulates the serial port if one
+is not present. Designed for testing and software development purposes.
+There are two serial classes: Fake_Serial() class is a class that connects
+to a virtual/fake serial port. This class also is the simulator which simulates
+the potentiostat commands.
 
-'''Setting up logging'''
-logging.basicConfig(filename='pa273v2.log', filemode='a', level=logging.DEBUG, format='%(asctime)s, %(levelname)s, %(message)s')
-logging.info(" ---------------------- root (%s) --------------------------------" % __file__)
+References/Sources of information used:
+#http://stackoverflow.com/questions/423379/using-global-variables-in-a-function
+-other-than-the-one-that-created-them
+#http://stackoverflow.com/questions/1429814/how-to-programmatically-set-a-globa
+l-module-variable  http://www.sitepoint.com/forums/showthread.php?1175398-Pytho
+n-Django-Can-t-use-quot-setattr-quot-with-FileField
+#http://stackoverflow.com/questions/1419470/python-init-setattr-on-arguments/14
+19950#1419950
+#http://stackoverflow.com/questions/2933470/how-do-i-call-setattr-on-the-curren
+t-module
+#https://www.inkling.com/read/learning-python-mark-lutz-4th/chapter-37/--getatt
+r---and---getattribute--
 
-#name for log file
+Note: this program requires
+        1) Python 2.7
+        2) matplotlib
+        3) logging-built in to Python
+        4) Pyserial
+"""
+
+# setting up logging
+logging.basicConfig(filename='pa273v2.log', filemode='a', level=logging.DEBUG,
+                    format='%(asctime)s, %(levelname)s, %(message)s')
+logging.info(" ---------------------- root (%s)\
+ --------------------------------" % __file__)
+
+# name for log file
 logger2 = logging.getLogger('pa273v2.log')
 
-#SETTING UP CSV FILE
-
+# SETTING UP CSV FILE
 b = time.strftime('%Y-%m-%d-%H-%M-%S')
-FILENAME = "pa273_Version_2%s.csv"%b
+FILENAME = "pa273_version_2-%s.csv" % b
 NEWLINE = "\n"
 
-
-'''COM PORT SETTINGS
-Change the com port setting to the com port value desired 
-COM PORT SETTINGS CHANGE
-NOTE: Must be STRING and have the  WORD "COM" in front of it in order to be used by MySerialPort.open_port() function
-'''
-'''STATIC DATA DO NOT TOUCH BASED ON POTENTIOSTAT MANUAL'''
+# STATIC DATA - DO NOT TOUCH! BASED ON POTENTIOSTAT MANUAL
 EIGHTBITS = 8
 PARITY_NONE = 'N'
 STOPBITS_ONE = 1
 
-#Change COM PORT AS NEEDED
-#String varuiable with word COM in caplocks in front is a must
-#example: "COM4", "COM2", "COM1", etc...
-COM="COM4" #pick whichever com port your computer will need defaulted to COM4 here
+# Change COM PORT as needed, used by MySerialPort.open_port() function.
+# String variable with word COM in caplocks in front is a must!
+# example: "COM4", "COM2", "COM1", etc...
+# Defaulted to COM4 here
+defaultCOM = "COM4"
 
 
-#define the ports you have available
-def list_ports():
-    print "COM4"
-    return ["COM4",]
-    
 class MySerialPort():
-    '''potentiostat class that reads the command file, runs the command file from a serial port 
-    '''
+    """Potentiostat class that reads the command file, and runs the command
+    file from a serial port.
+    """
     def __init__(self):
-        # initializing the variable so all functions can access the self.s port and remain open
+        # initializing the variable so all functions can access the self.s port
+        # and remain open
         self.s = None
         self.command_dict = {}
-        self.cmd_output = None 
+        self.cmd_output = None
         self.next_cmd = None
         self.next_cmd_list = []
-        
-        #initalizing the values for graphclass
-        self.elapsed_time = None 
+
+        # initalizing the values for graphclass
+        self.elapsed_time = None
         self.reply3 = None
         self.reply4 = None
 
         '''self variable that opens the pyplot graph class'''
         self.data = self.elapsed_time
         self.data2 = self.reply3
-        self.data3= self.reply4
-        
-        self.mygraph = GraphClass(self.data, self.data2, self.data3)
-        
-        self.filename = FILENAME
+        self.data3 = self.reply4
 
-        self.filename = FILENAME
-        
-    def my_ports():
-        '''Call tool to detect and list all serial ports'''
-        return list_ports.main()
-        
-    def open_port(self, port=COM, baudrate=19200, bytesize=EIGHTBITS, parity=PARITY_NONE,
-                            stopbits=STOPBITS_ONE, timeout=1, xonxoff=False, rtscts=False,
-                            writeTimeout=3, dsrdtr=False, interCharTimeout=None):
-        '''Open a self.s port, explicitly define all values to be sure they are set'''
-        # Notes I set a default read and write timeout of 1 seconds to get it to respond quickly 
-        self.s = Serial(port, baudrate, bytesize, parity, stopbits, timeout, xonxoff, rtscts,
-                            writeTimeout, dsrdtr, interCharTimeout)
+        self.mygraph = GraphClass(self.data, self.data2, self.data3)
+
+    def open_port(self, port=defaultCOM, baudrate=19200, bytesize=EIGHTBITS,
+                  parity=PARITY_NONE, stopbits=STOPBITS_ONE, timeout=1,
+                  xonxoff=False, rtscts=False, writeTimeout=3, dsrdtr=False,
+                  interCharTimeout=None):
+        """Open a self.s port and explicitly define all values to be
+        sure they are set
+        """
+        # Note: default read and write timeout is 1 second to get it
+        # to respond quickly
+        self.s = Serial(port, baudrate, bytesize, parity, stopbits, timeout,
+                        xonxoff, rtscts, writeTimeout, dsrdtr,
+                        interCharTimeout)
         logger2.debug('Serial Port opened')
-        
-        
+
     def send(self, str_to_send):
         """sending commands to the serial port """
         chars_sent = self.s.write(str_to_send)
-        logger2.debug("Tx: " + repr(str_to_send) + "bytes sent: %d" % chars_sent)
+        logger2.debug("Tx: " + repr(str_to_send) +
+                      "bytes sent: %d" % chars_sent)
         return chars_sent
-    
+
     def receive(self, max_chars):
-        '''Receive string with timeout and wait for end-of-message character or error'''
+        '''Receive string with timeout and wait for end-of-message character
+        or error.
+        '''
         data_string = ""
         start_time = time.time()
-        MAXRECEIVETIMEOUT = 0.05  # is this in seconds or milli seconds?  Look up time.now()
+        MAXRECEIVETIMEOUT = 0.05  # time.now() is in seconds
         while True:
             b = self.s.inWaiting()
             if b > 0:
@@ -148,41 +127,44 @@ class MySerialPort():
                     logger2.debug("Rx -  * received")
                     break
                 elif new_char == "\r" or new_char == "\n":
-                    # watch for other special characters like "\r \f" review your logs to see if anything else is embedded.
-                    pass 
+                    # watch for other special characters like "\r \f" review
+                    # your logs to see if anything else is embedded.
+                    pass
                 else:
                     data_string = data_string + new_char
             if time.time() - start_time > MAXRECEIVETIMEOUT:
-                logger2.debug("Rx Receive timeout, returning what I have and hoping")
+                logger2.debug("Rx Receive timeout, returning what I have\
+                and hoping")
                 break
-        time.sleep(0.05) #initallyo 0.01 was set to 0.5 
-        logger2.debug("Rx: " + repr(data_string) + " bytes read: %d" % len(data_string))
+        time.sleep(0.05)  # initally 0.01 was set to 0.5
+        logger2.debug("Rx: " + repr(data_string) + " bytes read: %d" %
+                      len(data_string))
         if new_char == "?":
             logger2.debug("Rx - Error receive, now what?")
             # should we break after an error?
             # break
         return data_string
-    
+
     def close_port(self):
         '''closes the self.s port'''
         logger2.debug('Closing Serial Port')
         self.s.close()
-    
+
     def readfiles(self):
-        '''reading the command csv file called beastiecommandfile''' 
+        """Reads the command csv file called beastiecommandfile.csv"""
         file = "beastiecommand.csv"
         global command_list
         command_list = []
         readfile = open(file, "r")
-        #print readfile 
+        # print readfile
         for line in readfile:
             command_list.append(line,)
-            #return command_list
+            # return command_list
         logger2.debug("readfiles() timing response: " + repr(command_list))
 
-    def parse_commands(self, command_list = None):   
-        '''Pass in the command list and we return a command dictionary'''
-        #parsing pass in command list
+    def parse_commands(self, command_list=None):
+        '''Pass in the command list and we return a command dictionary.'''
+        # parsing pass in command list
         for line in command_list:
             time, command = line.strip().split(",")
             try:
@@ -191,166 +173,168 @@ class MySerialPort():
                     self.command_dict[float(time)] += (command.strip(),)
                 else:
                     # Create first entry:
-                    self.command_dict[float(time)] = (command.strip() , )
+                    self.command_dict[float(time)] = (command.strip(), )
             except:
                 # Create first entry:
-                self.command_dict[float(time)] = (command.strip() , )
-                
+                self.command_dict[float(time)] = (command.strip(), )
+
         logger2.debug("New command dict: " + repr(self.command_dict))
-    
+
     def read_command(self):
         '''parsing the dictionary commands based on the timeout commands'''
         self.cmd_output = self.command_dict.keys()
-        self.cmd_output.sort() 
+        self.cmd_output.sort()
 
         return self.cmd_output
-        
-    
+
     def get_next_command(self):
-        '''This function is parsing the commands from the command file into a tupule '''
+        '''This function is parsing the commands from the command file
+        into a tupule.
+        '''
         next_time = self.cmd_output.pop(0)
         next_cmd = self.command_dict[next_time]
-        reply = (next_time, next_cmd) 
-        
-        logger2.debug("get_next_command() reply timing response: " + repr(reply))
+        reply = (next_time, next_cmd)
+
+        logger2.debug("get_next_command() reply timing response: " +
+                      repr(reply))
         return reply
-    
+
     def command_execute(self, reply):
         '''Calling the reply from the function above get_next_command()'''
-        self.send(reply[1] + " \n" )
+        self.send(reply[1] + " \n")
         self.reply = self.receive(20)
-        
-        logger2.debug("command execute()reply timing response: " + repr(reply[1]))
-    
+
+        logger2.debug("command execute()reply timing response: " +
+                      repr(reply[1]))
+
     def always_read_commands(self):
-        '''Commands that are always read all the time. All these commands are read commands only'''
+        '''Commands that are always read all the time.
+        All these commands are read commands only.
+        '''
         self.send("NC \n")
         self.reply1 = self.receive(4)
         logger2.debug("NC TIMER RESPONSE: " + repr(self.reply1))
-        
+
         self.send("AS \n")
         self.reply2 = self.receive(4)
         logger2.debug("AS TIMER RESPONSE: " + repr(self.reply2))
-                
+
         self.send("BIAS  \n")
         self.reply3 = self.receive(7)
         logger2.debug("BIAS TIMER RESPONSE: " + repr(self.reply3))
-                
+
         self.send('TP \n')
         self.reply4 = self.receive(4)
         logger2.debug("TP TIMER RESPONSE: " + repr(self.reply4))
-        
+
     def record_data(self, exceldata):
-        '''recording the results into a csv file using local variables to increase process speed'''
+        '''Recording the results into a csv file using local variables
+        to increase process speed.'''
         myfile = open(FILENAME, 'a')
-        newrow = str(self.elapsed_time) + ',' 
-        newrow += str(self.reply2) + "," 
-        newrow += str(self.reply3) + ","  
-        newrow += str(self.reply4) + ","  
+        newrow = str(self.elapsed_time) + ','
+        newrow += str(self.reply2) + ","
+        newrow += str(self.reply3) + ","
+        newrow += str(self.reply4) + ","
         newrow += NEWLINE
         myfile.write(newrow)
         myfile.close()
 
-
-
-    def run(self): 
-        '''main while loop that controls, runs and executes all other commands'''
-        
+    def run(self):
         start_time = time.time()
         timer = time.time()  # timer for recording the data
-        new_time = 0.0 #initalization value
-        
-        #opening and writing excel file writeable only 
-        #therefore will rewrite ontop of existing file change to "a" for appending data
+        new_time = 0.0  # initalization value
+
+        # opening and writing excel file, writable only
+        # therefore will rewrite on top of existing file. change to "a"
+        # for appending data
         myfile = open(FILENAME, "w")
-        myfile.write("Time, AS, BIAS, TP-point#, TP-current, TP-bias, " + NEWLINE)
+        myfile.write("Time, AS, BIAS, TP-point#, TP-current, TP-bias, " +
+                     NEWLINE)
         myfile.close()
-        
-        logger2.debug('time_meter_command() myfile timing VALUE: '  + repr(myfile))
+
+        logger2.debug('time_meter_command() myfile timing VALUE: ' +
+                      repr(myfile))
         self.readfiles()
         self.parse_commands(command_list)
         self.read_command()
- 
+
         while True:
-            #while loop that measures the elapsed time
+            # while loop that measures the elapsed time
             self.elapsed_time = time.time() - start_time
             exceldata = self.always_read_commands()
             self.record_data(exceldata)
-            
+
             if time.time() - start_time >= new_time:
                 if len(self.cmd_output) == 0:
-                    break 
+                    break
                 newtime, newcmd = self.get_next_command()
                 for item in newcmd:
                     reply = (newtime, item)
                     self.command_execute(reply)
-                
+
                     exceldata = self.always_read_commands()
                     self.record_data(exceldata)
-                    
-                    
-                '''running the graphclass script to output the graph in real time '''
-                #self.mygraph.analysis(self.elapsed_time, self.reply3, self.reply4)
 
-            
-                #updating the new_time from the tupule above
-                new_time = newtime 
-             
-                
-                logger2.debug('mygraph elapsed_time data: ' + repr(self.elapsed_time) )
-                logger2.debug('mygraph self.reply3 data: ' + repr(self.reply3) )
-                logger2.debug('mygraph self.reply4 data: ' + repr(self.reply4) )
-            
-                
-                
+                '''Running the graphclass script to draw the graph in
+                real time. Commented out for now due to performance issues.
+                '''
+                # self.mygraph.analysis(self.elapsed_time, self.reply3,
+                #                       self.reply4)
 
-#running the Main() class to execute everything off argparse
+                # updating the new_time from the tupule above
+                new_time = newtime
 
+                logger2.debug('mygraph elapsed_time data: ' +
+                              repr(self.elapsed_time))
+                logger2.debug('mygraph self.reply3 data: ' + repr(self.reply3))
+                logger2.debug('mygraph self.reply4 data: ' + repr(self.reply4))
+
+# running the Main() class to execute everything off argparse
 module = sys.modules[__name__]
 
+
 class Main():
-    """Main class which executes the entire pa273_v2 script"""
-    
+    """Main class which executes the entire pa273_v2 script."""
     def __init__(self, parser):
         args = parser.parse_args()
-        self.sim = args.sim 
-        
-        #opening serial port
+        self.sim = args.sim  # sim parameter
+        self.com = 'COM' + str(args.com)
         self.myfile = MySerialPort()
-    
+
     def fake_serial(self):
-        '''runs the Fake_Serial() Class if simulator is True'''
-        setattr(module, "Serial", fake_serial) #Fake_Serial)
-        self.myfile.open_port()
+        """Runs the Fake_Serial() Class if the simulator parameter is True."""
+        setattr(module, "Serial", fake_serial)  # Fake_Serial
+        self.myfile.open_port(self.com)
         self.myfile.run()
-        '''closing serial port after run'''
+        # Closing serial port after run
         self.myfile.close_port()
-        
+
     def run(self):
-        if self.sim == True: 
-            logging.debug("FAKE/VIRTUAL SIM VALUE: " + repr(self.sim) )
+        print 'The COM PORT is ' + self.com
+        if self.sim is True:
+            logging.debug("FAKE/VIRTUAL SIM VALUE: " + repr(self.sim))
             print 'running sim: ', self.sim
-            self.fake_serial()
-            '''calling fake serial function opening serial port in simulator class only'''
-            subprocess.call("postrun", shell = True)
-        else:    
-            #if self.sim == False run real serial port:
-            logging.debug("REAL SIM VALUE: " + repr(self.sim) )
-            print 'running real simulator: ',self.sim
-            '''running real simulator function which imports real serial class'''
-            from serial import Serial, EIGHTBITS, PARITY_NONE, STOPBITS_ONE
+            self.fake_serial()  # opening serial port in simulator class only
+
+            self.postrun = PostRun(FILENAME)
+            self.postrun.graph()
+        else:  # run real serial port:
+            logging.debug("REAL SIM VALUE: " + repr(self.sim))
+            print 'running real simulator: ', self.sim
+            # Import real serial class
+            from serial import Serial
 
             setattr(module, "Serial", Serial)
-            self.myfile.open_port()
-            
-            '''only calling the function below not open_port() '''
+            self.myfile.open_port(self.com)
             self.myfile.run()
             self.myfile.close_port()
-            subprocess.call("postrun", shell = True)
+
+            self.postrun = PostRun(FILENAME)
+            self.postrun.graph()
 
 
-############################################################    
+###############################################################################
 if __name__ == '__main__':
     parser = sp()
-    b= Main(parser)
-    b.run()  
+    b = Main(parser)
+    b.run()

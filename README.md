@@ -10,7 +10,7 @@ Two pdf manuals are provided. Read both manuals before operating the potentiosta
 
 Currently the software has two versions:
 
-1. **pa273_v1.py:** Version 1 runs the potentiostat manually. Version 1 is designed to run single voltage experiements for long periods of time  
+1. **pa273_v1.py:** Version 1 runs the potentiostat manually. Version 1 is designed to run single voltage experiments for long periods of time  
 2. **pa273_v2.py:** Version 2 runs the potentiostat using a custom command language. Version 2 is designed for waveform programming. Manuals provide more information regarding waveform programming.
 
 # Requirements
@@ -43,8 +43,9 @@ The following scripts exist in this software.
 8. **beastiecommand.csv:** Command language for pa273_v2.py script. The command language reads the time and voltages from the beastie command. 
 9. **BOOK2.csv:** Csv file where the data is recorded for pa273_v2.py script. 
 10. **BOOK3.csv:** Csv file where the data is recorded for pa273_v1.py script.
-11. **Examples:** Folder contains sample log files and sample recorded data. This data will be generated using the simulator parameter or when running the real experiment. Records all command and serial executions. 
-12. **Manuals folder:** Folder containing the manuals to operate the potentiostat in pdf format. 
+11. **Examples folder:** Folder contains sample log files and sample recorded data. This data will be generated using the simulator parameter or when running the real experiment. Records all command and serial executions. 
+12. **Manuals folder:** Folder containing the manuals to operate the potentiostat in pdf format.
+13. **Fake_Serial.py:** Simulates a serial port when running the simulator. 
 
 # Operating Instructions
 * Read the manuals provided on the potentiostat to understand all available commands and how to operate the potentiostat.  
@@ -56,7 +57,7 @@ The following scripts exist in this software.
 1. **"main -h":** Opens the help file for the argparse commands. Lists all the argparse commands available with descriptions.
 2. **"main -t":** Runs the various test folders. 
 3. **"main -s":** Runs the simulator. Must be run with the potentiostat version you wish to run via the -v (version) command. If no version is present number is presented, default version is version 1. 
-4. **"main -c1":** Changes the COM PORT. The number 1 shown in the example can be changed to any number as desired.
+4. **"main -c1":** Changes the COM PORT. The number 1 shown in the example can be changed to any number as desired. If this isn't set, the program defaults to COM4.
 
 **simulator Setting**
 
@@ -104,7 +105,7 @@ To run the software without the simulator setting (running to actual serial comp
 **Running With Simulator:**
 
 1.  Open **"beastiecommand.csv"** command file. This is a csv excel file.
-2.  Write the desired times (in milliseconds) and the voltages (millivolts) needed for waveform programming 
+2.  Write the desired times (in seconds) and the voltages (millivolts) needed for waveform programming 
 3.  Save the csv excel file and close it. Do not rename this file.  
 4.  Change COM Port setting. Open the **pa273_v2.py** script in a text editor software. Go to line 61 of the code. Section is named **COM PORT SETTINGS**. Change the comport settings to the number desired.
 5. Save the **pa273_v2.py** script. Do not rename file.  
@@ -140,5 +141,6 @@ To run the software without the simulator setting (running to actual serial comp
 * (DONE) Improve Documentation.
 * (DONE) Add auto-naming feature that names the log file (the current BOOK2) after the current date and time.
 * Fix bug when taking data from BeastieCommand.csv
+* Make the pa273_v1.py script compatible with postrun.py
 * Add GUI
 * (MAYBE) Run test files using command line and add unit tests.

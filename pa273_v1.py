@@ -9,12 +9,11 @@ from Fake_Serial import Fake_Serial as fake_serial
 # encoding: utf-8
 # pa273_v1.py
 
-'''Created by Amit Sandhel on 2013-05-27.
-This module is to probe a COM port for the PA273 potentiostat
+'''Created by Amit Sandhel on 2013-05-27. With contributions by Fredrick Leber.
 
 Note: this program requires:
         1) Python 2.7
-        2) Matplotlib
+        2) matplotlib
         3) logging-built in to Python
         4) PySerial
 '''
@@ -32,7 +31,7 @@ logging1 = logging.getLogger('pa273v1.log')
 FILENAME = "BOOK3.csv"
 NEWLINE = "\n"
 
-# STATIC DATA - DO NOT TOUCH! BASED ON POTENTIOSTAT MANUAL'''
+# STATIC DATA - DO NOT TOUCH! BASED ON POTENTIOSTAT MANUAL
 TIMEDELAY = 1
 EIGHTBITS = 8
 PARITY_NONE = 'N'
@@ -43,7 +42,7 @@ STOPBITS_ONE = 1
 # String variable with word COM in caplocks in front is a must!
 # example: "COM4", "COM2", "COM1", etc...
 # Defaulted to COM4 here
-COM = "COM4"
+defaultCOM = "COM4"
 
 
 class MySerialPort():
@@ -56,7 +55,7 @@ class MySerialPort():
         '''
         self.s = None
 
-    def open_port(self, port=COM, baudrate=19200, bytesize=EIGHTBITS,
+    def open_port(self, port=defaultCOM, baudrate=19200, bytesize=EIGHTBITS,
                   parity=PARITY_NONE, stopbits=STOPBITS_ONE, timeout=1,
                   xonxoff=False, rtscts=False, writeTimeout=3, dsrdtr=False,
                   interCharTimeout=None):
@@ -77,11 +76,10 @@ class MySerialPort():
 
     def receive(self, max_chars):
         '''Receive string with timeout and wait for end-of-message
-        character or error
+        character or error.
         '''
         data_string = ""
         start_time = time.time()
-        # TODO Are units seconds or milliseconds? Look up time.now()
         MAXRECEIVETIMEOUT = 3
         while True:
             b = self.s.inWaiting()
@@ -115,9 +113,8 @@ class MySerialPort():
         self.s.close()
 
     def egain(self):
-        '''setting potential measurement gain ahead of analog-to-digital converter
-        important in parsing data
-        PAGE 8-9: FUNCTION EGAIN
+        '''setting potential measurement gain ahead of analog-to-digital
+        converter. Important in parsing data. PAGE 8-9: FUNCTION EGAIN
         '''
         print '(1:--> X1; 5:->X5; 10:-->X10; 50:-->X50)'
         x = input('ENTER EGAIN VALUE: ')
@@ -204,7 +201,7 @@ class MySerialPort():
            '''
         cycles = 1
 
-        self.open_port()
+        # self.open_port() # redundant, as the port has already been opened
         self.egain()
         self.igain()
         self.bias()
@@ -250,46 +247,39 @@ module = sys.modules[__name__]
 
 
 class Main():
-    """Main class which executes the entire pa273_v1 script"""
+    """Main class which executes the entire pa273_v1 script."""
     def __init__(self, parser):
         args = parser.parse_args()
         self.sim = args.sim  # sim parameter
-        self.com = args.com
+        self.com = 'COM' + str(args.com)
         self.myfile = MySerialPort()
 
+    def fake_serial(self):
+        """Runs the Fake_Serial() Class if the simulator parameter is True."""
+        setattr(module, "Serial", fake_serial)  # Fake_Serial
+        self.myfile.open_port(self.com)
+        self.myfile.run()
+        # Closing serial port after run
+        self.myfile.close_port()
+
     def run(self):
-        COM = 'COM' + str(self.com)
-        print 'The COM PORT is ' + COM
+        print 'The COM PORT is ' + self.com
         if self.sim is True:
             logging1.debug("FAKE/VIRTUAL SIM VALUE: " + repr(self.sim))
             print 'running sim: ', self.sim
-
-            '''calling fake serial function opening serial port in
-            simulator class only
-            '''
-            setattr(module, "Serial", fake_serial)  # Fake_Serial
-            self.myfile.open_port()
-            self.myfile.run()
-
-            '''closing serial port after run'''
-            self.myfile.close_port()
-
-        if self.sim is False:
+            self.fake_serial()  # opening serial port in simulator class only
+        else:  # run real serial port:
             logging1.debug("REAL SIM VALUE: " + repr(self.sim))
-
             print 'real sim result: ', self.sim
-
-            '''running real simulator function which imports serial'''
+            # Import real serial class
             from serial import Serial
 
             setattr(module, "Serial", Serial)
-            self.myfile.open_port()
+            self.myfile.open_port(self.com)
             self.myfile.run()
-
-            '''closing serial port after run'''
             self.myfile.close_port()
 
-##############################################################################
+###############################################################################
 if __name__ == '__main__':
     parser = sp()
     b = Main(parser)

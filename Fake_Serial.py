@@ -157,7 +157,7 @@ class Fake_Serial():
 
     def As_Sim(self, param=None):
         self.reply = ""
-        param = -4
+        param = -2
         self.As = param
         self.reply = str(self.As) + "*"
 
@@ -196,7 +196,8 @@ class Fake_Serial():
         self.reply = ""
         # adding a random generator to generate a random current value output
         # param = [1,x,0]
-        self.TP = random.randrange(0, 2000)
+        param = random.randrange(100, 999)
+        self.TP = param / 100.0
         self.reply = str(self.TP) + "*"
 
         logging1.debug("TP_SIM PARAM: " + repr(param))

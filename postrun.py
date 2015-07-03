@@ -1,114 +1,100 @@
 import logging
-from pa273_v2 import MySerialPort
 
 # !/usr/bin/python
 # encoding: utf-8
-# postrun,py
+# postrun.py
 
 '''Created by Amit Sandhel with contributions by Fredrick Leber.
 This script is designed to take the saved raw data from the filename specified
 in v2 script and automatically graph the data. The graphs are saved as images
-for the user's behalf. The filename is currently "BOOK2.csv" but in a later
-version will be auto-named according to the current date and time.
+for the user's behalf. The filename is auto-named according to the current
+date and time.
 '''
 
 logging.basicConfig(filename='postrun.log', filemode='a', level=logging.DEBUG,
                     format='%(asctime)s, %(levelname)s, %(message)s')
-logging.info(" ---------------------- root (%s) \
+logging.info(" ---------------------- root (%s)\
              --------------------------------" % __file__)
-
 # name for the log file
 logging = logging.getLogger('postrun.log')
 
 # Check if matplotlib exist on library
-GRAPH = True
 try:
     import matplotlib.pyplot as plt
 
 except:
-    GRAPH = False
-    logging.debug('Error: Please install Matplotlib')
+    logging.debug('Error: please install matplotlib.')
 
 
-# various lists we need to graph the data
-bias = []
-time = []
-current = []
+class PostRun():
+    def __init__(self, filename):
+        # various lists we need to graph the data
+        self.bias = []
+        self.time = []
+        self.current = []
+        self.adjustedCurrent = []
+        # default scale is the smallest (100nA or 10^-7A)
+        self.currentScale = int(-7)
 
-# default scale is the smallest (100nA or 10^-7A)
-currentScale = int(-7)
+        # opening the csv file as a readline
+        # and reading the csv file line by line using readline
+        foo = open(filename, "r")
 
-# setting up the matplot figures and their geometrical sizes
-fig = plt.figure(1)
-ax1 = plt.subplot(2, 1, 1)
-ax2 = plt.subplot(2, 1, 2)
+        # removing the header of the csv file so it won't be parsed
+        foo.readline()
 
-# taking the filename saved by the v2 script
-mygraphfile = MySerialPort()
+        # parsing the lines into various temporary variables into various lists
+        # time, bias and current from lines 35-37
+        for line in foo:
+            b = line.strip().split(',')
+            self.time.append(float(b[0]))
+            self.bias.append(float(b[2]))
+            self.current.append(float(b[3])*10**int(b[1]))
 
-# opening the csv file as a readline
-# and reading the csv file line by line using readline
-foo = open(mygraphfile.filename, "r")
+        # set the scale to accomodate the largest current value
+        if int(b[1]) > int(self.currentScale):
+            self.currentScale = int(b[1])
 
-# removing the header of the csv file so it won't be parsed
-z = foo.readline()
+        logging.debug("time list values: " + repr(self.time))
+        logging.debug("bias list values: " + repr(self.bias))
+        logging.debug("current list values: " + repr(self.current))
 
-# parsing the lines into various temporary variables into various lists
-# time, bias and current from lines 32-35
-for line in foo:
-    b = line.strip().split(',')
-    time.append(float(b[0]))
-    bias.append(float(b[2]))
-    current.append(float(b[3])*10**int(b[1]))
+    def graph(self):
+        """Graphs the output from the csv file."""
 
-    # set the scale to accomodate the largest current value
-    if int(b[1]) > int(currentScale):
-        currentScale = int(b[1])
+        print('Welcome to the POST RUN Testing Analysis Environment!\n')
+        logging.debug("n_d_time arg values: " + repr(self.time))
+        logging.debug("n_d1_bias arg values: " + repr(self.bias))
+        logging.debug("n_d2_current arg values: " + repr(self.current))
 
-    logging.debug("time list values: " + repr(time))
-    logging.debug("bias list values: " + repr(bias))
-    logging.debug("current list values: " + repr(current))
+        # setting up the matplot figures and their geometrical sizes
+        # fig = plt.figure(1) # this line is probably not needed
+        ax1 = plt.subplot(2, 1, 1)
+        ax2 = plt.subplot(2, 1, 2)
 
+        # labeling the time axis and the voltage bias axis
+        ax1.set_ylabel('Voltage Bias (mV)')
+        ax2.set_xlabel('Time (seconds)')
 
-def graph(n_d_time, n_d1_bias, n_d2_current):
-    """Graphs the output from the csv file.
-    Accepts the lists as arg arguments.
-    """
-    logging.debug("n_d_time arg values: " + repr(n_d_time))
-    logging.debug("n_d1_bias arg values: " + repr(n_d1_bias))
-    logging.debug("n_d2_current arg values: " + repr(n_d2_current))
+        # labeling the current axis
+        if self.currentScale == 0 or self.currentScale <= -7:
+            ax2.set_ylabel('Current (A)')
+            for values in self.current:
+                self.adjustedCurrent.append(values)
+        elif self.currentScale >= -3:
+            ax2.set_ylabel('Current (mA)')
+            for values in self.current:
+                self.adjustedCurrent.append(values * 10**3)
+        elif self.currentScale >= -6:
+            ax2.set_ylabel('Current (microamps)')
+            for values in self.current:
+                self.adjustedCurrent.append(values * 10**6)
 
-    # labeling the time axis and the voltage bias axis
-    ax1.set_ylabel('Voltage Bias (mV)')
-    ax2.set_xlabel('Time (seconds)')
+        # graph each section independently
+        ax1.plot(self.time, self.bias, "-m")
+        ax2.plot(self.time, self.adjustedCurrent, "-r")
 
-    adjustedCurrent = []
-
-    # labeling the current axis
-    if currentScale == 0 or currentScale <= -7:
-        ax2.set_ylabel('Current (A)')
-        for values in n_d2_current:
-            adjustedCurrent.append(values)
-    elif currentScale >= -3:
-        ax2.set_ylabel('Current (mA)')
-        for values in n_d2_current:
-            adjustedCurrent.append(values * 10**3)
-    elif currentScale >= -6:
-        ax2.set_ylabel('Current (microamps)')
-        for values in n_d2_current:
-            adjustedCurrent.append(values * 10**6)
-
-    # graph each section independently
-    ax1.plot(n_d_time, n_d1_bias, "-m")
-    ax2.plot(n_d_time, adjustedCurrent, "-r")
-
-    # autoscale the axis
-    plt.autoscale(enable=True, axis='both', tight=True)
-    plt.savefig('figure1.png')
-    plt.show()
-
-###############################################################################
-if __name__ == '__main__':
-    print('Welcome to the POST RUN Testing Analysis Environment!\n')
-    # outputting the graph function
-    graph(time, bias, current)
+        # autoscale the axis
+        plt.autoscale(enable=True, axis='both', tight=False)
+        plt.savefig('figure1.png')
+        plt.show()

@@ -4,14 +4,13 @@ import logging
 # encoding: utf-8
 # graphclass.py
 
-""" Created by Amit Sandhel.
-This script is designed to display the graph in real time
+""" Created by Amit Sandhel with contributions by Fredrick Leber.
+This script is designed to display the graph in real time.
 
 Note: this program requires:
         1) Python 2.7
         2) Matplotlib
-        3) NumPy
-        4) logging-built in to Python
+        3) logging-built in to Python
 """
 
 # Setting up logging
