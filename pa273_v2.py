@@ -203,7 +203,7 @@ class MySerialPort():
 
     def command_execute(self, reply):
         '''Calling the reply from the function above get_next_command()'''
-        self.send(reply[1])  # I don't think this newline is needed (+ " \n")
+        self.send(reply[1] + " \n")
         # The '20' below represents an arbitrarily high number of characters
         # Note: in the future if different/more commands other than BIAS are
         # going to be input, you need an if statement here to determine which
@@ -250,6 +250,7 @@ class MySerialPort():
     def run(self):
         start_time = time.time()
         new_time = 0.0  # initalization value
+        newcmd = ("BIAS 0", )
         self.replyBIAS = 0  # initialize value to zero
         # opening excel file in write only mode
         # will rewrite on top of data in existing file. change to "a" to
@@ -279,10 +280,10 @@ class MySerialPort():
                 if len(self.cmd_output) == 0:
                     print("")  # just a blank line
                     break
-                new_time, newcmd = self.get_next_command()
+                # new_time, newcmd = self.get_next_command()
                 print "Now running cycle " + \
-                      str(totalCommands - len(self.cmd_output)) + " of " + \
-                      str(totalCommands),
+                      str(totalCommands - len(self.cmd_output) + 1) + \
+                      " of " + str(totalCommands),
                 print "   ETA: " + \
                       str(round((totalTime - time.time() + start_time), 1)) + \
                       " seconds."
@@ -292,6 +293,7 @@ class MySerialPort():
                     self.command_execute(reply)
                     self.always_read_commands()
                     self.record_data()
+                new_time, newcmd = self.get_next_command()
 
                 # running the graphclass script to draw the graph in real time
                 # self.mygraph.analysis(self.elapsed_time, self.replyBIAS,
