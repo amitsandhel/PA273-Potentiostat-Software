@@ -6,7 +6,7 @@ import subprocess
 # encoding: utf-8
 # main.py
 
-'''Created by Amit Sandhel on 2013-05-27.
+'''Created by Amit Sandhel on 2013-05-27. With contributions by Fredrick Leber.
 
 This script is the master file that controls all the other scripts
 It also contains the argparse command control

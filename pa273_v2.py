@@ -65,6 +65,9 @@ STOPBITS_ONE = 1
 # Defaulted to COM4 here
 defaultCOM = "COM4"
 
+# running the Main() class to execute everything off argparse
+module = sys.modules[__name__]
+
 
 class MySerialPort():
     """Potentiostat class that reads the command file, and runs the command
@@ -81,36 +84,42 @@ class MySerialPort():
 
         # initalizing the values for graphclass
         self.elapsed_time = None
-        self.reply3 = None
-        self.reply4 = None
+        self.replyAS = None
+        self.replyBIAS = None
+        self.replyTP = None
 
         '''self variable that opens the pyplot graph class'''
-        self.data = self.elapsed_time
-        self.data2 = self.reply3
-        self.data3 = self.reply4
+        self.dataTIME = self.elapsed_time
+        self.dataBIAS = self.replyBIAS
+        self.dataTP = self.replyTP
 
-        self.mygraph = GraphClass(self.data, self.data2, self.data3)
+        self.mygraph = GraphClass(self.dataTIME, self.dataBIAS, self.dataTP)
 
     def open_port(self, port=defaultCOM, baudrate=19200, bytesize=EIGHTBITS,
                   parity=PARITY_NONE, stopbits=STOPBITS_ONE, timeout=1,
                   xonxoff=False, rtscts=False, writeTimeout=3, dsrdtr=False,
                   interCharTimeout=None):
         """Open a self.s port and explicitly define all values to be
-        sure they are set
+        sure they are set.
         """
         # Note: default read and write timeout is 1 second to get it
         # to respond quickly
         self.s = Serial(port, baudrate, bytesize, parity, stopbits, timeout,
                         xonxoff, rtscts, writeTimeout, dsrdtr,
                         interCharTimeout)
-        logger2.debug('Serial Port opened')
+        logger2.debug('Serial Port opened using ' + port)
+        print('A serial port has been opened using ' + port + '.\n')
+
+    def close_port(self):
+        '''Closes the self.s port'''
+        logger2.debug('Closing Serial Port')
+        self.s.close()
 
     def send(self, str_to_send):
-        """sending commands to the serial port """
+        """Sending commands to the serial port."""
         chars_sent = self.s.write(str_to_send)
         logger2.debug("Tx: " + repr(str_to_send) +
                       "bytes sent: %d" % chars_sent)
-        return chars_sent
 
     def receive(self, max_chars):
         '''Receive string with timeout and wait for end-of-message character
@@ -130,66 +139,59 @@ class MySerialPort():
                     # watch for other special characters like "\r \f" review
                     # your logs to see if anything else is embedded.
                     pass
+                elif new_char == "?":
+                    logger2.debug("Rx - Error receive, now what?")
+                    # should we break after an error?
+                    break
                 else:
                     data_string = data_string + new_char
             if time.time() - start_time > MAXRECEIVETIMEOUT:
                 logger2.debug("Rx Receive timeout, returning what I have\
                 and hoping")
+                print "Receive function timed out."
                 break
-        time.sleep(0.05)  # initally 0.01 was set to 0.5
+        # time.sleep(0.05)  # initially 0.01, was set to 0.05
         logger2.debug("Rx: " + repr(data_string) + " bytes read: %d" %
                       len(data_string))
-        if new_char == "?":
-            logger2.debug("Rx - Error receive, now what?")
-            # should we break after an error?
-            # break
-        return data_string
 
-    def close_port(self):
-        '''closes the self.s port'''
-        logger2.debug('Closing Serial Port')
-        self.s.close()
+        return data_string
 
     def readfiles(self):
         """Reads the command csv file called beastiecommandfile.csv"""
         file = "beastiecommand.csv"
-        global command_list
         command_list = []
         readfile = open(file, "r")
-        # print readfile
         for line in readfile:
-            command_list.append(line,)
-            # return command_list
+            command_list.append(line)
         logger2.debug("readfiles() timing response: " + repr(command_list))
+        return command_list
 
-    def parse_commands(self, command_list=None):
+    def parse_and_sort_commands(self, command_list):
         '''Pass in the command list and we return a command dictionary.'''
         # parsing pass in command list
         for line in command_list:
             time, command = line.strip().split(",")
-            try:
-                if self.command_dict[float(time)]:
-                    # Append to existing:
-                    self.command_dict[float(time)] += (command.strip(),)
-                else:
-                    # Create first entry:
-                    self.command_dict[float(time)] = (command.strip(), )
-            except:
-                # Create first entry:
+            if float(time) in self.command_dict.keys():
+                # Append to existing:
+                # Note: .strip() removes surrounding whitespace from the string
+                self.command_dict[float(time)] += (command.strip(), )
+            else:
+                # Create new entry:
                 self.command_dict[float(time)] = (command.strip(), )
 
+        '''For debugging purposes
+        for k, v in self.command_dict.iteritems():
+            print k, v
+        '''
         logger2.debug("New command dict: " + repr(self.command_dict))
 
-    def read_command(self):
-        '''parsing the dictionary commands based on the timeout commands'''
+        # sorting the dictionary keys (command times)
         self.cmd_output = self.command_dict.keys()
         self.cmd_output.sort()
 
-        return self.cmd_output
-
     def get_next_command(self):
         '''This function is parsing the commands from the command file
-        into a tupule.
+        into a tuple.
         '''
         next_time = self.cmd_output.pop(0)
         next_cmd = self.command_dict[next_time]
@@ -201,9 +203,12 @@ class MySerialPort():
 
     def command_execute(self, reply):
         '''Calling the reply from the function above get_next_command()'''
-        self.send(reply[1] + " \n")
-        self.reply = self.receive(20)
-
+        self.send(reply[1])  # I don't think this newline is needed (+ " \n")
+        # The '20' below represents an arbitrarily high number of characters
+        # Note: in the future if different/more commands other than BIAS are
+        # going to be input, you need an if statement here to determine which
+        # self.replyXXX variable to write to
+        self.replyBIAS = self.receive(20)
         logger2.debug("command execute()reply timing response: " +
                       repr(reply[1]))
 
@@ -216,37 +221,39 @@ class MySerialPort():
         logger2.debug("NC TIMER RESPONSE: " + repr(self.reply1))
 
         self.send("AS \n")
-        self.reply2 = self.receive(4)
-        logger2.debug("AS TIMER RESPONSE: " + repr(self.reply2))
+        self.replyAS = self.receive(4)
+        logger2.debug("AS TIMER RESPONSE: " + repr(self.replyAS))
 
-        self.send("BIAS  \n")
-        self.reply3 = self.receive(7)
-        logger2.debug("BIAS TIMER RESPONSE: " + repr(self.reply3))
+        '''The BIAS is actually obtained from the 'command_execute' function
+        self.send("BIAS \n")
+        self.replyBIAS = self.receive(7)
+        logger2.debug("BIAS TIMER RESPONSE: " + repr(self.replyBIAS))
+        '''
 
-        self.send('TP \n')
-        self.reply4 = self.receive(4)
-        logger2.debug("TP TIMER RESPONSE: " + repr(self.reply4))
+        self.send("TP \n")
+        self.replyTP = self.receive(4)
+        logger2.debug("TP TIMER RESPONSE: " + repr(self.replyTP))
 
-    def record_data(self, exceldata):
+    def record_data(self):
         '''Recording the results into a csv file using local variables
-        to increase process speed.'''
+        to increase process speed.
+        '''
         myfile = open(FILENAME, 'a')
-        newrow = str(self.elapsed_time) + ','
-        newrow += str(self.reply2) + ","
-        newrow += str(self.reply3) + ","
-        newrow += str(self.reply4) + ","
+        newrow = str(self.elapsed_time) + ","
+        newrow += str(self.replyAS) + ","
+        newrow += str(self.replyBIAS) + ","
+        newrow += str(self.replyTP) + ","
         newrow += NEWLINE
         myfile.write(newrow)
         myfile.close()
 
     def run(self):
         start_time = time.time()
-        timer = time.time()  # timer for recording the data
         new_time = 0.0  # initalization value
-
-        # opening and writing excel file, writable only
-        # therefore will rewrite on top of existing file. change to "a"
-        # for appending data
+        self.replyBIAS = 0  # initialize value to zero
+        # opening excel file in write only mode
+        # will rewrite on top of data in existing file. change to "a" to
+        # instead append the data
         myfile = open(FILENAME, "w")
         myfile.write("Time, AS, BIAS, TP-point#, TP-current, TP-bias, " +
                      NEWLINE)
@@ -254,43 +261,48 @@ class MySerialPort():
 
         logger2.debug('time_meter_command() myfile timing VALUE: ' +
                       repr(myfile))
-        self.readfiles()
-        self.parse_commands(command_list)
-        self.read_command()
+
+        # get the command list from beastiecommand.csv and make the commands
+        # into a dictionary. Sort them based on time.
+        command_list = self.readfiles()
+        self.parse_and_sort_commands(command_list)
+        totalCommands = len(self.cmd_output)
+        totalTime = self.cmd_output[-1]
 
         while True:
             # while loop that measures the elapsed time
             self.elapsed_time = time.time() - start_time
-            exceldata = self.always_read_commands()
-            self.record_data(exceldata)
-
+            self.always_read_commands()
+            self.record_data()
+            time.sleep(0.05)
             if time.time() - start_time >= new_time:
                 if len(self.cmd_output) == 0:
+                    print("")  # just a blank line
                     break
-                newtime, newcmd = self.get_next_command()
+                new_time, newcmd = self.get_next_command()
+                print "Now running cycle " + \
+                      str(totalCommands - len(self.cmd_output)) + " of " + \
+                      str(totalCommands),
+                print "   ETA: " + \
+                      str(round((totalTime - time.time() + start_time), 1)) + \
+                      " seconds."
+                self.elapsed_time = time.time() - start_time
                 for item in newcmd:
-                    reply = (newtime, item)
+                    reply = (new_time, item)
                     self.command_execute(reply)
+                    self.always_read_commands()
+                    self.record_data()
 
-                    exceldata = self.always_read_commands()
-                    self.record_data(exceldata)
-
-                '''Running the graphclass script to draw the graph in
-                real time. Commented out for now due to performance issues.
-                '''
-                # self.mygraph.analysis(self.elapsed_time, self.reply3,
-                #                       self.reply4)
-
-                # updating the new_time from the tupule above
-                new_time = newtime
+                # running the graphclass script to draw the graph in real time
+                # self.mygraph.analysis(self.elapsed_time, self.replyBIAS,
+                #                      self.replyTP)
 
                 logger2.debug('mygraph elapsed_time data: ' +
                               repr(self.elapsed_time))
-                logger2.debug('mygraph self.reply3 data: ' + repr(self.reply3))
-                logger2.debug('mygraph self.reply4 data: ' + repr(self.reply4))
-
-# running the Main() class to execute everything off argparse
-module = sys.modules[__name__]
+                logger2.debug('mygraph self.replyBIAS data: ' +
+                              repr(self.replyBIAS))
+                logger2.debug('mygraph self.replyTP data: ' +
+                              repr(self.replyTP))
 
 
 class Main():
@@ -310,7 +322,7 @@ class Main():
         self.myfile.close_port()
 
     def run(self):
-        print 'The COM PORT is ' + self.com
+        # print 'The COM PORT is ' + self.com  # not needed for now
         if self.sim is True:
             logging.debug("FAKE/VIRTUAL SIM VALUE: " + repr(self.sim))
             print 'running sim: ', self.sim
@@ -334,6 +346,7 @@ class Main():
 
 
 ###############################################################################
+
 if __name__ == '__main__':
     parser = sp()
     b = Main(parser)

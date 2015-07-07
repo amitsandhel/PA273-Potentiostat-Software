@@ -9,8 +9,8 @@ import random
 bypass the serial port, and also will be used for all the memory address swaps
 we need for both potentiostat versions.
 
-Created by Amit Sandhel
-This module is to probe a COM port for the PA273 potentiostat
+Created by Amit Sandhel with contributions by Fredrick Leber
+This module is to simulate a COM port for the PA273 potentiostat.
 """
 
 # making a logging file
@@ -157,8 +157,18 @@ class Fake_Serial():
 
     def As_Sim(self, param=None):
         self.reply = ""
-        param = -2
-        self.As = param
+        # param = -2 just an arbitrary initialization
+
+        # scales the current with the BIAS
+        if abs(self.bias / 1000.0) >= 1:
+            self.As = -1
+        elif abs(self.bias / 100.0) >= 1:
+            self.As = -2
+        elif abs(self.bias / 10.0) >= 1:
+            self.As = -3
+        else:
+            self.As = -4
+
         self.reply = str(self.As) + "*"
 
         logging1.debug("AS_SIM PARAM: " + repr(param))
@@ -196,8 +206,27 @@ class Fake_Serial():
         self.reply = ""
         # adding a random generator to generate a random current value output
         # param = [1,x,0]
-        param = random.randrange(100, 999)
-        self.TP = param / 100.0
+        param = random.randrange(100, 999)  # 'random noise'
+
+        # the random noise can be negative or positive
+        neg = random.randrange(0, 1)
+        if neg == 1:
+            param = param * -1
+
+        # this scales the current with the BIAS
+        if abs(self.bias / 1000.0) >= 1:
+            adjBIAS = self.bias / 1000.0
+            param = param / 1000.0
+        elif abs(self.bias / 100.0) >= 1:
+            adjBIAS = self.bias / 100.0
+            param = param / 100.0
+        elif abs(self.bias / 10.0) >= 1:
+            adjBIAS = self.bias / 10.0
+            param = param / 10.0
+        else:
+            adjBIAS = self.bias
+
+        self.TP = param + adjBIAS
         self.reply = str(self.TP) + "*"
 
         logging1.debug("TP_SIM PARAM: " + repr(param))

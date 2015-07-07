@@ -23,16 +23,13 @@ logging.info(" ---------------------- root (%s) \
 # name for log file
 logger = logging.getLogger('graphclass.log')
 
-'''Testing to ensure all libraries exist on computer'''
-
 # Does matplotlib exist on library
 GRAPH = True
 try:
     import matplotlib.pyplot as plt
-
 except:
     GRAPH = False
-    logger.debug('Error: Please install Matplotlib.')
+    logger.debug('Error: Please install matplotlib.')
 
 
 class GraphClass():
@@ -44,7 +41,7 @@ class GraphClass():
         self.data3 = data3
 
         # setting up figure variables
-        self.fig = plt.figure(1)
+        # self.fig = plt.figure(1)  # this line is not necessary
         self.ax1 = plt.subplot(2, 1, 1)
         self.ax2 = plt.subplot(2, 1, 2)
 
@@ -55,15 +52,15 @@ class GraphClass():
 
     def analysis(self, data, data2, data3):
         """appends the data obtained from beastie into individual lists and
-        then graphs the last 5 elements of each list
+        then graphs the elements of each list. (Used to be last 5 elements)
         """
         self.time_list1.append(data)
         self.bias_list2.append(data2)
         self.current_list3.append(data3)
 
         # call graph function and graphs last 5 elements of each list
-        self.graph(self.time_list1[-5:], self.bias_list2[-5:],
-                   self.current_list3[-5:])
+        self.graph(self.time_list1, self.bias_list2,
+                   self.current_list3)
 
     def graph(self, n_d_time, n_d1_bias, n_d2_current):
         '''graph function, takes parameters for graphing'''

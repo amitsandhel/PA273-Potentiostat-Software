@@ -140,6 +140,7 @@ To run the software without the simulator setting (running to actual serial comp
 * (DONE) Add axes labels to graphs.
 * (DONE) Improve Documentation.
 * (DONE) Add auto-naming feature that names the log file (the current BOOK2) after the current date and time.
+* Fix bug where graphclass graphs and postrun graphs do not match up
 * Fix bug when taking data from BeastieCommand.csv
 * Make the pa273_v1.py script compatible with postrun.py
 * Add GUI

@@ -61,7 +61,6 @@ class PostRun():
 
     def graph(self):
         """Graphs the output from the csv file."""
-
         print('Welcome to the POST RUN Testing Analysis Environment!\n')
         logging.debug("n_d_time arg values: " + repr(self.time))
         logging.debug("n_d1_bias arg values: " + repr(self.bias))
@@ -71,6 +70,10 @@ class PostRun():
         # fig = plt.figure(1) # this line is probably not needed
         ax1 = plt.subplot(2, 1, 1)
         ax2 = plt.subplot(2, 1, 2)
+
+        # clear the plots that were left over from graphclass
+        ax1.cla()
+        ax2.cla()
 
         # labeling the time axis and the voltage bias axis
         ax1.set_ylabel('Voltage Bias (mV)')
