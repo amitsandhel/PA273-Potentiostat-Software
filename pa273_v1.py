@@ -63,9 +63,11 @@ class MySerialPort():
         they are set. Notes: I set a default read and write timeout of
         1 second to get it to respond quickly.
         '''
-        s = Serial(port, baudrate, bytesize, parity, stopbits, timeout,
-                   xonxoff, rtscts, writeTimeout, dsrdtr, interCharTimeout)
-        self.s = s
+        self.s = Serial(port, baudrate, bytesize, parity, stopbits, timeout,
+                        xonxoff, rtscts, writeTimeout, dsrdtr,
+                        interCharTimeout)
+        logging1.debug('Serial Port opened using ' + port)
+        print('A serial port has been opened using ' + port + '.\n')
 
     def send(self, str_to_send):
         """sending commands to the serial port """
@@ -88,7 +90,6 @@ class MySerialPort():
                 if new_char == "*":
                     logging1.debug("Rx -  * received")
                     break
-
                 elif new_char == "\r" or new_char == "\n":
                     '''Watch for other special characters like "\r \f".
                     Review your logs to see if anything else is embedded.
@@ -99,6 +100,7 @@ class MySerialPort():
             if time.time() - start_time > MAXRECEIVETIMEOUT:
                 logging1.debug("Rx Receive timeout, returning what \
                 I have and hoping")
+                print "Receive function timed out."
                 break
         time.sleep(0.01)
         '''logging1.debug("Rx: " + repr(data_string) +
@@ -120,7 +122,7 @@ class MySerialPort():
         x = input('ENTER EGAIN VALUE: ')
         self.send("EGAIN %s  \n" % x)
         reply = self.receive(12)
-        print reply
+        print("")
         return reply
 
     def igain(self):
@@ -132,7 +134,7 @@ class MySerialPort():
         x = input('ENTER IGAIN VALUE: ')
         self.send("IGAIN %s  \n" % x)
         reply = self.receive(12)
-        print reply
+        print("")
         return reply
 
     def bias(self):
@@ -142,7 +144,7 @@ class MySerialPort():
         x = input('Enter the Potential Bias to apply (mV): ')
         self.send('BIAS %s \n' % x)
         reply = self.receive(20)  # 13 AT MAX VALUE
-        print reply
+        print("")
         return reply
 
     def measure_potential(self):
@@ -263,7 +265,6 @@ class Main():
         self.myfile.close_port()
 
     def run(self):
-        print 'The COM PORT is ' + self.com
         if self.sim is True:
             logging1.debug("FAKE/VIRTUAL SIM VALUE: " + repr(self.sim))
             print 'running sim: ', self.sim

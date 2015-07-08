@@ -135,13 +135,13 @@ To run the software without the simulator setting (running to actual serial comp
 
 # To Do/Future Features:
 * **(WILL NOT BE DONE)** Add threads and a callback feature.
+* **(WILL NOT BE DONE)** Run test files using command line and add unit tests.
+* **(PROBABLY WILL NOT BE DONE)**Make the pa273_v1.py script compatible with postrun.py
 * **(DONE)** Separate the serial simulator class into a separate individual script.
 * **(DONE)** Add a comport setting to argparse-change the comport setting from argparse.
 * **(DONE)** Add axes labels to graphs.
 * **(DONE)** Improve Documentation.
 * **(DONE)** Add auto-naming feature that names the log file (the current BOOK2) after the current date and time.
-* **(DONE FOR VOLTAGE, MAY NOT BE DONE FOR CURRENT)** Fix bug where graphclass graphs and postrun graphs do not match up
+* **(DONE FOR VOLTAGE, WILL NOT BE DONE FOR CURRENT)** Fix bug where graphclass graphs and postrun graphs do not match up
 * **(DONE)** Fix bug when taking data from BeastieCommand.csv
-* Make the pa273_v1.py script compatible with postrun.py
 * Add GUI
-* (MAYBE) Run test files using command line and add unit tests.

@@ -55,10 +55,9 @@ class PostRun():
                 self.maxBIAS = float(b[2])
             elif float(b[2]) < self.minBIAS:
                 self.minBIAS = float(b[2])
-
-        # set the scale to accomodate the largest current value
-        if int(b[1]) > int(self.currentScale):
-            self.currentScale = int(b[1])
+            # set the scale to accomodate the largest current value
+            if int(b[1]) > int(self.currentScale):
+                self.currentScale = int(b[1])
 
         logging.debug("time list values: " + repr(self.time))
         logging.debug("bias list values: " + repr(self.bias))
