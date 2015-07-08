@@ -34,56 +34,50 @@ except:
 
 class GraphClass():
     """Takes the data and displays it in real time."""
-    def __init__(self, data=None, data2=None, data3=None):
-        # various arg pass in arguments
-        self.data = data
-        self.data2 = data2
-        self.data3 = data3
-
+    def __init__(self):
         # setting up figure variables
         # self.fig = plt.figure(1)  # this line is not necessary
         self.ax1 = plt.subplot(2, 1, 1)
         self.ax2 = plt.subplot(2, 1, 2)
 
         # lists to access data
-        self.time_list1 = []
-        self.bias_list2 = []
-        self.current_list3 = []
+        self.time_list = []
+        self.bias_list = []
+        self.current_list = []
 
-    def analysis(self, data, data2, data3):
+    def analysis(self, timeData, BIASData, TPData):
         """appends the data obtained from beastie into individual lists and
         then graphs the elements of each list. (Used to be last 5 elements)
         """
-        self.time_list1.append(data)
-        self.bias_list2.append(data2)
-        self.current_list3.append(data3)
+        self.time_list.append(timeData)
+        self.bias_list.append(BIASData)
+        self.current_list.append(TPData)
 
         # call graph function and graphs last 5 elements of each list
-        self.graph(self.time_list1, self.bias_list2,
-                   self.current_list3)
+        self.graph()
 
-    def graph(self, n_d_time, n_d1_bias, n_d2_current):
+    def graph(self):
         '''graph function, takes parameters for graphing'''
-        # n_d = time
-        # n_d1 = bias
-        # n_d2 = current
+
         # clear the axis each iteration
         self.ax1.cla()
-
-        # autoscale the graph
-        plt.autoscale(enable=True, axis='both', tight=True)
-
-        # plotting the graph with color
-        self.ax1.plot(n_d_time, n_d1_bias, "-m")
-
-        # clear the axis each iteration
         self.ax2.cla()
 
-        # autoscale the axis
-        plt.autoscale(enable=True, axis='both', tight=True)
+        # labeling the time axis and the voltage bias axis
+        self.ax1.set_ylabel('Voltage Bias (mV)')
+        self.ax2.set_xlabel('Time (seconds)')
+
+        # autoscale the graph
+        plt.autoscale(enable=True, axis='both', tight=False)
 
         # plotting the graph with color
-        self.ax2.plot(n_d_time, n_d2_current, "-r")
+        self.ax1.plot(self.time_list, self.bias_list, "-m")
+
+        # autoscale the axis
+        plt.autoscale(enable=True, axis='both', tight=False)
+
+        # plotting the graph with color
+        self.ax2.plot(self.time_list, self.current_list, "-r")
 
         # Allows graphing in "real time". Every iteration new plot is displayed
         plt.show(block=False)

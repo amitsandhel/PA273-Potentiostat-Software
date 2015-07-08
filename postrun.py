@@ -35,7 +35,8 @@ class PostRun():
         self.adjustedCurrent = []
         # default scale is the smallest (100nA or 10^-7A)
         self.currentScale = int(-7)
-
+        self.minBIAS = 0
+        self.maxBIAS = 0
         # opening the csv file as a readline
         # and reading the csv file line by line using readline
         foo = open(filename, "r")
@@ -50,6 +51,10 @@ class PostRun():
             self.time.append(float(b[0]))
             self.bias.append(float(b[2]))
             self.current.append(float(b[3])*10**int(b[1]))
+            if float(b[2]) > self.maxBIAS:
+                self.maxBIAS = float(b[2])
+            elif float(b[2]) < self.minBIAS:
+                self.minBIAS = float(b[2])
 
         # set the scale to accomodate the largest current value
         if int(b[1]) > int(self.currentScale):
@@ -99,5 +104,7 @@ class PostRun():
 
         # autoscale the axis
         plt.autoscale(enable=True, axis='both', tight=False)
+        # but manually scale the BIAS
+        ax1.set_ylim([self.minBIAS - 150, self.maxBIAS + 150])
         plt.savefig('figure1.png')
         plt.show()

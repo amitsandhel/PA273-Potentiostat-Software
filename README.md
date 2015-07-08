@@ -6,7 +6,7 @@
 
 This software is designed to operate the PA273 potentiostat developed using Python with a built in simulator for software and hardware testing development. 
 
-Two pdf manuals are provided. Read both manuals before operating the potentiostat. It is recommended to run the software using the simulator setting to understand software functionality.
+Two pdf manuals are provided. Read both manuals before operating the potentiostat. It is recommended to first run the software using the simulator setting to understand software functionality.
 
 Currently the software has two versions:
 
@@ -59,7 +59,7 @@ The following scripts exist in this software.
 3. **"main -s":** Runs the simulator. Must be run with the potentiostat version you wish to run via the -v (version) command. If no version is present number is presented, default version is version 1. 
 4. **"main -c1":** Changes the COM PORT. The number 1 shown in the example can be changed to any number as desired. If this isn't set, the program defaults to COM4.
 
-**simulator Setting**
+**Simulator Setting**
 
 4. **"main -s -v1":** Runs version 1 on the simulator (py273_v1.py).
 5. **"main -s -v2":** Runs version 2 on the simulator (py273_v2.py).
@@ -134,14 +134,14 @@ To run the software without the simulator setting (running to actual serial comp
 
 
 # To Do/Future Features:
-* (WILL NOT BE DONE) Add threads and a callback feature.
-* (DONE) Separate the serial simulator class into a separate individual script.
-* (DONE) Add a comport setting to argparse-change the comport setting from argparse.
-* (DONE) Add axes labels to graphs.
-* (DONE) Improve Documentation.
-* (DONE) Add auto-naming feature that names the log file (the current BOOK2) after the current date and time.
-* Fix bug where graphclass graphs and postrun graphs do not match up
-* Fix bug when taking data from BeastieCommand.csv
+* **(WILL NOT BE DONE)** Add threads and a callback feature.
+* **(DONE)** Separate the serial simulator class into a separate individual script.
+* **(DONE)** Add a comport setting to argparse-change the comport setting from argparse.
+* **(DONE)** Add axes labels to graphs.
+* **(DONE)** Improve Documentation.
+* **(DONE)** Add auto-naming feature that names the log file (the current BOOK2) after the current date and time.
+* **(DONE FOR VOLTAGE, MAY NOT BE DONE FOR CURRENT)** Fix bug where graphclass graphs and postrun graphs do not match up
+* **(DONE)** Fix bug when taking data from BeastieCommand.csv
 * Make the pa273_v1.py script compatible with postrun.py
 * Add GUI
 * (MAYBE) Run test files using command line and add unit tests.

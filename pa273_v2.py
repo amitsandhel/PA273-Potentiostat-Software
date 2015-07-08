@@ -79,21 +79,15 @@ class MySerialPort():
         self.s = None
         self.command_dict = {}
         self.cmd_output = None
-        self.next_cmd = None
-        self.next_cmd_list = []
 
         # initalizing the values for graphclass
         self.elapsed_time = None
         self.replyAS = None
-        self.replyBIAS = None
+        self.replyBIAS = 0  # initialize value to zero
         self.replyTP = None
 
-        '''self variable that opens the pyplot graph class'''
-        self.dataTIME = self.elapsed_time
-        self.dataBIAS = self.replyBIAS
-        self.dataTP = self.replyTP
-
-        self.mygraph = GraphClass(self.dataTIME, self.dataBIAS, self.dataTP)
+        '''opens the pyplot graph class'''
+        self.mygraph = GraphClass()
 
     def open_port(self, port=defaultCOM, baudrate=19200, bytesize=EIGHTBITS,
                   parity=PARITY_NONE, stopbits=STOPBITS_ONE, timeout=1,
@@ -251,7 +245,6 @@ class MySerialPort():
         start_time = time.time()
         new_time = 0.0  # initalization value
         newcmd = ("BIAS 0", )
-        self.replyBIAS = 0  # initialize value to zero
         # opening excel file in write only mode
         # will rewrite on top of data in existing file. change to "a" to
         # instead append the data
@@ -275,20 +268,26 @@ class MySerialPort():
             self.elapsed_time = time.time() - start_time
             self.always_read_commands()
             self.record_data()
+            # self.mygraph.analysis(self.elapsed_time, self.replyBIAS,
+            #                      self.replyTP)
+            # can be reduced to lessen error but will result in more datapoints
             time.sleep(0.05)
             if time.time() - start_time >= new_time:
                 if len(self.cmd_output) == 0:
                     print("")  # just a blank line
                     break
-                # new_time, newcmd = self.get_next_command()
+
                 print "Now running cycle " + \
                       str(totalCommands - len(self.cmd_output) + 1) + \
                       " of " + str(totalCommands),
                 print "   ETA: " + \
                       str(round((totalTime - time.time() + start_time), 1)) + \
                       " seconds."
+
                 self.elapsed_time = time.time() - start_time
                 for item in newcmd:
+                    if item == "END":
+                        break
                     reply = (new_time, item)
                     self.command_execute(reply)
                     self.always_read_commands()
@@ -296,6 +295,7 @@ class MySerialPort():
                 new_time, newcmd = self.get_next_command()
 
                 # running the graphclass script to draw the graph in real time
+                # commented out for now due to performance issues
                 # self.mygraph.analysis(self.elapsed_time, self.replyBIAS,
                 #                      self.replyTP)
 
