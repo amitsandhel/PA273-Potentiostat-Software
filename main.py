@@ -1,10 +1,12 @@
+# !/usr/bin/python
+# encoding: utf-8
+# main.py
+
+import sys
 import logging
 import argparse
 import subprocess
 
-# !/usr/bin/python
-# encoding: utf-8
-# main.py
 
 '''Created by Amit Sandhel on 2013-05-27. With contributions by Fredrick Leber.
 
@@ -38,16 +40,16 @@ def setup_parser():
     parser.add_argument('-test', '-t',  help='Run unit tests',
                         action="store_true")
     parser.add_argument('-com', '-c',  help="Change COM PORT Settings",
-                        type=int, default=4)  # default comport setting
+                        type=int, default=5)  # default comport setting
 
-    '''parser commands to be added in later:
-    parser.add_argument('-debug', '-d', help='enhance log file output',
-                        action = "store_true")
-    parser.add_argument('-filename','-f', help='change name of data saving \
-                        file deprecated function', action = "store_true")
-    parser.add_argument('-postrun', '-p', help='post run graph of entire \
-                        display', action = "store_true")
-    '''
+    """parser commands to be added in later f user developer wishes to add them :"""
+    #parser.add_argument('-debug', '-d', help='enhance log file output',
+    #                    action = "store_true")
+    #parser.add_argument('-filename','-f', help='change name of data saving \
+    #                    file deprecated function', action = "store_true")
+    #parser.add_argument('-postrun', '-p', help='post run graph of entire \
+    #                    display', action = "store_true")
+    
     return parser
 
 
@@ -57,7 +59,7 @@ class Main():
        """
 
     def __init__(self, parser):
-        # argparse command settings
+        '''argparse command settings'''
         args = parser.parse_args()
         self.sim = args.sim
         self.version = args.version
@@ -79,6 +81,9 @@ class Main():
             if self.sim:
                 # add a -s string character
                 self.string_sim = " -s"
+            else:
+                #this needs to be added otherwise your real serial port will not work at all because the sim parameter default value is not given
+                self.string_sim = ""
 
             if self.com:
                 # add the COM PORT as a string character
@@ -94,13 +99,16 @@ class Main():
             '''
             # potentiostat version1
             COMMAND = "python pa273_v1.py" + self.string_sim + self.string_com
-
             # potentiostat version2
             COMMAND2 = "python pa273_v2.py" + self.string_sim + self.string_com
 
             # running version 1 subcommands
             if self.version == 1:
-                subprocess.call(COMMAND, shell=True)
+                try:
+                    subprocess.call(COMMAND, shell=True)
+                except (KeyboardInterrupt, SystemExit):
+                    print 'fails'
+                    sys.exit()
 
                 '''Logging file Setup'''
                 # opening up parser to main library separately for each
@@ -118,7 +126,12 @@ class Main():
 
             # running version 2 subcommands
             elif self.version == 2:
-                subprocess.call(COMMAND2, shell=True)
+                try:
+                    subprocess.call(COMMAND2, shell=True)
+                except (KeyboardInterrupt, SystemExit):
+                    print 'fails'
+                    sys.exit()
+                #subprocess.call(COMMAND2, shell=True)
 
                 '''Logging file Setup'''
                 # opening up parser to main library separately

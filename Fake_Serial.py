@@ -1,9 +1,10 @@
-import logging
-import random
-
 # !/usr/bin/python
 # encoding: utf-8
 # Fake_Serial.py
+
+import logging
+import random
+
 
 """This class is the fake serial class for the simulator. It will allow us to
 bypass the serial port, and also will be used for all the memory address swaps
@@ -11,6 +12,11 @@ we need for both potentiostat versions.
 
 Created by Amit Sandhel with contributions by Fredrick Leber
 This module is to simulate a COM port for the PA273 potentiostat.
+"""
+
+"""
+Note that we have used PEP8 standard notation.
+Therefore instead of using if x == y we write if x is y
 """
 
 # making a logging file
@@ -45,6 +51,8 @@ class Fake_Serial():
         self.NC = 0
         self.As = 0
         self.TP = 0
+        self.port = port
+        logging1.debug("SIM.write got " + repr(self.port))
 
     def write(self, str_to_write):
         '''Fake sending a string to a serial device'''
@@ -97,7 +105,8 @@ class Fake_Serial():
             else:
                 self.Sete_Sim()
 
-        # version 2 commands
+        #Version 2 commands below
+        
         elif self.b[0] == 'NC':
             if len(self.b) == 2:
                 self.NC_Sim(self.b[1])
@@ -177,6 +186,7 @@ class Fake_Serial():
     def Sie_Sim(self, param=None):
         self.reply = ""
         param = 300
+        #param = random.randrange(-1000, 1000)
         self.Sie = param
         self.reply = str(self.Sie) + "*"
 
@@ -227,7 +237,9 @@ class Fake_Serial():
             adjBIAS = self.bias
 
         self.TP = param + adjBIAS
-        self.reply = str(self.TP) + "*"
+        val = param + adjBIAS
+        #self.TP = 0, val, 0
+        self.reply = str(self.TP)  + "*"
 
         logging1.debug("TP_SIM PARAM: " + repr(param))
         logging1.debug("TP_SIM RECEIVED: " + repr(self.TP))

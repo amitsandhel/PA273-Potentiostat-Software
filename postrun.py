@@ -1,8 +1,9 @@
-import logging
-
 # !/usr/bin/python
 # encoding: utf-8
 # postrun.py
+
+import logging
+
 
 '''Created by Amit Sandhel with contributions by Fredrick Leber.
 This script is designed to take the saved raw data from the filename specified
@@ -28,6 +29,7 @@ except:
 
 class PostRun():
     def __init__(self, filename):
+        """The initialization class"""
         # various lists we need to graph the data
         self.bias = []
         self.time = []
@@ -37,10 +39,18 @@ class PostRun():
         self.currentScale = int(-7)
         self.minBIAS = 0
         self.maxBIAS = 0
+        
+        #import the filename into a self variable
+        self.filename = filename
+        
+        self.data_analysis()
+    def data_analysis(self):
+        """This function opens the csv file and parses the data to our needs and wants 
+        it also sets up the arrays"""
+        
         # opening the csv file as a readline
         # and reading the csv file line by line using readline
-        foo = open(filename, "r")
-
+        foo = open(self.filename, "r")
         # removing the header of the csv file so it won't be parsed
         foo.readline()
 
@@ -62,13 +72,11 @@ class PostRun():
         logging.debug("time list values: " + repr(self.time))
         logging.debug("bias list values: " + repr(self.bias))
         logging.debug("current list values: " + repr(self.current))
+        #TODO: add in the max and in scale values as well
 
     def graph(self):
         """Graphs the output from the csv file."""
         print('Welcome to the POST RUN Testing Analysis Environment!\n')
-        logging.debug("n_d_time arg values: " + repr(self.time))
-        logging.debug("n_d1_bias arg values: " + repr(self.bias))
-        logging.debug("n_d2_current arg values: " + repr(self.current))
 
         # setting up the matplot figures and their geometrical sizes
         # fig = plt.figure(1) # this line is probably not needed
@@ -107,3 +115,7 @@ class PostRun():
         ax1.set_ylim([self.minBIAS - 150, self.maxBIAS + 150])
         plt.savefig('figure1.png')
         plt.show()
+        
+        logging.debug("n_d_time arg values: " + repr(self.time))
+        logging.debug("n_d1_bias arg values: " + repr(self.bias))
+        logging.debug("n_d2_current arg values: " + repr(self.current))
