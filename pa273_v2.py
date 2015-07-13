@@ -1,19 +1,14 @@
-# !/usr/bin/python
-# encoding: utf-8
-# pa273_v2.py
-
 import sys
 import time
 import logging
 from postrun import PostRun
 from main import setup_parser as sp
 from Fake_Serial import Fake_Serial as fake_serial
-# import graphclass script for real-time graphing
-#from graphclass import GraphClass
+# import graphclass script for real-time graphing (not currently being used)
+# from graphclass import GraphClass
 
-
-
-"""Created by Amit Sandhel with contributions by Fredrick Leber.
+"""pa273_v2.py
+Created by Amit Sandhel with contributions by Fredrick Leber.
 
 This script runs the potentiostat using a custom command language. This script
 comes with a built in simulator which simulates the serial port if one
@@ -51,21 +46,18 @@ logging.info(" ---------------------- root (%s)\
 # name for log file
 logger2 = logging.getLogger('pa273v2.log')
 
-TIMEDELAY = 1
-
-# SETTING UP CSV FILE
-#b = time.strftime('%Y-%m-%d-%H-%M-%S')
-#TODO: brebring the filename as above
-FILENAME = "book2.csv" #% b
+# SETTING UP CSV FILE (uncomment the next two lines and delete the book2 line
+# to restore autonaming based on date)
+# b = time.strftime('%Y-%m-%d-%H-%M-%S')
+# FILENAME = "pa273_version_2-%s.csv" % b
+FILENAME = "book2.csv"
 NEWLINE = "\n"
 
 # Change COM PORT as needed, used by MySerialPort.open_port() function.
 # String variable with word COM in caplocks in front is a must!
 # example: "COM4", "COM2", "COM1", etc...
-# Defaulted to COM4 here
+# Defaulted to COM5 here
 defaultCOM = "COM5"
-
-
 
 
 class MySerialPort():
@@ -78,20 +70,16 @@ class MySerialPort():
         self.s = None
         self.command_dict = {}
         self.cmd_output = None
-        
-        #AMIT ADDITION
-        self.next_cmd = None
-        self.next_cmd_list = []
 
         # initalizing the values for graphclass
-        self.elapsed_time = None
-        self.replyAS = None
+        self.elapsed_time = 0.0
+        self.replyAS = -7
         self.replyBIAS = 0  # initialize value to zero
-        self.replyTP = None
+        self.replyTP = 0
 
-        '''opens the pyplot graph class'''
-        #self.mygraph = GraphClass()
-        
+        '''opens the pyplot graph class (not used for now)'''
+        # self.mygraph = GraphClass()
+
     def open_port(self, port=defaultCOM, baudrate=19200, bytesize=8,
                   parity='N', stopbits=1, timeout=1,
                   xonxoff=False, rtscts=False, writeTimeout=3, dsrdtr=False,
@@ -104,7 +92,7 @@ class MySerialPort():
         self.s = Serial(port, baudrate, bytesize, parity, stopbits, timeout,
                         xonxoff, rtscts, writeTimeout, dsrdtr,
                         interCharTimeout)
-        logger2.debug('Serial Port opened using: ' + repr(port) )
+        logger2.debug('Serial Port opened using: ' + repr(port))
         print('A serial port has been opened using ' + port + '.\n')
 
     def close_port(self):
@@ -115,7 +103,6 @@ class MySerialPort():
     def send(self, str_to_send):
         """Sending commands to the serial port."""
         chars_sent = self.s.write(str_to_send)
-        return chars_sent
         logger2.debug("Tx: " + repr(str_to_send) +
                       "bytes sent: %d" % chars_sent)
 
@@ -125,7 +112,7 @@ class MySerialPort():
         '''
         data_string = ""
         start_time = time.time()
-        MAXRECEIVETIMEOUT = 1 # time.now() is in seconds
+        MAXRECEIVETIMEOUT = 1  # this is in seconds
         while True:
             b = self.s.inWaiting()
             if b > 0:
@@ -148,7 +135,7 @@ class MySerialPort():
                 and hoping")
                 print "Receive function timed out."
                 break
-        time.sleep(0.1)  # initially 0.01, was set to 0.05
+        time.sleep(0.05)  # was initally 0.05
         logger2.debug("Rx: " + repr(data_string) + " bytes read: %d" %
                       len(data_string))
 
@@ -165,26 +152,27 @@ class MySerialPort():
         return command_list
 
     def parse_and_sort_commands(self, command_list):
-        '''Pass in the command list and we return a command dictionary.'''
-        #so here we have a dictionary with a time key and a bias and other values in a tuple
-        # parsing pass in command list
+        """Pass in the command list and we return a command dictionary.
+        The command dictionary used the command times as keys, which
+        correspond to different BIAS values in tuple form (or other commands)
+        """
+        # parsing command list
         for line in command_list:
             time, command = line.strip().split(",")
-            #the try and except clause is in there to catch errors as well suppose
-            # a user fails to write bias correctly then what in our case the software will
-            #crash 
+            # try and except clause is here to catch errors. Otherwise if a
+            # user fails to write bias correctly the software will crash
             try:
                 if float(time) in self.command_dict.keys():
                     # Append to existing:
-                    # Note: .strip() removes surrounding whitespace from the string
-                    self.command_dict[float(time)] += (command.strip(), )
+                    # Note: .strip() removes surrounding whitespace
+                    # from the string
+                    self.command_dict[float(time)] += command.strip()
                 else:
                     # Create new entry:
-                    self.command_dict[float(time)] = (command.strip(), )
+                    self.command_dict[float(time)] = command.strip()
             except:
-                # Create first entry:
-                self.command_dict[float(time)] = (command.strip() , )
-        
+                print "An error occured when importing the command excel file."
+
         '''For debugging purposes
         for k, v in self.command_dict.iteritems():
             print k, v
@@ -192,54 +180,35 @@ class MySerialPort():
         # sorting the dictionary keys (command times)
         self.cmd_output = self.command_dict.keys()
         self.cmd_output.sort()
-        
+
         logger2.debug("New command dict: " + repr(self.command_dict))
         logger2.debug("New command dict sorted: " + repr(self.cmd_output))
 
-
-    def get_next_command(self):
-        '''This function is parsing the commands from the command file
-        into a tuple.
-        '''
-        next_time = self.cmd_output.pop(0)
-        next_cmd = self.command_dict[next_time]
-        reply = (next_time, next_cmd)
-
-        logger2.debug("get_next_command() reply timing response: " +
-                      repr(reply))
-        #print 'get next command: ', reply
-        return reply
-
-    def command_execute(self, reply):
-        '''Calling the reply from the function above get_next_command()'''
-        self.send(reply[1] + " \n")
-        # The '20' below represents an arbitrarily high number of characters
+    def command_execute(self, inputBIAS):
+        '''Execute the inputted BIAS'''
+        self.send(inputBIAS + " \n")
+        # The '15' below represents an arbitrarily high number of characters
         # Note: in the future if different/more commands other than BIAS are
         # going to be input, you need an if statement here to determine which
         # self.replyXXX variable to write to
-        self.replyBIAS = self.receive(20)
+        self.replyBIAS = self.receive(15)
         logger2.debug("command execute()reply timing response: " +
-                      repr(reply[1]))
+                      repr(inputBIAS))
 
-    def always_read_commands(self):
-        '''Commands that are always read all the time.
+    def read_data(self):
+        """Commands that are always read all the time.
         All these commands are read commands only.
+        """
+
         '''
         self.send("NC \n")
-        self.reply1 = self.receive(4)
+        self.replyNC = self.receive(4)
         logger2.debug("NC TIMER RESPONSE: " + repr(self.reply1))
+        '''
 
         self.send("AS \n")
         self.replyAS = self.receive(4)
         logger2.debug("AS TIMER RESPONSE: " + repr(self.replyAS))
-
-        '''The BIAS is actually obtained from the 'command_execute' function
-        self.send("BIAS \n")
-        self.replyBIAS = self.receive(7)
-        logger2.debug("BIAS TIMER RESPONSE: " + repr(self.replyBIAS))
-        '''
-        self.send("BIAS \n")
-        self.replyBIAS = self.receive(12)
 
         self.send("TP \n")
         self.replyTP = self.receive(4)
@@ -253,7 +222,8 @@ class MySerialPort():
         newrow = str(self.elapsed_time) + ","
         newrow += str(self.replyAS) + ","
         newrow += str(self.replyBIAS) + ","
-        #this is actually a list/tuple of 3 values the point, the current and the bias value combined so your answer is technically [0,1,0]
+        # this is actually a list/tuple of 3 values the point, the current
+        # and the bias value combined so your answer is technically [0,1,0]
         newrow += str(self.replyTP) + ","
         newrow += NEWLINE
         myfile.write(newrow)
@@ -261,11 +231,9 @@ class MySerialPort():
 
     def run(self):
         start_time = time.time()
-        new_time = 0.0  # initalization value
-        newcmd = ("BIAS 0", )
-        # opening excel file in write only mode
-        # will rewrite on top of data in existing file. change to "a" to
-        # instead append the data
+
+        # opening excel file in write only mode. will rewrite on top of data
+        # in existing file. change to "a" to instead append the data
         myfile = open(FILENAME, "w")
         myfile.write("Time, AS, BIAS, TP-point#, TP-current, TP-bias, " +
                      NEWLINE)
@@ -276,55 +244,48 @@ class MySerialPort():
 
         # get the command list from beastiecommand.csv and make the commands
         # into a dictionary. Sort them based on time.
-        command_list = self.readfiles()
-        self.parse_and_sort_commands(command_list)
+        self.parse_and_sort_commands(self.readfiles())
         totalCommands = len(self.cmd_output)
+        counts = totalCommands
         totalTime = self.cmd_output[-1]
-        
-        #switching to a simplier timer to get things done
-        cycles = 0 
 
-        while True:
-            cycles +=1
-            print 'cycle: ', cycles
-            print 'bias: %s, current: %s'%(self.replyBIAS, self.replyTP)
-            # while loop that measures the elapsed time
-            self.elapsed_time = time.time() - start_time
-            self.always_read_commands()
-            self.record_data()
-            # self.mygraph.analysis(self.elapsed_time, self.replyBIAS,self.replyTP)
-            # can be reduced to lessen error but will result in more datapoints
-            time.sleep(0.1)
-            if time.time() - start_time >= new_time:
-                if len(self.cmd_output) == 0:
-                    print("")  # just a blank line
-                    break
-                    
+        for times in self.cmd_output[:]:
+            counts -= 1
+            while (time.time() - start_time) < times:
                 self.elapsed_time = time.time() - start_time
-                for item in newcmd:
-                    if item == "END":
-                        break
-                    reply = (new_time, item)
-                    self.command_execute(reply)
-                    self.always_read_commands()
-                    self.record_data()
-                new_time, newcmd = self.get_next_command()
-
-                # running the graphclass script to draw the graph in real time
-                # commented out for now due to performance issues
+                self.read_data()
+                self.record_data()
                 # self.mygraph.analysis(self.elapsed_time, self.replyBIAS,
-                #                      self.replyTP)
+                #                       self.replyTP)
+            print "Now running cycle " + \
+                  str(totalCommands - counts) + \
+                  " of " + str(totalCommands),
+            print "   ETA: " + str(round((totalTime - time.time() +
+                                          start_time), 1)) + " seconds."
+            # print 'BIAS: %s, Current: %s' % (self.replyBIAS, self.replyTP)
+            if self.command_dict[times] == "END":
+                    print("")
+                    break
+            self.elapsed_time = time.time() - start_time
+            self.command_execute(self.command_dict[times])
+            self.read_data()
+            self.record_data()
+            # running the graphclass script to draw the graph in real time
+            # commented out for now due to performance issues
+            # self.mygraph.analysis(self.elapsed_time, self.replyBIAS,
+            #                      self.replyTP)
 
-                logger2.debug('mygraph elapsed_time data: ' +
-                              repr(self.elapsed_time))
-                logger2.debug('mygraph self.replyBIAS data: ' +
-                              repr(self.replyBIAS))
-                logger2.debug('mygraph self.replyTP data: ' +
-                              repr(self.replyTP))
+            logger2.debug('mygraph elapsed_time data: ' +
+                          repr(self.elapsed_time))
+            logger2.debug('mygraph self.replyBIAS data: ' +
+                          repr(self.replyBIAS))
+            logger2.debug('mygraph self.replyTP data: ' +
+                          repr(self.replyTP))
 
-"""AMIT: leave this module here as it truly belongs to the stuff at the bottom"""
+# AMIT: leave this module here as it truly belongs to the stuff at the bottom
 # running the Main() class to execute everything off argparse
 module = sys.modules[__name__]
+
 
 class Main():
     """Main class which executes the entire pa273_v2 script."""
@@ -336,7 +297,7 @@ class Main():
 
     def fake_serial(self):
         """Runs the Fake_Serial() Class if the simulator parameter is True."""
-        setattr(module, "Serial", fake_serial)  
+        setattr(module, "Serial", fake_serial)
         self.myfile.open_port(self.com)
         self.myfile.run()
         # Closing serial port after run
@@ -355,7 +316,7 @@ class Main():
             logging.debug("REAL SIM VALUE: " + repr(self.sim))
             print 'running real simulator: ', self.sim
             # Import real serial class
-            from serial import Serial as Serial
+            from serial import Serial
 
             setattr(module, "Serial", Serial)
             self.myfile.open_port(self.com)

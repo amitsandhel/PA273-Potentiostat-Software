@@ -1,18 +1,13 @@
-# !/usr/bin/python
-# encoding: utf-8
-# main.py
-
 import sys
-import logging
 import argparse
 import subprocess
 
+'''main.py
+Created by Amit Sandhel on 2013-05-27. With contributions by Fredrick Leber.
 
-'''Created by Amit Sandhel on 2013-05-27. With contributions by Fredrick Leber.
-
-This script is the master file that controls all the other scripts
-It also contains the argparse command control
-here the user can add his own argparse commands as they need
+This script is the master file that controls all the other scripts. It also
+contains the argparse command control, here the user can add his own argparse
+commands as they need.
 
 References/Sources of information used:
 http://docs.python.org/2/howto/argparse.html#id1
@@ -42,14 +37,15 @@ def setup_parser():
     parser.add_argument('-com', '-c',  help="Change COM PORT Settings",
                         type=int, default=5)  # default comport setting
 
-    """parser commands to be added in later f user developer wishes to add them :"""
-    #parser.add_argument('-debug', '-d', help='enhance log file output',
-    #                    action = "store_true")
-    #parser.add_argument('-filename','-f', help='change name of data saving \
-    #                    file deprecated function', action = "store_true")
-    #parser.add_argument('-postrun', '-p', help='post run graph of entire \
-    #                    display', action = "store_true")
-    
+    '''parser commands to possibly (but unlikely) be added in later:
+    parser.add_argument('-debug', '-d', help='enhance log file output',
+                        action = "store_true")
+    parser.add_argument('-filename','-f', help='change name of data saving \
+                        file deprecated function', action = "store_true")
+    parser.add_argument('-postrun', '-p', help='post run graph of entire \
+                        display', action = "store_true")
+    '''
+
     return parser
 
 
@@ -59,7 +55,7 @@ class Main():
        """
 
     def __init__(self, parser):
-        '''argparse command settings'''
+        """Initialize argparse command settings."""
         args = parser.parse_args()
         self.sim = args.sim
         self.version = args.version
@@ -82,7 +78,9 @@ class Main():
                 # add a -s string character
                 self.string_sim = " -s"
             else:
-                #this needs to be added otherwise your real serial port will not work at all because the sim parameter default value is not given
+                # necessary to have, otherwise the real serial port will not
+                # work at all because the sim parameter default value is
+                # not given
                 self.string_sim = ""
 
             if self.com:
@@ -102,49 +100,21 @@ class Main():
             # potentiostat version2
             COMMAND2 = "python pa273_v2.py" + self.string_sim + self.string_com
 
-            # running version 1 subcommands
+            # run version 1 subcommands
             if self.version == 1:
                 try:
                     subprocess.call(COMMAND, shell=True)
                 except (KeyboardInterrupt, SystemExit):
-                    print 'fails'
+                    print 'Thank you for using the v1 script. Goodbye.'
                     sys.exit()
 
-                '''Logging file Setup'''
-                # opening up parser to main library separately for each
-                # self.version to prevent overlapping logs
-                logging.basicConfig(filename='main.log', filemode='a',
-                                    level=logging.DEBUG, format='%(asctime)s, \
-                                    %(levelname)s, %(message)s')
-                logging.info(" ---------------------- root (%s) \
-                --------------------------------" % __file__)
-
-                # naming log file
-                log1 = logging.getLogger('main.log')
-
-                log1.debug("subprocess call: " + repr(COMMAND))
-
-            # running version 2 subcommands
+            # run version 2 subcommands
             elif self.version == 2:
                 try:
                     subprocess.call(COMMAND2, shell=True)
                 except (KeyboardInterrupt, SystemExit):
-                    print 'fails'
+                    print 'Thank you for using the v2 script. Goodbye.'
                     sys.exit()
-                #subprocess.call(COMMAND2, shell=True)
-
-                '''Logging file Setup'''
-                # opening up parser to main library separately
-                logging.basicConfig(filename='main.log', filemode='a',
-                                    level=logging.DEBUG, format='%(asctime)s, \
-                                    %(levelname)s, %(message)s')
-                logging.info(" ---------------------- root (%s) \
-                --------------------------------" % __file__)
-
-                # naming log file
-                log1 = logging.getLogger('main.log')
-
-                log1.debug("subprocess call: " + repr(COMMAND2))
 
             else:
                 print 'Software is closing Thank You'

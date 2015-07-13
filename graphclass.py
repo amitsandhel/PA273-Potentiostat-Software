@@ -1,10 +1,7 @@
 import logging
 
-# !/usr/bin/python
-# encoding: utf-8
-# graphclass.py
-
-""" Created by Amit Sandhel with contributions by Fredrick Leber.
+"""graphclass.py
+Created by Amit Sandhel with contributions by Fredrick Leber.
 This script is designed to display the graph in real time.
 
 Note: this program requires:

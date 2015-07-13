@@ -1,5 +1,5 @@
 #PA273-Potentiostat Software
-**Version 1.0**
+**Version 4.0**
 
 **by Amit Sandhel**
 **with contributions by Fredrick Leber**
@@ -17,6 +17,7 @@ Currently the software has two versions:
   1. Python (2.6, 2.7)
   2. Matplotlib
   3. PySerial
+  4. Numpy (for GUI)
     
 
 **The software comes with the following built in features: ** 
@@ -142,6 +143,6 @@ To run the software without the simulator setting (running to actual serial comp
 * **(DONE)** Add axes labels to graphs.
 * **(DONE)** Improve Documentation.
 * **(DONE)** Add auto-naming feature that names the log file (the current BOOK2) after the current date and time.
-* **(DONE FOR VOLTAGE, WILL NOT BE DONE FOR CURRENT)** Fix bug where graphclass graphs and postrun graphs do not match up
+* **(DONE FOR BIAS, WILL NOT BE DONE FOR CURRENT)** Fix bug where graphclass graphs and postrun graphs do not match up
 * **(DONE)** Fix bug when taking data from BeastieCommand.csv
 * Add GUI

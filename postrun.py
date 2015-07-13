@@ -1,11 +1,7 @@
-# !/usr/bin/python
-# encoding: utf-8
-# postrun.py
-
 import logging
 
-
-'''Created by Amit Sandhel with contributions by Fredrick Leber.
+'''postrun.py
+Created by Amit Sandhel with contributions by Fredrick Leber.
 This script is designed to take the saved raw data from the filename specified
 in v2 script and automatically graph the data. The graphs are saved as images
 for the user's behalf. The filename is auto-named according to the current
@@ -29,7 +25,7 @@ except:
 
 class PostRun():
     def __init__(self, filename):
-        """The initialization class"""
+        """The initialization class."""
         # various lists we need to graph the data
         self.bias = []
         self.time = []
@@ -39,15 +35,15 @@ class PostRun():
         self.currentScale = int(-7)
         self.minBIAS = 0
         self.maxBIAS = 0
-        
-        #import the filename into a self variable
+
+        # import the filename into a self variable
         self.filename = filename
-        
+
         self.data_analysis()
+
     def data_analysis(self):
-        """This function opens the csv file and parses the data to our needs and wants 
-        it also sets up the arrays"""
-        
+        """This function opens the csv file and parses the data. It also sets
+        up the arrays."""
         # opening the csv file as a readline
         # and reading the csv file line by line using readline
         foo = open(self.filename, "r")
@@ -72,7 +68,7 @@ class PostRun():
         logging.debug("time list values: " + repr(self.time))
         logging.debug("bias list values: " + repr(self.bias))
         logging.debug("current list values: " + repr(self.current))
-        #TODO: add in the max and in scale values as well
+        # TODO: add in the max and in scale values as well
 
     def graph(self):
         """Graphs the output from the csv file."""
@@ -115,7 +111,7 @@ class PostRun():
         ax1.set_ylim([self.minBIAS - 150, self.maxBIAS + 150])
         plt.savefig('figure1.png')
         plt.show()
-        
+
         logging.debug("n_d_time arg values: " + repr(self.time))
         logging.debug("n_d1_bias arg values: " + repr(self.bias))
         logging.debug("n_d2_current arg values: " + repr(self.current))
