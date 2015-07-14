@@ -1,39 +1,17 @@
-# !/usr/bin/python
-# encoding: utf-8
-# graphclass.py
-
-import logging
-#import logging library 
-from loggingfile import Logging_File as Log_File
-
-
-""" Created by Amit Sandhel with contributions by Fredrick Leber.
+"""graphclass.py
+Created by Amit Sandhel with contributions by Fredrick Leber.
 This script is designed to display the graph in real time.
 
-Note: this program requires:
+Note: this script requires:
         1) Python 2.7
         2) Matplotlib
-        3) logging-built in to Python
 """
 
-# Setting up logging
-#Logging Setup
-"""NOTE:: the file path is to be manually set to the folder or the path directory you wish to save this too logging file must also be in 
-there """
-Log_File('graphclass', r'F:\beastie_python_version 4\Logging\graphclass.log')
-
-
-
-# name for log file
-logger = logging.getLogger('graphclass.log')
-
 # Does matplotlib exist on library
-GRAPH = True
 try:
     import matplotlib.pyplot as plt
 except:
-    GRAPH = False
-    logger.debug('Error: Please install matplotlib.')
+    print('Error: Please install matplotlib.')
 
 
 class GraphClass():
@@ -48,10 +26,6 @@ class GraphClass():
         self.time_list = []
         self.bias_list = []
         self.current_list = []
-        
-        logger = logging.getLogger('graphclass')
-        logger.info(" ---------------------- root --------------------------------")
-        
 
     def analysis(self, timeData, BIASData, TPData):
         """appends the data obtained from beastie into individual lists and
@@ -65,7 +39,7 @@ class GraphClass():
         self.graph()
 
     def graph(self):
-        '''graph function, takes parameters for graphing'''
+        """Graph function, uses self variables for graphing."""
 
         # clear the axis each iteration
         self.ax1.cla()

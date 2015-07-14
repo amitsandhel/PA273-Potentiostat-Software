@@ -1,35 +1,13 @@
-# !/usr/bin/python
-# encoding: utf-8
-# Fake_Serial.py
-
-import logging
 import random
 
-#import logging library 
-from loggingfile import Logging_File as Log_File
-
-
-"""This class is the fake serial class for the simulator. It will allow us to
-bypass the serial port, and also will be used for all the memory address swaps
-we need for both potentiostat versions.
-
+"""Fake_Serial.py
 Created by Amit Sandhel with contributions by Fredrick Leber
 This module is to simulate a COM port for the PA273 potentiostat.
+
+This class is the fake serial class for the simulator. It will allow us to
+bypass the serial port, and also will be used for all the memory address swaps
+we need for both potentiostat versions.
 """
-
-"""
-Note that we have used PEP8 standard notation.
-Therefore instead of using if x == y we write if x is y
-"""
-
-# making a logging file
-
-#Logging Setup
-"""NOTE:: the file path is to be manually set to the folder or the path directory you wish to save this too logging file must also be in 
-there """
-Log_File('Fake_Serial', r'F:\beastie_python_version 4\Logging\Fake_Serial.log')
-
-
 
 
 class Fake_Serial():
@@ -55,11 +33,6 @@ class Fake_Serial():
         self.As = 0
         self.TP = 0
         self.port = port
-        
-        self.logging1 = logging.getLogger('Fake_Serial')
-        self.logging1.info(" ---------------------- root --------------------------------")
-        
-        self.logging1.debug("SIM.write got " + repr(self.port))
 
     def write(self, str_to_write):
         '''Fake sending a string to a serial device'''
@@ -69,9 +42,6 @@ class Fake_Serial():
         self.b = str_to_write.strip().split(" ")
         # Flush Rx buffer:
         self.reply = ""
-
-        self.logging1.debug("SIM.write got " + repr(str_to_write))
-        self.logging1.debug("SIM.write command parsed as: " + repr(self.b))
 
         if self.b[0] == 'EGAIN':
             if len(self.b) == 2:
@@ -112,8 +82,7 @@ class Fake_Serial():
             else:
                 self.Sete_Sim()
 
-        #Version 2 commands below
-        
+        # Version 2 commands below
         elif self.b[0] == 'NC':
             if len(self.b) == 2:
                 self.NC_Sim(self.b[1])
@@ -142,9 +111,6 @@ class Fake_Serial():
             param = self.egain
             self.reply = str(self.egain) + "*"
 
-        self.logging1.debug("EGAIN_SIM PARAM: " + repr(param))
-        self.logging1.debug("EGAIN_SIM RECEIVED: " + repr(self.egain))
-
     def Igain_Sim(self, param=None):
         self.reply = ""
 
@@ -156,9 +122,6 @@ class Fake_Serial():
             param = self.igain
             self.reply = str(self.igain) + "*"
 
-        self.logging1.debug("IGAIN_SIM PARAM: " + repr(param))
-        self.logging1.debug("IGAIN_SIM RECEIVED: " + repr(self.egain))
-
     def Bias_Sim(self, param=None):
         if param in range(-8000, 8000):
             self.bias = param
@@ -167,9 +130,6 @@ class Fake_Serial():
         if param is None:
             param = self.bias
             self.reply = str(self.bias) + "*"
-
-        self.logging1.debug("BIAS_SIM PARAM: " + repr(param))
-        self.logging1.debug("BIAS_SIM RECEIVED: " + repr(self.egain))
 
     def As_Sim(self, param=None):
         self.reply = ""
@@ -187,18 +147,12 @@ class Fake_Serial():
 
         self.reply = str(self.As) + "*"
 
-        self.logging1.debug("AS_SIM PARAM: " + repr(param))
-        self.logging1.debug("AS_SIM RECEIVED: " + repr(self.egain))
-
     def Sie_Sim(self, param=None):
         self.reply = ""
         param = 300
-        #param = random.randrange(-1000, 1000)
+        # param = random.randrange(-1000, 1000)
         self.Sie = param
         self.reply = str(self.Sie) + "*"
-
-        self.logging1.debug("SIE_SIM PARAM: " + repr(param))
-        self.logging1.debug("SIE_SIM RECEIVED: " + repr(self.egain))
 
     def Sete_Sim(self, param=None):
         self.reply = ""
@@ -206,18 +160,12 @@ class Fake_Serial():
         self.Sete = param
         self.reply - str(self.Sete) + "*"
 
-        self.logging1.debug("SETE_SIM PARAM: " + repr(param))
-        self.logging1.debug("SETE_SIM RECEIVED: " + repr(self.egain))
-
     # version 2 commands
     def NC_Sim(self, param=None):
         self.reply = ""
         param = 2
         self.NC = param
         self.reply = str(self.NC) + "*"
-
-        self.logging1.debug("NC_SIM PARAM: " + repr(param))
-        self.logging1.debug("NC_SIM RECEIVED: " + repr(self.NC))
 
     def TP_Sim(self, param=None):
         self.reply = ""
@@ -244,21 +192,12 @@ class Fake_Serial():
             adjBIAS = self.bias
 
         self.TP = param + adjBIAS
-        val = param + adjBIAS
-        #self.TP = 0, val, 0
-        self.reply = str(1)+','+str(self.TP)+','+ str(0)  + "*"
-
-        self.logging1.debug("TP_SIM PARAM: " + repr(param))
-        self.logging1.debug("TP_SIM RECEIVED: " + repr(self.TP))
+        self.reply = str(1) + ',' + str(self.TP) + ',' + str(0) + "*"
 
     def inWaiting(self):
-        self.logging1.debug("SIM.inWaiting has '" + str(self.reply) +
-                       "', returning %d" % len(self.reply))
         return len(self.reply)
 
     def read(self, chars_to_send):
-        self.logging1.debug("SIM.read: asked for " + str(chars_to_send) +
-                       " returned: " + str(self.reply))
         rtn = self.reply[0:chars_to_send]
         self.reply = self.reply[chars_to_send:]
         return rtn
