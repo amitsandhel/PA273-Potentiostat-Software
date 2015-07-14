@@ -1,17 +1,23 @@
+# !/usr/bin/python
+# encoding: utf-8
+# postrun.py
+
 import logging
 
-'''postrun.py
-Created by Amit Sandhel with contributions by Fredrick Leber.
+#import logging library 
+from loggingfile import Logging_File as Log_File
+
+'''Created by Amit Sandhel with contributions by Fredrick Leber.
 This script is designed to take the saved raw data from the filename specified
 in v2 script and automatically graph the data. The graphs are saved as images
 for the user's behalf. The filename is auto-named according to the current
 date and time.
 '''
+"""NOTE:: the file path is to be manually set to the folder or the path directory you wish to save this too logging file must also be in 
+there """
+Log_File('postrun', r'F:\beastie_python_version 4\Logging\postrun.log')
 
-logging.basicConfig(filename='postrun.log', filemode='a', level=logging.DEBUG,
-                    format='%(asctime)s, %(levelname)s, %(message)s')
-logging.info(" ---------------------- root (%s)\
-             --------------------------------" % __file__)
+
 # name for the log file
 logging = logging.getLogger('postrun.log')
 
@@ -25,7 +31,7 @@ except:
 
 class PostRun():
     def __init__(self, filename):
-        """The initialization class."""
+        """The initialization class"""
         # various lists we need to graph the data
         self.bias = []
         self.time = []
@@ -35,15 +41,22 @@ class PostRun():
         self.currentScale = int(-7)
         self.minBIAS = 0
         self.maxBIAS = 0
-
-        # import the filename into a self variable
+        
+        #self.logging = logging.getLogger('postrun')
+        logging.info(" ---------------------- root --------------------------------")
+        
+        #import the filename into a self variable
         self.filename = filename
-
+        
+        
         self.data_analysis()
-
+        
+        
+        
     def data_analysis(self):
-        """This function opens the csv file and parses the data. It also sets
-        up the arrays."""
+        """This function opens the csv file and parses the data to our needs and wants 
+        it also sets up the arrays"""
+        
         # opening the csv file as a readline
         # and reading the csv file line by line using readline
         foo = open(self.filename, "r")
@@ -68,7 +81,7 @@ class PostRun():
         logging.debug("time list values: " + repr(self.time))
         logging.debug("bias list values: " + repr(self.bias))
         logging.debug("current list values: " + repr(self.current))
-        # TODO: add in the max and in scale values as well
+        #TODO: add in the max and in scale values as well
 
     def graph(self):
         """Graphs the output from the csv file."""
@@ -111,7 +124,7 @@ class PostRun():
         ax1.set_ylim([self.minBIAS - 150, self.maxBIAS + 150])
         plt.savefig('figure1.png')
         plt.show()
-
+        
         logging.debug("n_d_time arg values: " + repr(self.time))
         logging.debug("n_d1_bias arg values: " + repr(self.bias))
         logging.debug("n_d2_current arg values: " + repr(self.current))

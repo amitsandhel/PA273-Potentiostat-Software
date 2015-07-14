@@ -1,7 +1,13 @@
-import logging
+# !/usr/bin/python
+# encoding: utf-8
+# graphclass.py
 
-"""graphclass.py
-Created by Amit Sandhel with contributions by Fredrick Leber.
+import logging
+#import logging library 
+from loggingfile import Logging_File as Log_File
+
+
+""" Created by Amit Sandhel with contributions by Fredrick Leber.
 This script is designed to display the graph in real time.
 
 Note: this program requires:
@@ -11,11 +17,12 @@ Note: this program requires:
 """
 
 # Setting up logging
-logging.basicConfig(filename='graphclass.log', filemode='a',
-                    level=logging.DEBUG, format='%(asctime)s, \
-                    %(levelname)s, %(message)s')
-logging.info(" ---------------------- root (%s) \
-             --------------------------------" % __file__)
+#Logging Setup
+"""NOTE:: the file path is to be manually set to the folder or the path directory you wish to save this too logging file must also be in 
+there """
+Log_File('graphclass', r'F:\beastie_python_version 4\Logging\graphclass.log')
+
+
 
 # name for log file
 logger = logging.getLogger('graphclass.log')
@@ -41,6 +48,10 @@ class GraphClass():
         self.time_list = []
         self.bias_list = []
         self.current_list = []
+        
+        logger = logging.getLogger('graphclass')
+        logger.info(" ---------------------- root --------------------------------")
+        
 
     def analysis(self, timeData, BIASData, TPData):
         """appends the data obtained from beastie into individual lists and

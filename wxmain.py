@@ -59,6 +59,9 @@ OTHER GUI OPTIONS ARE KIVY, BOA CONSTRUCTOR (A FULL IDE) AND POSSIBLY EVEN I-PYT
 # SETTING UP CSV FILE HOEVER NEEDED TO CHANGE THE NAME TO TIME HOWEVER FOR TEST RUNS LEFT LIKE THIS 
 FILENAME = "BOOK3.csv"
 NEWLINE = "\n"
+
+FILENAME2 = "BOOK2.csv"
+
 #DEFAULTCOM = "COM4"
 
 class Version1(MySerialPort):
@@ -464,59 +467,37 @@ class MyFrame(wxgui.MyFrame):
     def run_rev_v2(self):
         """This is the memory swap run function """
         start_time = time.time()
-        new_time = 0.0  # initalization value
-        newcmd = ("BIAS 0", )
-        # opening excel file in write only mode
-        # will rewrite on top of data in existing file. change to "a" to
-        # instead append the data
-        #myfile = open(FILENAME, "w")
-        #myfile.write("Time, AS, BIAS, TP-point#, TP-current, TP-bias, " +
-        #             NEWLINE)
-        #myfile.close()
+
+        # opening excel file in write only mode. will rewrite on top of data
+        # in existing file. change to "a" to instead append the data
+        myfile = open(FILENAME2, "w")
+        myfile.write("Time, AS, BIAS, TP-point#, TP-current, TP-bias, " +
+                     NEWLINE)
+        myfile.close()
 
         # get the command list from beastiecommand.csv and make the commands
         # into a dictionary. Sort them based on time.
-        command_list = self.myfile2.readfiles()
-        self.myfile2.parse_and_sort_commands(command_list)
-        totalCommands = len(self.myfile2.cmd_output)
-        totalTime = self.myfile2.cmd_output[-1]
-        
-        #switching to a simplier timer to get things done
-        cycles = 0 
-
-        while True:
-            cycles +=1
-            print 'cycle: ', cycles
-            # while loop that measures the elapsed time
-            self.myfile2.elapsed_time = time.time() - start_time
-            self.myfile2.always_read_commands()
-            self.myfile2.record_data()
-            self.text_ctrl_bias_v2.AppendText(str(self.myfile2.replyBIAS)+"\n") 
-            self.text_ctrl_current_v2.AppendText(str(self.myfile2.replyTP)+"\n") 
-            # self.mygraph.analysis(self.elapsed_time, self.replyBIAS,
-            #                      self.replyTP)
-            # can be reduced to lessen error but will result in more datapoints
-            time.sleep(0.05)
-            if time.time() - start_time >= new_time:
-                if len(self.myfile2.cmd_output) == 0:
-                    print("no more data")  # just a blank line
-                    break
+        self.myfile2.parse_and_sort_commands(self.myfile2.readfiles())
+        for times in self.myfile2.cmd_output[:]:
+            #counts -= 1
+            while (time.time() - start_time) < times:
                 self.myfile2.elapsed_time = time.time() - start_time
-                for item in newcmd:
-                    if item == "END":
-                        break
-                    reply = (new_time, item)
-                    self.myfile2.command_execute(reply)
-                    self.myfile2.always_read_commands()
-                    self.myfile2.record_data()
+                self.myfile2.read_data()
+                self.myfile2.record_data()
+                
+                #appending the self values into the text ctrl widget 
+                self.text_ctrl_bias_v2.AppendText(str(self.myfile2.replyBIAS)+"\n") 
+                self.text_ctrl_current_v2.AppendText(str(self.myfile2.replyTP)+"\n") 
+                #redrawing the plot 
+                self.redraw_plot_v2()
                     
-                    #appending the self values into the text ctrl widget 
-                    self.text_ctrl_bias_v2.AppendText(str(self.myfile2.replyBIAS)+"\n") 
-                    self.text_ctrl_current_v2.AppendText(str(self.myfile2.replyTP)+"\n") 
-                    #redrawing the plot 
-                    self.redraw_plot_v2()
-                    
-                new_time, newcmd = self.myfile2.get_next_command()
+            if self.myfile2.command_dict[times] == "END":
+                    print("")
+                    break
+            self.myfile2.elapsed_time = time.time() - start_time
+            self.myfile2.command_execute(self.myfile2.command_dict[times])
+            self.myfile2.read_data()
+            self.myfile2.record_data()
             
     def redraw_plot_v2(self):
         """Function which redraws the figure"""
@@ -541,12 +522,14 @@ class MyFrame(wxgui.MyFrame):
         current_val2 = current_val.strip().split() #re.split(', | \n ', ansy)        
         #print 'ansy2: ', cansy2
         #print type(ansy2)
+        
         for item in current_val2:
             current_val3 = item.strip().split(',')
             current_list.append(float(current_val3[1]) )
             bias_list.append(float(current_val3[2]) )
         
         self.plotData = self.axes.plot(current_list, linewidth=1,color=(1, 1, 0),)[0]
+        #self.plotData = self.axes.plot(self.bias_v2, linewidth=1,color=(1, 1, 0),)[0]
         self.plotData2 = self.axes2.plot(self.bias_v2, linewidth=1,color='magenta',)[0]
         
         #redraw the canvas 

@@ -1,5 +1,4 @@
-#!/usr/bin/python
-# encoding: utf-8
+
 #pa273_v1.py
 
 import sys
@@ -8,6 +7,7 @@ import logging
 from main import setup_parser as sp
 from Fake_Serial import Fake_Serial as fake_serial
 
+from loggingfile import Logging_File as Log_File
 
 '''Created by Amit Sandhel on 2013-05-27. With contributions by Fredrick Leber.
 
@@ -18,13 +18,11 @@ Note: this program requires:
         4) PySerial
 '''
 
-# making a logging file
-logging.basicConfig(filename='pa273v1.log', filemode='a', level=logging.DEBUG,
-                    format='%(asctime)s, %(levelname)s, %(message)s')
-logging.info(" ---------------------- root --------------------------------")
+#References
+#http://stackoverflow.com/questions/17035077/python-logging-to-multiple-log-files-from-different-classes
 
-# name for the log file
-logging1 = logging.getLogger('pa273v1.log')
+
+
 
 
 TIMEDELAY = 1
@@ -39,8 +37,12 @@ NEWLINE = "\n"
 # String variable with word COM in caplocks in front is a must!
 # example: "COM4", "COM2", "COM1", etc...
 # Defaulted to COM4 here
-defaultCOM = "COM5"
+defaultCOM = "COM4"
 
+#Logging Setup
+"""NOTE:: the file path is to be manually set to the folder or the path directory you wish to save this too logging file must also be in 
+there """
+Log_File('pa273_v1', r'F:\beastie_python_version 4\Logging\pa273_v1.log')
 
 class MySerialPort(object):
     """Potentiostat class that reads the command file, and runs the command
@@ -58,6 +60,10 @@ class MySerialPort(object):
         self.egain_val = egain
         self.igain_val = igain
         self.bias_val = bias
+        
+        self.logging1 = logging.getLogger('pa273_v1')
+        self.logging1.info(" ---------------------- root --------------------------------")
+        
 
     def open_port(self, port=defaultCOM, baudrate=19200, bytesize=8,
                   parity='N', stopbits=1, timeout=1,
@@ -71,12 +77,12 @@ class MySerialPort(object):
                         xonxoff, rtscts, writeTimeout, dsrdtr,
                         interCharTimeout)
         print('A serial port has been opened using ' + port + '.\n')
-        logging1.debug('Serial Port opened using ' + port)
+        self.logging1.debug('Serial Port opened using ' + port)
 
     def send(self, str_to_send):
         """sending commands to the serial port """
         chars_sent = self.s.write(str_to_send)
-        logging1.debug("Tx: " + repr(str_to_send) +
+        self.logging1.debug("Tx: " + repr(str_to_send) +
                        "bytes sent: %d" % chars_sent)
         return chars_sent
 
@@ -92,7 +98,7 @@ class MySerialPort(object):
             if b > 0:
                 new_char = self.s.read(1)
                 if new_char == "*":
-                    logging1.debug("Rx -  * received")
+                    self.logging1.debug("Rx -  * received")
                     break
                 elif new_char == "\r" or new_char == "\n":
                     '''Watch for other special characters like "\r \f".
@@ -102,16 +108,16 @@ class MySerialPort(object):
                 else:
                     data_string = data_string + new_char
             if time.time() - start_time > MAXRECEIVETIMEOUT:
-                logging1.debug("Rx Receive timeout, returning what \
+                self.logging1.debug("Rx Receive timeout, returning what \
                 I have and hoping")
                 print "Receive function timed out."
                 break
-        time.sleep(0.5)
-        logging1.debug("Rx: " + repr(data_string) +
+        time.sleep(0.01)
+        self.logging1.debug("Rx: " + repr(data_string) +
                           " bytes read: %d" % len(data_string))
         
         if new_char == "?":
-            logging1.debug("Rx - Error recieve, now what?")
+            self.logging1.debug("Rx - Error recieve, now what?")
         return data_string
 
     def close_port(self):
@@ -280,6 +286,8 @@ class Main():
         self.com = 'COM' + str(args.com)
         #opening the MySerialPort class with built in parameters
         self.myfile = MySerialPort(egain=1, igain=1, bias=1)
+        
+        self.logging1 = logging.getLogger('pa273_v1')
 
     def fake_serial(self):
         """Runs the Fake_Serial() Class if the simulator parameter is True."""
@@ -298,7 +306,7 @@ class Main():
             print 'Running simulator Mode: ', self.sim
             #rn the fake_serial() function
             self.fake_serial()  # opening serial port in simulator class only
-            logging1.debug("FAKE/VIRTUAL SIM VALUE: " + repr(self.sim))
+            self.logging1.debug("FAKE/VIRTUAL SIM VALUE: " + repr(self.sim))
         else:  
             # run real serial port:
             print 'Running Real Serial: ', self.sim
@@ -313,7 +321,7 @@ class Main():
             #close port
             self.myfile.close_port()
             
-            logging1.debug("REAL SIM VALUE: " + repr(self.sim))
+            self.logging1.debug("REAL SIM VALUE: " + repr(self.sim))
 
 ###############################################################################
 if __name__ == '__main__':

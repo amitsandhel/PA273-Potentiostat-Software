@@ -7,6 +7,9 @@ from Fake_Serial import Fake_Serial as fake_serial
 # import graphclass script for real-time graphing (not currently being used)
 # from graphclass import GraphClass
 
+#import logging library 
+from loggingfile import Logging_File as Log_File
+
 """pa273_v2.py
 Created by Amit Sandhel with contributions by Fredrick Leber.
 
@@ -38,19 +41,18 @@ Note: this program requires
 """
 
 # setting up logging
-logging.basicConfig(filename='pa273v2.log', filemode='a', level=logging.DEBUG,
-                    format='%(asctime)s, %(levelname)s, %(message)s')
-logging.info(" ---------------------- root (%s)\
- --------------------------------" % __file__)
+#setup logging
+#Logging Setup
+"""NOTE:: the file path is to be manually set to the folder or the path directory you wish to save this too logging file must also be in 
+there """
+Log_File('pa273_v2', r'F:\beastie_python_version 4\Logging\pa273_v2.log')
 
-# name for log file
-logger2 = logging.getLogger('pa273v2.log')
 
 # SETTING UP CSV FILE (uncomment the next two lines and delete the book2 line
 # to restore autonaming based on date)
 # b = time.strftime('%Y-%m-%d-%H-%M-%S')
 # FILENAME = "pa273_version_2-%s.csv" % b
-FILENAME = "book2.csv"
+FILENAME = "book2xxx.csv"
 NEWLINE = "\n"
 
 # Change COM PORT as needed, used by MySerialPort.open_port() function.
@@ -79,6 +81,9 @@ class MySerialPort():
 
         '''opens the pyplot graph class (not used for now)'''
         # self.mygraph = GraphClass()
+        
+        self.logger2 = logging.getLogger('pa273_v2')
+        self.logger2.info(" ---------------------- root --------------------------------")
 
     def open_port(self, port=defaultCOM, baudrate=19200, bytesize=8,
                   parity='N', stopbits=1, timeout=1,
@@ -92,18 +97,18 @@ class MySerialPort():
         self.s = Serial(port, baudrate, bytesize, parity, stopbits, timeout,
                         xonxoff, rtscts, writeTimeout, dsrdtr,
                         interCharTimeout)
-        logger2.debug('Serial Port opened using: ' + repr(port))
+        self.logger2.debug('Serial Port opened using: ' + repr(port))
         print('A serial port has been opened using ' + port + '.\n')
 
     def close_port(self):
         '''Closes the self.s port'''
-        logger2.debug('Closing Serial Port')
+        self.logger2.debug('Closing Serial Port')
         self.s.close()
 
     def send(self, str_to_send):
         """Sending commands to the serial port."""
         chars_sent = self.s.write(str_to_send)
-        logger2.debug("Tx: " + repr(str_to_send) +
+        self.logger2.debug("Tx: " + repr(str_to_send) +
                       "bytes sent: %d" % chars_sent)
 
     def receive(self, max_chars):
@@ -118,25 +123,25 @@ class MySerialPort():
             if b > 0:
                 new_char = self.s.read(1)
                 if new_char == "*":
-                    logger2.debug("Rx -  * received")
+                    self.logger2.debug("Rx -  * received")
                     break
                 elif new_char == "\r" or new_char == "\n":
                     # watch for other special characters like "\r \f" review
                     # your logs to see if anything else is embedded.
                     pass
                 elif new_char == "?":
-                    logger2.debug("Rx - Error receive, now what?")
+                    self.logger2.debug("Rx - Error receive, now what?")
                     # should we break after an error?
                     break
                 else:
                     data_string = data_string + new_char
             if time.time() - start_time > MAXRECEIVETIMEOUT:
-                logger2.debug("Rx Receive timeout, returning what I have\
+                self.logger2.debug("Rx Receive timeout, returning what I have\
                 and hoping")
                 print "Receive function timed out."
                 break
         time.sleep(0.05)  # was initally 0.05
-        logger2.debug("Rx: " + repr(data_string) + " bytes read: %d" %
+        self.logger2.debug("Rx: " + repr(data_string) + " bytes read: %d" %
                       len(data_string))
 
         return data_string
@@ -148,7 +153,7 @@ class MySerialPort():
         readfile = open(file, "r")
         for line in readfile:
             command_list.append(line)
-        logger2.debug("readfiles() timing response: " + repr(command_list))
+        self.logger2.debug("readfiles() timing response: " + repr(command_list))
         return command_list
 
     def parse_and_sort_commands(self, command_list):
@@ -181,8 +186,8 @@ class MySerialPort():
         self.cmd_output = self.command_dict.keys()
         self.cmd_output.sort()
 
-        logger2.debug("New command dict: " + repr(self.command_dict))
-        logger2.debug("New command dict sorted: " + repr(self.cmd_output))
+        self.logger2.debug("New command dict: " + repr(self.command_dict))
+        self.logger2.debug("New command dict sorted: " + repr(self.cmd_output))
 
     def command_execute(self, inputBIAS):
         '''Execute the inputted BIAS'''
@@ -192,7 +197,7 @@ class MySerialPort():
         # going to be input, you need an if statement here to determine which
         # self.replyXXX variable to write to
         self.replyBIAS = self.receive(15)
-        logger2.debug("command execute()reply timing response: " +
+        self.logger2.debug("command execute()reply timing response: " +
                       repr(inputBIAS))
 
     def read_data(self):
@@ -203,16 +208,16 @@ class MySerialPort():
         '''
         self.send("NC \n")
         self.replyNC = self.receive(4)
-        logger2.debug("NC TIMER RESPONSE: " + repr(self.reply1))
+        self.logger2.debug("NC TIMER RESPONSE: " + repr(self.reply1))
         '''
 
         self.send("AS \n")
         self.replyAS = self.receive(4)
-        logger2.debug("AS TIMER RESPONSE: " + repr(self.replyAS))
+        self.logger2.debug("AS TIMER RESPONSE: " + repr(self.replyAS))
 
         self.send("TP \n")
         self.replyTP = self.receive(4)
-        logger2.debug("TP TIMER RESPONSE: " + repr(self.replyTP))
+        self.logger2.debug("TP TIMER RESPONSE: " + repr(self.replyTP))
 
     def record_data(self):
         '''Recording the results into a csv file using local variables
@@ -239,7 +244,7 @@ class MySerialPort():
                      NEWLINE)
         myfile.close()
 
-        logger2.debug('time_meter_command() myfile timing VALUE: ' +
+        self.logger2.debug('time_meter_command() myfile timing VALUE: ' +
                       repr(myfile))
 
         # get the command list from beastiecommand.csv and make the commands
@@ -275,11 +280,11 @@ class MySerialPort():
             # self.mygraph.analysis(self.elapsed_time, self.replyBIAS,
             #                      self.replyTP)
 
-            logger2.debug('mygraph elapsed_time data: ' +
+            self.logger2.debug('mygraph elapsed_time data: ' +
                           repr(self.elapsed_time))
-            logger2.debug('mygraph self.replyBIAS data: ' +
+            self.logger2.debug('mygraph self.replyBIAS data: ' +
                           repr(self.replyBIAS))
-            logger2.debug('mygraph self.replyTP data: ' +
+            self.logger2.debug('mygraph self.replyTP data: ' +
                           repr(self.replyTP))
 
 # AMIT: leave this module here as it truly belongs to the stuff at the bottom
@@ -294,6 +299,8 @@ class Main():
         self.sim = args.sim  # sim parameter
         self.com = 'COM' + str(args.com)
         self.myfile = MySerialPort()
+        
+        self.logging = logging.getLogger('pa273_v2')
 
     def fake_serial(self):
         """Runs the Fake_Serial() Class if the simulator parameter is True."""
@@ -306,14 +313,15 @@ class Main():
     def run(self):
         # print 'The COM PORT is ' + self.com  # not needed for now
         if self.sim is True:
-            logging.debug("FAKE/VIRTUAL SIM VALUE: " + repr(self.sim))
+            
             print 'running sim: ', self.sim
             self.fake_serial()  # opening serial port in simulator class only
 
             self.postrun = PostRun(FILENAME)
             self.postrun.graph()
+            self.logging.debug("FAKE/VIRTUAL SIM VALUE: " + repr(self.sim))
         else:  # run real serial port:
-            logging.debug("REAL SIM VALUE: " + repr(self.sim))
+            
             print 'running real simulator: ', self.sim
             # Import real serial class
             from serial import Serial
@@ -325,6 +333,7 @@ class Main():
 
             self.postrun = PostRun(FILENAME)
             self.postrun.graph()
+            self.logging.debug("REAL SIM VALUE: " + repr(self.sim))
 
 
 ###############################################################################
