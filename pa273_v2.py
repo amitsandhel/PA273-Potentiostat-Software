@@ -66,6 +66,8 @@ class MySerialPort():
         self.replyAS = -7
         self.replyBIAS = 0  # initialize value to zero
         self.replyTP = 0
+
+        self.replyDP=""
         #self.replyTC
 
         '''opens the pyplot graph class (not used for now)'''
@@ -173,10 +175,13 @@ class MySerialPort():
         """All these commands are read commands only."""
         self.send("AS \n")
         self.replyAS = self.receive(4)
+        
+        self.send("Q \n")
+        self.replyQ = self.receive(14)
 
-        self.send("TP \n")
-        self.replyTP = self.receive(4)
-
+        self.send('TP \n') #; A/D \n')
+        self.replyTP = self.receive(20)
+        
         if self.sim is False:
             self.send("BIAS \n")
             self.replyBIAS = self.receive(13)
@@ -189,9 +194,14 @@ class MySerialPort():
         newrow = str(self.elapsed_time) + ","
         newrow += str(self.replyAS) + ","
         newrow += str(self.replyBIAS) + ","
+        newrow += str(self.replyQ) + ","
+        #newrow += str() + ","
         # this is actually a list/tuple of 3 values the point, the current
         # and the bias value combined so your answer is technically [0,1,0]
         newrow += str(self.replyTP) + ","
+        
+        #newrow+= str(self.replyDP) + ","
+        
         newrow += NEWLINE
         myfile.write(newrow)
         myfile.close()
@@ -203,7 +213,7 @@ class MySerialPort():
         # in existing file. change to "a" to instead append the data
         myfile = open(FILENAME, "a")
         myfile.write("new data," + time.strftime("%d/%m/%Y") + NEWLINE)
-        myfile.write("Time,AS,BIAS,TP-point#,TP-current,TP-bias" + NEWLINE)
+        myfile.write("Time, AS, BIAS, CHARGE, Q EXP, TP-point#, TP-current, TP-bias" + NEWLINE)
         myfile.close()
 
         # get the command list from beastiecommand.csv and make the commands
@@ -212,12 +222,6 @@ class MySerialPort():
         totalCommands = len(self.cmd_output)
         counts = totalCommands
         totalTime = self.cmd_output[-1]
-
-        self.send("NC \n")
-        self.replyNC = self.receive(4)
-
-        self.send("TC \n")
-        self.replyTC = self.receive(4)
 
         for times in self.cmd_output[:]:
             counts -= 1

@@ -145,7 +145,7 @@ class MySerialPort(object):
         try:
             # enter bias
             x = input('Enter the Potential Bias to apply (mV) between -8000 mV\
- and +8000 mV: ')
+                and +8000 mV: ')
             if x <= 8000 and x >= -8000:
                 self.send('BIAS %s \n' % x)
                 reply = self.receive(20)  # 13 AT MAX VALUE
