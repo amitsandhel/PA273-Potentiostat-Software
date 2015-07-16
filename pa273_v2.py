@@ -66,6 +66,7 @@ class MySerialPort():
         self.replyAS = -7
         self.replyBIAS = 0  # initialize value to zero
         self.replyTP = 0
+        #self.replyTC
 
         '''opens the pyplot graph class (not used for now)'''
         # self.mygraph = GraphClass()
@@ -171,10 +172,12 @@ class MySerialPort():
     def read_data(self):
         """All these commands are read commands only."""
 
-        '''
         self.send("NC \n")
         self.replyNC = self.receive(4)
-        '''
+        
+        self.send("TC \n")
+        self.replyTC = self.receive(4)
+
 
         self.send("AS \n")
         self.replyAS = self.receive(4)
