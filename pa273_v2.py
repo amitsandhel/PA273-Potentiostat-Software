@@ -171,14 +171,6 @@ class MySerialPort():
 
     def read_data(self):
         """All these commands are read commands only."""
-
-        self.send("NC \n")
-        self.replyNC = self.receive(4)
-        
-        self.send("TC \n")
-        self.replyTC = self.receive(4)
-
-
         self.send("AS \n")
         self.replyAS = self.receive(4)
 
@@ -220,6 +212,12 @@ class MySerialPort():
         totalCommands = len(self.cmd_output)
         counts = totalCommands
         totalTime = self.cmd_output[-1]
+
+        self.send("NC \n")
+        self.replyNC = self.receive(4)
+
+        self.send("TC \n")
+        self.replyTC = self.receive(4)
 
         for times in self.cmd_output[:]:
             counts -= 1
