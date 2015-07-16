@@ -16,7 +16,7 @@ TIMEDELAY = 1  # how long (in seconds) the exp_setup function sleeps for
 
 # SETTING UP CSV FILE
 # TODO: make this name a file with the time/date sved 
-FILENAME = "BOOK3.csv"
+FILENAME = "SingleVoltageData.csv"
 NEWLINE = "\n"
 
 
@@ -188,10 +188,9 @@ class MySerialPort(object):
         self.seteval = g.strip()
 
         # uncomment the lines below to access the command measures resistance
-        # This command is not built in the simulator
-        # self.send('Q \n')
-        # h = self.receive(17)
-        # self.qval=h.strip()
+        self.send('Q \n')
+        h = self.receive(17)
+        self.qval = h.strip()
 
     def record_data(self):
         '''Records the data output into a csv file with the timestamp'''
@@ -201,9 +200,10 @@ class MySerialPort(object):
         newrow += str(self.egainval) + ","  # EGAIN SETTING
         newrow += str(self.igainval) + ","  # IGAIN SETTING
         newrow += str(self.asval) + ","  # CURRENT RANGE
-        # newrow += str(self.eppval) + ","  # APPLIED POTENTIAL READOUT
         newrow += str(self.adval) + ","  # CURRENT READOUT
-        # newrow += str(self.qval)  # CHARGE READOUT
+        newrow += str(self.qval)  # CHARGE READOUT
+        # newrow += str(self.eppval) + ","  # APPLIED POTENTIAL READOUT
+        # newrow += str(self.qexp) + ","
         newrow += NEWLINE
         myfile.write(newrow)
         myfile.close()
@@ -228,9 +228,9 @@ class MySerialPort(object):
         preexisting file
         '''
         myfile = open(FILENAME, "a")
-        myfile.write("new data" + NEWLINE)
-        myfile.write("Time, BIAS, EGAIN, IGAIN, I-RANGE, Eapp_READOUT, \
-        Current_Readout, CHARGE(Q), Qexp" + NEWLINE)
+        myfile.write("new data," + time.strftime("%d/%m/%Y") + NEWLINE)
+        myfile.write("Time,BIAS,EGAIN,IGAIN,I-RANGE,Current_Readout,CHARGE(Q),\
+Eapp_READOUT,Qexp" + NEWLINE)
         myfile.close()
 
         while True:

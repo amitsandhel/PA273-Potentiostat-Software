@@ -27,6 +27,7 @@ class Fake_Serial():
         self.Sie = 0
         self.Sete = 0
         self.list = []
+        self.Q = 0
 
         # version 2 commands
         self.NC = 0
@@ -81,6 +82,12 @@ class Fake_Serial():
                 self.Sete_Sim(self.b[1])
             else:
                 self.Sete_Sim()
+
+        elif self.b[0] == 'Q':
+            if len(self.b) == 2:
+                self.Q_Sim(self.b[1])
+            else:
+                self.Q_Sim()
 
         # Version 2 commands below
         elif self.b[0] == 'NC':
@@ -158,7 +165,13 @@ class Fake_Serial():
         self.reply = ""
         param = 1000
         self.Sete = param
-        self.reply - str(self.Sete) + "*"
+        self.reply = str(self.Sete) + "*"
+
+    def Q_Sim(self, param=None):
+        self.reply = ""
+        param = 50
+        self.Q = param
+        self.reply = str(self.Q) + "*"
 
     # version 2 commands
     def NC_Sim(self, param=None):

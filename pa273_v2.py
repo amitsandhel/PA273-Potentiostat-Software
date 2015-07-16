@@ -1,6 +1,6 @@
 import sys
 import time
-from postrun import PostRun
+# from postrun import PostRun
 from main import setup_parser as sp
 from Fake_Serial import Fake_Serial as fake_serial
 # import graphclass script for real-time graphing (not currently being used)
@@ -39,7 +39,7 @@ Note: this script requires
 # to restore autonaming based on date)
 # b = time.strftime('%Y-%m-%d-%H-%M-%S')
 # FILENAME = "pa273_version_2-%s.csv" % b
-FILENAME = "book2xxx.csv"
+FILENAME = "WaveformData.csv"
 NEWLINE = "\n"
 
 # Change COM PORT as needed, used by MySerialPort.open_port() function.
@@ -53,12 +53,13 @@ class MySerialPort():
     """Potentiostat class that reads the command file, and runs the command
     file from a serial port.
     """
-    def __init__(self):
+    def __init__(self, sim=False):
         # initializing the variable so all functions can access the self.s port
         # and remain open
         self.s = None
         self.command_dict = {}
         self.cmd_output = None
+        self.sim = sim
 
         # initalizing the values for graphclass
         self.elapsed_time = 0.0
@@ -181,6 +182,10 @@ class MySerialPort():
         self.send("TP \n")
         self.replyTP = self.receive(4)
 
+        if self.sim is False:
+            self.send("BIAS \n")
+            self.replyBIAS = self.receive(13)
+
     def record_data(self):
         '''Recording the results into a csv file using local variables
         to increase process speed.
@@ -201,9 +206,9 @@ class MySerialPort():
 
         # opening excel file in write only mode. will rewrite on top of data
         # in existing file. change to "a" to instead append the data
-        myfile = open(FILENAME, "w")
-        myfile.write("Time, AS, BIAS, TP-point#, TP-current, TP-bias, " +
-                     NEWLINE)
+        myfile = open(FILENAME, "a")
+        myfile.write("new data," + time.strftime("%d/%m/%Y") + NEWLINE)
+        myfile.write("Time,AS,BIAS,TP-point#,TP-current,TP-bias" + NEWLINE)
         myfile.close()
 
         # get the command list from beastiecommand.csv and make the commands
@@ -250,7 +255,7 @@ class Main():
         args = parser.parse_args()
         self.sim = args.sim  # sim parameter
         self.com = 'COM' + str(args.com)
-        self.myfile = MySerialPort()
+        self.myfile = MySerialPort(sim=self.sim)
 
     def fake_serial(self):
         """Runs the Fake_Serial() Class if the simulator parameter is True."""
@@ -266,8 +271,9 @@ class Main():
             print 'running sim: ', self.sim
             self.fake_serial()  # opening serial port in simulator class only
 
-            self.postrun = PostRun(FILENAME)
-            self.postrun.graph()
+            # Note: postrun has been depreciated
+            # self.postrun = PostRun(FILENAME)
+            # self.postrun.graph()
         else:  # run real serial port:
             print 'running using real serial port: ', self.sim
             # Import real serial class
@@ -278,8 +284,8 @@ class Main():
             self.myfile.run()
             self.myfile.close_port()
 
-            self.postrun = PostRun(FILENAME)
-            self.postrun.graph()
+            # self.postrun = PostRun(FILENAME)
+            # self.postrun.graph()
 
 
 ###############################################################################
