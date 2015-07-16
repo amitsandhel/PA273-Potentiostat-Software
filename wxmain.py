@@ -423,7 +423,7 @@ Current_Readout, CHARGE(Q), Qexp" + NEWLINE)
                 self.text_ctrl_bias_v2.AppendText(str(self.myfile2.replyBIAS) +
                                                   "\n")
                 self.text_ctrl_current_v2.AppendText(str(self.myfile2.
-                                                         replyTP)+"\n")
+                                                         reply_current)+"\n")
                 # redrawing the plot
                 self.redraw_plot_v2()
             if self.myfile2.command_dict[times] == "END":
@@ -452,16 +452,20 @@ Current_Readout, CHARGE(Q), Qexp" + NEWLINE)
         current_val = str(self.text_ctrl_current_v2.GetValue())
 
         # convert values into a list and remove the endline character
-        current_val2 = current_val.strip().split()  # re.split(', | \n ', ansy)
+        current_val2 = current_val.strip().split('\n')  
         # print 'ansy2: ', cansy2
         # print type(ansy2)
+        
+        current_val3 = np.array(current_val2)
+        
+        current_val4 = current_val3.astype(np.float)
 
-        for item in current_val2:
-            current_val3 = item.strip().split(',')
-            current_list.append(float(current_val3[1]))
-            bias_list.append(float(current_val3[2]))
+        #for item in current_val2:
+            #current_val3 = item.strip().split(',')
+           # current_list.append(float(current_val3[1]))
+           # bias_list.append(float(current_val3[2]))
 
-        self.plotData = self.axes.plot(current_list, linewidth=1,
+        self.plotData = self.axes.plot(current_val4, linewidth=1,
                                        color=(1, 1, 0),)[0]
         # self.plotData = self.axes.plot(self.bias_v2, linewidth=1,
         #                                color=(1, 1, 0),)[0]

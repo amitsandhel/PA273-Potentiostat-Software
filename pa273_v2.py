@@ -179,8 +179,21 @@ class MySerialPort():
         self.send("Q \n")
         self.replyQ = self.receive(14)
 
-        self.send('TP \n') #; A/D \n')
-        self.replyTP = self.receive(20)
+        
+        self.send('SIE 2; A/D \n')
+        self.reply_current = self.receive(10)
+        
+
+        self.send('SIE 1; A/D \n')
+        self.reply_bias_read = self.receive(10)
+
+        self.send('IGAIN \n')
+        b = self.receive(12)
+        self.igainval = b.strip()
+        
+        self.send('EGAIN \n')
+        c = self.receive(23)
+        self.egainval = c.strip()
         
         if self.sim is False:
             self.send("BIAS \n")
@@ -193,12 +206,15 @@ class MySerialPort():
         myfile = open(FILENAME, 'a')
         newrow = str(self.elapsed_time) + ","
         newrow += str(self.replyAS) + ","
+        newrow += str(self.igainval) + ","
+        newrow += str(self.egainval) + ","
         newrow += str(self.replyBIAS) + ","
-        newrow += str(self.replyQ) + ","
-        #newrow += str() + ","
         # this is actually a list/tuple of 3 values the point, the current
         # and the bias value combined so your answer is technically [0,1,0]
-        newrow += str(self.replyTP) + ","
+        newrow += str(self.reply_current) + ","
+        newrow += str(self.reply_bias_read) + ","
+        
+        newrow += str(self.replyQ) + ","
         
         #newrow+= str(self.replyDP) + ","
         
@@ -213,7 +229,7 @@ class MySerialPort():
         # in existing file. change to "a" to instead append the data
         myfile = open(FILENAME, "a")
         myfile.write("new data," + time.strftime("%d/%m/%Y") + NEWLINE)
-        myfile.write("Time, AS, BIAS, CHARGE, Q EXP, TP-point#, TP-current, TP-bias" + NEWLINE)
+        myfile.write("Time, AS, IGAIN, EGAIN, BIAS, Current, Eapp, CHARGE, Q EXP" + NEWLINE)
         myfile.close()
 
         # get the command list from beastiecommand.csv and make the commands
@@ -246,7 +262,7 @@ class MySerialPort():
             # running the graphclass script to draw the graph in real time
             # commented out for now due to performance issues
             # self.mygraph.analysis(self.elapsed_time, self.replyBIAS,
-            #                      self.replyTP)
+            #                      self.reply_current)
 
 
 # AMIT: leave this module here as it truly belongs to the stuff at the bottom
