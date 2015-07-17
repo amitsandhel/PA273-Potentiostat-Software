@@ -35,7 +35,7 @@ def setup_parser():
     parser.add_argument('-test', '-t',  help='Run unit tests',
                         action="store_true")
     parser.add_argument('-com', '-c',  help="Change COM PORT Settings",
-                        type=int, default=5)  # default comport setting
+                        type=int, default=4)  # default comport setting
 
     '''parser commands to possibly (but unlikely) be added in later:
     parser.add_argument('-debug', '-d', help='enhance log file output',

@@ -1,5 +1,5 @@
 #PA273-Potentiostat Software
-**Version 4.2**
+**Version 4.4**
 
 **by Amit Sandhel**
 **with contributions by Fredrick Leber**

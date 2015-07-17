@@ -15,7 +15,6 @@ Note: this script requires:
 TIMEDELAY = 1  # how long (in seconds) the exp_setup function sleeps for
 
 # SETTING UP CSV FILE
-# TODO: make this name a file with the time/date sved 
 FILENAME = "SingleVoltageData.csv"
 NEWLINE = "\n"
 
@@ -23,8 +22,8 @@ NEWLINE = "\n"
 # Change COM PORT as needed, used by MySerialPort.open_port() function.
 # String variable with word COM in caplocks in front is a must!
 # example: "COM4", "COM2", "COM1", etc...
-# Defaulted to COM5 here
-defaultCOM = "COM5"
+# Defaulted to COM4 here
+defaultCOM = "COM4"
 
 
 class MySerialPort(object):
@@ -44,7 +43,6 @@ class MySerialPort(object):
         self.egain_val = egain
         self.igain_val = igain
         self.bias_val = bias
-        
 
     def open_port(self, port=defaultCOM, baudrate=19200, bytesize=8,
                   parity='N', stopbits=1, timeout=1,
@@ -145,7 +143,8 @@ class MySerialPort(object):
         '''
         try:
             # enter bias
-            x = input('Enter the Potential Bias to apply (mV) between -8000 mV and +8000 mV: ')
+            x = input('Enter the Potential Bias to apply (mV) between -8000 mV\
+and +8000 mV: ')
             if x <= 8000 and x >= -8000:
                 self.send('BIAS %s \n' % x)
                 reply = self.receive(20)  # 13 AT MAX VALUE
@@ -201,7 +200,7 @@ class MySerialPort(object):
         newrow += str(self.igainval) + ","  # IGAIN SETTING
         newrow += str(self.asval) + ","  # CURRENT RANGE
         newrow += str(self.adval) + ","  # CURRENT READOUT
-        newrow += str(self.qval)   # CHARGE READOUT
+        newrow += str(self.qval)  # CHARGE READOUT
         newrow += NEWLINE
         myfile.write(newrow)
         myfile.close()
@@ -227,7 +226,8 @@ class MySerialPort(object):
         '''
         myfile = open(FILENAME, "a")
         myfile.write("new data," + time.strftime("%d/%m/%Y") + NEWLINE)
-        myfile.write("Time,BIAS,EGAIN,IGAIN,I-RANGE,Current_Readout,CHARGE(Q),Qexp" + NEWLINE)
+        myfile.write("Time,BIAS,EGAIN,IGAIN,I-RANGE,Current_Readout,CHARGE(Q),\
+Qexp" + NEWLINE)
         myfile.close()
 
         while True:
@@ -264,7 +264,7 @@ class Main():
         self.myfile.close_port()
 
     def run(self):
-        print 'Note: To Close program press "ctrl-c" '
+        print 'Note: To Close program press "Ctrl-C"'
         if self.sim is True:
             # Running fake serial port
             print 'Running simulator Mode: ', self.sim
@@ -279,8 +279,8 @@ class Main():
             self.myfile.open_port(self.com)
             self.myfile.run()
             self.myfile.close_port()
-            print 'Closing Program'
-            print 'Thank you and Have a Good Day'
+        print 'Closing Program'
+        print 'Thank you and Have a Good Day'
 
 
 ###############################################################################

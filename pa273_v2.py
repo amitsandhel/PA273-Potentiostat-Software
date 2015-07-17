@@ -45,8 +45,8 @@ NEWLINE = "\n"
 # Change COM PORT as needed, used by MySerialPort.open_port() function.
 # String variable with word COM in caplocks in front is a must!
 # example: "COM4", "COM2", "COM1", etc...
-# Defaulted to COM5 here
-defaultCOM = "COM5"
+# Defaulted to COM4 here
+defaultCOM = "COM4"
 
 
 class MySerialPort():
@@ -65,10 +65,7 @@ class MySerialPort():
         self.elapsed_time = 0.0
         self.replyAS = -7
         self.replyBIAS = 0  # initialize value to zero
-        self.replyTP = 0
-
-        self.replyDP=""
-        #self.replyTC
+        self.reply_current = 0
 
         '''opens the pyplot graph class (not used for now)'''
         # self.mygraph = GraphClass()
@@ -175,14 +172,12 @@ class MySerialPort():
         """All these commands are read commands only."""
         self.send("AS \n")
         self.replyAS = self.receive(4)
-        
+
         self.send("Q \n")
         self.replyQ = self.receive(14)
 
-        
         self.send('SIE 2; A/D \n')
         self.reply_current = self.receive(10)
-        
 
         self.send('SIE 1; A/D \n')
         self.reply_bias_read = self.receive(10)
@@ -190,11 +185,11 @@ class MySerialPort():
         self.send('IGAIN \n')
         b = self.receive(12)
         self.igainval = b.strip()
-        
+
         self.send('EGAIN \n')
         c = self.receive(23)
         self.egainval = c.strip()
-        
+
         if self.sim is False:
             self.send("BIAS \n")
             self.replyBIAS = self.receive(13)
@@ -204,33 +199,29 @@ class MySerialPort():
         to increase process speed.
         '''
         myfile = open(FILENAME, 'a')
+
         newrow = str(self.elapsed_time) + ","
         newrow += str(self.replyAS) + ","
         newrow += str(self.igainval) + ","
         newrow += str(self.egainval) + ","
         newrow += str(self.replyBIAS) + ","
-        # this is actually a list/tuple of 3 values the point, the current
-        # and the bias value combined so your answer is technically [0,1,0]
-        newrow += str(self.reply_current) + ","
         newrow += str(self.reply_bias_read) + ","
-        
+        newrow += str(self.reply_current) + ","
         newrow += str(self.replyQ) + ","
-        
-        #newrow+= str(self.replyDP) + ","
-        
         newrow += NEWLINE
         myfile.write(newrow)
         myfile.close()
 
     def run(self):
-        start_time = time.time()
-
         # opening excel file in write only mode. will rewrite on top of data
         # in existing file. change to "a" to instead append the data
         myfile = open(FILENAME, "a")
         myfile.write("new data," + time.strftime("%d/%m/%Y") + NEWLINE)
-        myfile.write("Time, AS, IGAIN, EGAIN, BIAS, Eapp, Current, CHARGE, Q EXP" + NEWLINE)
+        myfile.write("Time,AS,IGAIN,EGAIN,BIAS delivered,Eapp measured,\
+Current,CHARGE,Q EXP" + NEWLINE)
         myfile.close()
+
+        start_time = time.time()
 
         # get the command list from beastiecommand.csv and make the commands
         # into a dictionary. Sort them based on time.
@@ -246,7 +237,7 @@ class MySerialPort():
                 self.read_data()
                 self.record_data()
                 # self.mygraph.analysis(self.elapsed_time, self.replyBIAS,
-                #                       self.replyTP)
+                #                       self.reply_current)
             print "Now running cycle " + \
                   str(totalCommands - counts) + \
                   " of " + str(totalCommands),
@@ -291,27 +282,22 @@ class Main():
         if self.sim is True:
             print 'running simulator: ', self.sim
             self.fake_serial()  # opening serial port in simulator class only
-
             # Note: postrun has been depreciated
             # self.postrun = PostRun(FILENAME)
             # self.postrun.graph()
-            print 'Closing Program'
-            print 'Thank you and Have a Good Day'
         else:  # run real serial port:
             print 'running using real serial port: ', self.sim
             # Import real serial class
             from serial import Serial
-
             setattr(module, "Serial", Serial)
             self.myfile.open_port(self.com)
             self.myfile.run()
             self.myfile.close_port()
-            print 'Closing Program'
-            print 'Thank you and Have a Good Day'
-
             # self.postrun = PostRun(FILENAME)
             # self.postrun.graph()
 
+        print 'Closing Program'
+        print 'Thank you and Have a Good Day'
 
 ###############################################################################
 

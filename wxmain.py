@@ -37,6 +37,9 @@ http://learnpythonthehardway.org/book/ex44.html
 
 NEWLINE = "\n"
 DEFAULTCOM = "COM4"
+FILENAMEv1 = "SingleVoltageData.csv"
+FILENAMEv2 = "WaveformData.csv"
+
 
 class Version1(MySerialPort):
     """Version 1 is the parent class that inherits properties from the v1
@@ -101,12 +104,12 @@ class MyFrame(wxgui.MyFrame):
         # opening the version 1 MyserialPort class using the Inherited class
         self.myfile1 = Version1(self.egain_value, self.igain_value,
                                 self.bias_value)
-        
-        #writing down csv filename
-        myfile = open("SingleVoltageData.csv", "a")
+
+        # writing down csv filename
+        myfile = open(FILENAMEv1, "a")
         myfile.write("new data," + time.strftime("%d/%m/%Y") + NEWLINE)
-        myfile.write("Time,BIAS,EGAIN,IGAIN,I-RANGE,Current_Readout,Eapp_READOUT, \
-                CHARGE(Q),Qexp" + NEWLINE)
+        myfile.write("Time,BIAS,EGAIN,IGAIN,I-RANGE,Current_Readout,CHARGE(Q),\
+Qexp" + NEWLINE)
         myfile.close()
 
         # the timer function is used for looping over version 1 software
@@ -220,14 +223,14 @@ class MyFrame(wxgui.MyFrame):
         # widgets to close the program
         if self.sim_value is True:
             # import the fake serial class
-            from Fake_Serial import Fake_Serial as Fake_Serial
+            from Fake_Serial import Fake_Serial
             self.myfile1.s = Fake_Serial(port, baudrate, bytesize, parity,
                                          stopbits, timeout, xonxoff, rtscts,
                                          writeTimeout, dsrdtr,
                                          interCharTimeout)
         else:
             # import the real serial class
-            from serial import Serial as Serial
+            from serial import Serial
             self.myfile1.s = Serial(port, baudrate, bytesize, parity, stopbits,
                                     timeout, xonxoff, rtscts, writeTimeout,
                                     dsrdtr, interCharTimeout)
@@ -242,7 +245,7 @@ class MyFrame(wxgui.MyFrame):
         # appending values to text ctrl widgets
         self.text_ctrl_bias.AppendText(str(self.myfile1.seteval) + "\n")
         self.text_ctrl_current.AppendText(str(self.myfile1.adval) + "\n")
-        time.sleep(0.3) #switched from 0.5
+        time.sleep(0.3)  # switched from 0.5
 
     def run_engine_v1(self):
         """The run function engine to start the experiment."""
@@ -338,6 +341,7 @@ class MyFrame(wxgui.MyFrame):
         self.On_Start(event)
 
     # Version 2 functions and features are below
+
     def On_sim_v2(self, event):  # wxGlade: MyFrame.<event_handler>
         """Function for version 2 sim toggle button updates and store
         the values."""
@@ -350,8 +354,8 @@ class MyFrame(wxgui.MyFrame):
     def On_port_v2(self, event):  # wxGlade: MyFrame.<event_handler>
         """Version 2 port settings. Same thing as port settings for version 1.
         This function is to set the com port number.
-        Note: This is setting the comport number the user has to figure out 
-        how to find the comport value himself
+        Note: This only sets the comport number, the user has to figure out
+        how to find the comport value himself.
         """
 
         ans2 = self.spin_ctrl_port_v2.GetValue()
@@ -362,7 +366,6 @@ class MyFrame(wxgui.MyFrame):
 
     def On_start_v2(self, event):  # wxGlade: MyFrame.<event_handler>
         """This is the start button function for v2."""
-        
         self.open_port_rev_v2(port=self.port_value_v2)
         self.run_rev_v2()
         self.myfile2.close_port()
@@ -380,31 +383,31 @@ class MyFrame(wxgui.MyFrame):
                          interCharTimeout=None):
         '''This is opening a self.s port for Version 2.'''
         # doing an if loop to determine which type of library to import
-        
+
         if self.sim_value_v2 is True:
             # import the fake serial class
-            from Fake_Serial import Fake_Serial as Fake_Serial
+            from Fake_Serial import Fake_Serial
             self.myfile2.s = Fake_Serial(port, baudrate, bytesize, parity,
                                          stopbits, timeout, xonxoff, rtscts,
                                          writeTimeout, dsrdtr,
                                          interCharTimeout)
         else:
             # import the real serial class
-            from serial import Serial as Serial
+            from serial import Serial
             self.myfile2.s = Serial(port, baudrate, bytesize, parity, stopbits,
                                     timeout, xonxoff, rtscts, writeTimeout,
                                     dsrdtr, interCharTimeout)
-                                    
 
     def run_rev_v2(self):
         """This is the memory samiwap run function """
         # opening excel file in write only mode. will rewrite on top of data
         # in existing file. change to "a" to instead append the data
-        myfile = open("WaveformData.csv", "a")
+        myfile = open(FILENAMEv2, "a")
         myfile.write("new data," + time.strftime("%d/%m/%Y") + NEWLINE)
-        myfile.write("Time, AS, IGAIN, EGAIN, BIAS, Eapp, Current, CHARGE, Q EXP" + NEWLINE)
+        myfile.write("Time,AS,IGAIN,EGAIN,BIAS delivered,Eapp measured,\
+Current,CHARGE,Q EXP" + NEWLINE)
         myfile.close()
-        
+
         start_time = time.time()
 
         # get the command list from beastiecommand.csv and make the commands
@@ -417,13 +420,13 @@ class MyFrame(wxgui.MyFrame):
                 self.myfile2.record_data()
 
                 # appending the self values into the text ctrl widget
-                self.text_ctrl_bias_v2.AppendText(str(self.myfile2.reply_bias_read) +
-                                                  "\n")
+                self.text_ctrl_bias_v2.AppendText(str(self.myfile2.
+                                                      reply_bias_read) + "\n")
                 self.text_ctrl_current_v2.AppendText(str(self.myfile2.
-                                                         reply_current)+"\n")
+                                                         reply_current) + "\n")
                 # redrawing the plot
                 self.redraw_plot_v2()
-                
+
             if self.myfile2.command_dict[times] == "END":
                     break
             self.myfile2.elapsed_time = time.time() - start_time
@@ -431,16 +434,14 @@ class MyFrame(wxgui.MyFrame):
             self.myfile2.read_data()
             self.myfile2.record_data()
 
-            self.text_ctrl_bias_v2.AppendText(str(self.myfile2.reply_bias_read) +
-                                                  "\n")
-            self.text_ctrl_current_v2.AppendText(str(self.myfile2.reply_current)+"\n")
+            self.text_ctrl_bias_v2.AppendText(str(self.myfile2.
+                                                  reply_bias_read) + "\n")
+            self.text_ctrl_current_v2.AppendText(str(self.myfile2.
+                                                     reply_current) + "\n")
             self.redraw_plot_v2()
 
-
     def redraw_plot_v2(self):
-        """Function which redraws the figure"""
-        current_list = []
-        bias_list = []
+        """Function which redraws the figure."""
 
         # local variable get the values from the text ctrl widget
         bias_val = str(self.text_ctrl_bias_v2.GetValue())
@@ -456,27 +457,25 @@ class MyFrame(wxgui.MyFrame):
         current_val = str(self.text_ctrl_current_v2.GetValue())
 
         # convert values into a list and remove the endline character
-        current_val2 = current_val.strip().split('\n')  
-        # print 'ansy2: ', cansy2
-        # print type(ansy2)
-        
+        current_val2 = current_val.strip().split('\n')
+
         current_val3 = np.array(current_val2)
-        
+
         current_val4 = current_val3.astype(np.float)
 
         self.current_v2 = current_val4
 
         self.plotData = self.axes.plot(self.current_v2, linewidth=1,
                                        color=(1, 1, 0),)[0]
-        
+
         self.plotData2 = self.axes2.plot(self.bias_v2, linewidth=1,
                                          color='magenta',)[0]
         # redraw the canvas
         self.canvas2.draw()
-        
-
 
 # end of class Version1Dialog
+
+
 class MyApp(wx.App):
     def OnInit(self):
         # wx.InitAllImageHandlers()
