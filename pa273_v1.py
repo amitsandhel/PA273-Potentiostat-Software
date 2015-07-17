@@ -202,8 +202,6 @@ class MySerialPort(object):
         newrow += str(self.asval) + ","  # CURRENT RANGE
         newrow += str(self.adval) + ","  # CURRENT READOUT
         newrow += str(self.qval)   # CHARGE READOUT
-        # newrow += str(self.eppval) + ","  # APPLIED POTENTIAL READOUT
-        # newrow += str(self.qexp) + ","
         newrow += NEWLINE
         myfile.write(newrow)
         myfile.close()
@@ -229,8 +227,7 @@ class MySerialPort(object):
         '''
         myfile = open(FILENAME, "a")
         myfile.write("new data," + time.strftime("%d/%m/%Y") + NEWLINE)
-        myfile.write("Time,BIAS,EGAIN,IGAIN,I-RANGE,Current_Readout,Eapp_READOUT, \
-                CHARGE(Q),Qexp" + NEWLINE)
+        myfile.write("Time,BIAS,EGAIN,IGAIN,I-RANGE,Current_Readout,CHARGE(Q),Qexp" + NEWLINE)
         myfile.close()
 
         while True:
@@ -267,6 +264,7 @@ class Main():
         self.myfile.close_port()
 
     def run(self):
+        print 'Note: To Close program press "ctrl-c" '
         if self.sim is True:
             # Running fake serial port
             print 'Running simulator Mode: ', self.sim

@@ -36,6 +36,7 @@ http://learnpythonthehardway.org/book/ex44.html
 """
 
 NEWLINE = "\n"
+DEFAULTCOM = "COM4"
 
 class Version1(MySerialPort):
     """Version 1 is the parent class that inherits properties from the v1
@@ -90,7 +91,7 @@ class MyFrame(wxgui.MyFrame):
         # sim value from sim toggle button
         self.sim_value = self.button_sim.GetValue()
         # port value for version 1
-        self.port_value = "COM5"
+        self.port_value = DEFAULTCOM
         # default egain value
         self.egain_value = '1'
         # default igain value
@@ -123,7 +124,7 @@ class MyFrame(wxgui.MyFrame):
         # version 2 sim setting
         self.sim_value_v2 = self.button_sim_v2.GetValue()
         # setting the com port value for vesrion 2 to the default value
-        self.port_value_v2 = "COM5"
+        self.port_value_v2 = DEFAULTCOM
         # opening version 2 MyserialPort class
         self.myfile2 = MySerialPort2()
 
@@ -206,7 +207,7 @@ class MyFrame(wxgui.MyFrame):
         self.Destroy()  # Destroy all widgets
         event.Skip()
 
-    def open_port_rev(self, port="COM5", baudrate=19200, bytesize=8,
+    def open_port_rev(self, port=DEFAULTCOM, baudrate=19200, bytesize=8,
                       parity='N', stopbits=1, timeout=1, xonxoff=False,
                       rtscts=False, writeTimeout=3, dsrdtr=False,
                       interCharTimeout=None):
@@ -373,7 +374,7 @@ class MyFrame(wxgui.MyFrame):
         self.Destroy()
         event.Skip()
 
-    def open_port_rev_v2(self, port="COM5", baudrate=19200, bytesize=8,
+    def open_port_rev_v2(self, port=DEFAULTCOM, baudrate=19200, bytesize=8,
                          parity='N', stopbits=1, timeout=1, xonxoff=False,
                          rtscts=False, writeTimeout=3, dsrdtr=False,
                          interCharTimeout=None):
