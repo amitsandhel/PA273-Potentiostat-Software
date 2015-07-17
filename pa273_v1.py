@@ -44,6 +44,7 @@ class MySerialPort(object):
         self.egain_val = egain
         self.igain_val = igain
         self.bias_val = bias
+        
 
     def open_port(self, port=defaultCOM, baudrate=19200, bytesize=8,
                   parity='N', stopbits=1, timeout=1,
@@ -144,8 +145,7 @@ class MySerialPort(object):
         '''
         try:
             # enter bias
-            x = input('Enter the Potential Bias to apply (mV) between -8000 mV\
-                and +8000 mV: ')
+            x = input('Enter the Potential Bias to apply (mV) between -8000 mV and +8000 mV: ')
             if x <= 8000 and x >= -8000:
                 self.send('BIAS %s \n' % x)
                 reply = self.receive(20)  # 13 AT MAX VALUE
@@ -201,7 +201,7 @@ class MySerialPort(object):
         newrow += str(self.igainval) + ","  # IGAIN SETTING
         newrow += str(self.asval) + ","  # CURRENT RANGE
         newrow += str(self.adval) + ","  # CURRENT READOUT
-        newrow += str(self.qval)  # CHARGE READOUT
+        newrow += str(self.qval)   # CHARGE READOUT
         # newrow += str(self.eppval) + ","  # APPLIED POTENTIAL READOUT
         # newrow += str(self.qexp) + ","
         newrow += NEWLINE
@@ -229,8 +229,8 @@ class MySerialPort(object):
         '''
         myfile = open(FILENAME, "a")
         myfile.write("new data," + time.strftime("%d/%m/%Y") + NEWLINE)
-        myfile.write("Time,BIAS,EGAIN,IGAIN,I-RANGE,Current_Readout,CHARGE(Q),\
-Eapp_READOUT,Qexp" + NEWLINE)
+        myfile.write("Time,BIAS,EGAIN,IGAIN,I-RANGE,Current_Readout,Eapp_READOUT, \
+                CHARGE(Q),Qexp" + NEWLINE)
         myfile.close()
 
         while True:
@@ -281,6 +281,8 @@ class Main():
             self.myfile.open_port(self.com)
             self.myfile.run()
             self.myfile.close_port()
+            print 'Closing Program'
+            print 'Thank you and Have a Good Day'
 
 
 ###############################################################################

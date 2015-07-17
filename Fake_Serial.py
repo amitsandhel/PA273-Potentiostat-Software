@@ -171,7 +171,7 @@ class Fake_Serial():
         self.reply = ""
         param = 50
         self.Q = param
-        self.reply = str(self.Q) + "*"
+        self.reply = str(self.Q) +"," +str(10) + "*"
 
     # version 2 commands
     def NC_Sim(self, param=None):

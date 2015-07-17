@@ -229,7 +229,7 @@ class MySerialPort():
         # in existing file. change to "a" to instead append the data
         myfile = open(FILENAME, "a")
         myfile.write("new data," + time.strftime("%d/%m/%Y") + NEWLINE)
-        myfile.write("Time, AS, IGAIN, EGAIN, BIAS, Current, Eapp, CHARGE, Q EXP" + NEWLINE)
+        myfile.write("Time, AS, IGAIN, EGAIN, BIAS, Eapp, Current, CHARGE, Q EXP" + NEWLINE)
         myfile.close()
 
         # get the command list from beastiecommand.csv and make the commands
@@ -289,12 +289,14 @@ class Main():
     def run(self):
         # print 'The COM PORT is ' + self.com  # not needed for now
         if self.sim is True:
-            print 'running sim: ', self.sim
+            print 'running simulator: ', self.sim
             self.fake_serial()  # opening serial port in simulator class only
 
             # Note: postrun has been depreciated
             # self.postrun = PostRun(FILENAME)
             # self.postrun.graph()
+            print 'Closing Program'
+            print 'Thank you and Have a Good Day'
         else:  # run real serial port:
             print 'running using real serial port: ', self.sim
             # Import real serial class
@@ -304,6 +306,8 @@ class Main():
             self.myfile.open_port(self.com)
             self.myfile.run()
             self.myfile.close_port()
+            print 'Closing Program'
+            print 'Thank you and Have a Good Day'
 
             # self.postrun = PostRun(FILENAME)
             # self.postrun.graph()

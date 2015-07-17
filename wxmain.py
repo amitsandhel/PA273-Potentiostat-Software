@@ -35,16 +35,7 @@ to-an-array-of-floats-in-numpy
 http://learnpythonthehardway.org/book/ex44.html
 """
 
-
-# SETTING UP CSV FILE HOEVER NEEDED TO CHANGE THE NAME TO TIME HOWEVER FOR
-# TEST RUNS LEFT LIKE THIS
-FILENAME = "BOOK3.csv"
 NEWLINE = "\n"
-
-FILENAME2 = "BOOK2.csv"
-
-DEFAULTCOM = "COM5"
-
 
 class Version1(MySerialPort):
     """Version 1 is the parent class that inherits properties from the v1
@@ -99,7 +90,7 @@ class MyFrame(wxgui.MyFrame):
         # sim value from sim toggle button
         self.sim_value = self.button_sim.GetValue()
         # port value for version 1
-        self.port_value = DEFAULTCOM
+        self.port_value = "COM5"
         # default egain value
         self.egain_value = '1'
         # default igain value
@@ -109,6 +100,13 @@ class MyFrame(wxgui.MyFrame):
         # opening the version 1 MyserialPort class using the Inherited class
         self.myfile1 = Version1(self.egain_value, self.igain_value,
                                 self.bias_value)
+        
+        #writing down csv filename
+        myfile = open("SingleVoltageData.csv", "a")
+        myfile.write("new data," + time.strftime("%d/%m/%Y") + NEWLINE)
+        myfile.write("Time,BIAS,EGAIN,IGAIN,I-RANGE,Current_Readout,Eapp_READOUT, \
+                CHARGE(Q),Qexp" + NEWLINE)
+        myfile.close()
 
         # the timer function is used for looping over version 1 software
         # version 2 does not need this wx timer
@@ -125,14 +123,9 @@ class MyFrame(wxgui.MyFrame):
         # version 2 sim setting
         self.sim_value_v2 = self.button_sim_v2.GetValue()
         # setting the com port value for vesrion 2 to the default value
-        self.port_value_v2 = DEFAULTCOM
+        self.port_value_v2 = "COM5"
         # opening version 2 MyserialPort class
         self.myfile2 = MySerialPort2()
-
-        # Opening and appending header to csv file for version 1
-        self.myfile = open(FILENAME, "a")
-        self.myfile.write("Time, BIAS, EGAIN, IGAIN, I-RANGE, Eapp_READOUT,\
-Current_Readout, CHARGE(Q), Qexp" + NEWLINE)
 
         # empty array of the bias and current y values for
         # version 2 (labelled v2)
@@ -226,14 +219,14 @@ Current_Readout, CHARGE(Q), Qexp" + NEWLINE)
         # widgets to close the program
         if self.sim_value is True:
             # import the fake serial class
-            from Fake_Serial import Fake_Serial
+            from Fake_Serial import Fake_Serial as Fake_Serial
             self.myfile1.s = Fake_Serial(port, baudrate, bytesize, parity,
                                          stopbits, timeout, xonxoff, rtscts,
                                          writeTimeout, dsrdtr,
                                          interCharTimeout)
         else:
             # import the real serial class
-            from serial import Serial
+            from serial import Serial as Serial
             self.myfile1.s = Serial(port, baudrate, bytesize, parity, stopbits,
                                     timeout, xonxoff, rtscts, writeTimeout,
                                     dsrdtr, interCharTimeout)
@@ -248,7 +241,7 @@ Current_Readout, CHARGE(Q), Qexp" + NEWLINE)
         # appending values to text ctrl widgets
         self.text_ctrl_bias.AppendText(str(self.myfile1.seteval) + "\n")
         self.text_ctrl_current.AppendText(str(self.myfile1.adval) + "\n")
-        time.sleep(0.5)
+        time.sleep(0.3) #switched from 0.5
 
     def run_engine_v1(self):
         """The run function engine to start the experiment."""
@@ -343,7 +336,7 @@ Current_Readout, CHARGE(Q), Qexp" + NEWLINE)
         are not added when the pause button is clicked.'''
         self.On_Start(event)
 
-# Version 2 functions and features are below
+    # Version 2 functions and features are below
     def On_sim_v2(self, event):  # wxGlade: MyFrame.<event_handler>
         """Function for version 2 sim toggle button updates and store
         the values."""
@@ -356,9 +349,9 @@ Current_Readout, CHARGE(Q), Qexp" + NEWLINE)
     def On_port_v2(self, event):  # wxGlade: MyFrame.<event_handler>
         """Version 2 port settings. Same thing as port settings for version 1.
         This function is to set the com port number.
+        Note: This is setting the comport number the user has to figure out 
+        how to find the comport value himself
         """
-        # THE USER BETTER KNOW HOW TO FIND THE COMPORT HIMSELF THIS DOES NOT
-        # HELP YOU FIND IT IN ANY WAY
 
         ans2 = self.spin_ctrl_port_v2.GetValue()
         # update the values
@@ -367,7 +360,8 @@ Current_Readout, CHARGE(Q), Qexp" + NEWLINE)
         event.Skip()
 
     def On_start_v2(self, event):  # wxGlade: MyFrame.<event_handler>
-        """This is the start button function."""
+        """This is the start button function for v2."""
+        
         self.open_port_rev_v2(port=self.port_value_v2)
         self.run_rev_v2()
         self.myfile2.close_port()
@@ -385,30 +379,32 @@ Current_Readout, CHARGE(Q), Qexp" + NEWLINE)
                          interCharTimeout=None):
         '''This is opening a self.s port for Version 2.'''
         # doing an if loop to determine which type of library to import
-        if self.sim_value is True:
+        
+        if self.sim_value_v2 is True:
             # import the fake serial class
-            from Fake_Serial import Fake_Serial
+            from Fake_Serial import Fake_Serial as Fake_Serial
             self.myfile2.s = Fake_Serial(port, baudrate, bytesize, parity,
                                          stopbits, timeout, xonxoff, rtscts,
                                          writeTimeout, dsrdtr,
                                          interCharTimeout)
         else:
             # import the real serial class
-            from serial import Serial
+            from serial import Serial as Serial
             self.myfile2.s = Serial(port, baudrate, bytesize, parity, stopbits,
                                     timeout, xonxoff, rtscts, writeTimeout,
                                     dsrdtr, interCharTimeout)
+                                    
 
     def run_rev_v2(self):
-        """This is the memory swap run function """
-        start_time = time.time()
-
+        """This is the memory samiwap run function """
         # opening excel file in write only mode. will rewrite on top of data
         # in existing file. change to "a" to instead append the data
-        myfile = open(FILENAME2, "w")
-        myfile.write("Time, AS, BIAS, TP-point#, TP-current, TP-bias, " +
-                     NEWLINE)
+        myfile = open("WaveformData.csv", "a")
+        myfile.write("new data," + time.strftime("%d/%m/%Y") + NEWLINE)
+        myfile.write("Time, AS, IGAIN, EGAIN, BIAS, Eapp, Current, CHARGE, Q EXP" + NEWLINE)
         myfile.close()
+        
+        start_time = time.time()
 
         # get the command list from beastiecommand.csv and make the commands
         # into a dictionary. Sort them based on time.
@@ -420,18 +416,25 @@ Current_Readout, CHARGE(Q), Qexp" + NEWLINE)
                 self.myfile2.record_data()
 
                 # appending the self values into the text ctrl widget
-                self.text_ctrl_bias_v2.AppendText(str(self.myfile2.replyBIAS) +
+                self.text_ctrl_bias_v2.AppendText(str(self.myfile2.reply_bias_read) +
                                                   "\n")
                 self.text_ctrl_current_v2.AppendText(str(self.myfile2.
                                                          reply_current)+"\n")
                 # redrawing the plot
                 self.redraw_plot_v2()
+                
             if self.myfile2.command_dict[times] == "END":
                     break
             self.myfile2.elapsed_time = time.time() - start_time
             self.myfile2.command_execute(self.myfile2.command_dict[times])
             self.myfile2.read_data()
             self.myfile2.record_data()
+
+            self.text_ctrl_bias_v2.AppendText(str(self.myfile2.reply_bias_read) +
+                                                  "\n")
+            self.text_ctrl_current_v2.AppendText(str(self.myfile2.reply_current)+"\n")
+            self.redraw_plot_v2()
+
 
     def redraw_plot_v2(self):
         """Function which redraws the figure"""
@@ -460,19 +463,16 @@ Current_Readout, CHARGE(Q), Qexp" + NEWLINE)
         
         current_val4 = current_val3.astype(np.float)
 
-        #for item in current_val2:
-            #current_val3 = item.strip().split(',')
-           # current_list.append(float(current_val3[1]))
-           # bias_list.append(float(current_val3[2]))
+        self.current_v2 = current_val4
 
-        self.plotData = self.axes.plot(current_val4, linewidth=1,
+        self.plotData = self.axes.plot(self.current_v2, linewidth=1,
                                        color=(1, 1, 0),)[0]
-        # self.plotData = self.axes.plot(self.bias_v2, linewidth=1,
-        #                                color=(1, 1, 0),)[0]
+        
         self.plotData2 = self.axes2.plot(self.bias_v2, linewidth=1,
                                          color='magenta',)[0]
         # redraw the canvas
         self.canvas2.draw()
+        
 
 
 # end of class Version1Dialog
