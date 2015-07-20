@@ -185,6 +185,10 @@ and +8000 mV: ')
         self.send('BIAS \n')
         g = self.receive(25)
         self.seteval = g.strip()
+        
+        self.send('SIE 2; A/D \n')
+        i = self.receive(25)
+        self.reply_current = i.strip()
 
         # uncomment the lines below to access the command measures resistance
         self.send('Q \n')
@@ -200,6 +204,7 @@ and +8000 mV: ')
         newrow += str(self.igainval) + ","  # IGAIN SETTING
         newrow += str(self.asval) + ","  # CURRENT RANGE
         newrow += str(self.adval) + ","  # CURRENT READOUT
+        newrow += str(self.reply_current) + "," 
         newrow += str(self.qval)  # CHARGE READOUT
         newrow += NEWLINE
         myfile.write(newrow)
@@ -217,8 +222,8 @@ and +8000 mV: ')
 
         cycles = 1
 
-        self.egain()
-        self.igain()
+        #self.egain()
+        #self.igain()
         self.bias()
 
         '''changed from 'w' to 'a' to append files indefinitely to
