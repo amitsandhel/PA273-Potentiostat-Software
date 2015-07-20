@@ -94,24 +94,27 @@ class MySerialPort(object):
         '''closes the self.s port'''
         self.s.close()
 
-    def bias(self):
+    def get_bias(self):
         '''Setting the bias potential as soon as the cell is on.
         Reference: PAGE 15  BIAS[]
         '''
         try:
             # enter bias
             x = input('Enter the Potential Bias to apply (mV) between -8000 mV\
-and +8000 mV: ')
+ and +8000 mV: ')
             if x <= 8000 and x >= -8000:
-                self.send('SETE %s \n' % x)
                 self.sete_Val = x
                 print ""
             else:
                 print "Please enter a value in the proper range."
-                self.bias()
+                self.get_bias()
         except:
             print 'Enter value again.'
-            self.bias()
+            self.get_bias()
+
+    def apply_voltage(self):
+        """Actually applies the voltage BIAS"""
+        self.send('SETE %s \n' % self.sete_Val)
 
     def measure_values(self):
         '''Running the potentiostat to apply potential and measure the current,
@@ -148,6 +151,7 @@ and +8000 mV: ')
         myfile.close()
 
     def exp_setup(self):
+        self.apply_voltage()
         self.measure_values()
         self.record_data()
         time.sleep(TIMEDELAY)
@@ -159,7 +163,7 @@ and +8000 mV: ')
 
         cycles = 1
 
-        self.bias()
+        self.get_bias()
 
         # change from 'a' to 'w' to overwrite file if desired
         myfile = open(FILENAME, "a")
