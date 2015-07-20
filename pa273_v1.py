@@ -151,7 +151,10 @@ class MySerialPort(object):
         myfile.close()
 
     def exp_setup(self):
-        self.apply_voltage()
+        self.send('ST \n')
+        error = self.receive(17)
+        if error % 2 == 0:
+            self.apply_voltage()
         self.measure_values()
         self.record_data()
         time.sleep(TIMEDELAY)
