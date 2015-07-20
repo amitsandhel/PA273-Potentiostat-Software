@@ -94,49 +94,6 @@ class MySerialPort(object):
         '''closes the self.s port'''
         self.s.close()
 
-    def egain(self):
-        '''setting potential measurement gain ahead of analog-to-digital
-        converter. Important in parsing data. PAGE 8-9: FUNCTION EGAIN
-        '''
-        print '(1:--> X1; 5:->X5; 10:-->X10; 50:-->X50)'
-        # Using a try and except statement to catch the error so we can
-        # actually run it multiple times to save a code blowout explosion
-        try:
-            x = input('ENTER EGAIN VALUE (1, 5, 10, or 50): ')
-            if x == 1 or x == 5 or x == 10 or x == 50:
-                self.send("EGAIN %s  \n" % x)
-                reply = self.receive(12)
-                print ""
-                return reply
-            else:
-                # if above options are not done reneter the value force user
-                print 'Please re-enter correct option'
-                self.egain()
-        # catchin all these errors
-        except:
-            print 'Please enter value again'
-            self.egain()
-
-    def igain(self):
-        '''setting current measurement ahead of A-to-D converter
-        f.s. = functional sensitivity
-        PAGE 9-10: FUNCTION IGAIN
-        '''
-        print '(1:--> X1; 5:->X5; 10:-->X10; 50:-->X50)'
-        try:
-            x = input('ENTER IGAIN VALUE (1, 5, 10, or 50): ')
-            if x == 1 or x == 5 or x == 10 or x == 50:
-                self.send("IGAIN %s  \n" % x)
-                reply = self.receive(12)
-                print ""
-                return reply
-            else:
-                print 'Please re-enter correct option'
-                self.igain()
-        except:
-            print 'Please enter value again'
-            self.igain()
-
     def bias(self):
         '''Setting the bias potential as soon as the cell is on.
         Reference: PAGE 15  BIAS[]
@@ -146,18 +103,17 @@ class MySerialPort(object):
             x = input('Enter the Potential Bias to apply (mV) between -8000 mV\
 and +8000 mV: ')
             if x <= 8000 and x >= -8000:
-                self.send('BIAS %s \n' % x)
-                reply = self.receive(20)  # 13 AT MAX VALUE
+                self.send('SETE %s \n' % x)
+                self.sete_Val = x
                 print ""
-                return reply
             else:
                 print "Please enter a value in the proper range."
                 self.bias()
         except:
-            print 'enter value again'
+            print 'Enter value again.'
             self.bias()
 
-    def measure_potential(self):
+    def measure_values(self):
         '''Running the potentiostat to apply potential and measure the current,
         and then return the value directly to the computer. Note that each
         command is ran in single order due to ease and safety of command
@@ -166,52 +122,33 @@ and +8000 mV: ')
         do exist. Also, note that all these commands are READ commands only; no
         writing is done in this function.
         '''
-        self.send('EGAIN \n')
-        a = self.receive(12)
-        self.egainval = a.strip()
 
-        self.send('IGAIN \n')
-        b = self.receive(12)
-        self.igainval = b.strip()
+        self.send('READE \n')
+        v = self.receive(25)
+        self.measuredBIAS = v.strip()
 
-        self.send('AS \n')
-        c = self.receive(12)
-        self.asval = c.strip()
-
-        self.send('SIE 1; A/D \n')
-        f = self.receive(25)
-        self.adval = f.strip()
-
-        self.send('BIAS \n')
-        g = self.receive(25)
-        self.seteval = g.strip()
-        
-        self.send('SIE 2; A/D \n')
+        self.send('READI \n')
         i = self.receive(25)
         self.reply_current = i.strip()
 
-        # uncomment the lines below to access the command measures resistance
         self.send('Q \n')
-        h = self.receive(17)
-        self.qval = h.strip()
+        q = self.receive(17)
+        self.qval = q.strip()
 
     def record_data(self):
         '''Records the data output into a csv file with the timestamp'''
         myfile = open(FILENAME, 'a')
         newrow = time.strftime('%H:%M:%S,')
-        newrow += str(self.seteval) + ","  # applied potential
-        newrow += str(self.egainval) + ","  # EGAIN SETTING
-        newrow += str(self.igainval) + ","  # IGAIN SETTING
-        newrow += str(self.asval) + ","  # CURRENT RANGE
-        newrow += str(self.adval) + ","  # CURRENT READOUT
-        newrow += str(self.reply_current) + "," 
-        newrow += str(self.qval)  # CHARGE READOUT
+        newrow += str(self.sete_Val) + ","  # applied potential
+        newrow += str(self.measuredBIAS) + ","  # measured potential
+        newrow += str(self.reply_current) + ","  # CURRENT
+        newrow += str(self.qval)  # CHARGE
         newrow += NEWLINE
         myfile.write(newrow)
         myfile.close()
 
     def exp_setup(self):
-        self.measure_potential()
+        self.measure_values()
         self.record_data()
         time.sleep(TIMEDELAY)
 
@@ -222,16 +159,12 @@ and +8000 mV: ')
 
         cycles = 1
 
-        #self.egain()
-        #self.igain()
         self.bias()
 
-        '''changed from 'w' to 'a' to append files indefinitely to
-        preexisting file
-        '''
+        # change from 'a' to 'w' to overwrite file if desired
         myfile = open(FILENAME, "a")
         myfile.write("new data," + time.strftime("%d/%m/%Y") + NEWLINE)
-        myfile.write("Time,BIAS,EGAIN,IGAIN,I-RANGE,Current_Readout,CHARGE(Q),\
+        myfile.write("Time,BIAS,Measured Voltage,Current,CurrentExp,CHARGE(Q),\
 Qexp" + NEWLINE)
         myfile.close()
 
