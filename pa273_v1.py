@@ -103,7 +103,7 @@ class MySerialPort(object):
             x = input('Enter the Potential Bias to apply (mV) between -8000 mV\
  and +8000 mV: ')
             if x <= 8000 and x >= -8000:
-                self.sete_Val = x
+                self.bias_Val = x
                 print ""
             else:
                 print "Please enter a value in the proper range."
@@ -114,7 +114,7 @@ class MySerialPort(object):
 
     def apply_voltage(self):
         """Actually applies the voltage BIAS"""
-        self.send('SETE %s \n' % self.sete_Val)
+        self.send('BIAS %s \n' % self.bias_Val)
 
     def measure_values(self):
         '''Running the potentiostat to apply potential and measure the current,
@@ -142,7 +142,7 @@ class MySerialPort(object):
         '''Records the data output into a csv file with the timestamp'''
         myfile = open(FILENAME, 'a')
         newrow = time.strftime('%H:%M:%S,')
-        newrow += str(self.sete_Val) + ","  # applied potential
+        newrow += str(self.bias_Val) + ","  # applied potential
         newrow += str(self.measuredBIAS) + ","  # measured potential
         newrow += str(self.reply_current) + ","  # CURRENT
         newrow += str(self.qval)  # CHARGE
@@ -151,10 +151,6 @@ class MySerialPort(object):
         myfile.close()
 
     def exp_setup(self):
-        self.send('ST \n')
-        error = self.receive(17)
-        if error % 2 == 0:
-            self.apply_voltage()
         self.measure_values()
         self.record_data()
         time.sleep(TIMEDELAY)
@@ -174,6 +170,8 @@ class MySerialPort(object):
         myfile.write("Time,BIAS,Measured Voltage,Current,CurrentExp,CHARGE(Q),\
 Qexp" + NEWLINE)
         myfile.close()
+
+        self.apply_voltage()
 
         while True:
             # using a loop with a try and except to cancel and exit
