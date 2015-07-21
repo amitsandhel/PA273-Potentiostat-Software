@@ -115,6 +115,7 @@ class MySerialPort(object):
     def apply_voltage(self):
         """Actually applies the voltage BIAS"""
         self.send('BIAS %s \n' % self.bias_Val)
+	reply = self.receive(25)
 
     def measure_values(self):
         '''Running the potentiostat to apply potential and measure the current,

@@ -170,29 +170,18 @@ class MySerialPort():
 
     def read_data(self):
         """All these commands are read commands only."""
-        self.send("AS \n")
-        self.replyAS = self.receive(4)
-
         self.send("Q \n")
-        self.replyQ = self.receive(14)
+        self.replyQ = self.receive(25)
 
-        self.send('SIE 2; A/D \n')
-        self.reply_current = self.receive(10)
+        self.send('READI \n')
+        self.READI = self.receive(25)
 
-        self.send('SIE 1; A/D \n')
-        self.reply_bias_read = self.receive(10)
-
-        self.send('IGAIN \n')
-        b = self.receive(12)
-        self.igainval = b.strip()
-
-        self.send('EGAIN \n')
-        c = self.receive(23)
-        self.egainval = c.strip()
+        self.send('READE \n')
+        self.READE = self.receive(25)
 
         if self.sim is False:
             self.send("BIAS \n")
-            self.replyBIAS = self.receive(13)
+            self.replyBIAS = self.receive(25)
 
     def record_data(self):
         '''Recording the results into a csv file using local variables
@@ -201,12 +190,9 @@ class MySerialPort():
         myfile = open(FILENAME, 'a')
 
         newrow = str(self.elapsed_time) + ","
-        newrow += str(self.replyAS) + ","
-        newrow += str(self.igainval) + ","
-        newrow += str(self.egainval) + ","
         newrow += str(self.replyBIAS) + ","
-        newrow += str(self.reply_bias_read) + ","
-        newrow += str(self.reply_current) + ","
+        newrow += str(self.READE) + ","
+        newrow += str(self.READI) + ","
         newrow += str(self.replyQ) + ","
         newrow += NEWLINE
         myfile.write(newrow)
@@ -217,8 +203,8 @@ class MySerialPort():
         # in existing file. change to "a" to instead append the data
         myfile = open(FILENAME, "a")
         myfile.write("new data," + time.strftime("%d/%m/%Y") + NEWLINE)
-        myfile.write("Time,AS,IGAIN,EGAIN,BIAS delivered,Eapp measured,\
-Current,CHARGE,Q EXP" + NEWLINE)
+        myfile.write("Time,BIAS,Measured Voltage,Current,CurrentExp,CHARGE(Q),\
+Qexp" + NEWLINE)
         myfile.close()
 
         start_time = time.time()
