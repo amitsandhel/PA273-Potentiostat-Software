@@ -98,7 +98,7 @@ class MySerialPort():
         '''
         data_string = ""
         start_time = time.time()
-        MAXRECEIVETIMEOUT = 1  # this is in seconds
+        MAXRECEIVETIMEOUT = 0.3
         while True:
             b = self.s.inWaiting()
             if b > 0:
@@ -116,7 +116,7 @@ class MySerialPort():
             if time.time() - start_time > MAXRECEIVETIMEOUT:
                 print "Receive function timed out."
                 break
-        time.sleep(0.05)  # was initally 0.05
+        time.sleep(0.01)  
 
         return data_string
 
@@ -236,11 +236,7 @@ Qexp" + NEWLINE)
             self.command_execute(self.command_dict[times])
             self.read_data()
             self.record_data()
-            # running the graphclass script to draw the graph in real time
-            # commented out for now due to performance issues
-            # self.mygraph.analysis(self.elapsed_time, self.replyBIAS,
-            #                      self.reply_current)
-
+            
 
 # AMIT: leave this module here as it truly belongs to the stuff at the bottom
 # running the Main() class to execute everything off argparse
@@ -268,9 +264,6 @@ class Main():
         if self.sim is True:
             print 'running simulator: ', self.sim
             self.fake_serial()  # opening serial port in simulator class only
-            # Note: postrun has been depreciated
-            # self.postrun = PostRun(FILENAME)
-            # self.postrun.graph()
         else:  # run real serial port:
             print 'running using real serial port: ', self.sim
             # Import real serial class
@@ -279,8 +272,6 @@ class Main():
             self.myfile.open_port(self.com)
             self.myfile.run()
             self.myfile.close_port()
-            # self.postrun = PostRun(FILENAME)
-            # self.postrun.graph()
 
         print 'Closing Program'
         print 'Thank you and Have a Good Day'

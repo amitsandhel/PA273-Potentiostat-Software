@@ -12,7 +12,7 @@ Note: this script requires:
         3) PySerial
 """
 
-TIMEDELAY = 1  # how long (in seconds) the exp_setup function sleeps for
+TIMEDELAY = 0.3  # how long (in seconds) the exp_setup function sleeps for
 
 # SETTING UP CSV FILE
 FILENAME = "SingleVoltageData.csv"
@@ -32,7 +32,7 @@ class MySerialPort(object):
     """
     # Passing in the egain, igain and bias settings in "real time" to the
     # class directly for easier access
-    def __init__(self, egain, igain, bias):
+    def __init__(self, bias): #egain, igain, bias):
         '''Initializing the variables so all functions can access the
         self.s port and remain open.
         '''
@@ -40,9 +40,7 @@ class MySerialPort(object):
 
         # these settings are needed to initalize the class so I can work with
         # the class in the gui no choice must be here
-        self.egain_val = egain
-        self.igain_val = igain
-        self.bias_val = bias
+        self.bias_Val = bias
 
     def open_port(self, port=defaultCOM, baudrate=19200, bytesize=8,
                   parity='N', stopbits=1, timeout=1,
@@ -68,7 +66,7 @@ class MySerialPort(object):
         '''
         data_string = ""
         start_time = time.time()
-        MAXRECEIVETIMEOUT = 3
+        MAXRECEIVETIMEOUT = 0.3
         while True:
             b = self.s.inWaiting()
             if b > 0:
@@ -115,7 +113,7 @@ class MySerialPort(object):
     def apply_voltage(self):
         """Actually applies the voltage BIAS"""
         self.send('BIAS %s \n' % self.bias_Val)
-	reply = self.receive(25)
+        reply = self.receive(25)
 
     def measure_values(self):
         '''Running the potentiostat to apply potential and measure the current,
@@ -196,7 +194,7 @@ class Main():
         self.sim = args.sim  # sim parameter
         self.com = 'COM' + str(args.com)
         # opening the MySerialPort class with built in parameters
-        self.myfile = MySerialPort(egain=1, igain=1, bias=1)
+        self.myfile = MySerialPort(bias=1) #egain=1, igain=1, bias=1)
 
     def fake_serial(self):
         """Runs the Fake_Serial() Class if the simulator parameter is True."""
@@ -215,7 +213,8 @@ class Main():
             self.fake_serial()  # opening serial port in simulator class only
         else:
             # run real serial port:
-            print 'Running Real Serial: ', self.sim
+            print 'Sim On Value: ', self.sim
+            print 'Running Real Experiment'
             # Import real serial class
             from serial import Serial
             setattr(module, "Serial", Serial)

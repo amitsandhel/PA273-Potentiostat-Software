@@ -28,6 +28,8 @@ class Fake_Serial():
         self.Sete = 0
         self.list = []
         self.Q = 0
+	self.reade = 0
+	self.readi = 0
 
         # version 2 commands
         self.NC = 0
@@ -88,19 +90,18 @@ class Fake_Serial():
                 self.Q_Sim(self.b[1])
             else:
                 self.Q_Sim()
-
-        # Version 2 commands below
-        elif self.b[0] == 'NC':
+	
+	elif self.b[0] == 'READE':
             if len(self.b) == 2:
-                self.NC_Sim(self.b[1])
+                self.READE_Sim(self.b[1])
             else:
-                self.NC_Sim()
-
-        elif self.b[0] == 'TP':
+                self.READE_Sim()
+		
+	elif self.b[0] == 'READI':
             if len(self.b) == 2:
-                self.TP_Sim(self.b[1])
+                self.READI_Sim(self.b[1])
             else:
-                self.TP_Sim()
+                self.READI_Sim()
 
         else:
             print 'NOT HANDLING CALL', repr(self.b)
@@ -172,9 +173,20 @@ class Fake_Serial():
         param = 50
         self.Q = param
         self.reply = str(self.Q) + "," + str(10) + "*"
+        
+    def READE_Sim(self, param=None):
+        self.reply = ""
+        param = 900
+        self.reade = param
+        self.reply = str(self.reade) + "*" #+ "," + str(10) + "*"
 
+    def READI_Sim(self, param=None):
+        self.reply = ""
+        param = 600
+        self.readi = param
+        self.reply = str(self.readi) + "," + str(10) + "*"
+    
     # version 2 commands
-
     def NC_Sim(self, param=None):
         self.reply = ""
         param = 2

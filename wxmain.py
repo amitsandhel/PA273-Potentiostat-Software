@@ -14,7 +14,7 @@ import pylab
 Created by Amit Sandhel with contributions by Fredrick Leber.
 This script is the main (engine) script for the gui (Graphical User Interface)
 
-AMIT DO NOT EVER IN THE HISTROY OF YOUR SANE MIND AND LOGIC EVER TOUCH THE
+DO NOT EVER IN THE HISTROY OF YOUR SANE MIND AND LOGIC EVER TOUCH THE
 FILE CALLED wxgui.py
 
 THAT FILE IS GENERATED FROM THE WXGLADE AND IS THE SKELETON FILE TO THE
@@ -47,34 +47,16 @@ class Version1(MySerialPort):
     from the parent class as well for this we use the Super() Function which is
     designed for new style classes.
     """
-    def __init__(self, egain, igain, bias):
+    def __init__(self, bias): #egain, igain, bias):
         # these variables will be passed into the class by the gui
-        self.egain_val = egain
-        self.igain_val = igain
-        self.bias_val = bias
-        super(Version1, self).__init__(egain, igain, bias)
-
-    def egain(self):
-        '''Rewriting the egain function using the pass in parameter rather than
-        input() function used by parent class.
-        '''
-        self.send("EGAIN %s  \n" % str(self.egain_val))
-        reply = self.receive(12)
-        return reply
-
-    def igain(self):
-        '''Rewriting the igain function using the pass in parameter rather than
-        input() function used by parent class.
-        '''
-        self.send("IGAIN %s  \n" % str(self.igain_val))
-        reply = self.receive(12)
-        return reply
+        self.bias_Val = bias
+        super(Version1, self).__init__(bias) 
 
     def bias(self):
         '''Rewriting the bias function using the pass in parameter rather than
         input() function used by parent class.
         '''
-        self.send('BIAS %s \n' % str(self.bias_val))
+        self.send('BIAS %s \n' % str(self.bias_Val))
         reply = self.receive(20)  # 13 AT MAX VALUE
         return reply
 
@@ -95,33 +77,26 @@ class MyFrame(wxgui.MyFrame):
         self.sim_value = self.button_sim.GetValue()
         # port value for version 1
         self.port_value = DEFAULTCOM
-        # default egain value
-        self.egain_value = '1'
-        # default igain value
-        self.igain_value = '1'
         # get the bias value default value is set to 1 in the wxgui widget
         self.bias_value = self.spin_ctrl_bias.GetValue()
         # opening the version 1 MyserialPort class using the Inherited class
-        self.myfile1 = Version1(self.egain_value, self.igain_value,
-                                self.bias_value)
+        self.myfile1 = Version1(self.bias_value) #self.egain_value, self.igain_value,
+                                #self.bias_value)
 
         # writing down csv filename
         myfile = open(FILENAMEv1, "a")
         myfile.write("new data," + time.strftime("%d/%m/%Y") + NEWLINE)
-        myfile.write("Time,BIAS,EGAIN,IGAIN,I-RANGE,Current_Readout,CHARGE(Q),\
+        myfile.write("Time,BIAS,Measured Voltage,Current,CurrentExp,CHARGE(Q),\
 Qexp" + NEWLINE)
         myfile.close()
-
+        
         # the timer function is used for looping over version 1 software
-        # version 2 does not need this wx timer
+        # Note: version 2 does not need this wx timer due to built in while loop in run
+        #function
         # Timer class event
         self.redraw_timer = wx.Timer(self)
         # Binding class to redraw() function
         self.Bind(wx.EVT_TIMER, self.on_redraw_timer, self.redraw_timer)
-
-        # empty array of the bias and current y values for version 1
-        self.bias_valy = []
-        self.current_valy = []
 
         """version 2 command initalization"""
         # version 2 sim setting
@@ -135,15 +110,9 @@ Qexp" + NEWLINE)
         # version 2 (labelled v2)
         self.bias_v2 = []
         self.current_v2 = []
-
+        
         # plot initialization for the static graph  done here for both versions
         self.init_plot()
-
-        # same here this is also going to make things retarded
-        # so DELETE THESE LINES AND NEVER USE THEM END OF STORY
-        # AMIT: KEEP THIS FOR MY MEMORY  DO NOT ERASE YET
-        # self.__set_properties()
-        # self.__do_layout()
 
     def On_Sim(self, event):  # wxGlade: MyFrame.<event_handler>
         """This function is the event for the SIM toggle button and stores the
@@ -163,19 +132,6 @@ Qexp" + NEWLINE)
         self.port_value = "COM" + str(ans2)
         event.Skip()
 
-    def On_egain(self, event):  # wxGlade: MyFrame.<event_handler>
-        """This function is to set the egain value from a combo box for
-        Version 1."""
-        ans = self.combo_box_egain.GetStringSelection()
-        self.egain_value = ans
-        event.Skip()
-
-    def On_igain(self, event):  # wxGlade: MyFrame.<event_handler>
-        """This function is to set the igain value from a combo box
-        for Version 1."""
-        self.igain_value = self.combo_box_igain.GetStringSelection()
-        event.Skip()
-
     def On_bias(self, event):  # wxGlade: MyFrame.<event_handler>
         """This function is to set the bias from 8000 mV to -8000 mV from a
         spin control widget for Version 1.
@@ -183,7 +139,7 @@ Qexp" + NEWLINE)
         """
         # TODO: so need to write a text box in the widget guito talk about this
         ans = self.spin_ctrl_bias.GetValue()
-        self.bias_value = ans
+        self.myfile1.bias_Val = ans
         event.Skip()
 
     def On_Start(self, event):  # wxGlade: MyFrame.<event_handler>
@@ -223,7 +179,7 @@ Qexp" + NEWLINE)
         # widgets to close the program
         if self.sim_value is True:
             # import the fake serial class
-            from Fake_Serial import Fake_Serial
+            from Fake_Serial import Fake_Serial 
             self.myfile1.s = Fake_Serial(port, baudrate, bytesize, parity,
                                          stopbits, timeout, xonxoff, rtscts,
                                          writeTimeout, dsrdtr,
@@ -237,38 +193,32 @@ Qexp" + NEWLINE)
 
     def v1_exp_setup(self):
         """Modified run function for Version 1."""
-        self.myfile1.egain()
-        self.myfile1.igain()
         self.myfile1.bias()
-        self.myfile1.measure_potential()
+        self.myfile1.measure_values()
         self.myfile1.record_data()
         # appending values to text ctrl widgets
-        self.text_ctrl_bias.AppendText(str(self.myfile1.seteval) + "\n")
-        self.text_ctrl_current.AppendText(str(self.myfile1.adval) + "\n")
-        time.sleep(0.3)  # switched from 0.5
+        self.text_ctrl_bias.AppendText(str(self.myfile1.measuredBIAS) + "\n")
+        self.text_ctrl_current.AppendText(str(self.myfile1.reply_current) + "\n")
+        time.sleep(0.1)  # switched from 0.5
 
     def run_engine_v1(self):
         """The run function engine to start the experiment."""
         self.open_port_rev(port=self.port_value)
-
         self.v1_exp_setup()
-        self.myfile1.close_port()
-
         # initalizing the new variables into the class again
-        self.myfile1.egain_val = self.egain_value
-        self.myfile1.igain_val = self.igain_value
         self.myfile1.bias_val = self.bias_value
+        self.myfile1.close_port()
 
     def init_plot(self):
         """This function graphs and displays the inital graph in the graph
         panel for BOTH version 1 and version 2. We are adding two subpanels,
         one for bias and one for current or whatever we wish."""
         # opening Figure class
-        self.fig = Figure(figsize=(8, 8), dpi=40)
+        self.fig = Figure(figsize=(9, 9), dpi=45)
         # setting the axes fo the figure graph
         self.axes = self.fig.add_subplot(2, 1, 1)
         self.axes.set_axis_bgcolor('black')
-        self.axes.set_title('Current', size=20)
+        self.axes.set_title('Applied Potential', size=20)
         self.axes.grid(True, color='red', linewidth=2)
 
         pylab.setp(self.axes.get_xticklabels(), fontsize=14)
@@ -277,17 +227,17 @@ Qexp" + NEWLINE)
         # second subpanel graph settings for Version 2
         self.axes2 = self.fig.add_subplot(2, 1, 2)
         self.axes2.set_axis_bgcolor('black')
-        self.axes2.set_title('Voltage BIAS', size=20)
+        self.axes2.set_title('Current', size=20)
         self.axes2.grid(True, color='cyan', linewidth=2)
 
         pylab.setp(self.axes2.get_xticklabels(), fontsize=14)
         pylab.setp(self.axes2.get_yticklabels(), fontsize=14)
 
         # This is the first plot graph
-        self.plotData = self.axes.plot(self.current_valy, linewidth=1,
+        self.plotData = self.axes.plot([0], linewidth=1,
                                        color=(1, 1, 0),)[0]
         # This is the second plot graph
-        self.plotData2 = self.axes2.plot(self.bias_valy, linewidth=1,
+        self.plotData2 = self.axes2.plot([0], linewidth=1,
                                          color='magenta',)[0]
 
         # This is the canvas display for the first notepad tab-v1
@@ -305,34 +255,33 @@ Qexp" + NEWLINE)
         to see the actual raw values coming from the experiment
         """
         # TODO: maybe make a running x axis display possibly
-
-        # storing the values of the bias and the current into the text ctrl
-        # widgets for Version 1
-        self.text_ctrl_bias.AppendText(str(self.myfile1.seteval) + "\n")
-        self.text_ctrl_current.AppendText(str(self.myfile1.adval) + "\n")
+        
         # getting the local value
-        ans = str(self.text_ctrl_bias.GetValue())
+        eapp_val = str(self.text_ctrl_bias.GetValue())
         # stripping the endline character and obtaining the values for a list
-        ans2 = ans.strip().split('\n')
+        eapp_val2 = eapp_val.strip().split('\n')
         # converting the list into an array
-        ans3 = np.array(ans2)
+        eapp_val3 = np.array(eapp_val2)
         # converting the entire array into a float in one shot for graphing
-        self.bias_valy = ans3.astype(np.float)
+        bias_value_v1= eapp_val3.astype(np.float)
+        
 
-        ansy = str(self.text_ctrl_current.GetValue())
+        current_val = str(self.text_ctrl_current.GetValue())
+        #converting ',' to 'E' for easy float movement
+        current_val2 = current_val.replace(',', 'e')
         # strippping the endline character and removing the endline character
-        ansy2 = ansy.strip().split('\n')
-        # convert to arrays
-        ansy3 = np.array(ansy2)
-        # concerting the entire array into a float in one shot for graphing
-        self.current_valy = ansy3.astype(np.float)
+        current_val3 = (current_val2.strip().split('\n') )
+        current_val4 = np.array(current_val3)
+        current_value_v1 = current_val4.astype(np.float)
 
         # graphing the values for the first subpanel graph
-        self.plotData = self.axes.plot(self.current_valy, linewidth=1,
+        #to graph the last 100 data poitns use [-100] otherwise leave it alone
+        self.plotData = self.axes.plot(bias_value_v1, linewidth=1,
                                        color=(1, 1, 0),)[0]
         # graphing the values for the second subpanel graph
-        self.plotData2 = self.axes2.plot(self.bias_valy, linewidth=1,
+        self.plotData2 = self.axes2.plot(current_value_v1, linewidth=1,
                                          color='magenta',)[0]
+        
         self.canvas.draw()
 
     def on_redraw_timer(self, event):
@@ -348,7 +297,6 @@ Qexp" + NEWLINE)
         # print "Event handler 'On_sim_v2' not implemented!"
         ans = self.button_sim_v2.GetValue()
         self.sim_value_v2 = ans
-        # print 'sim v2 ans: ', self.sim_value_v2
         event.Skip()
 
     def On_port_v2(self, event):  # wxGlade: MyFrame.<event_handler>
@@ -357,11 +305,9 @@ Qexp" + NEWLINE)
         Note: This only sets the comport number, the user has to figure out
         how to find the comport value himself.
         """
-
         ans2 = self.spin_ctrl_port_v2.GetValue()
         # update the values
         self.port_value_v2 = "COM" + str(ans2)
-        # print 'port ans: ', self.port_value_v2
         event.Skip()
 
     def On_start_v2(self, event):  # wxGlade: MyFrame.<event_handler>
@@ -404,8 +350,8 @@ Qexp" + NEWLINE)
         # in existing file. change to "a" to instead append the data
         myfile = open(FILENAMEv2, "a")
         myfile.write("new data," + time.strftime("%d/%m/%Y") + NEWLINE)
-        myfile.write("Time,AS,IGAIN,EGAIN,BIAS delivered,Eapp measured,\
-Current,CHARGE,Q EXP" + NEWLINE)
+        myfile.write("Time,BIAS,Measured Voltage,Current,CurrentExp,CHARGE(Q),\
+Qexp" + NEWLINE)
         myfile.close()
 
         start_time = time.time()
@@ -421,9 +367,9 @@ Current,CHARGE,Q EXP" + NEWLINE)
 
                 # appending the self values into the text ctrl widget
                 self.text_ctrl_bias_v2.AppendText(str(self.myfile2.
-                                                      reply_bias_read) + "\n")
+							READE) + "\n")
                 self.text_ctrl_current_v2.AppendText(str(self.myfile2.
-                                                         reply_current) + "\n")
+                                                         READI) + "\n")
                 # redrawing the plot
                 self.redraw_plot_v2()
 
@@ -435,40 +381,37 @@ Current,CHARGE,Q EXP" + NEWLINE)
             self.myfile2.record_data()
 
             self.text_ctrl_bias_v2.AppendText(str(self.myfile2.
-                                                  reply_bias_read) + "\n")
+                                                  READE) + "\n")
             self.text_ctrl_current_v2.AppendText(str(self.myfile2.
-                                                     reply_current) + "\n")
+                                                     READI) + "\n")
             self.redraw_plot_v2()
 
     def redraw_plot_v2(self):
-        """Function which redraws the figure."""
+        """Function which redraws the figure."""	
+        # getting the local value
+        eapp_val = str(self.text_ctrl_bias_v2.GetValue())
+        # stripping the endline character and obtaining the values for a list
+        eapp_val2 = eapp_val.strip().split('\n')
+        # converting the list into an array
+        eapp_val3 = np.array(eapp_val2)
+        # converting the entire array into a float in one shot for graphing
+        self.bias_v2 = eapp_val3.astype(np.float)
 
-        # local variable get the values from the text ctrl widget
-        bias_val = str(self.text_ctrl_bias_v2.GetValue())
-        # convert values into a list and remove the endline character
-        bias_val2 = bias_val.strip().split('\n')
-
-        # convert to an array
-        bias_val3 = np.array(bias_val2)
-        # convert to floats in one shot with a list
-        self.bias_v2 = bias_val3.astype(np.float)
-
-        # local variable get the values from the text ctrl widget
         current_val = str(self.text_ctrl_current_v2.GetValue())
+        # strippping the endline character and removing the endline character
+        #converting ',' to 'E' for easy float movement
+        current_val2 = current_val.replace(',', 'e')
+        # strippping the endline character and removing the endline character
+        current_val3 = (current_val2.strip().split('\n') )
+        current_val4 = np.array(current_val3)
+        current_value_v2 = current_val4.astype(np.float)
+        
 
-        # convert values into a list and remove the endline character
-        current_val2 = current_val.strip().split('\n')
-
-        current_val3 = np.array(current_val2)
-
-        current_val4 = current_val3.astype(np.float)
-
-        self.current_v2 = current_val4
-
-        self.plotData = self.axes.plot(self.current_v2, linewidth=1,
+        # graphing the values for the first subpanel graph
+        self.plotData = self.axes.plot(self.bias_v2, linewidth=1,
                                        color=(1, 1, 0),)[0]
 
-        self.plotData2 = self.axes2.plot(self.bias_v2, linewidth=1,
+        self.plotData2 = self.axes2.plot(current_value_v2, linewidth=1,
                                          color='magenta',)[0]
         # redraw the canvas
         self.canvas2.draw()
