@@ -47,18 +47,17 @@ class Version1(MySerialPort):
     from the parent class as well for this we use the Super() Function which is
     designed for new style classes.
     """
-    def __init__(self, bias): #egain, igain, bias):
-        # these variables will be passed into the class by the gui
+    def __init__(self, bias):
+        # bias variable will be passed into the class by the gui
         self.bias_Val = bias
-        super(Version1, self).__init__(bias) 
+        super(Version1, self).__init__(bias)
 
     def bias(self):
         '''Rewriting the bias function using the pass in parameter rather than
         input() function used by parent class.
         '''
         self.send('BIAS %s \n' % str(self.bias_Val))
-        reply = self.receive(20)  # 13 AT MAX VALUE
-        return reply
+        return self.receive(15)  # 13 AT MAX VALUE
 
 
 class MyFrame(wxgui.MyFrame):
@@ -80,8 +79,7 @@ class MyFrame(wxgui.MyFrame):
         # get the bias value default value is set to 1 in the wxgui widget
         self.bias_value = self.spin_ctrl_bias.GetValue()
         # opening the version 1 MyserialPort class using the Inherited class
-        self.myfile1 = Version1(self.bias_value) #self.egain_value, self.igain_value,
-                                #self.bias_value)
+        self.myfile1 = Version1(self.bias_value)
 
         # writing down csv filename
         myfile = open(FILENAMEv1, "a")
@@ -89,10 +87,10 @@ class MyFrame(wxgui.MyFrame):
         myfile.write("Time,BIAS,Measured Voltage,Current,CurrentExp,CHARGE(Q),\
 Qexp" + NEWLINE)
         myfile.close()
-        
+
         # the timer function is used for looping over version 1 software
-        # Note: version 2 does not need this wx timer due to built in while loop in run
-        #function
+        # Note: version 2 does not need this wx timer due to built in while
+        # loop in run function
         # Timer class event
         self.redraw_timer = wx.Timer(self)
         # Binding class to redraw() function
@@ -110,7 +108,7 @@ Qexp" + NEWLINE)
         # version 2 (labelled v2)
         self.bias_v2 = []
         self.current_v2 = []
-        
+
         # plot initialization for the static graph  done here for both versions
         self.init_plot()
 
@@ -179,7 +177,7 @@ Qexp" + NEWLINE)
         # widgets to close the program
         if self.sim_value is True:
             # import the fake serial class
-            from Fake_Serial import Fake_Serial 
+            from Fake_Serial import Fake_Serial
             self.myfile1.s = Fake_Serial(port, baudrate, bytesize, parity,
                                          stopbits, timeout, xonxoff, rtscts,
                                          writeTimeout, dsrdtr,
@@ -198,8 +196,9 @@ Qexp" + NEWLINE)
         self.myfile1.record_data()
         # appending values to text ctrl widgets
         self.text_ctrl_bias.AppendText(str(self.myfile1.measuredBIAS) + "\n")
-        self.text_ctrl_current.AppendText(str(self.myfile1.reply_current) + "\n")
-        time.sleep(0.1)  # switched from 0.5
+        self.text_ctrl_current.AppendText(str(self.myfile1.reply_current) +
+                                          "\n")
+        time.sleep(0.1)  # switched from 0.3
 
     def run_engine_v1(self):
         """The run function engine to start the experiment."""
@@ -255,7 +254,7 @@ Qexp" + NEWLINE)
         to see the actual raw values coming from the experiment
         """
         # TODO: maybe make a running x axis display possibly
-        
+
         # getting the local value
         eapp_val = str(self.text_ctrl_bias.GetValue())
         # stripping the endline character and obtaining the values for a list
@@ -263,25 +262,24 @@ Qexp" + NEWLINE)
         # converting the list into an array
         eapp_val3 = np.array(eapp_val2)
         # converting the entire array into a float in one shot for graphing
-        bias_value_v1= eapp_val3.astype(np.float)
-        
+        bias_value_v1 = eapp_val3.astype(np.float)
 
         current_val = str(self.text_ctrl_current.GetValue())
-        #converting ',' to 'E' for easy float movement
+        # converting ',' to 'E' for easy float movement
         current_val2 = current_val.replace(',', 'e')
         # strippping the endline character and removing the endline character
-        current_val3 = (current_val2.strip().split('\n') )
+        current_val3 = (current_val2.strip().split('\n'))
         current_val4 = np.array(current_val3)
         current_value_v1 = current_val4.astype(np.float)
 
         # graphing the values for the first subpanel graph
-        #to graph the last 100 data poitns use [-100] otherwise leave it alone
+        # to graph the last 100 data poitns use [-100] otherwise leave it alone
         self.plotData = self.axes.plot(bias_value_v1, linewidth=1,
                                        color=(1, 1, 0),)[0]
         # graphing the values for the second subpanel graph
         self.plotData2 = self.axes2.plot(current_value_v1, linewidth=1,
                                          color='magenta',)[0]
-        
+
         self.canvas.draw()
 
     def on_redraw_timer(self, event):
@@ -367,7 +365,7 @@ Qexp" + NEWLINE)
 
                 # appending the self values into the text ctrl widget
                 self.text_ctrl_bias_v2.AppendText(str(self.myfile2.
-							READE) + "\n")
+                                                      READE) + "\n")
                 self.text_ctrl_current_v2.AppendText(str(self.myfile2.
                                                          READI) + "\n")
                 # redrawing the plot
@@ -387,7 +385,7 @@ Qexp" + NEWLINE)
             self.redraw_plot_v2()
 
     def redraw_plot_v2(self):
-        """Function which redraws the figure."""	
+        """Function which redraws the figure."""
         # getting the local value
         eapp_val = str(self.text_ctrl_bias_v2.GetValue())
         # stripping the endline character and obtaining the values for a list
@@ -399,13 +397,12 @@ Qexp" + NEWLINE)
 
         current_val = str(self.text_ctrl_current_v2.GetValue())
         # strippping the endline character and removing the endline character
-        #converting ',' to 'E' for easy float movement
+        # converting ',' to 'E' for easy float movement
         current_val2 = current_val.replace(',', 'e')
         # strippping the endline character and removing the endline character
-        current_val3 = (current_val2.strip().split('\n') )
+        current_val3 = (current_val2.strip().split('\n'))
         current_val4 = np.array(current_val3)
         current_value_v2 = current_val4.astype(np.float)
-        
 
         # graphing the values for the first subpanel graph
         self.plotData = self.axes.plot(self.bias_v2, linewidth=1,

@@ -32,7 +32,7 @@ class MySerialPort(object):
     """
     # Passing in the egain, igain and bias settings in "real time" to the
     # class directly for easier access
-    def __init__(self, bias): #egain, igain, bias):
+    def __init__(self, bias):
         '''Initializing the variables so all functions can access the
         self.s port and remain open.
         '''
@@ -183,7 +183,7 @@ Qexp" + NEWLINE)
                 print 'Closing software have a good day'
                 break
 
-"""AMIT: Keep this module here not at the top"""
+"""AMIT: Keep this module here, not at the top"""
 module = sys.modules[__name__]
 
 
@@ -194,7 +194,7 @@ class Main():
         self.sim = args.sim  # sim parameter
         self.com = 'COM' + str(args.com)
         # opening the MySerialPort class with built in parameters
-        self.myfile = MySerialPort(bias=1) #egain=1, igain=1, bias=1)
+        self.myfile = MySerialPort(bias=1)
 
     def fake_serial(self):
         """Runs the Fake_Serial() Class if the simulator parameter is True."""
@@ -213,8 +213,7 @@ class Main():
             self.fake_serial()  # opening serial port in simulator class only
         else:
             # run real serial port:
-            print 'Sim On Value: ', self.sim
-            print 'Running Real Experiment'
+            print 'Running using real serial port.'
             # Import real serial class
             from serial import Serial
             setattr(module, "Serial", Serial)

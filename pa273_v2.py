@@ -116,7 +116,7 @@ class MySerialPort():
             if time.time() - start_time > MAXRECEIVETIMEOUT:
                 print "Receive function timed out."
                 break
-        time.sleep(0.01)  
+        time.sleep(0.01)
 
         return data_string
 
@@ -236,7 +236,6 @@ Qexp" + NEWLINE)
             self.command_execute(self.command_dict[times])
             self.read_data()
             self.record_data()
-            
 
 # AMIT: leave this module here as it truly belongs to the stuff at the bottom
 # running the Main() class to execute everything off argparse
@@ -265,7 +264,7 @@ class Main():
             print 'running simulator: ', self.sim
             self.fake_serial()  # opening serial port in simulator class only
         else:  # run real serial port:
-            print 'running using real serial port: ', self.sim
+            print 'Running using real serial port.'
             # Import real serial class
             from serial import Serial
             setattr(module, "Serial", Serial)

@@ -17,25 +17,14 @@ class Fake_Serial():
     """
     def __init__(self, port, baudrate, bytesize, parity, stopbits, timeout,
                  xonxoff, rtscts, writeTimeout, dsrdtr, interCharTimeout):
-        '''This function is called when a class is first instantiated'''
+        '''This function is called when the class is first instantiated.'''
         self.reply = ""
         self.bias = 0
-        self.egain = 0
         self.b = None
-        self.igain = 0
-        self.As = 0
-        self.Sie = 0
-        self.Sete = 0
         self.list = []
         self.Q = 0
-	self.reade = 0
-	self.readi = 0
-
-        # version 2 commands
-        self.NC = 0
-        self.As = 0
-        self.TP = 0
-        self.port = port
+        self.reade = 0
+        self.readi = 0
 
     def write(self, str_to_write):
         '''Fake sending a string to a serial device'''
@@ -46,89 +35,26 @@ class Fake_Serial():
         # Flush Rx buffer:
         self.reply = ""
 
-        if self.b[0] == 'EGAIN':
-            if len(self.b) == 2:
-                self.c = float(self.b[1])
-                self.Egain_Sim(self.c)
-            else:
-                self.Egain_Sim()
-
-        elif self.b[0] == 'IGAIN':
-            if len(self.b) == 2:
-                self.d = float(self.b[1])
-                self.Igain_Sim(self.d)
-            else:
-                self.Igain_Sim()
-
-        elif self.b[0] == 'BIAS':
+        if self.b[0] == 'BIAS' or self.b[0] == 'SETE':
             if len(self.b) == 2:
                 self.e = float(self.b[1])
                 self.Bias_Sim(self.e)
             else:
                 self.Bias_Sim()
 
-        elif self.b[0] == 'AS':
-            if len(self.b) == 2:
-                self.As_Sim(self.b[1])
-            else:
-                self.As_Sim()
-
-        elif self.b[0] == 'SIE':
-            if len(self.b) == 3:
-                self.Sie_Sim(self.b[2])
-            else:
-                self.Sie_Sim()
-
-        elif self.b[0] == 'SETE':
-            if len(self.b) == 2:
-                self.Sete_Sim(self.b[1])
-            else:
-                self.Sete_Sim()
-
         elif self.b[0] == 'Q':
-            if len(self.b) == 2:
-                self.Q_Sim(self.b[1])
-            else:
                 self.Q_Sim()
-	
-	elif self.b[0] == 'READE':
-            if len(self.b) == 2:
-                self.READE_Sim(self.b[1])
-            else:
+
+        elif self.b[0] == 'READE':
                 self.READE_Sim()
-		
-	elif self.b[0] == 'READI':
-            if len(self.b) == 2:
-                self.READI_Sim(self.b[1])
-            else:
+
+        elif self.b[0] == 'READI':
                 self.READI_Sim()
 
         else:
             print 'NOT HANDLING CALL', repr(self.b)
 
         return chars_sent  # this is a constant
-
-    def Egain_Sim(self, param=None):
-        self.reply = ""
-
-        if param in [1, 5, 10, 50]:
-            self.egain = param
-            self.reply = str(self.egain) + "*"
-
-        if param is None:
-            param = self.egain
-            self.reply = str(self.egain) + "*"
-
-    def Igain_Sim(self, param=None):
-        self.reply = ""
-
-        if param in [1, 5, 10, 50]:
-            self.igain = param
-            self.reply = str(self.igain) + "*"
-
-        if param is None:
-            param = self.igain
-            self.reply = str(self.igain) + "*"
 
     def Bias_Sim(self, param=None):
         if param in range(-8000, 8000):
@@ -139,62 +65,37 @@ class Fake_Serial():
             param = self.bias
             self.reply = str(self.bias) + "*"
 
-    def As_Sim(self, param=None):
-        self.reply = ""
-        # param = -2 just an arbitrary initialization
-
+    def current_Mag_Sim(self):
         # scales the current with the BIAS
         if abs(self.bias / 1000.0) >= 1:
-            self.As = -1
+            return str(-2)
         elif abs(self.bias / 100.0) >= 1:
-            self.As = -2
+            return str(-3)
         elif abs(self.bias / 10.0) >= 1:
-            self.As = -3
+            return str(-4)
         else:
-            self.As = -4
+            return str(-5)
 
-        self.reply = str(self.As) + "*"
+    def bias_Noise_Sim(self):
+        param = random.randrange(50, 100)  # 'random noise'
+        param = param / 100.0  # now we have a value between 0.5 and 1
 
-    def Sie_Sim(self, param=None):
-        self.reply = ""
-        param = 300
-        # param = random.randrange(-1000, 1000)
-        self.Sie = param
-        self.reply = str(self.Sie) + "*"
+        # the random noise can be negative or positive
+        if random.randrange(0, 1) == 1:
+            param = param * -1
 
-    def Sete_Sim(self, param=None):
-        self.reply = ""
-        param = 1000
-        self.Sete = param
-        self.reply = str(self.Sete) + "*"
+        # tolerance for the voltage is 10mV. Multiplying because
+        # noise will likely be less than maximum possible
+        return int(10 * param)
 
-    def Q_Sim(self, param=None):
-        self.reply = ""
-        param = 50
-        self.Q = param
+    def Q_Sim(self):
+        self.Q = 50
         self.reply = str(self.Q) + "," + str(10) + "*"
-        
-    def READE_Sim(self, param=None):
-        self.reply = ""
-        param = 900
-        self.reade = param
-        self.reply = str(self.reade) + "*" #+ "," + str(10) + "*"
 
-    def READI_Sim(self, param=None):
-        self.reply = ""
-        param = 600
-        self.readi = param
-        self.reply = str(self.readi) + "," + str(10) + "*"
-    
-    # version 2 commands
-    def NC_Sim(self, param=None):
-        self.reply = ""
-        param = 2
-        self.NC = param
-        self.reply = str(self.NC) + "*"
+    def READE_Sim(self):
+        self.reply = str(self.bias + self.bias_Noise_Sim()) + "*"
 
-    def TP_Sim(self, param=None):
-        self.reply = ""
+    def READI_Sim(self):
         # adding a random generator to generate a random current value output
         # param = [1,x,0]
         param = random.randrange(100, 999)  # 'random noise'
@@ -217,8 +118,8 @@ class Fake_Serial():
         else:
             adjBIAS = self.bias
 
-        self.TP = param + adjBIAS
-        self.reply = str(1) + ',' + str(self.TP) + ',' + str(0) + "*"
+        self.readi = param + adjBIAS
+        self.reply = str(self.readi) + "," + str(self.current_Mag_Sim()) + "*"
 
     def inWaiting(self):
         return len(self.reply)
