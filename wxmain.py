@@ -111,6 +111,16 @@ Qexp" + NEWLINE)
 
         # plot initialization for the static graph  done here for both versions
         self.init_plot()
+    
+    def On_Changed(self, event):
+        '''if the tabs are changed clear the axes'''
+        self.axes2.cla()
+        self.axes.cla()
+        self.axes2.clear()
+        self.axes.clear()
+        self.axes2.grid(True, color='cyan', linewidth=2)
+        self.axes.grid(True, color='red', linewidth=2)
+        
 
     def On_Sim(self, event):  # wxGlade: MyFrame.<event_handler>
         """This function is the event for the SIM toggle button and stores the
@@ -120,10 +130,10 @@ Qexp" + NEWLINE)
         self.sim_value = self.button_sim.GetValue()
         event.Skip()
 
-    def On_Port(self, event):  # wxGlade: MyFrame.<event_handler>
         """This function isets the com port number for version 1
+    def On_Port(self, event):  # wxGlade: MyFrame.<event_handler>
         AMIT NOTE: THE USER BETTER KNOW HOW TO FIND THE COMPORT HIMSELF
-        THIS DOES NOT HELP YOU FIND IT IN ANY WAY
+        THIS DOES NOT HELP YOU FIND IT IN ANY
         """
         ans2 = self.spin_ctrl_port.GetValue()
         # store local variables and converting into string variable
@@ -160,6 +170,8 @@ Qexp" + NEWLINE)
 
     def On_Close(self, event):  # wxGlade: MyFrame.<event_handler>
         """This function is the close button it closes the interface """
+        print 'Closing Program'
+        print 'Thank you and Have a Good Day'
         self.redraw_timer.Stop()  # Stop timer
         self.Destroy()  # Destroy all widgets
         event.Skip()
