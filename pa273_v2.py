@@ -222,8 +222,6 @@ Qexp" + NEWLINE)
                 self.elapsed_time = time.time() - start_time
                 self.read_data()
                 self.record_data()
-                # self.mygraph.analysis(self.elapsed_time, self.replyBIAS,
-                #                       self.reply_current)
             print "Now running cycle " + \
                   str(totalCommands - counts) + \
                   " of " + str(totalCommands),

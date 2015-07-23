@@ -114,12 +114,15 @@ Qexp" + NEWLINE)
     
     def On_Changed(self, event):
         '''if the tabs are changed clear the axes'''
-        self.axes2.cla()
         self.axes.cla()
-        self.axes2.clear()
-        self.axes.clear()
-        self.axes2.grid(True, color='cyan', linewidth=2)
+        self.axes2.cla()
+        #self.axes.clear()
+        #self.axes2.clear()
+        self.axes.set_title('Applied Potential', size=20)
+        self.axes2.set_title('Current', size=20)
         self.axes.grid(True, color='red', linewidth=2)
+        self.axes2.grid(True, color='cyan', linewidth=2)
+        
         
 
     def On_Sim(self, event):  # wxGlade: MyFrame.<event_handler>
@@ -365,16 +368,24 @@ Qexp" + NEWLINE)
         myfile.close()
 
         start_time = time.time()
-
+        
+        #eta timer 
         # get the command list from beastiecommand.csv and make the commands
         # into a dictionary. Sort them based on time.
         self.myfile2.parse_and_sort_commands(self.myfile2.readfiles())
+        totalCommands = len(self.myfile2.cmd_output)
+        counts = totalCommands
+        totalTime = self.myfile2.cmd_output[-1]
+
+        # get the command list from beastiecommand.csv and make the commands
+        # into a dictionary. Sort them based on time.
         for times in self.myfile2.cmd_output[:]:
+            counts -= 1
             while (time.time() - start_time) < times:
                 self.myfile2.elapsed_time = time.time() - start_time
                 self.myfile2.read_data()
                 self.myfile2.record_data()
-
+                
                 # appending the self values into the text ctrl widget
                 self.text_ctrl_bias_v2.AppendText(str(self.myfile2.
                                                       READE) + "\n")
@@ -382,9 +393,21 @@ Qexp" + NEWLINE)
                                                          READI) + "\n")
                 # redrawing the plot
                 self.redraw_plot_v2()
+            ans1 = "Now running cycle " + \
+                  str(totalCommands - counts) + \
+                  " of " + str(totalCommands),
+            ans2 = "   ETA: " + str(round((totalTime - time.time() +
+                                          start_time), 1)) + " seconds."
+            
+            
+            self.text_ctrl_eta_v2.AppendText(str(ans1)+ "\n")
+            self.text_ctrl_eta_v2.AppendText(str(ans2)+ "\n")
+            
 
             if self.myfile2.command_dict[times] == "END":
-                    break
+                self.text_ctrl_eta_v2.AppendText('Press the Close Button to Exit'+ "\n")
+                break
+                    
             self.myfile2.elapsed_time = time.time() - start_time
             self.myfile2.command_execute(self.myfile2.command_dict[times])
             self.myfile2.read_data()
