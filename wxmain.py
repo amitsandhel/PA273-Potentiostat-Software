@@ -73,7 +73,7 @@ class MyFrame(wxgui.MyFrame):
 
         """Version 1 command initalization"""
         # sim value from sim toggle button
-        self.sim_value = self.button_sim.GetValue()
+        self.sim_value = self.checkbox_sim.GetValue()
         # port value for version 1
         self.port_value = DEFAULTCOM
         # get the bias value default value is set to 1 in the wxgui widget
@@ -98,7 +98,7 @@ Qexp" + NEWLINE)
 
         """version 2 command initalization"""
         # version 2 sim setting
-        self.sim_value_v2 = self.button_sim_v2.GetValue()
+        self.sim_value_v2 = self.checkbox_sim_v2.GetValue()
         # setting the com port value for vesrion 2 to the default value
         self.port_value_v2 = DEFAULTCOM
         # opening version 2 MyserialPort class
@@ -130,7 +130,7 @@ Qexp" + NEWLINE)
         value into a self variable.
         This is the toggle button for version 1
         """
-        self.sim_value = self.button_sim.GetValue()
+        self.sim_value = self.checkbox_sim.GetValue()
         event.Skip()
 
         """This function isets the com port number for version 1
@@ -227,26 +227,25 @@ Qexp" + NEWLINE)
         """This function graphs and displays the inital graph in the graph
         panel for BOTH version 1 and version 2. We are adding two subpanels,
         one for bias and one for current or whatever we wish."""
-        # opening Figure class
-        self.fig = Figure(figsize=(9, 9), dpi=45)
+        # opening Figure class for version 1
+        #figsize = (width, height)
+        self.fig = Figure(figsize=(8, 8), dpi=48)
+        
         # setting the axes fo the figure graph
         self.axes = self.fig.add_subplot(2, 1, 1)
         self.axes.set_axis_bgcolor('black')
         self.axes.set_title('Applied Potential', size=20)
         self.axes.grid(True, color='red', linewidth=2)
+        pylab.setp(self.axes.get_xticklabels(), fontsize=16)
+        pylab.setp(self.axes.get_yticklabels(), fontsize=16)
 
-        pylab.setp(self.axes.get_xticklabels(), fontsize=14)
-        pylab.setp(self.axes.get_yticklabels(), fontsize=14)
-
-        # second subpanel graph settings for Version 2
+        # second subpanel graph settings for second sub graph
         self.axes2 = self.fig.add_subplot(2, 1, 2)
         self.axes2.set_axis_bgcolor('black')
         self.axes2.set_title('Current', size=20)
         self.axes2.grid(True, color='cyan', linewidth=2)
-
-        pylab.setp(self.axes2.get_xticklabels(), fontsize=14)
-        pylab.setp(self.axes2.get_yticklabels(), fontsize=14)
-
+        pylab.setp(self.axes2.get_xticklabels(), fontsize=16)
+        pylab.setp(self.axes2.get_yticklabels(), fontsize=16)
         # This is the first plot graph
         self.plotData = self.axes.plot([0], linewidth=1,
                                        color=(1, 1, 0),)[0]
@@ -256,8 +255,22 @@ Qexp" + NEWLINE)
 
         # This is the canvas display for the first notepad tab-v1
         self.canvas = FigCanvas(self.panel_1, -1, self.fig)
+        
+        #opening figure class for version 2
+        self.fig2 = Figure(figsize=(7,8), dpi=47)
+        # setting the axes fo the figure graph
+        self.axes3 = self.fig2.add_subplot(2, 1, 1)
+        
+        self.axes3.set_axis_bgcolor('black')
+        pylab.setp(self.axes3.get_xticklabels(), fontsize=16)
+        pylab.setp(self.axes3.get_yticklabels(), fontsize=16)
+
+        self.axes4 = self.fig2.add_subplot(2, 1, 2)
+        self.axes4.set_axis_bgcolor('black')
+        pylab.setp(self.axes4.get_xticklabels(), fontsize=16)
+        pylab.setp(self.axes4.get_yticklabels(), fontsize=16)
         # This is the second canvas display for the second notepad tab-v2
-        self.canvas2 = FigCanvas(self.panel_graph_v2, -1, self.fig)
+        self.canvas2 = FigCanvas(self.panel_graph_v2, -1, self.fig2)
 
     def redraw_plot(self, event):
         """This function is recalled using the wxtimer loop and redraws the
@@ -278,6 +291,8 @@ Qexp" + NEWLINE)
         eapp_val3 = np.array(eapp_val2)
         # converting the entire array into a float in one shot for graphing
         bias_value_v1 = eapp_val3.astype(np.float)
+        
+        self.bias_value_v1 = bias_value_v1
 
         current_val = str(self.text_ctrl_current.GetValue())
         # converting ',' to 'E' for easy float movement
@@ -286,14 +301,27 @@ Qexp" + NEWLINE)
         current_val3 = (current_val2.strip().split('\n'))
         current_val4 = np.array(current_val3)
         current_value_v1 = current_val4.astype(np.float)
+        
+        xbiasval = np.arange(len(bias_value_v1) )
+        xcurrentval = np.arange(len(current_value_v1) )
+        
+        self.axes.cla()
+        self.axes2.autoscale()
+        self.axes.grid(True, color='red', linewidth=2)
+        self.axes.set_ylabel("Voltage [mV]", size=18)
+        
+        self.axes2.cla()
+        self.axes2.autoscale()
+        self.axes2.grid(True, color='red', linewidth=2)
+        self.axes2.set_ylabel("Current [A]", size=18)
 
         # graphing the values for the first subpanel graph
         # to graph the last 100 data poitns use [-100] otherwise leave it alone
-        self.plotData = self.axes.plot(bias_value_v1, linewidth=1,
-                                       color=(1, 1, 0),)[0]
+        self.plotData = self.axes.plot(xbiasval[-30:], bias_value_v1[-30:], linewidth=1,
+                                       color=(1, 1, 0),) #[0:]
         # graphing the values for the second subpanel graph
-        self.plotData2 = self.axes2.plot(current_value_v1, linewidth=1,
-                                         color='magenta',)[0]
+        self.plotData2 = self.axes2.plot(xcurrentval[-30:], current_value_v1[-30:], linewidth=1,
+                                         color='magenta',) #[0:]
 
         self.canvas.draw()
 
@@ -308,7 +336,7 @@ Qexp" + NEWLINE)
         """Function for version 2 sim toggle button updates and store
         the values."""
         # print "Event handler 'On_sim_v2' not implemented!"
-        ans = self.button_sim_v2.GetValue()
+        ans = self.checkbox_sim_v2.GetValue()
         self.sim_value_v2 = ans
         event.Skip()
 
@@ -438,12 +466,25 @@ Qexp" + NEWLINE)
         current_val3 = (current_val2.strip().split('\n'))
         current_val4 = np.array(current_val3)
         current_value_v2 = current_val4.astype(np.float)
+        
+        xbiasval = np.arange(len(self.bias_v2) )
+        xcurrentval = np.arange(len(current_value_v2) )
+        
+        self.axes3.cla()
+        self.axes3.autoscale()
+        self.axes3.grid(True, color='red', linewidth=2)
+        self.axes3.set_ylabel("Voltage [mV]", size=18)
+        
+        self.axes4.cla()
+        self.axes4.autoscale()
+        self.axes4.grid(True, color='red', linewidth=2)
+        self.axes4.set_ylabel("Current [A]", size=18)
 
         # graphing the values for the first subpanel graph
-        self.plotData = self.axes.plot(self.bias_v2, linewidth=1,
-                                       color=(1, 1, 0),)[0]
+        self.axes3.plot(xbiasval[-30:], self.bias_v2[-30:], linewidth=1,
+                                       color=(1, 1, 0),) #[0]
 
-        self.plotData2 = self.axes2.plot(current_value_v2, linewidth=1,
+        self.axes4.plot(xcurrentval[-30:], current_value_v2[-30:], linewidth=1,
                                          color='magenta',)[0]
         # redraw the canvas
         self.canvas2.draw()
