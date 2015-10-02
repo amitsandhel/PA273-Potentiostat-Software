@@ -99,6 +99,8 @@ class Main():
             COMMAND = "python pa273_v1.py" + self.string_sim + self.string_com
             # potentiostat version2
             COMMAND2 = "python pa273_v2.py" + self.string_sim + self.string_com
+            #potentiostat version3
+            COMMAND3 = "python pa273_v1_record.py" + self.string_sim + self.string_com
 
             # run version 1 subcommands
             if self.version == 1:
@@ -114,6 +116,13 @@ class Main():
                     subprocess.call(COMMAND2, shell=True)
                 except (KeyboardInterrupt, SystemExit):
                     print 'Thank you for using the v2 script. Goodbye.'
+                    sys.exit()
+                    
+            elif self.version == 3:
+                try:
+                    subprocess.call(COMMAND3, shell=True)
+                except (KeyboardInterrupt, SystemExit):
+                    print 'Thank you for using the v1 script. Goodbye.'
                     sys.exit()
 
             else:

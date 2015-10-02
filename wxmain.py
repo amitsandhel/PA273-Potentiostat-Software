@@ -306,12 +306,14 @@ Qexp" + NEWLINE)
         xcurrentval = np.arange(len(current_value_v1) )
         
         self.axes.cla()
-        self.axes2.autoscale()
+        self.axes.autoscale(enable=True)
         self.axes.grid(True, color='red', linewidth=2)
         self.axes.set_ylabel("Voltage [mV]", size=18)
+        ymin = min(bias_value_v1)
+        ymax = max(bias_value_v1)
+        #self.axes.set_ylim( (ymin+(ymin*0.1)), (ymax+(ymax*0.1) ) ) #max(bias_value_v1)+100) #8000)
         
         self.axes2.cla()
-        self.axes2.autoscale()
         self.axes2.grid(True, color='red', linewidth=2)
         self.axes2.set_ylabel("Current [A]", size=18)
 
